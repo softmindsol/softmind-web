@@ -6,8 +6,8 @@ import { Logo } from "../../../public/images";
 
 export function Navbar() {
   return (
-    <nav className="absolute top-8 left-0 right-0 z-50 flex justify-center w-full px-4 sm:px-8">
-      <div className="flex items-center justify-between w-full  gap-8">
+    <nav className="sticky top-8  z-50 flex justify-center w-full px-4 sm:px-8">
+      <div className="flex items-center justify-between w-full bg-[#FFFFFF33] rounded-full p-2 shadow-inner h-16 gap-8 backdrop-blur-lg border">
         {/* Logo Section */}
         <Link href="/">
           {/* Using a text logo since the asset might not be available, styled beautifully */}
@@ -17,15 +17,15 @@ export function Navbar() {
         </Link>
 
         {/* Navigation Links - Pill Shape */}
-        <div className="hidden lg:flex items-center bg-[#FFFFFF33] rounded-full p-2 shadow-inner h-16">
+        <div className="hidden lg:flex items-center">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               className={`flex items-center gap-1.5 px-6 py-3 rounded-full text-[16px] font-semibold transition-all duration-300 ${
                 item.isActive
-                  ? "bg-navy text-white shadow-[0_0_8px_rgba(0,0,0,0.12),inset_0_4px_4px_rgba(0,0,0,0.25)]"
-                  : "text-dark hover:bg-gray-100 hover:text-black font-jakarta"
+                  ? " text-green center-underline"
+                  : "text-dark center-underline"
               } font-jakarta tracking-wide`}
             >
               {item.label}

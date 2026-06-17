@@ -23,13 +23,13 @@ export function Hero() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative mt-10 z-10 flex flex-col items-center w-full max-w-[871px] px-4 gap-12">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-[871px] px-4 gap-12">
         {/* Headings */}
         <div className="flex flex-col items-center gap-6 text-center">
           <h1 className="text-[48px] md:text-[64px] leading-[1.2] md:leading-[81px] font-bold font-jakarta capitalize text-navy">
             Building Scalable
             <br />
-            Solutions With Trust
+            <span className="text-green">Solutions With Trust</span>
           </h1>
           <p className="text-[16px] md:text-[18px] leading-[1.2] font-medium font-jakarta tracking-wide text-grey max-w-[623px]">
             Trusted by startups and growing businesses to create modern, scalable, and high-performing digital experiences.

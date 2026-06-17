@@ -140,3 +140,24 @@
     @apply font-sans;
   }
 }
+
+.center-underline {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.center-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: #D78001;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.center-underline:hover::after {
+  width: 100%;
+}
