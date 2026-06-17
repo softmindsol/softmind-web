@@ -23,7 +23,7 @@ export function Hero() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[871px] px-4 gap-12">
+      <div className="relative mt-10 z-10 flex flex-col items-center w-full max-w-[871px] px-4 gap-12">
         {/* Headings */}
         <div className="flex flex-col items-center gap-6 text-center">
           <h1 className="text-[48px] md:text-[64px] leading-[1.2] md:leading-[81px] font-bold font-jakarta capitalize text-navy">
@@ -42,7 +42,7 @@ export function Hero() {
           <div className="flex flex-col items-center gap-8 w-[190px] shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] rounded-full">
             <Link
               href="/start"
-              className="flex items-center justify-center w-full h-12 bg-[#00235A] hover:bg-[#003180] text-white rounded-full shadow-[0_0_20px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:scale-105"
+              className="flex items-center justify-center w-full h-12 bg-navy hover:bg-navy/90 text-white rounded-full shadow-[0_0_20px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:scale-100"
             >
               <span className="font-jakarta font-bold text-[16px] tracking-wide">
                 Start a Project
@@ -77,7 +77,7 @@ export function Hero() {
             <div className="flex flex-col items-start gap-1">
               <div className="flex items-center gap-[2px]">
                 {[1, 2, 3, 4].map((star) => (
-                  <Star key={star} className="w-4 h-4 fill-[#FFBF00] text-[#FFBF00]" />
+                  <Star key={star} className="w-4 h-4 fill-yellow text-yellow" />
                 ))}
                 {/* 5th Star grayed out per design spec */}
                 <Star className="w-4 h-4 fill-[#D9D9D9] text-[#D9D9D9]" />
