@@ -1,3 +1,4 @@
 import Logo from "./logo.svg";
+import SoftMindSolLogo from "./softmindsol-logo.svg";
 
-export { Logo };
+export { Logo, SoftMindSolLogo };

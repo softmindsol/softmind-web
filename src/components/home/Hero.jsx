@@ -1,23 +1,15 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { Star } from "lucide-react";
 
-/**
- * Hero Section component for the landing page.
- * Implements a modern, scalable design with vibrant typography and dynamic blur backgrounds
- * to create a premium, high-converting first impression.
- *
- * @returns {JSX.Element} The rendered Hero component.
- */
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[700px] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-white">
+    <section className="relative w-full min-h-[700px] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-white animate-in fade-in slide-in-from-top-14 duration-500">
       {/* Background Abstract Blurs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         {/* Left Blur (Ellipse 20) */}
         <div className="absolute w-[608px] h-[498px] left-[17px] top-[17px] bg-[#E5F6FE] blur-[86.55px] rounded-full" />
-        
+
         {/* Right Blur (Ellipse 21) */}
         <div className="absolute w-[386px] h-[386px] left-[60%] lg:left-[974px] top-[150px] lg:top-[243px] bg-[rgba(164,255,225,0.82)] blur-[150px] rounded-full" />
       </div>
@@ -32,7 +24,8 @@ export function Hero() {
             <span className="text-green">Solutions With Trust</span>
           </h1>
           <p className="text-[16px] md:text-[18px] leading-[1.2] font-medium font-jakarta tracking-wide text-grey max-w-[623px]">
-            Trusted by startups and growing businesses to create modern, scalable, and high-performing digital experiences.
+            Trusted by startups and growing businesses to create modern,
+            scalable, and high-performing digital experiences.
           </p>
         </div>
 
@@ -77,7 +70,10 @@ export function Hero() {
             <div className="flex flex-col items-start gap-1">
               <div className="flex items-center gap-[2px]">
                 {[1, 2, 3, 4].map((star) => (
-                  <Star key={star} className="w-4 h-4 fill-yellow text-yellow" />
+                  <Star
+                    key={star}
+                    className="w-4 h-4 fill-yellow text-yellow"
+                  />
                 ))}
                 {/* 5th Star grayed out per design spec */}
                 <Star className="w-4 h-4 fill-[#D9D9D9] text-[#D9D9D9]" />
