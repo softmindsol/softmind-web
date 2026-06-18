@@ -5,6 +5,8 @@ import AboutUs from "@/components/home/aboutUs";
 import OurWork from "@/components/home/ourWork";
 import TestimonialSlider from "@/components/home/testimonialSlider";
 import Faqs from "@/components/home/faqs";
+import Footer from "@/components/layout/Footer";
+import BlogSlider from "@/components/home/blogSlider";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <OurWork />
       <TestimonialSlider />
       <Faqs />
+      <BlogSlider />
+      <Footer />
     </main>
   );
 }
