@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { NAV_ITEMS } from "./Navbar.constants";
 import { Logo } from "../../../public/images";
+import CustomButton from "../customs/customButton";
 
 export function Navbar() {
   return (
@@ -35,15 +36,7 @@ export function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <Link
-          href="/contact"
-          className="group flex items-center justify-center gap-4 px-8 py-3 h-12 bg-[#0CBF83] hover:bg-[#0aa873] text-white rounded-full shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 hover:shadow-xl flex-shrink-0"
-        >
-          <span className="font-jakarta font-semibold text-[16px] tracking-wide">
-            Lets Talk
-          </span>
-          <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
+        <CustomButton btnText="Let's Talk" />
       </div>
     </nav>
   );
