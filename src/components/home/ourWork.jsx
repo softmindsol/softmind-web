@@ -5,6 +5,7 @@ import React, { useState, useRef } from "react";
 export default function OurWork() {
   const [activeCategory, setActiveCategory] = useState("Health Care");
   const [currentPage, setCurrentPage] = useState(0);
+  const [activeMobileIndex, setActiveMobileIndex] = useState(0);
 
   const categories = [
     "Health Care",
@@ -14,6 +15,7 @@ export default function OurWork() {
     "Ai Services",
   ];
   const carouselRef = useRef(null);
+  const mobileCarouselRef = useRef(null);
 
   // Carousel slide controller
   const slideNext = () => {
@@ -29,6 +31,37 @@ export default function OurWork() {
       setCurrentPage(0);
     } else {
       setCurrentPage(1);
+    }
+  };
+
+  // Mobile scroll event handler
+  const handleMobileScroll = (e) => {
+    const scrollLeft = e.target.scrollLeft;
+    const width = e.target.clientWidth;
+    if (width > 0) {
+      const index = Math.round(scrollLeft / width);
+      setActiveMobileIndex(index);
+    }
+  };
+
+  // Scroll to a mobile slide index
+  const scrollToMobileItem = (index) => {
+    if (mobileCarouselRef.current) {
+      mobileCarouselRef.current.scrollTo({
+        left: index * mobileCarouselRef.current.clientWidth,
+        behavior: "smooth",
+      });
+      setActiveMobileIndex(index);
+    }
+  };
+
+  // Handle active category updates (reset mobile state too)
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    setCurrentPage(cat === "Health Care" ? 0 : 1);
+    setActiveMobileIndex(0);
+    if (mobileCarouselRef.current) {
+      mobileCarouselRef.current.scrollLeft = 0;
     }
   };
 
@@ -316,11 +349,11 @@ export default function OurWork() {
         style={{ backgroundColor: "navy" }}
       />
 
-      <div className="relative max-w-[1290px] mx-auto px-6 lg:px-0">
+      <div className="relative mx-auto px-6 md:px-12">
         {/* Top Header Layout */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-[47px]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between items-center lg:items-start gap-8 mb-[47px] text-center lg:text-left">
           {/* Label and Section Title */}
-          <div className="flex flex-col gap-3.5 max-w-[531px]">
+          <div className="flex flex-col items-center lg:items-start gap-3.5 max-w-[531px] mx-auto lg:mx-0">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
               <span className="text-green text-[22px] font-bold tracking-[1px] leading-[28px]">
@@ -333,20 +366,16 @@ export default function OurWork() {
           </div>
 
           {/* Action Row: Categories and Carousel Nav Controls */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-8 self-stretch lg:self-end justify-between sm:justify-start">
+          <div className="flex flex-col md:flex-row md:items-center gap-8 self-stretch lg:self-end justify-between md:justify-start">
             {/* Category Filter Tabs with dynamic green indicator underneath */}
-            <div className="relative border-b border-white/10 pb-2 w-full sm:w-[468px]">
-              <div className="flex gap-6">
+            <div className="relative border-b border-white/10 w-full md:w-[468px]">
+              <div className="flex justify-start md:justify-start gap-6 overflow-y-hidden overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mb-[1.7px]">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
                   return (
                     <button
                       key={cat}
-                      onClick={() => {
-                        setActiveCategory(cat);
-                        // Rotate active showcase on category change
-                        setCurrentPage(cat === "Health Care" ? 0 : 1);
-                      }}
+                      onClick={() => handleCategoryChange(cat)}
                       className={`text-sm tracking-[1px] pb-2 whitespace-nowrap transition-all duration-300 relative ${
                         isActive
                           ? "text-white font-bold"
@@ -355,7 +384,7 @@ export default function OurWork() {
                     >
                       {cat}
                       {isActive && (
-                        <span className="absolute bottom-[-10px] left-0 right-0 h-[2.5px] bg-green rounded-full" />
+                        <span className="absolute bottom-[0.5px] left-0 right-0 h-[2px] bg-green rounded-full" />
                       )}
                     </button>
                   );
@@ -364,7 +393,7 @@ export default function OurWork() {
             </div>
 
             {/* Custom Nav buttons with Figma Box Shadow parameters */}
-            <div className="flex gap-[12px] shrink-0 self-end sm:self-auto">
+            <div className="hidden md:flex gap-[12px] shrink-0 self-end sm:self-auto">
               <button
                 onClick={slidePrev}
                 className="w-9 h-9 bg-green hover:bg-[#0aa672] text-white rounded-[4px] flex items-center justify-center transition-colors active:scale-95 shadow-[inset_0px_-3px_4px_rgba(255,255,255,0.14),_inset_0px_4px_6px_rgba(0,0,0,0.25)]"
@@ -384,7 +413,10 @@ export default function OurWork() {
         </div>
 
         {/* Desktop and Tablet/Mobile responsive sliding viewport */}
-        <div ref={carouselRef} className="overflow-hidden w-full relative">
+        <div
+          ref={carouselRef}
+          className="hidden md:block overflow-hidden w-full relative"
+        >
           {/* Transition wrapper */}
           <div
             className="flex transition-transform duration-700 ease-in-out"
@@ -426,6 +458,47 @@ export default function OurWork() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Viewport: Touch Carousel with snap scrolling and pagination dots below */}
+        <div className="block md:hidden w-full relative">
+          <div
+            ref={mobileCarouselRef}
+            onScroll={handleMobileScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-full gap-5"
+          >
+            {activePageItems.map((item) => (
+              <div key={item.id} className="w-full shrink-0 snap-center">
+                {/* Visual Card (Matching Aspect Ratio 414px * 373px) with rounded-3xl corners */}
+                <div className="w-full aspect-[414/373] rounded-3xl overflow-hidden relative border border-white/[0.04] shadow-lg">
+                  {item.renderMockup()}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Active Card Title & Pagination Dots Footer */}
+          <div className="flex justify-between items-center mt-6 px-1">
+            <h3
+              className={`${activePageItems[activeMobileIndex]?.fontClass || "font-sans"} text-[22px] leading-[29px] font-bold tracking-[1px] text-white`}
+            >
+              {activePageItems[activeMobileIndex]?.title}
+            </h3>
+            <div className="flex gap-[6px] items-center">
+              {activePageItems.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollToMobileItem(idx)}
+                  className={`w-[9px] h-[9px] rounded-full transition-all duration-300 ${
+                    activeMobileIndex === idx
+                      ? "bg-green scale-110"
+                      : "bg-[#2E2E2E]"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

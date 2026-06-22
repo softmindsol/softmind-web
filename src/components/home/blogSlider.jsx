@@ -98,10 +98,10 @@ export default function BlogSlider() {
 
   return (
     <section className="relative w-full bg-white text-[#2E2E2E] py-16 md:py-24 overflow-hidden font-jakarta">
-      <div className="max-w-[1289px] mx-auto px-6 lg:px-0">
+      <div className="mx-auto px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Heading & Content copy (405px wide on Figma) */}
-          <div className="lg:col-span-4 flex flex-col gap-3.5 max-w-[405px]">
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-3.5 lg:max-w-[405px]">
             <div className="flex items-center gap-2">
               {/* Custom Theme Dot */}
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
@@ -110,11 +110,11 @@ export default function BlogSlider() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-[#2E2E2E]">
+            <h2 className="text-center lg:text-start text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-[#2E2E2E]">
               Real Task Real Result
             </h2>
 
-            <p className="text-sm md:text-base text-[#666666] font-medium leading-[24px] tracking-[1px]">
+            <p className="text-center lg:text-start text-sm md:text-base text-[#666666] font-medium leading-[24px] tracking-[1px]">
               Discover insights, trends, and practical tips designed to help you
               stay ahead. Our blog covers everything from industry updates to
               actionable strategies written to inform, inspire, and support your

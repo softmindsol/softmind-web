@@ -1,3 +1,10 @@
+import {
+  FaBehance,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[#161616] text-white rounded-t-[25px] pt-16 pb-8 overflow-hidden font-jakarta">
@@ -193,52 +200,30 @@ export default function Footer() {
               {/* Facebook */}
               <a
                 href="#"
-                className="w-[28px] h-[28px] bg-white/5 hover:bg-white/10 border border-white/10 rounded-sm flex items-center justify-center transition-colors"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
-                <svg
-                  className="w-4.5 h-4.5 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
-                </svg>
+                <FaFacebookF />
               </a>
               {/* Behance stylized logo */}
               <a
                 href="#"
-                className="w-[28px] h-[28px] bg-white/5 hover:bg-white/10 border border-white/10 rounded-sm flex items-center justify-center transition-colors text-white font-bold text-xs select-none"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors text-white font-bold text-xs select-none"
               >
-                Bē
+                <FaBehance className="size-4" />
               </a>
               {/* LinkedIn */}
               <a
                 href="#"
-                className="w-[28px] h-[28px] bg-white/5 hover:bg-white/10 border border-white/10 rounded-sm flex items-center justify-center transition-colors"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
+                <FaLinkedinIn className="size-4" />
               </a>
               {/* Instagram */}
               <a
                 href="#"
-                className="w-[28px] h-[28px] bg-white/5 hover:bg-white/10 border border-white/10 rounded-sm flex items-center justify-center transition-colors"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-gradient-to-br from-[#6429D2] via-[#D6314F] to-[#F7BA5C] border border-white/10 rounded-sm flex items-center justify-center transition-colors hover:border-none"
               >
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
+                <FaInstagram className="size-4" />
               </a>
             </div>
           </div>

@@ -23,9 +23,9 @@ export default function AboutUs() {
   return (
     <section className="relative w-full bg-white py-16 md:py-24 text-dark overflow-hidden font-jakarta">
       <div className="mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between gap-12 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Left Side: Text Content */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start justify-center lg:space-y-6 space-y-3">
             {/* Tagline: About Us */}
             <div className="flex items-center gap-2">
               {/* Custom gradient dot bullet point */}
@@ -36,12 +36,12 @@ export default function AboutUs() {
             </div>
 
             {/* Title Heading */}
-            <h2 className="max-w-[658px] text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-dark">
+            <h2 className="max-w-[658px] text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-dark text-center lg:text-left">
               Empowering Your Success With Our Solutions
             </h2>
 
             {/* Body copy */}
-            <p className="text-sm md:text-base text-gray font-medium leading-[24px] tracking-wide max-w-[658px]">
+            <p className="text-sm md:text-base text-gray font-medium leading-[24px] tracking-wide max-w-[658px] text-center lg:text-left">
               SoftMind Solutions is a product development company built for
               funded startups and growing businesses that need a reliable
               technology team without the overhead of building one in-house. We

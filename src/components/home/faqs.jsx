@@ -70,10 +70,10 @@ export default function Faqs() {
         style={{ backgroundColor: "#00235A" }}
       />
 
-      <div className="relative w-fit mx-auto px-6 lg:px-0">
-        <div className="flex items-center justify-between gap-12 lg:gap-8 items-start">
+      <div className="relative w-fit mx-auto px-12">
+        <div className="flex lg:flex-row flex-col items-center justify-between gap-12 lg:gap-8 lg:items-start">
           {/* Left Column: Heading Layout */}
-          <div className="lg:col-span-5 flex flex-col gap-4 max-w-[569px]">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start gap-4 max-w-[569px]">
             <div className="flex items-center gap-2">
               {/* Custom Theme Dot */}
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
@@ -82,11 +82,11 @@ export default function Faqs() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-white">
+            <h2 className="text-center lg:text-start text-2xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-white">
               Curious? Read This First
             </h2>
 
-            <p className="text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-[1px]">
+            <p className="text-center lg:text-start text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-[1px]">
               Find clear answers about our services, process, timelines,
               pricing, and support to help you make informed decisions.
             </p>

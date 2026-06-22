@@ -121,20 +121,20 @@ export default function TestimonialSlider() {
           </div>
 
           {/* Right Column: Testimonial copy & Ratings (Takes up 6 cols) */}
-          <div className="lg:col-span-6 flex flex-col justify-center items-start space-y-6 max-w-[563px] lg:pl-12">
+          <div className="lg:col-span-6 flex flex-col justify-center items-center md:items-start space-y-6 max-w-[563px] lg:pl-12">
             {/* Name, Location, and Rating Stars */}
             <div className="space-y-4">
               <div className="space-y-1">
                 <h3 className="text-3xl lg:text-[36px] lg:leading-[45px] font-bold tracking-[1px] text-dark">
                   {testimonials[activeIndex].name}
                 </h3>
-                <span className="text-base text-grey font-medium tracking-[1px] block">
+                <span className="md:text-start text-center text-base text-grey font-medium tracking-[1px] block">
                   {testimonials[activeIndex].location}
                 </span>
               </div>
 
               {/* Dynamic Rating Stars Layout */}
-              <div className="flex items-center gap-[4px]">
+              <div className="flex justify-center md:justify-start items-center gap-[4px]">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
