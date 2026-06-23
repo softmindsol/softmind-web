@@ -1,6 +1,15 @@
 "use client";
 import React from "react";
-import { HeartPulse, Wallet, Building, GraduationCap } from "lucide-react";
+import {
+  HeartPulse,
+  Wallet,
+  Building,
+  GraduationCap,
+  Lightbulb,
+  ShoppingBag,
+} from "lucide-react";
+import Image from "next/image";
+import { SoftMindSolLogo } from "../../../public/images";
 
 export default function Industries() {
   const industries = [
@@ -9,8 +18,8 @@ export default function Industries() {
       description:
         "Building HIPAA-compliant patient management dashboards, wellness monitoring platforms, and telemedicine apps that put patients first.",
       icon: HeartPulse,
-      color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
-      accent: "hover:shadow-emerald-500/10",
+      color: "text-green bg-green/10 border-green/20",
+      accent: "hover:shadow-green/10",
       items: ["HIPAA Compliance", "Telemedicine", "Patient Dashboards"],
     },
     {
@@ -38,19 +47,54 @@ export default function Industries() {
       icon: GraduationCap,
       color: "text-orange-500 bg-orange-500/10 border-orange-500/20",
       accent: "hover:shadow-orange-500/10",
-      items: ["LMS Architecture", "Student Progress Analytics", "Media Portals"],
+      items: [
+        "LMS Architecture",
+        "Student Progress Analytics",
+        "Media Portals",
+      ],
+    },
+    {
+      title: "AI Services",
+      description:
+        "We build intelligent solutions that automate workflows, improve efficiency, and enhance digital experiences.",
+      icon: Lightbulb,
+      color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
+      accent: "hover:shadow-pink-500/10",
+      items: ["Property Analytics", "Smart Leases", "Asset Portals"],
+    },
+    {
+      title: "E-Commerce",
+      description:
+        "We build ecommerce solutions that streamline online sales, improve customer experiences, and simplify business operations.",
+      icon: ShoppingBag,
+      color: "text-teal-500 bg-teal-500/10 border-teal-500/20",
+      accent: "hover:shadow-teal-500/10",
+      items: [
+        "LMS Architecture",
+        "Student Progress Analytics",
+        "Media Portals",
+      ],
     },
   ];
 
   return (
-    <section className="relative w-full bg-[#161616] text-white py-16 md:py-24 overflow-hidden font-jakarta">
-      {/* Background Radial Glow */}
+    <section className="relative w-full bg-[#161617] text-white py-16 md:py-24 overflow-hidden font-jakarta">
+      {/* Background radial glow element (matching "Ellipse 25" in design file) */}
       <div
-        className="absolute top-[-250px] right-1/4 w-[480px] h-[480px] rounded-full pointer-events-none opacity-30 blur-[120px]"
-        style={{ backgroundColor: "#00235A" }}
+        className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40 blur-[130px]"
+        style={{ backgroundColor: "navy" }}
       />
 
-      <div className="relative mx-auto px-6 md:px-12 max-w-[1289px]">
+      {/* Stylized background monogram watermark on the left (matching "SoftOps Monogram") */}
+      <div className="absolute select-none pointer-events-none">
+        <Image
+          src={SoftMindSolLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px]"
+        />
+      </div>
+
+      <div className="relative mx-auto px-6 md:px-12 flex flex-col items-center">
         {/* Section Heading */}
         <div className="flex flex-col items-center gap-3.5 text-center mb-12 md:mb-16">
           <div className="flex items-center gap-2">
@@ -63,18 +107,19 @@ export default function Industries() {
             Tailored Technology For High-Growth Sectors
           </h2>
           <p className="text-sm md:text-base text-white/60 font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
-            We possess deep domain expertise in designing, shipping, and maintaining production-grade software for specialized industries.
+            We possess deep domain expertise in designing, shipping, and
+            maintaining production-grade software for specialized industries.
           </p>
         </div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {industries.map((ind, idx) => {
             const IconComponent = ind.icon;
             return (
               <div
                 key={idx}
-                className={`group flex flex-col justify-between bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/[0.12] hover:-translate-y-1 hover:shadow-lg ${ind.accent}`}
+                className={`group flex flex-col justify-between bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/[0.12] hover:-translate-y-1 hover:shadow-xl ${ind.accent}`}
               >
                 <div>
                   {/* Icon Block */}

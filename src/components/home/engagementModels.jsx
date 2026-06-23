@@ -49,11 +49,12 @@ export default function EngagementModels() {
   ];
 
   return (
-    <section className="relative w-full bg-white py-16 md:py-24 text-dark overflow-hidden font-jakarta">
+    <section className="relative w-full bg-[#161616] py-16 md:py-24 text-dark overflow-hidden font-jakarta">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-sky-100 blur-[130px] rounded-full pointer-events-none opacity-50" />
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-green blur-[130px] rounded-full pointer-events-none opacity-50" />
+      <div className="absolute bottom-1 right-0 w-[400px] h-[400px] bg-navy blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="relative mx-auto px-6 md:px-12 max-w-[1289px]">
+      <div className="relative mx-auto px-12">
         {/* Section Heading */}
         <div className="flex flex-col items-center gap-3.5 text-center mb-12 md:mb-16">
           <div className="flex items-center gap-2">
@@ -62,11 +63,12 @@ export default function EngagementModels() {
               Flexible Engagement Models
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy max-w-[750px]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[750px]">
             How We Partner With Your Business
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
-            Choose the alignment that fits your project scope, budget, and timeline. No rigid contracts, only high-performance delivery.
+            Choose the alignment that fits your project scope, budget, and
+            timeline. No rigid contracts, only high-performance delivery.
           </p>
         </div>
 
@@ -128,7 +130,11 @@ export default function EngagementModels() {
                       >
                         ✓
                       </span>
-                      <span className={model.highlight ? "text-white/90" : "text-[#2E2E2E]"}>
+                      <span
+                        className={
+                          model.highlight ? "text-white/90" : "text-[#2E2E2E]"
+                        }
+                      >
                         {feat}
                       </span>
                     </li>

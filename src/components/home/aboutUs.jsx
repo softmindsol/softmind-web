@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function AboutUs() {
   const stats = [
     {
@@ -22,7 +20,7 @@ export default function AboutUs() {
 
   return (
     <section className="relative w-full bg-white py-16 md:py-24 text-dark overflow-hidden font-jakarta">
-      <div className="mx-auto px-6 md:px-12">
+      <div className="relative mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Left Side: Text Content */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start justify-center lg:space-y-6 space-y-3">

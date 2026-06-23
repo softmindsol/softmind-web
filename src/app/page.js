@@ -16,9 +16,9 @@ export default function Home() {
     <main className="min-h-screen bg-white selection:bg-green selection:text-white">
       <Navbar />
       <Hero />
-      <ClientLogos />
-      <WhatWeOffer />
+      {/* <WhatWeOffer /> */}
       <Industries />
+      <ClientLogos />
       <OurWork />
       <AboutUs />
       <EngagementModels />
@@ -29,4 +29,3 @@ export default function Home() {
     </main>
   );
 }
-
