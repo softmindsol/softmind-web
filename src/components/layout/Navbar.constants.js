@@ -18,8 +18,8 @@
 export const NAV_ITEMS = [
   { label: "Home", href: "/", isActive: true },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services", hasDropdown: true },
-  { label: "Industries", href: "/industries", hasDropdown: false },
+  { label: "Services", hasDropdown: true, dropdownType: "services" },
+  { label: "Industries", hasDropdown: true, dropdownType: "industries" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
 ];

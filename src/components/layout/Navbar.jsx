@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, X, Menu, ArrowRight } from "lucide-react";
+import { ChevronDown, X, Menu, ArrowRight, CheckCircle2 } from "lucide-react";
 import { NAV_ITEMS } from "./Navbar.constants";
 import { Logo } from "../../../public/images";
 import CustomButton from "../customs/customButton";
 
-// ─── Mega-menu data ────────────────────────────────────────────────────────
-const MEGA_MENU = [
+// ─── Services Mega-menu data ───────────────────────────────────────────────
+const SERVICES_MEGA_MENU = [
   {
     category: "Development Services",
     icon: (
@@ -140,10 +140,170 @@ const MEGA_MENU = [
   },
 ];
 
-// ─── Service icons mapping ──────────────────────────────────────────────────
+// ─── Industries Mega-menu data ─────────────────────────────────────────────
+const INDUSTRIES_MEGA_MENU = {
+  header: {
+    label: "Industries We Serve",
+    desc: "Domain-focused software solutions tailored to the unique challenges of your industry.",
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+        <line x1="12" y1="12" x2="12" y2="16" />
+        <line x1="10" y1="14" x2="14" y2="14" />
+      </svg>
+    ),
+  },
+  industries: [
+    {
+      label: "HealthTech",
+      desc: "Digital solutions that improve patient care, streamline operations and ensure regulatory compliance.",
+      href: "/industries/healthtech",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      ),
+    },
+    {
+      label: "PropTech",
+      desc: "Smart real estate technology solutions for buying, selling, managing and investing in properties.",
+      href: "/industries/proptech",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      ),
+    },
+    {
+      label: "FinTech",
+      desc: "Secure, scalable fintech solutions that power digital banking, payments and financial services.",
+      href: "/industries/fintech",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="1" y="4" width="22" height="16" rx="2" />
+          <line x1="1" y1="10" x2="23" y2="10" />
+        </svg>
+      ),
+    },
+    {
+      label: "EdTech",
+      desc: "Engaging digital learning platforms that enhance education outcomes and drive student success.",
+      href: "/industries/edtech",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      ),
+    },
+    {
+      label: "E-Commerce",
+      desc: "High-performance e-commerce platforms that increase conversions and scale your business.",
+      href: "/industries/ecommerce",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="20" cy="21" r="1" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+        </svg>
+      ),
+    },
+    {
+      label: "AI Products",
+      desc: "AI-powered applications and platforms that automate workflows and unlock new opportunities.",
+      href: "/industries/ai-products",
+      icon: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+      ),
+    },
+  ],
+  sidebar: {
+    eyebrow: "Why SoftMind?",
+    title: "Deep Industry Expertise.",
+    titleAccent: "Real Impact.",
+    desc: "We understand your industry challenges and build software solutions that drive measurable outcomes.",
+    points: [
+      "Domain expertise",
+      "Regulatory understanding",
+      "Scalable architecture",
+      "Future-ready technology",
+      "Long-term partnership",
+    ],
+    ctaLabel: "Discuss Your Industry Needs",
+    ctaHref: "/contact",
+  },
+};
+
+// ─── Service icons ─────────────────────────────────────────────────────────
 const ServiceIcon = ({ index, categoryIndex }) => {
   const icons = [
-    // Development icons
     [
       <svg
         key="ai"
@@ -204,7 +364,6 @@ const ServiceIcon = ({ index, categoryIndex }) => {
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>,
     ],
-    // Design icons
     [
       <svg
         key="ux"
@@ -264,7 +423,6 @@ const ServiceIcon = ({ index, categoryIndex }) => {
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>,
     ],
-    // Team icons
     [
       <svg
         key="team"
@@ -333,45 +491,58 @@ const ServiceIcon = ({ index, categoryIndex }) => {
   return icons[categoryIndex]?.[index] ?? null;
 };
 
+// ─── Shared dropdown transition classes ───────────────────────────────────
+const dropdownTransition = (open) =>
+  `absolute top-full mt-4 bg-white rounded-2xl shadow-[0_24px_64px_rgba(0,35,90,0.16)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top ${
+    open
+      ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+      : "opacity-0 scale-y-95 -translate-y-3 pointer-events-none"
+  }`;
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  // Track which desktop dropdown is open: null | "services" | "industries"
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const [mobileExpandedCategory, setMobileExpandedCategory] = useState(null);
-  const dropdownRef = useRef(null);
-  const dropdownTimerRef = useRef(null);
 
+  const servicesRef = useRef(null);
+  const industriesRef = useRef(null);
+  const timerRef = useRef(null);
+
+  const openDropdown = (name) => {
+    clearTimeout(timerRef.current);
+    setActiveDropdown(name);
+  };
+
+  const scheduleClose = () => {
+    timerRef.current = setTimeout(() => setActiveDropdown(null), 120);
+  };
+
+  // Close on outside click
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownOpen(false);
+    function handleClick(e) {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(e.target) &&
+        industriesRef.current &&
+        !industriesRef.current.contains(e.target)
+      ) {
+        setActiveDropdown(null);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  // Lock scroll on mobile
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-
-  const handleDropdownEnter = () => {
-    clearTimeout(dropdownTimerRef.current);
-    setDropdownOpen(true);
-  };
-
-  const handleDropdownLeave = () => {
-    dropdownTimerRef.current = setTimeout(() => {
-      setDropdownOpen(false);
-    }, 120);
-  };
 
   return (
     <>
@@ -389,66 +560,52 @@ export function Navbar() {
           {/* ── Desktop Nav Links ── */}
           <div className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => {
-              if (item.hasDropdown) {
+              // ── Services dropdown ──────────────────────────────────────
+              if (item.hasDropdown && item.dropdownType === "services") {
+                const isOpen = activeDropdown === "services";
                 return (
                   <div
                     key={item.label}
-                    ref={dropdownRef}
+                    ref={servicesRef}
                     className="relative"
-                    onMouseEnter={handleDropdownEnter}
-                    onMouseLeave={handleDropdownLeave}
+                    onMouseEnter={() => openDropdown("services")}
+                    onMouseLeave={scheduleClose}
                   >
                     <button
-                      className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${
-                        dropdownOpen
-                          ? "text-green bg-green/5"
-                          : "text-dark hover:text-green hover:bg-green/5"
-                      }`}
+                      className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
                     >
                       {item.label}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          dropdownOpen ? "rotate-180 text-green" : ""
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
                       />
                     </button>
 
-                    {/* ── Mega-menu Panel ── */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[1024px] bg-white rounded-2xl shadow-[0_24px_64px_rgba(0,35,90,0.16)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top ${
-                        dropdownOpen
-                          ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
-                          : "opacity-0 scale-y-95 -translate-y-3 pointer-events-none"
-                      }`}
+                      className={`${dropdownTransition(isOpen)} left-1/2 -translate-x-1/2 w-[960px]`}
                     >
                       <div className="grid grid-cols-3 divide-x divide-gray-100">
-                        {MEGA_MENU.map((col, colIdx) => (
+                        {SERVICES_MEGA_MENU.map((col, colIdx) => (
                           <div key={col.category} className="p-5 flex flex-col">
-                            {/* Column header */}
                             <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
                               <span className="text-green">{col.icon}</span>
                               <span className="text-[11px] font-bold uppercase tracking-widest text-green">
                                 {col.category}
                               </span>
                             </div>
-
-                            {/* Service items */}
                             <div className="flex flex-col gap-0.5 flex-1">
                               {col.items.map((service, idx) => (
                                 <Link
                                   key={service.label}
                                   href={service.href}
-                                  onClick={() => setDropdownOpen(false)}
+                                  onClick={() => setActiveDropdown(null)}
                                   className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-150 hover:bg-green/[0.06] border border-transparent hover:border-green/10"
                                 >
-                                  {/* Service icon box */}
                                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
                                     <ServiceIcon
                                       index={idx}
                                       categoryIndex={colIdx}
                                     />
                                   </div>
-                                  {/* Text */}
                                   <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-2">
                                       <span className="text-[13.5px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
@@ -463,11 +620,9 @@ export function Navbar() {
                                 </Link>
                               ))}
                             </div>
-
-                            {/* View all link */}
                             <Link
                               href={col.viewAllHref}
-                              onClick={() => setDropdownOpen(false)}
+                              onClick={() => setActiveDropdown(null)}
                               className="mt-3 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[12.5px] font-semibold text-green hover:gap-2.5 transition-all duration-200 group"
                             >
                               {col.viewAllLabel}
@@ -476,8 +631,7 @@ export function Navbar() {
                           </div>
                         ))}
                       </div>
-
-                      {/* Bottom trust bar */}
+                      {/* Trust bar */}
                       <div className="border-t border-gray-100 bg-gray-50/60 px-6 py-3 flex items-center gap-3">
                         <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
                           Trusted by
@@ -507,6 +661,142 @@ export function Navbar() {
                 );
               }
 
+              // ── Industries dropdown ────────────────────────────────────
+              if (item.hasDropdown && item.dropdownType === "industries") {
+                const isOpen = activeDropdown === "industries";
+                const { header, industries, sidebar } = INDUSTRIES_MEGA_MENU;
+                return (
+                  <div
+                    key={item.label}
+                    ref={industriesRef}
+                    className="relative"
+                    onMouseEnter={() => openDropdown("industries")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <button
+                      className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
+                      />
+                    </button>
+
+                    <div
+                      className={`${dropdownTransition(isOpen)} left-1/2 -translate-x-1/2 w-[900px]`}
+                    >
+                      <div className="flex">
+                        {/* ── Left: industry grid ── */}
+                        <div className="flex-1 p-6">
+                          {/* Header row */}
+                          <div className="flex items-start gap-3 mb-5 pb-4 border-b border-gray-100">
+                            <div className="w-9 h-9 rounded-xl bg-green/10 flex items-center justify-center text-green flex-shrink-0">
+                              {header.icon}
+                            </div>
+                            <div>
+                              <p className="text-[11px] font-bold uppercase tracking-widest text-green mb-0.5">
+                                {header.label}
+                              </p>
+                              <p className="text-[12px] text-gray-400 leading-snug max-w-xs">
+                                {header.desc}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* 3-column grid of industries */}
+                          <div className="grid grid-cols-3 gap-1">
+                            {industries.map((industry) => (
+                              <Link
+                                key={industry.label}
+                                href={industry.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group relative flex flex-col gap-1 p-3 rounded-xl transition-all duration-150 hover:bg-green/[0.06] border border-transparent hover:border-green/10"
+                              >
+                                {/* Green left accent on hover */}
+                                <div className="absolute left-0 top-3 bottom-3 w-0.5 rounded-full bg-green opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+
+                                <div className="flex items-center justify-between gap-2 mb-0.5">
+                                  <div className="flex items-center gap-2.5">
+                                    <div className="w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green flex-shrink-0">
+                                      {industry.icon}
+                                    </div>
+                                    <span className="text-[13.5px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
+                                      {industry.label}
+                                    </span>
+                                  </div>
+                                  <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                                </div>
+                                <p className="text-[11.5px] text-gray-400 leading-snug pl-[42px]">
+                                  {industry.desc}
+                                </p>
+                                <span className="pl-[42px] mt-1 text-[12px] font-semibold text-green flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                                  View Solutions{" "}
+                                  <ArrowRight className="w-3 h-3" />
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* ── Right: sidebar panel ── */}
+                        <div className="w-[248px] flex-shrink-0 bg-gray-50/70 border-l border-gray-100 p-6 flex flex-col">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">
+                            {sidebar.eyebrow}
+                          </span>
+                          <h3 className="text-[18px] font-bold text-dark leading-snug mb-1">
+                            {sidebar.title}{" "}
+                            <span className="text-green italic">
+                              {sidebar.titleAccent}
+                            </span>
+                          </h3>
+                          <p className="text-[12px] text-gray-500 leading-relaxed mb-4">
+                            {sidebar.desc}
+                          </p>
+
+                          <ul className="flex flex-col gap-2 mb-6">
+                            {sidebar.points.map((point) => (
+                              <li
+                                key={point}
+                                className="flex items-center gap-2 text-[12.5px] font-medium text-dark/80"
+                              >
+                                <div className="w-4 h-4 rounded-full bg-green/10 flex items-center justify-center flex-shrink-0">
+                                  <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="text-green"
+                                  >
+                                    <polyline points="2 6 5 9 10 3" />
+                                  </svg>
+                                </div>
+                                {point}
+                              </li>
+                            ))}
+                          </ul>
+
+                          <Link
+                            href={sidebar.ctaHref}
+                            onClick={() => setActiveDropdown(null)}
+                            className="mt-auto flex items-center justify-center gap-2 bg-green text-white text-[13px] font-semibold px-4 py-3 rounded-xl hover:bg-green/90 transition-colors duration-200 group"
+                          >
+                            {sidebar.ctaLabel}
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-200">
+                              <ArrowRight className="w-3 h-3" />
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // ── Regular nav link ───────────────────────────────────────
               return (
                 <Link
                   key={item.label}
@@ -543,62 +833,50 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* ── Mobile Drawer Overlay ── */}
+      {/* ════════════════════════════════════════════════════════════════
+          Mobile Drawer
+      ════════════════════════════════════════════════════════════════ */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-navy/30 backdrop-blur-sm transition-opacity duration-300 ${
-            mobileOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 bg-navy/30 backdrop-blur-sm transition-opacity duration-300 ${mobileOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setMobileOpen(false)}
         />
 
         {/* Drawer Panel */}
         <div
-          className={`absolute mx-4 sm:mx-8 top-20 left-0 right-0 rounded-2xl bg-white shadow-[0_20px_60px_rgba(0,35,90,0.18)] border border-gray-100 font-jakarta overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-            mobileOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`absolute mx-4 sm:mx-8 top-20 left-0 right-0 rounded-2xl bg-white shadow-[0_20px_60px_rgba(0,35,90,0.18)] border border-gray-100 font-jakarta overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${mobileOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"}`}
           style={{ overflowY: "auto" }}
         >
           <div className="flex flex-col px-4 py-6 gap-1">
             {NAV_ITEMS.map((item, idx) => {
-              if (item.hasDropdown) {
+              // ── Mobile Services ──────────────────────────────────────
+              if (item.hasDropdown && item.dropdownType === "services") {
                 return (
                   <div key={item.label} className="flex flex-col">
-                    {/* Services toggle */}
                     <button
-                      onClick={() => setMobileServicesOpen((prev) => !prev)}
+                      onClick={() => setMobileServicesOpen((p) => !p)}
                       className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-bold text-dark transition-all hover:text-green hover:bg-green/5 rounded-xl"
                     >
                       <span>{item.label}</span>
                       <ChevronDown
-                        className={`w-4 h-4 text-green transition-transform duration-300 ${
-                          mobileServicesOpen ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 text-green transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`}
                       />
                     </button>
 
-                    {/* Expanded mobile mega-menu */}
                     <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        mobileServicesOpen
-                          ? "max-h-[2000px] opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileServicesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
                     >
-                      {MEGA_MENU.map((col, colIdx) => (
+                      {SERVICES_MEGA_MENU.map((col, colIdx) => (
                         <div key={col.category} className="mt-1">
-                          {/* Category toggle */}
                           <button
                             onClick={() =>
                               setMobileExpandedCategory(
-                                mobileExpandedCategory === colIdx
+                                mobileExpandedCategory === `s-${colIdx}`
                                   ? null
-                                  : colIdx,
+                                  : `s-${colIdx}`,
                               )
                             }
                             className="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-gray-50 hover:bg-green/5 transition-all duration-150"
@@ -610,21 +888,11 @@ export function Navbar() {
                               </span>
                             </div>
                             <ChevronDown
-                              className={`w-3.5 h-3.5 text-green transition-transform duration-300 ${
-                                mobileExpandedCategory === colIdx
-                                  ? "rotate-180"
-                                  : ""
-                              }`}
+                              className={`w-3.5 h-3.5 text-green transition-transform duration-300 ${mobileExpandedCategory === `s-${colIdx}` ? "rotate-180" : ""}`}
                             />
                           </button>
-
-                          {/* Category items */}
                           <div
-                            className={`ml-2 pl-3 border-l-2 border-green/20 overflow-hidden transition-all duration-300 ${
-                              mobileExpandedCategory === colIdx
-                                ? "max-h-[800px] opacity-100 mt-1"
-                                : "max-h-0 opacity-0"
-                            }`}
+                            className={`ml-2 pl-3 border-l-2 border-green/20 overflow-hidden transition-all duration-300 ${mobileExpandedCategory === `s-${colIdx}` ? "max-h-[800px] opacity-100 mt-1" : "max-h-0 opacity-0"}`}
                           >
                             {col.items.map((service, sIdx) => (
                               <Link
@@ -650,13 +918,12 @@ export function Navbar() {
                                 <ArrowRight className="w-3 h-3 text-green opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 mt-1" />
                               </Link>
                             ))}
-
                             <Link
                               href={col.viewAllHref}
                               onClick={() => setMobileOpen(false)}
                               className="flex items-center gap-1.5 px-3 py-2 text-[12px] font-semibold text-green hover:gap-2 transition-all duration-200"
                             >
-                              {col.viewAllLabel}
+                              {col.viewAllLabel}{" "}
                               <ArrowRight className="w-3 h-3" />
                             </Link>
                           </div>
@@ -667,6 +934,78 @@ export function Navbar() {
                 );
               }
 
+              // ── Mobile Industries ────────────────────────────────────
+              if (item.hasDropdown && item.dropdownType === "industries") {
+                const { industries, sidebar } = INDUSTRIES_MEGA_MENU;
+                return (
+                  <div key={item.label} className="flex flex-col">
+                    <button
+                      onClick={() => setMobileIndustriesOpen((p) => !p)}
+                      className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-bold text-dark transition-all hover:text-green hover:bg-green/5 rounded-xl"
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-green transition-transform duration-300 ${mobileIndustriesOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileIndustriesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
+                    >
+                      {/* Industry items */}
+                      <div className="ml-2 pl-3 border-l-2 border-green/20 mt-1 flex flex-col gap-0.5">
+                        {industries.map((industry) => (
+                          <Link
+                            key={industry.label}
+                            href={industry.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="group flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-green/5 transition-all duration-150"
+                          >
+                            <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
+                              {industry.icon}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-[13px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
+                                {industry.label}
+                              </p>
+                              <p className="text-[11.5px] text-gray-400 mt-0.5 leading-snug">
+                                {industry.desc}
+                              </p>
+                            </div>
+                            <ArrowRight className="w-3 h-3 text-green opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 mt-1" />
+                          </Link>
+                        ))}
+                      </div>
+
+                      {/* Mobile sidebar summary card */}
+                      <div className="mx-2 mt-3 mb-1 p-4 rounded-xl bg-gradient-to-br from-green/5 to-green/10 border border-green/15">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-green mb-1">
+                          {sidebar.eyebrow}
+                        </p>
+                        <p className="text-[14px] font-bold text-dark leading-snug mb-1">
+                          {sidebar.title}{" "}
+                          <span className="text-green italic">
+                            {sidebar.titleAccent}
+                          </span>
+                        </p>
+                        <p className="text-[12px] text-gray-500 leading-relaxed mb-3">
+                          {sidebar.desc}
+                        </p>
+                        <Link
+                          href={sidebar.ctaHref}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-center gap-2 bg-green text-white text-[13px] font-semibold px-4 py-2.5 rounded-xl hover:bg-green/90 transition-colors duration-200"
+                        >
+                          {sidebar.ctaLabel}{" "}
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // ── Regular mobile link ──────────────────────────────────
               return (
                 <Link
                   key={item.label}
@@ -684,9 +1023,9 @@ export function Navbar() {
               );
             })}
 
-            {/* CTA in mobile drawer */}
+            {/* CTA */}
             <div className="mt-4 pt-4 border-t border-gray-100">
-              <CustomButton btnText="Let's Talk" />
+              <CustomButton btnText="Book a Free Discovery Call" />
             </div>
           </div>
         </div>
