@@ -16,9 +16,9 @@
  * @type {NavItem[]}
  */
 export const NAV_ITEMS = [
-  { label: 'Home', href: '/', isActive: true },
-  { label: 'About Us', href: '/about' },
-  { label: 'What we Offer', href: '/services', hasDropdown: true },
-  { label: 'Our Portfolio', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
+  { label: "Home", href: "/", isActive: true },
+  { label: "About Us", href: "/about" },
+  { label: "What we Offer", href: "/services", hasDropdown: true },
+  { label: "Our Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
 ];
