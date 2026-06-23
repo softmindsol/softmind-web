@@ -4,6 +4,8 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { IoLocationOutline } from "react-icons/io5";
+import { TbBrandFiverr } from "react-icons/tb";
 
 export default function Footer() {
   return (
@@ -81,25 +83,7 @@ export default function Footer() {
               {/* Location item */}
               <div className="flex items-start gap-3.5">
                 <div className="w-9 h-9 bg-[#2C2C2C] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    className="w-5 h-5 text-white"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                    />
-                  </svg>
+                  <IoLocationOutline className="size-5" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-white/60 font-medium leading-[15px]">
@@ -107,6 +91,19 @@ export default function Footer() {
                   </span>
                   <span className="text-sm font-medium leading-[18px]">
                     333 R-Block First Floor Main Blvd, Johar Town, Lahore, 54770
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 bg-[#2C2C2C] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <IoLocationOutline className="size-5" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs text-white/60 font-medium leading-[15px]">
+                    Location
+                  </span>
+                  <span className="text-sm font-medium leading-[18px]">
+                    Sharjah Media City, Sharjah, UAE
                   </span>
                 </div>
               </div>
@@ -197,30 +194,42 @@ export default function Footer() {
 
             {/* Social media badges */}
             <div className="flex items-center gap-3.5 pt-2">
+              {/* Fiverr */}
+              <a
+                href="https://www.fiverr.com/sellers/bilalbhatti139"
+                target="_blank"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-green border border-white/10 rounded-sm flex items-center justify-center transition-colors"
+              >
+                <TbBrandFiverr />
+              </a>
               {/* Facebook */}
               <a
-                href="#"
+                href="https://www.facebook.com/softmindsol"
+                target="_blank"
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
                 <FaFacebookF />
               </a>
               {/* Behance stylized logo */}
               <a
-                href="#"
+                href="https://www.behance.net/softmindsol"
+                target="_blank"
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors text-white font-bold text-xs select-none"
               >
                 <FaBehance className="size-4" />
               </a>
               {/* LinkedIn */}
               <a
-                href="#"
+                href="https://www.linkedin.com/company/softmindsol"
+                target="_blank"
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-[#1152D1] border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
                 <FaLinkedinIn className="size-4" />
               </a>
               {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/softmindsol"
+                target="_blank"
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-gradient-to-br from-[#6429D2] via-[#D6314F] to-[#F7BA5C] border border-white/10 rounded-sm flex items-center justify-center transition-colors hover:border-none"
               >
                 <FaInstagram className="size-4" />
