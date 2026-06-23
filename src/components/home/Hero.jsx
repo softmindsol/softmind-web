@@ -16,10 +16,10 @@ export function Hero() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[871px] px-4 gap-12">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-[871px] px-12 gap-12">
         {/* Headings */}
         <div className="flex flex-col items-center gap-6 text-center">
-          <h1 className="text-[48px] md:text-[54px] leading-[1.2] md:leading-[68px] font-bold font-jakarta capitalize text-navy">
+          <h1 className="text-[28px] sm:text-[40px] lg:text-[54px] sm:leading-[1.2] lg:leading-[68px] font-bold font-jakarta capitalize text-navy">
             AI SaaS & Custom Software Development Company
             <br />
             <span className="text-green">
@@ -33,21 +33,18 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Action and Trust Section */}
-        <div className="flex flex-col md:flex-row items-center gap-7 md:gap-10">
-          {/* Start Project Button */}
-          <div className="flex items-center gap-4">
-            <Button variant="default" className="px-6">
-              Book a Free Discovery Call
-            </Button>
-            <Button variant="outline" className="px-6">
-              View Our Work
-            </Button>
-          </div>
+        {/* Start Project Button */}
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          <Button variant="default" className="px-6">
+            Book a Free Discovery Call
+          </Button>
+          <Button variant="outline" className="px-6">
+            View Our Work
+          </Button>
         </div>
 
         {/* Bottom Social Proof Line */}
-        <div className="flex items-center gap-4 mt-3 w-full max-w-[581px]">
+        <div className="flex items-center gap-4 sm:mt-3 w-full max-w-[581px]">
           <div className="flex-1 h-[2px] bg-[#EFEFEF] rounded-full" />
           <span className="font-jakarta font-medium text-[14px] md:text-[16px] text-[#666666] text-center tracking-wide px-2">
             Loved by 300+ Clients across the world
