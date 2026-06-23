@@ -415,7 +415,7 @@ export function Navbar() {
 
                     {/* ── Mega-menu Panel ── */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[920px] bg-white rounded-2xl shadow-[0_24px_64px_rgba(0,35,90,0.16)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top ${
+                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[1024px] bg-white rounded-2xl shadow-[0_24px_64px_rgba(0,35,90,0.16)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top ${
                         dropdownOpen
                           ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
                           : "opacity-0 scale-y-95 -translate-y-3 pointer-events-none"
