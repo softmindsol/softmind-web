@@ -157,7 +157,7 @@ export function Navbar() {
 
           {/* ── CTA Button (Desktop) ── */}
           <div className="hidden lg:flex items-center shrink-0">
-            <CustomButton btnText="Let's Talk" />
+            <CustomButton btnText="Book a Free Discovery Call" />
           </div>
 
           {/* ── Mobile Hamburger ── */}
