@@ -50,6 +50,11 @@ const SERVICES_MEGA_MENU = [
         desc: "Modern, responsive and scalable web applications.",
         href: "/services/web-app",
       },
+      {
+        label: "MVP Development",
+        desc: "Validate your idea quickly with a lean and powerful MVP.",
+        href: "/services/mvp",
+      },
     ],
   },
   {
@@ -86,11 +91,6 @@ const SERVICES_MEGA_MENU = [
         label: "Design Systems",
         desc: "Scalable design systems for consistency and faster development.",
         href: "/services/design-systems",
-      },
-      {
-        label: "MVP Development",
-        desc: "Validate your idea quickly with a lean and powerful MVP.",
-        href: "/services/mvp",
       },
     ],
   },
@@ -363,6 +363,19 @@ const ServiceIcon = ({ index, categoryIndex }) => {
         <line x1="2" y1="12" x2="22" y2="12" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>,
+      <svg
+        key="mvp"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>,
     ],
     [
       <svg
@@ -408,19 +421,6 @@ const ServiceIcon = ({ index, categoryIndex }) => {
         <rect x="14" y="3" width="7" height="7" />
         <rect x="14" y="14" width="7" height="7" />
         <rect x="3" y="14" width="7" height="7" />
-      </svg>,
-      <svg
-        key="mvp"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>,
     ],
     [
@@ -689,12 +689,12 @@ export function Navbar() {
                         {/* ── Left: industry grid ── */}
                         <div className="flex-1 p-6">
                           {/* Header row */}
-                          <div className="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
-                            <div className="w-9 h-9 rounded-xl bg-green/10 flex items-center justify-center text-green flex-shrink-0">
+                          <div className="flex items-center gap-3 mb-5 pb-2.5 border-b border-gray-100">
+                            <div className="flex items-center justify-center text-green flex-shrink-0">
                               {header.icon}
                             </div>
                             <div>
-                              <p className="text-[11px] font-bold uppercase tracking-widest text-green mb-0.5">
+                              <p className="text-[11px] font-bold uppercase tracking-widest text-green">
                                 {header.label}
                               </p>
                               {/* <p className="text-[12px] text-gray-400 leading-snug max-w-xs">
@@ -704,36 +704,38 @@ export function Navbar() {
                           </div>
 
                           {/* 3-column grid of industries */}
-                          <div className="grid grid-cols-3 gap-1">
-                            {industries.map((industry) => (
-                              <Link
-                                key={industry.label}
-                                href={industry.href}
-                                onClick={() => setActiveDropdown(null)}
-                                className="group relative flex flex-col gap-1 p-3 rounded-xl transition-all duration-150 hover:bg-green/[0.06] border border-transparent hover:border-green/10"
+                          <div className="grid grid-cols-3 divide-x divide-gray-100">
+                            {[0, 2, 4].map((startIndex) => (
+                              <div
+                                key={startIndex}
+                                className="flex flex-col gap-0.5 px-4"
                               >
-                                {/* Green left accent on hover */}
-                                <div className="absolute left-0 top-3 bottom-3 w-0.5 rounded-full bg-green opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-
-                                <div className="flex items-center justify-between gap-2 mb-0.5">
-                                  <div className="flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green flex-shrink-0">
-                                      {industry.icon}
-                                    </div>
-                                    <span className="text-[13.5px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
-                                      {industry.label}
-                                    </span>
-                                  </div>
-                                  <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
-                                </div>
-                                <p className="text-[11.5px] text-gray-400 leading-snug pl-[42px]">
-                                  {industry.desc}
-                                </p>
-                                <span className="pl-[42px] mt-1 text-[12px] font-semibold text-green flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                                  View Solutions{" "}
-                                  <ArrowRight className="w-3 h-3" />
-                                </span>
-                              </Link>
+                                {industries
+                                  .slice(startIndex, startIndex + 2)
+                                  .map((industry) => (
+                                    <Link
+                                      key={industry.label}
+                                      href={industry.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-150 hover:bg-green/[0.06] border border-transparent hover:border-green/10"
+                                    >
+                                      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
+                                        {industry.icon}
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-2">
+                                          <span className="text-[13.5px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
+                                            {industry.label}
+                                          </span>
+                                          <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                                        </div>
+                                        <p className="text-[12px] text-gray-400 mt-0.5 leading-snug line-clamp-2">
+                                          {industry.desc}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  ))}
+                              </div>
                             ))}
                           </div>
                         </div>
