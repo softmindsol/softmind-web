@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/home/Hero";
 import ClientLogos from "@/components/home/clientLogos";
 import WhatWeOffer from "@/components/home/whatWeOffer";
@@ -9,12 +8,10 @@ import EngagementModels from "@/components/home/engagementModels";
 import TestimonialSlider from "@/components/home/testimonialSlider";
 import Faqs from "@/components/home/faqs";
 import FinalCta from "@/components/home/finalCta";
-import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white selection:bg-green selection:text-white">
-      <Navbar />
+    <div className="w-full flex flex-col">
       <Hero />
       {/* <WhatWeOffer /> */}
       <Industries />
@@ -25,7 +22,6 @@ export default function Home() {
       <TestimonialSlider />
       <Faqs />
       <FinalCta />
-      <Footer />
-    </main>
+    </div>
   );
 }
