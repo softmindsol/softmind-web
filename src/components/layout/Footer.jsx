@@ -4,8 +4,8 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { IoLocationOutline } from "react-icons/io5";
 import { TbBrandFiverr } from "react-icons/tb";
+import LiveLocation from "./LiveLocation";
 
 export default function Footer() {
   return (
@@ -80,33 +80,19 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Location item */}
-              <div className="flex items-start gap-3.5">
-                <div className="w-9 h-9 bg-[#2C2C2C] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                  <IoLocationOutline className="size-5" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-white/60 font-medium leading-[15px]">
-                    Location
-                  </span>
-                  <span className="text-sm font-medium leading-[18px]">
-                    333 R-Block First Floor Main Blvd, Johar Town, Lahore, 54770
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-start gap-3.5">
-                <div className="w-9 h-9 bg-[#2C2C2C] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                  <IoLocationOutline className="size-5" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-white/60 font-medium leading-[15px]">
-                    Location
-                  </span>
-                  <span className="text-sm font-medium leading-[18px]">
-                    Sharjah Media City, Sharjah, UAE
-                  </span>
-                </div>
-              </div>
+              {/* Location items */}
+              <LiveLocation
+                city="Lahore City"
+                country="Pakistan"
+                timezone="Asia/Karachi"
+                subtext="UTC Primary location"
+              />
+              <LiveLocation
+                city="Sharjah"
+                country="United Arab Emirates"
+                timezone="Asia/Dubai"
+                subtext="GMT+4"
+              />
             </div>
           </div>
 

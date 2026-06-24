@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
+import Image from "next/image";
+import { SoftMindSolLogo } from "../../../public/images";
 
 export default function EngagementModels() {
   const models = [
@@ -51,8 +53,17 @@ export default function EngagementModels() {
   return (
     <section className="relative w-full bg-[#161616] py-16 md:py-24 text-dark overflow-hidden font-jakarta">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-green blur-[130px] rounded-full pointer-events-none opacity-50" />
-      <div className="absolute bottom-1 right-0 w-[400px] h-[400px] bg-navy blur-[130px] rounded-full pointer-events-none" />
+      <div
+        className="absolute top-[-187px] left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full pointer-events-none opacity-40 blur-[130px]"
+        style={{ backgroundColor: "navy" }}
+      />
+      <div className="absolute select-none pointer-events-none">
+        <Image
+          src={SoftMindSolLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px]"
+        />
+      </div>
 
       <div className="relative mx-auto px-12">
         {/* Section Heading */}

@@ -1,5 +1,7 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
+import { SoftMindSolutionLogo } from "../../../public/images";
 
 export default function Faqs() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -69,6 +71,14 @@ export default function Faqs() {
         className="absolute top-[303px] left-[-150px] w-[363px] h-[363px] rounded-full pointer-events-none opacity-30 blur-[130px]"
         style={{ backgroundColor: "#00235A" }}
       />
+
+      <div className="absolute top-1/4 select-none pointer-events-none opacity-10">
+        <Image
+          src={SoftMindSolutionLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px]"
+        />
+      </div>
 
       <div className="relative w-fit mx-auto px-12">
         <div className="flex lg:flex-row flex-col items-center justify-between gap-12 lg:gap-8 lg:items-start">

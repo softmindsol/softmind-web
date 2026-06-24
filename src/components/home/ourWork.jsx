@@ -1,6 +1,8 @@
 "use client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import React, { useState, useRef } from "react";
+import { SoftMindSolutionLogo } from "../../../public/images";
 
 export default function OurWork() {
   const [activeCategory, setActiveCategory] = useState("Health Care");
@@ -348,6 +350,14 @@ export default function OurWork() {
         className="absolute top-[-187px] left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full pointer-events-none opacity-40 blur-[130px]"
         style={{ backgroundColor: "navy" }}
       />
+
+      <div className="absolute select-none pointer-events-none">
+        <Image
+          src={SoftMindSolutionLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px] opacity-20"
+        />
+      </div>
 
       <div className="relative mx-auto px-6 md:px-12">
         {/* Top Header Layout */}
