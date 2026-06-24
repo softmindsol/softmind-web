@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star } from "lucide-react";
 import { Button } from "../ui/button";
+import { Typewriter } from "../ui/typewriter";
+import CustomButton from "../customs/customButton";
 
 export function Hero() {
   return (
@@ -22,8 +24,20 @@ export function Hero() {
           <h1 className="text-[28px] sm:text-[40px] lg:text-[54px] sm:leading-[1.2] lg:leading-[68px] font-bold font-jakarta capitalize text-navy">
             AI SaaS & Custom Software Development Company
             <br />
-            <span className="text-green">
-              for Startups and Growing Businesses
+            <span className="text-green">For </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0] drop-shadow-sm">
+              <Typewriter
+                phrases={[
+                  "Startups",
+                  "Growing Businesses",
+                  "Enterprises",
+                  "Visionaries",
+                ]}
+                cursor={false}
+                typingSpeed={70}
+                deletingSpeed={40}
+                pauseTime={2500}
+              />
             </span>
           </h1>
           <p className="text-[16px] md:text-[18px] leading-[1.5] font-medium font-jakarta tracking-wide text-grey max-w-[823px]">
@@ -35,9 +49,7 @@ export function Hero() {
 
         {/* Start Project Button */}
         <div className="flex flex-wrap justify-center items-center gap-4">
-          <Button variant="default" className="px-6">
-            Book a Free Discovery Call
-          </Button>
+          <CustomButton btnText="Book a Discovery Call" />
           <Button variant="outline" className="px-6">
             View Our Work
           </Button>
