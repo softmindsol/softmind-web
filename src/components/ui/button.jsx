@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default:
           "bg-navy text-white hover:bg-navy/85 hover:shadow-md border-2 border-navy rounded-full transition-all duration-200 font-jakarta font-bold text-base py-6 px-12 cursor-pointer",
         outline:
-          "bg-white text-navy hover:bg-muted hover:shadow-md border-2 border-navy rounded-full transition-all duration-200 font-jakarta font-bold text-base py-6 px-12 cursor-pointer",
+          "bg-white text-navy hover:bg-muted hover:shadow-md border border-navy rounded-full transition-all duration-200 font-jakarta font-bold text-base py-6 px-12 cursor-pointer",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:

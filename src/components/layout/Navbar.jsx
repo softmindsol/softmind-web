@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, X, Menu, ArrowRight, CheckCircle2 } from "lucide-react";
 import { NAV_ITEMS } from "./Navbar.constants";
@@ -500,6 +501,7 @@ const dropdownTransition = (open) =>
   }`;
 
 export function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   // Track which desktop dropdown is open: null | "services" | "industries"
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -799,12 +801,17 @@ export function Navbar() {
               }
 
               // ── Regular nav link ───────────────────────────────────────
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname?.startsWith(item.href);
+
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${
-                    item.isActive
+                    isActive
                       ? "text-green"
                       : "text-dark hover:text-green hover:bg-green/5"
                   }`}
@@ -1008,13 +1015,18 @@ export function Navbar() {
               }
 
               // ── Regular mobile link ──────────────────────────────────
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname?.startsWith(item.href);
+
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className={`flex items-center gap-1.5 px-4 py-3 rounded-xl text-[15px] font-bold transition-all duration-200 ${
-                    item.isActive
+                    isActive
                       ? "text-green bg-green/5"
                       : "text-dark hover:text-green hover:bg-green/5"
                   }`}
