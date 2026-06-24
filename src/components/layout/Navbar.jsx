@@ -284,21 +284,21 @@ const INDUSTRIES_MEGA_MENU = {
       ),
     },
   ],
-  sidebar: {
-    eyebrow: "Why SoftMind?",
-    title: "Deep Industry Expertise.",
-    titleAccent: "Real Impact.",
-    desc: "We understand your industry challenges and build software solutions that drive measurable outcomes.",
-    points: [
-      "Domain expertise",
-      "Regulatory understanding",
-      "Scalable architecture",
-      "Future-ready technology",
-      "Long-term partnership",
-    ],
-    ctaLabel: "Discuss Your Industry Needs",
-    ctaHref: "/contact",
-  },
+  // sidebar: {
+  //   eyebrow: "Why SoftMind?",
+  //   title: "Deep Industry Expertise.",
+  //   titleAccent: "Real Impact.",
+  //   desc: "We understand your industry challenges and build software solutions that drive measurable outcomes.",
+  //   points: [
+  //     "Domain expertise",
+  //     "Regulatory understanding",
+  //     "Scalable architecture",
+  //     "Future-ready technology",
+  //     "Long-term partnership",
+  //   ],
+  //   ctaLabel: "Discuss Your Industry Needs",
+  //   ctaHref: "/contact",
+  // },
 };
 
 // ─── Service icons ─────────────────────────────────────────────────────────
@@ -689,7 +689,7 @@ export function Navbar() {
                         {/* ── Left: industry grid ── */}
                         <div className="flex-1 p-6">
                           {/* Header row */}
-                          <div className="flex items-start gap-3 mb-5 pb-4 border-b border-gray-100">
+                          <div className="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
                             <div className="w-9 h-9 rounded-xl bg-green/10 flex items-center justify-center text-green flex-shrink-0">
                               {header.icon}
                             </div>
@@ -697,9 +697,9 @@ export function Navbar() {
                               <p className="text-[11px] font-bold uppercase tracking-widest text-green mb-0.5">
                                 {header.label}
                               </p>
-                              <p className="text-[12px] text-gray-400 leading-snug max-w-xs">
+                              {/* <p className="text-[12px] text-gray-400 leading-snug max-w-xs">
                                 {header.desc}
-                              </p>
+                              </p> */}
                             </div>
                           </div>
 
@@ -739,7 +739,7 @@ export function Navbar() {
                         </div>
 
                         {/* ── Right: sidebar panel ── */}
-                        <div className="w-[248px] flex-shrink-0 bg-gray-50/70 border-l border-gray-100 p-6 flex flex-col">
+                        {/* <div className="w-[248px] flex-shrink-0 bg-gray-50/70 border-l border-gray-100 p-6 flex flex-col">
                           <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">
                             {sidebar.eyebrow}
                           </span>
@@ -789,7 +789,7 @@ export function Navbar() {
                               <ArrowRight className="w-3 h-3" />
                             </div>
                           </Link>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -959,7 +959,7 @@ export function Navbar() {
                             key={industry.label}
                             href={industry.href}
                             onClick={() => setMobileOpen(false)}
-                            className="group flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-green/5 transition-all duration-150"
+                            className="group flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green/5 transition-all duration-150"
                           >
                             <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
                               {industry.icon}
@@ -968,9 +968,9 @@ export function Navbar() {
                               <p className="text-[13px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
                                 {industry.label}
                               </p>
-                              <p className="text-[11.5px] text-gray-400 mt-0.5 leading-snug">
+                              {/* <p className="text-[11.5px] text-gray-400 mt-0.5 leading-snug">
                                 {industry.desc}
-                              </p>
+                              </p> */}
                             </div>
                             <ArrowRight className="w-3 h-3 text-green opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 mt-1" />
                           </Link>
@@ -978,7 +978,7 @@ export function Navbar() {
                       </div>
 
                       {/* Mobile sidebar summary card */}
-                      <div className="mx-2 mt-3 mb-1 p-4 rounded-xl bg-gradient-to-br from-green/5 to-green/10 border border-green/15">
+                      {/* <div className="mx-2 mt-3 mb-1 p-4 rounded-xl bg-gradient-to-br from-green/5 to-green/10 border border-green/15">
                         <p className="text-[10px] font-bold uppercase tracking-widest text-green mb-1">
                           {sidebar.eyebrow}
                         </p>
@@ -999,7 +999,7 @@ export function Navbar() {
                           {sidebar.ctaLabel}{" "}
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 );
