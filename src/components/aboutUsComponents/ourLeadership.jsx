@@ -1,31 +1,34 @@
 "use client";
 
 import React, { useState } from "react";
+import {
+  AhmarBaig,
+  CeoBilal,
+  FahadAnwar,
+  MariyumHR,
+} from "../../../public/images";
+import Image from "next/image";
 
 const leaders = [
   {
     role: "Founder & CEO",
     name: "Muhammad Bilal Bhatti",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
+    image: CeoBilal,
   },
   {
     role: "HR Manager",
     name: "Mariyam Manzoor",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
+    image: MariyumHR,
   },
   {
     role: "Tech Team Lead",
     name: "Fahad Anwar",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
+    image: FahadAnwar,
   },
   {
     role: "Technical Project Manager",
     name: "Ahmar Baig",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
+    image: AhmarBaig,
   },
 ];
 
@@ -85,15 +88,15 @@ export default function OurLeadership() {
               key={idx}
               className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.06)] flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
             >
-              <div
-                className="w-full aspect-square rounded-lg bg-gray-200 bg-cover bg-center mb-5"
-                style={{ backgroundImage: `url(${leader.image})` }}
+              <Image
+                className="rounded-lg mb-5 h-[320px] w-full object-cover"
+                src={leader.image}
               />
-              <div className="flex flex-col gap-1 px-1">
-                <h3 className="text-[15px] font-bold text-[#2E2E2E] tracking-wide">
+              <div className="flex flex-col gap-0.5 px-1">
+                <h3 className="text-[15px] font-bold text-dark tracking-wide">
                   {leader.role}
                 </h3>
-                <p className="text-[14px] font-medium text-[#666666] tracking-wide">
+                <p className="text-[14px] font-medium text-grey tracking-wide">
                   {leader.name}
                 </p>
               </div>
@@ -121,7 +124,9 @@ export default function OurLeadership() {
                   <div className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.08)] flex flex-col">
                     <div
                       className="w-full aspect-square rounded-lg bg-gray-200 bg-cover bg-center mb-5"
-                      style={{ backgroundImage: `url(${leader.image})` }}
+                      style={{
+                        backgroundImage: `url(${leader.image?.src || leader.image})`,
+                      }}
                     />
                     <div className="flex flex-col gap-1 px-1 pb-2">
                       <h3 className="text-[16px] font-bold text-[#2E2E2E] tracking-wide">

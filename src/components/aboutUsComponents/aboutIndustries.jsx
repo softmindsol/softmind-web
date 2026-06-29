@@ -9,7 +9,10 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import Image from "next/image";
-import { SoftMindSolLogo } from "../../../public/images";
+import {
+  SoftMindSolLogo,
+  SoftMindSolutionLogoDark,
+} from "../../../public/images";
 
 export default function AboutIndustries() {
   const industries = [
@@ -81,14 +84,14 @@ export default function AboutIndustries() {
     <section className="relative w-full bg-[#ffffff] py-16 md:py-24 overflow-hidden font-jakarta">
       {/* Background radial glow element (matching "Ellipse 25" in design file) */}
       <div
-        className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-30 blur-[130px]"
+        className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none opacity-30 blur-[130px]"
         style={{ backgroundColor: "#004BC0" }}
       />
 
       {/* Stylized background monogram watermark on the left (matching "SoftOps Monogram") */}
-      <div className="absolute left-[-100px] top-[10%] select-none pointer-events-none opacity-10">
+      <div className="absolute left-[-100px] top-[20%] select-none pointer-events-none opacity-10">
         <Image
-          src={SoftMindSolLogo}
+          src={SoftMindSolutionLogoDark}
           alt="SoftMindSol Logo"
           className="object-cover max-h-[726px]"
         />

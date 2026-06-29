@@ -5,7 +5,10 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { TbBrandFiverr } from "react-icons/tb";
+import { FaUpwork } from "react-icons/fa6";
+import { RiArrowRightLongLine } from "react-icons/ri";
 import LiveLocation from "./LiveLocation";
+import { Input } from "../ui/input";
 
 export default function Footer() {
   return (
@@ -153,40 +156,39 @@ export default function Footer() {
               exciting!
             </p>
 
-            {/* Premium Newsletter input matching Figma specs */}
-            <div className="relative flex items-center h-[54px] w-full max-w-[351px] bg-black/10 border border-white/20 rounded-[7px] p-1">
-              <input
+            {/* Premium Newsletter input */}
+            <div className="relative flex items-center w-full max-w-[380px]">
+              <Input
                 type="email"
-                placeholder="Email Address"
-                className="bg-transparent text-white placeholder-[#CCCCCC] font-semibold text-sm outline-none pl-3.5 pr-[110px] w-full h-full"
+                placeholder="Enter your email"
+                className="h-[56px] w-full bg-white/[0.04] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#0CBF83] focus-visible:ring-[#0CBF83]/20 pl-4 pr-[120px] rounded-xl shadow-inner backdrop-blur-sm transition-all duration-300"
               />
-              <button className="absolute right-1 top-1 bottom-1 bg-[#0CBF83] text-white hover:bg-[#0aa672] transition-colors rounded-[6px] px-3.5 flex items-center gap-1.5 text-sm font-semibold shadow-[inset_0px_-3px_4px_rgba(255,255,255,0.14)]">
+              <button className="group absolute right-1.5 top-1.5 bottom-1.5 bg-[#0CBF83] text-white hover:bg-[#0aa672] transition-all duration-300 rounded-[8px] px-4 flex items-center gap-1.5 text-sm font-bold shadow-[0_0_15px_rgba(12,191,131,0.25)] hover:shadow-[0_0_20px_rgba(12,191,131,0.4)]">
                 <span>Sign Up</span>
-                <svg
-                  className="w-3.5 h-3.5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <RiArrowRightLongLine
+                  className="mt-[1px] group-hover:translate-x-1 transition-transform duration-300"
+                  size={18}
+                />
               </button>
             </div>
 
             {/* Social media badges */}
             <div className="flex items-center gap-3.5 pt-2">
+              {/* Upwork */}
+              <a
+                href="https://www.fiverr.com/sellers/bilalbhatti139"
+                target="_blank"
+                className="w-[28px] h-[28px] bg-white/5 hover:bg-white hover:text-dark border border-white/10 rounded-sm flex items-center justify-center transition-colors"
+              >
+                <FaUpwork className="size-4.5 pt-0.5" />
+              </a>
               {/* Fiverr */}
               <a
                 href="https://www.fiverr.com/sellers/bilalbhatti139"
                 target="_blank"
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-green border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
-                <TbBrandFiverr />
+                <TbBrandFiverr className="size-4.5" />
               </a>
               {/* Facebook */}
               <a

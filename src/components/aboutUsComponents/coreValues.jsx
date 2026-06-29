@@ -73,7 +73,7 @@ const values = [
     icon: Handshake,
     a1: 237.2,
     a2: 270,
-    textLeft: "calc(50% - 540px)",
+    textLeft: "calc(50% - 600px)",
     textTop: "150px",
   },
   {
@@ -83,7 +83,7 @@ const values = [
     icon: Coins,
     a1: 200.4,
     a2: 233.2,
-    textLeft: "calc(50% - 500px)",
+    textLeft: "calc(50% - 620px)",
     textTop: "420px",
   },
   {
@@ -93,7 +93,7 @@ const values = [
     icon: Users,
     a1: 163.6,
     a2: 196.4,
-    textLeft: "calc(50% - 170px)",
+    textLeft: "calc(50% - 160px)",
     textTop: "620px",
   },
   {
@@ -103,7 +103,7 @@ const values = [
     icon: Award,
     a1: 126.8,
     a2: 159.6,
-    textLeft: "calc(50% + 180px)",
+    textLeft: "calc(50% + 280px)",
     textTop: "420px",
   },
   {
@@ -113,8 +113,8 @@ const values = [
     icon: Star,
     a1: 90,
     a2: 122.8,
-    textLeft: "calc(50% + 220px)",
-    textTop: "150px",
+    textLeft: "calc(50% + 280px)",
+    textTop: "140px",
   },
 ];
 
@@ -161,10 +161,10 @@ const CoreValues = () => {
         </div>
 
         {/* Desktop Layout (Pie Chart Wedges) */}
-        <div className="hidden lg:block relative w-full h-[850px] mt-10">
+        <div className="hidden xl:block relative w-full h-[850px] mt-10">
           {/* Central Blue Circle */}
           <div
-            className="absolute left-1/2 w-[220px] h-[220px] rounded-full bg-[#00235A] flex items-center justify-center shadow-[0_0_50px_rgba(0,35,90,0.8)] z-30 transition-all duration-1000 ease-out"
+            className="absolute left-1/2 w-[220px] h-[220px] rounded-full bg-[#00235A] flex items-center justify-center shadow-[0_0_50px_rgba(0,35,90,0.8)] z-30 transition-all duration-700 ease-out"
             style={{
               top: "300px",
               transform: `translate(-50%, -50%) scale(${isVisible ? 1 : 0.5})`,
@@ -187,8 +187,8 @@ const CoreValues = () => {
               stroke="white"
               strokeWidth="1.5"
               strokeDasharray="4 6"
-              className="transition-opacity duration-1000 ease-in-out"
-              style={{ opacity: isVisible ? 0.3 : 0, transitionDelay: "600ms" }}
+              className="transition-opacity duration-700 ease-in-out"
+              style={{ opacity: isVisible ? 0.3 : 0, transitionDelay: "300ms" }}
             />
 
             {/* Connecting Lines and Dots */}
@@ -199,10 +199,10 @@ const CoreValues = () => {
               return (
                 <g
                   key={`link-${val.id}`}
-                  className="transition-opacity duration-1000 ease-in-out"
+                  className="transition-opacity duration-700 ease-in-out"
                   style={{
                     opacity: isVisible ? 1 : 0,
-                    transitionDelay: `${index * 150 + 800}ms`,
+                    transitionDelay: `${index * 100 + 400}ms`,
                   }}
                 >
                   <circle cx={p1.x} cy={p1.y} r="3" fill="white" />
@@ -227,13 +227,13 @@ const CoreValues = () => {
                 stroke={hovered === val.id ? "#0CBF83" : "white"}
                 strokeWidth="12"
                 strokeLinejoin="round"
-                className="transition-all duration-300 pointer-events-auto cursor-pointer"
+                className="transition-all duration-500 pointer-events-auto cursor-pointer"
                 onMouseEnter={() => setHovered(val.id)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
                   transform: `scale(${isVisible ? 1 : 0})`,
                   transformOrigin: "400px 300px",
-                  transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
+                  transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
                 }}
               />
             ))}
@@ -248,13 +248,13 @@ const CoreValues = () => {
               <div key={`node-${val.id}`}>
                 {/* Icon inside the wedge */}
                 <div
-                  className="absolute z-20 w-[48px] h-[48px] flex items-center justify-center transition-all duration-300 cursor-pointer pointer-events-auto"
+                  className="absolute z-20 w-[48px] h-[48px] flex items-center justify-center transition-all duration-500 cursor-pointer pointer-events-auto"
                   style={{
                     left: `calc(50% + ${x - 400}px)`,
                     top: `${y}px`,
                     transform: `translate(-50%, -50%) scale(${isVisible ? 1 : 0})`,
                     transitionDelay: isVisible
-                      ? `${index * 150 + 100}ms`
+                      ? `${index * 100 + 100}ms`
                       : "0ms",
                   }}
                   onMouseEnter={() => setHovered(val.id)}
@@ -269,13 +269,13 @@ const CoreValues = () => {
 
                 {/* Text Block outside the wedge */}
                 <div
-                  className="absolute z-20 w-[320px] transition-all duration-1000 ease-out"
+                  className="absolute z-20 w-[320px] transition-all duration-700 ease-out"
                   style={{
                     left: val.textLeft,
                     top: val.textTop,
                     opacity: isVisible ? 1 : 0,
                     transform: `translateY(${isVisible ? 0 : 30}px)`,
-                    transitionDelay: `${index * 150 + 600}ms`,
+                    transitionDelay: `${index * 100 + 300}ms`,
                   }}
                   onMouseEnter={() => setHovered(val.id)}
                   onMouseLeave={() => setHovered(null)}
@@ -295,16 +295,16 @@ const CoreValues = () => {
         </div>
 
         {/* Mobile / Tablet Layout (Vertical/Grid) */}
-        <div className="lg:hidden flex flex-col gap-6 w-full mt-8">
+        <div className="xl:hidden flex flex-col gap-6 w-full mt-8">
           {values.map((val, index) => (
             <div
               key={`mob-${val.id}`}
-              className={`flex flex-col sm:flex-row items-start gap-5 p-6 sm:p-8 rounded-[20px] bg-white/[0.03] border border-white/5 transition-all duration-700 ease-out ${
+              className={`flex flex-col sm:flex-row items-start gap-5 p-6 sm:p-8 rounded-[20px] bg-white/[0.03] border border-white/5 transition-all duration-500 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="w-[60px] h-[60px] rounded-xl bg-white flex items-center justify-center shrink-0 shadow-lg">
                 <val.icon className="w-7 h-7 text-[#00235A]" />

@@ -1,10 +1,20 @@
 import { Target, Gem } from "lucide-react";
+import Image from "next/image";
+import { SoftMindSolLogo } from "../../../public/images";
 
 const MissionVision = () => {
   return (
     <section className="relative w-full py-24 bg-[#161616] overflow-hidden font-jakarta flex flex-col items-center">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[#00235A] rounded-full blur-[180px] opacity-60 pointer-events-none" />
+
+      <div className="absolute top-0 left-0 select-none pointer-events-none">
+        <Image
+          src={SoftMindSolLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px]"
+        />
+      </div>
 
       <div className="relative z-10 w-full px-6 sm:px-12 flex flex-col items-center gap-16">
         {/* Header Section */}

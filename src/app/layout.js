@@ -19,8 +19,8 @@ import Footer from "@/components/layout/Footer";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white selection:bg-green selection:text-white">
+    <html lang="en" className={`${jakarta.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-white selection:bg-green selection:text-white" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
