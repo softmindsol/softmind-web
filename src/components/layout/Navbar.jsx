@@ -824,7 +824,9 @@ export function Navbar() {
 
           {/* ── CTA Button (Desktop) ── */}
           <div className="hidden lg:flex items-center shrink-0">
-            <CustomButton btnText="Book a Free Discovery Call" />
+            <Link href="/contact-us">
+              <CustomButton btnText="Book a Free Discovery Call" />
+            </Link>
           </div>
 
           {/* ── Mobile Hamburger ── */}
@@ -1039,7 +1041,9 @@ export function Navbar() {
 
             {/* CTA */}
             <div className="mt-4 pt-4 border-t border-gray-100">
-              <CustomButton btnText="Book a Free Discovery Call" />
+              <Link href="/contact-us">
+                <CustomButton btnText="Book a Free Discovery Call" />
+              </Link>
             </div>
           </div>
         </div>
