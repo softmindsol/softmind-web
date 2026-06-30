@@ -39,7 +39,7 @@ const ContactForm = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10 relative z-10">
         {/* Left Column: Info */}
         <div className="flex flex-col gap-8 lg:pr-10 pt-4">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-center lg:items-start gap-4">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green" />
               <span className="text-[16px] sm:text-[18px] font-bold text-green tracking-wide">
@@ -47,11 +47,11 @@ const ContactForm = () => {
               </span>
             </div>
 
-            <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-bold text-dark leading-tight capitalize">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-bold text-dark leading-tight capitalize text-center lg:text-start">
               We Are Always Ready To Help You And Answer Your Questions
             </h2>
 
-            <p className="text-[15px] sm:text-[16px] font-medium text-grey leading-[1.6]">
+            <p className="text-[15px] sm:text-[16px] font-medium text-grey leading-[1.6] text-center lg:text-start">
               Have a project in mind? Get in touch with our team to discuss your
               goals, explore solutions, and turn your ideas into impactful
               digital products.

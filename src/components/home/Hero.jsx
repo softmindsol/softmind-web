@@ -16,9 +16,9 @@ export function Hero({
   ],
   description = (
     <>
-      We build scalable web apps, mobile apps, <b>AI SaaS</b> platforms,
-      and dedicated development teams for{" "}
-      <b>HealthCare, FinTech, EdTech,</b> and <b>PropTech</b> companies.
+      We build scalable web apps, mobile apps, <b>AI SaaS</b> platforms, and
+      dedicated development teams for <b>HealthCare, FinTech, EdTech,</b> and{" "}
+      <b>PropTech</b> companies.
     </>
   ),
   primaryButtonText = "Book a Discovery Call",
@@ -29,7 +29,7 @@ export function Hero({
   showBottomText = true,
 }) {
   return (
-    <section className="relative w-full min-h-[700px] flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden bg-white animate-in fade-in slide-in-from-top-14 duration-500">
+    <section className="relative w-full h-full lg:min-h-[700px] flex flex-col items-center justify-center lg:pt-28 pt-20 pb-20 overflow-hidden bg-white animate-in fade-in slide-in-from-top-14 duration-500">
       {/* Background Abstract Blurs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         {/* Left Blur (Ellipse 20) */}
@@ -68,9 +68,7 @@ export function Hero({
 
         {/* Start Project Button */}
         <div className="flex flex-wrap justify-center items-center gap-4">
-          {primaryButtonText && (
-            <CustomButton btnText={primaryButtonText} />
-          )}
+          {primaryButtonText && <CustomButton btnText={primaryButtonText} />}
           {secondaryButtonText && (
             <Button variant="outline" className="px-6">
               {secondaryButtonText}
