@@ -36,7 +36,7 @@ const ContactForm = () => {
       {/* Background glow matching the image */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[rgba(164,255,225,0.15)] blur-[150px] rounded-full opacity-50 pointer-events-none" />
 
-      <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10 relative z-10">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10 relative z-10">
         {/* Left Column: Info */}
         <div className="flex flex-col gap-8 lg:pr-10 pt-4">
           <div className="flex flex-col gap-4">
