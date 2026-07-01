@@ -2,6 +2,7 @@
 import React from "react";
 import { ArrowRight, CalendarCheck, PhoneCall, Star } from "lucide-react";
 import CustomButton from "../customs/customButton";
+import Link from "next/link";
 
 const TRUST_STATS = [
   { value: "300+", label: "Happy Clients" },
@@ -57,14 +58,14 @@ export default function FinalCta() {
             {/* Left: CTA options */}
             <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start justify-center shrink-0 w-full lg:w-auto">
               {/* Primary CTA */}
-              <a
-                href="#"
+              <Link
+                href="/contact-us"
                 className="group flex items-center gap-3 w-full sm:w-auto bg-green hover:bg-[#0aad76] text-navy font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:shadow-[0_0_28px_rgba(12,191,131,0.45)] hover:scale-[1.03] active:scale-[0.98]"
               >
                 <CalendarCheck className="w-5 h-5 shrink-0" />
                 Book a Discovery Call
                 <ArrowRight className="w-4 h-4 ml-auto sm:ml-0 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               {/* Secondary CTA */}
               <a
