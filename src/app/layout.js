@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata = {
   title: "SoftMind Solutions | AI SaaS & Custom Software Development Company",
   description:
-    "Build scalable AI SaaS products with our expert development team. We help startups and enterprises launch secure, high-performance AI applications faster. Get a free consultation.",
+    "Expert AI SaaS development for startups and enterprises. Build secure, scalable AI applications faster. Get a free consultation today.",
   icons: {
     icon: "/images/favicon.svg",
   },
