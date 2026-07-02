@@ -1,6 +1,12 @@
+import AiSaasOutcomes from "@/components/aiSaasComponents/aiSaasOutcomes";
 import DevelopmetProcess from "@/components/aiSaasComponents/developmetProcess";
 import ServicesShowCase from "@/components/aiSaasComponents/servicesShowCase";
 import { Hero } from "@/components/home/Hero";
+export const metadata = {
+  title: "AI SaaS | SoftMind Solutions",
+  description:
+    "Building scalable, AI-driven SaaS platforms that automate workflows, unlock insights, and accelerate business growth.",
+};
 
 const AISaas = () => {
   return (
@@ -17,6 +23,7 @@ const AISaas = () => {
       />
       <ServicesShowCase />
       <DevelopmetProcess />
+      <AiSaasOutcomes />
     </main>
   );
 };
