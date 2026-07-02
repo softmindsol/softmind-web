@@ -60,7 +60,7 @@ const AiSaasOutcomes = () => {
         {/* Background Glow Effect */}
         <div className="absolute left-1/2 top-[-187px] w-[490px] h-[490px] bg-[#00235A] rounded-full blur-[212px] -translate-x-1/2 pointer-events-none" />
 
-        <div className="relative z-10 mx-auto   px-6 lg:px-12">
+        <div className="relative z-10 mx-auto px-6 lg:px-12">
           {/* Header Section */}
           <div className="flex flex-col items-center gap-3.5 mb-16 text-center">
             <div className="flex items-center gap-2">
