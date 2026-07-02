@@ -156,7 +156,10 @@ export default function OurBlogs() {
                 className="w-full shrink-0 px-3 md:w-1/2 lg:w-1/3"
                 style={{ width: isMounted ? `${100 / itemsPerView}%` : "100%" }}
               >
-                <Link href={`/blog/${blog.slug}`} className="group relative flex flex-col p-4 bg-black/20 rounded-[12.345px] border border-white/5 overflow-hidden transition-all duration-300 hover:bg-black/30 hover:border-white/10 h-full">
+                <Link
+                  href={`/blog/${blog.slug}`}
+                  className="group relative flex flex-col p-4 bg-black/20 rounded-[12.345px] border border-white/5 overflow-hidden transition-all duration-300 hover:bg-black/30 hover:border-white/10 h-full"
+                >
                   {/* Internal Glow */}
                   <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#002545] rounded-full pointer-events-none opacity-60 blur-[40px] z-0" />
 
