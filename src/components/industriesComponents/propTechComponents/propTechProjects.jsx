@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import CustomButton from "@/components/customs/customButton";
 
 const projects = [
   {
@@ -31,7 +32,7 @@ const projects = [
 
 const PropTechProjects = () => {
   return (
-    <section className="relative w-full bg-white py-20 lg:py-32 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-white py-20 lg:py-24 font-jakarta overflow-hidden">
       <div className="mx-auto px-6 lg:px-12 flex flex-col gap-[100px]">
         {projects.map((project) => (
           <div
@@ -64,7 +65,7 @@ const PropTechProjects = () => {
               </div>
 
               {/* Title */}
-              <h3 className="font-bold text-[28px] lg:text-[36px] leading-[1.2] lg:leading-[45px] tracking-[1px] text-[#2E2E2E] capitalize mb-[14px]">
+              <h3 className="font-bold text-[28px] lg:text-[36px] leading-[1.2] lg:leading-[45px] tracking-[1px] text-dark capitalize mb-[14px]">
                 {project.title}
               </h3>
 
@@ -74,11 +75,7 @@ const PropTechProjects = () => {
               </p>
 
               {/* Read More Button */}
-              <button className="flex flex-row justify-center items-center px-[26px] py-[14px] bg-white border border-navy rounded-[100px] transition-colors duration-300 hover:bg-navy hover:text-white group">
-                <span className="font-semibold text-[16px] leading-[20px] tracking-[1px] text-navy group-hover:text-white transition-colors duration-300">
-                  Read More
-                </span>
-              </button>
+              <CustomButton btnText={"Read More"} />
             </div>
           </div>
         ))}

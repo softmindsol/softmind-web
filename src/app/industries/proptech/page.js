@@ -3,6 +3,12 @@ import HowWeWorkProp from "@/components/industriesComponents/propTechComponents/
 import PropTechProjects from "@/components/industriesComponents/propTechComponents/propTechProjects";
 import PropTechSolutions from "@/components/industriesComponents/propTechComponents/propTechSolutions";
 import WhySoftMind from "@/components/industriesComponents/propTechComponents/whySoftMind";
+import ReachUsOut from "@/components/home/reachUsOut";
+
+export const metadata = {
+  title: "PropTech | SoftMind Solutions",
+  description: "PropTech Solutions by SoftMind Solutions",
+};
 
 const PropTech = () => {
   return (
@@ -21,6 +27,7 @@ const PropTech = () => {
       <WhySoftMind />
       <HowWeWorkProp />
       <PropTechProjects />
+      <ReachUsOut />
     </main>
   );
 };
