@@ -91,6 +91,7 @@ export default function OurLeadership() {
               <Image
                 className="rounded-lg mb-5 h-[320px] w-full object-cover"
                 src={leader.image}
+                alt="Our Leaders"
               />
               <div className="flex flex-col gap-0.5 px-1">
                 <h3 className="text-[15px] font-bold text-dark tracking-wide">
