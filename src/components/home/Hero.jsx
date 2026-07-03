@@ -17,7 +17,7 @@ export function Hero({
   description = (
     <>
       We build scalable web apps, mobile apps, <b>AI SaaS</b> platforms, and
-      dedicated development teams for <b>HealthCare, FinTech, EdTech,</b> and{" "}
+      dedicated development teams for <b>HealthTech, FinTech, EdTech,</b> and{" "}
       <b>PropTech</b> companies.
     </>
   ),
