@@ -7,6 +7,7 @@ import CeoBilal from "./ceo-bilal.svg";
 import MariyumHR from "./mariyum-hr.svg";
 import FahadAnwar from "./fahad-anwar.svg";
 import AhmarBaig from "./ahmar-baig.svg";
+import PtSolutions from "./pt-solutions.webp";
 
 export {
   Logo,
@@ -18,4 +19,5 @@ export {
   MariyumHR,
   FahadAnwar,
   AhmarBaig,
+  PtSolutions,
 };
