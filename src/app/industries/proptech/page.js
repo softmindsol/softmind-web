@@ -1,4 +1,6 @@
 import { Hero } from "@/components/home/Hero";
+import HowWeWorkProp from "@/components/industriesComponents/propTechComponents/howWeWorkProp";
+import PropTechProjects from "@/components/industriesComponents/propTechComponents/propTechProjects";
 import PropTechSolutions from "@/components/industriesComponents/propTechComponents/propTechSolutions";
 import WhySoftMind from "@/components/industriesComponents/propTechComponents/whySoftMind";
 
@@ -17,6 +19,8 @@ const PropTech = () => {
       />
       <PropTechSolutions />
       <WhySoftMind />
+      <HowWeWorkProp />
+      <PropTechProjects />
     </main>
   );
 };
