@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  BrainCircuit,
-  Cloud,
-  Layers,
-  Cpu,
-  Server,
-  Lightbulb,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Lightbulb } from "lucide-react";
+import { FiPenTool } from "react-icons/fi";
+import { GiPencilBrush } from "react-icons/gi";
+import { CgWebsite } from "react-icons/cg";
+import { SiMaterialdesign, SiRedux } from "react-icons/si";
+import { AiOutlineProduct } from "react-icons/ai";
+
 import {
   Carousel,
   CarouselContent,
@@ -18,14 +15,14 @@ import {
   useCarousel,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { SoftMindSolLogo } from "../../../public/images";
+import { SoftMindSolLogo } from "../../../../public/images";
 
 const tabsData = [
   {
-    title: "AI Model Development",
-    icon: BrainCircuit,
+    title: "Branding",
+    icon: FiPenTool,
     description:
-      "Great products go beyond features – they solve real problems with intelligence built in. We design and train custom AI models that understand your data, automate decisions, and scale seamlessly within your SaaS platform, turning raw information into a genuine competitive advantage.",
+      "Great design goes beyond aesthetics it creates meaningful experiences that connect with your audience. We craft intuitive, consistent, and user-focused interfaces that strengthen your brand, improve usability, and turn every interaction into a lasting impression.",
     images: [
       "https://picsum.photos/id/1/800/400",
       "https://picsum.photos/id/2/800/400",
@@ -33,10 +30,10 @@ const tabsData = [
     ],
   },
   {
-    title: "SaaS Architecture",
-    icon: Layers,
+    title: "UX/Ui Design",
+    icon: GiPencilBrush,
     description:
-      "Build a robust and scalable architecture tailored for AI-driven software. Our designs ensure high availability, efficient resource utilization, and seamless integration, empowering your SaaS products to grow alongside your business without technical bottlenecks.",
+      "Transforming ideas into intuitive, engaging, and user-centered digital experiences. From initial wireframes to high-fidelity prototypes, we design interfaces that enhance usability, reflect your brand identity, and deliver seamless interactions across every touchpoint.",
     images: [
       "https://picsum.photos/id/4/800/400",
       "https://picsum.photos/id/5/800/400",
@@ -44,10 +41,10 @@ const tabsData = [
     ],
   },
   {
-    title: "Cloud & Infrastructure",
-    icon: Cloud,
+    title: "UI For Mobile and Web",
+    icon: CgWebsite,
     description:
-      "Deploy your applications on secure, high-performance cloud environments. We provide end-to-end infrastructure management and optimization, ensuring that your AI solutions operate flawlessly while maintaining cost efficiency and data compliance.",
+      "Creating seamless and intuitive interfaces that work flawlessly across both mobile and web platforms. We combine modern design trends with user-centric principles to deliver consistent, engaging, and accessible experiences that adapt effortlessly to any device.",
     images: [
       "https://picsum.photos/id/7/800/400",
       "https://picsum.photos/id/8/800/400",
@@ -55,10 +52,10 @@ const tabsData = [
     ],
   },
   {
-    title: "API Integration",
-    icon: Cpu,
+    title: "UX/UI Consulting",
+    icon: SiRedux,
     description:
-      "Seamlessly connect your AI capabilities with third-party services and internal tools. Our robust API integration solutions simplify data flow, enhance functionality, and create a unified ecosystem that accelerates your product's time-to-market.",
+      "Leveraging our deep expertise to guide your digital strategy and enhance user engagement. From user research and journey mapping to usability testing and design system implementation, we provide actionable insights and tailored solutions to elevate your product's potential.",
     images: [
       "https://picsum.photos/id/10/800/400",
       "https://picsum.photos/id/11/800/400",
@@ -66,10 +63,10 @@ const tabsData = [
     ],
   },
   {
-    title: "MLOps & Deployment",
-    icon: Server,
+    title: "Product Design",
+    icon: AiOutlineProduct,
     description:
-      "Streamline the lifecycle of your machine learning models from development to production. Our MLOps practices ensure continuous integration, reliable deployment, and automated monitoring, reducing downtime and maintaining model accuracy over time.",
+      "End-to-end product design services that help you create digital products that users love. From initial discovery and research to high-fidelity prototyping and design system creation, we design interfaces that enhance usability, reflect your brand identity, and deliver seamless interactions across every touchpoint.",
     images: [
       "https://picsum.photos/id/13/800/400",
       "https://picsum.photos/id/14/800/400",
@@ -77,10 +74,10 @@ const tabsData = [
     ],
   },
   {
-    title: "Product Strategy",
-    icon: Lightbulb,
+    title: "MVP Design",
+    icon: SiMaterialdesign,
     description:
-      "Align your AI initiatives with your core business objectives. We offer strategic consulting to identify high-impact opportunities, define product roadmaps, and ensure that your intelligent SaaS solutions deliver measurable value to your users.",
+      "Launch faster with our Minimum Viable Product (MVP) design services. We help you create a focused, user-validated version of your product that delivers core value, gathers essential feedback, and sets the foundation for scalable growth.",
     images: [
       "https://picsum.photos/id/16/800/400",
       "https://picsum.photos/id/17/800/400",
@@ -114,7 +111,7 @@ const CustomCarouselControls = () => {
   );
 };
 
-const ServicesShowCase = () => {
+const ProductDesignShowCase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeTab = tabsData[activeIndex];
 
@@ -137,11 +134,11 @@ const ServicesShowCase = () => {
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-blue-600" />
               <h3 className="text-[22px] font-bold tracking-[1px] text-green">
-                AI SaaS Development Services
+                UX/Ui Design Services
               </h3>
             </div>
             <h2 className="text-[32px] md:text-[46px] font-bold leading-tight tracking-[1px] text-white capitalize">
-              Transforming Ideas Into Intelligent Products
+              Transforming Ideas Into User Experiences
             </h2>
           </div>
           {/* Main Content: Sidebar + Right Panel */}
@@ -214,10 +211,10 @@ const ServicesShowCase = () => {
             </div>
           </div>
           {/* Stats Bar */}
-          <div className="relative z-20 max-w-[1288px] mx-auto px-4 sm:px-6 lg:px-8 -mb-44 lg:-mb-88">
+          <div className="relative z-20 mx-auto px-4 sm:px-6 lg:px-8 -mb-44 lg:-mb-88">
             <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[12px] py-14 px-6 sm:px-12 flex flex-col items-center justify-center gap-7 shadow-2xl">
               <h2 className="mb-12 text-center text-[32px] md:text-[40px] font-bold text-white">
-                Your AI Product Is Built To Scale
+                Your Project is in Safe Hands
               </h2>
               <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0">
                 {/* Stat 1 */}
@@ -226,7 +223,7 @@ const ServicesShowCase = () => {
                     50+
                   </span>
                   <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    AI/ML Engineers & Data Scientists
+                    Experienced UX/UI Designers
                   </span>
                 </div>
                 {/* Stat 2 */}
@@ -235,7 +232,7 @@ const ServicesShowCase = () => {
                     $20M+
                   </span>
                   <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    In efficiency gains for our clients
+                    Raised by our startup clients
                   </span>
                 </div>
                 {/* Stat 3 */}
@@ -244,7 +241,7 @@ const ServicesShowCase = () => {
                     95%
                   </span>
                   <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    Model accuracy across production
+                    Client satisfaction rate
                   </span>
                 </div>
                 {/* Stat 4 */}
@@ -253,7 +250,7 @@ const ServicesShowCase = () => {
                     50+
                   </span>
                   <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    AI SaaS products shipped
+                    Projects across 5+ industries
                   </span>
                 </div>
               </div>
@@ -265,4 +262,4 @@ const ServicesShowCase = () => {
   );
 };
 
-export default ServicesShowCase;
+export default ProductDesignShowCase;

@@ -178,6 +178,25 @@ const HowWeWorkProp = () => {
               className="animate-dash-flow"
               mask="url(#desktop-path-mask)"
             />
+
+            {/* Animated Plane on Path */}
+            <g
+              style={{ opacity: isVisible ? 1 : 0, transition: "opacity 0.3s" }}
+            >
+              {isVisible && (
+                <animateMotion dur="4.2s" fill="freeze" calcMode="paced">
+                  <mpath href="#main-path" />
+                </animateMotion>
+              )}
+              <foreignObject width="100" height="100" x="-50" y="-50">
+                <div className="w-full h-full flex items-center justify-center">
+                  <FaPlane
+                    className="text-green text-[40px] drop-shadow-lg"
+                    style={{ transform: "rotate(-45deg)" }}
+                  />
+                </div>
+              </foreignObject>
+            </g>
           </svg>
 
           {/* Nodes */}
@@ -206,23 +225,6 @@ const HowWeWorkProp = () => {
               </div>
             </div>
           ))}
-
-          {/* Plane */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              left: "90.2%",
-              top: "35.1%",
-              transform: "translate(-50%, -50%) rotate(-45deg)",
-            }}
-          >
-            <div
-              className={`transition-all duration-500 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
-              style={{ transitionDelay: "4100ms" }}
-            >
-              <FaPlane className="text-green text-[40px] drop-shadow-lg" />
-            </div>
-          </div>
         </div>
 
         {/* Mobile Timeline Layout */}
