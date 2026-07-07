@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/Hero";
-import ProductDesignShowCase from "@/components/servicesCompoets/productDesignComponents/productDesignShowCase";
-import ProductDesignProcess from "@/components/servicesCompoets/productDesignComponents/productDesignProcess";
-import ProductDesignOutcomes from "@/components/servicesCompoets/productDesignComponents/productDesignOutcomes";
+import ProductDesignShowCase from "@/components/servicesComponents/productDesignComponents/productDesignShowCase";
+import ProductDesignProcess from "@/components/servicesComponents/productDesignComponents/productDesignProcess";
+import ProductDesignOutcomes from "@/components/servicesComponents/productDesignComponents/productDesignOutcomes";
 export const metadata = {
   title: "Product Design | SoftMind Solutions",
   description:

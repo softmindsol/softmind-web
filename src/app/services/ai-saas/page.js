@@ -1,6 +1,6 @@
-import AiSaasOutcomes from "@/components/servicesCompoets/aiSaasComponents/aiSaasOutcomes";
-import DevelopmetProcess from "@/components/servicesCompoets/aiSaasComponents/developmetProcess";
-import ServicesShowCase from "@/components/servicesCompoets/aiSaasComponents/servicesShowCase";
+import AiSaasOutcomes from "@/components/servicesComponents/aiSaasComponents/aiSaasOutcomes";
+import DevelopmetProcess from "@/components/servicesComponents/aiSaasComponents/developmetProcess";
+import ServicesShowCase from "@/components/servicesComponents/aiSaasComponents/servicesShowCase";
 import { Hero } from "@/components/home/Hero";
 export const metadata = {
   title: "AI SaaS | SoftMind Solutions",
