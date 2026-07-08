@@ -1,80 +1,65 @@
-import Image from "next/image";
+"use client";
 import React from "react";
+import Image from "next/image";
 import { SoftMindSolLogo } from "../../../public/images";
-import { TbAdjustmentsDollar, TbHeartPlus } from "react-icons/tb";
-import { SlGraduation } from "react-icons/sl";
-import { HiOutlineShoppingCart, HiSparkles } from "react-icons/hi2";
+import {
+  Globe,
+  Smartphone,
+  Cpu,
+  Palette,
+  Users,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function WhatWeOffer() {
-  const offerings = [
+  const services = [
     {
-      title: "PropTech",
+      title: "Web Development",
       description:
-        "We build proptech solutions that simplify property management, automate operations, and improve real estate experiences.",
-      // Custom SVG icon representing property/real-estate
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#0CBF83"
-          className="w-5 h-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75v3"
-          />
-        </svg>
-      ),
+        "We build high-performance, scalable web applications using modern frameworks like Next.js, React, and Node.js — crafted to grow with your business.",
+      icon: <Globe className="w-5 h-5" />,
     },
     {
-      title: "FinTech",
+      title: "Mobile App Development",
       description:
-        "We build fintech solutions that simplify financial operations, improve user experiences, and streamline digital transactions.",
-      // Custom SVG icon representing financial operations
-      icon: <TbAdjustmentsDollar className="w-5 h-5 text-green" />,
+        "Cross-platform and native mobile apps for iOS and Android that deliver seamless user experiences, built with React Native and Flutter.",
+      icon: <Smartphone className="w-5 h-5" />,
     },
     {
-      title: "EdTech",
+      title: "AI SaaS Development",
       description:
-        "We build edtech solutions that enhance learning experiences, simplify education management, and improve digital collaboration.",
-      // Custom SVG icon representing learning/education
-      icon: <SlGraduation className="h-5 w-5" />,
+        "End-to-end AI-powered SaaS products — from architecture and model integration to production deployment, built for scale and reliability.",
+      icon: <Cpu className="w-5 h-5" />,
     },
     {
-      title: "HealthTech",
+      title: "UI/UX Design",
       description:
-        "We build healthtech solutions that streamline healthcare operations, improve patient experiences, and simplify digital care management.",
-      // Custom SVG icon representing health/heart
-      icon: <TbHeartPlus className="h-5 w-5" />,
+        "Data-driven, conversion-focused design that transforms complex workflows into intuitive, beautiful interfaces your users will love.",
+      icon: <Palette className="w-5 h-5" />,
     },
     {
-      title: "AI Services",
+      title: "Dedicated Development Teams",
       description:
-        "We build intelligent solutions that automate workflows, improve efficiency, and enhance digital experiences.",
-      // Custom SVG icon representing AI/Sparks
-      icon: <HiSparkles className="h-5 w-5" />,
+        "Hire fully managed, dedicated engineers who embed into your team, follow your processes, and deliver like your in-house developers.",
+      icon: <Users className="w-5 h-5" />,
     },
     {
-      title: "E-Commerce",
+      title: "QA & Testing",
       description:
-        "We build ecommerce solutions that streamline online sales, improve customer experiences, and simplify business operations.",
-      // Custom SVG icon representing cart/sales
-      icon: <HiOutlineShoppingCart className="h-5 w-5" />,
+        "Comprehensive quality assurance — manual, automated, and performance testing — to ensure your product ships bug-free and performs under load.",
+      icon: <ShieldCheck className="w-5 h-5" />,
     },
   ];
 
   return (
     <section className="relative w-full bg-[#161617] text-white py-16 md:py-24 overflow-hidden font-jakarta">
-      {/* Background radial glow element (matching "Ellipse 25" in design file) */}
+      {/* Background radial glow */}
       <div
         className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40 blur-[180px]"
         style={{ backgroundColor: "navy" }}
       />
 
-      {/* Stylized background monogram watermark on the left (matching "SoftOps Monogram") */}
+      {/* Watermark logo */}
       <div className="absolute select-none pointer-events-none">
         <Image
           src={SoftMindSolLogo}
@@ -84,52 +69,46 @@ export default function WhatWeOffer() {
       </div>
 
       <div className="relative mx-auto px-6 md:px-12 flex flex-col items-center">
-        {/* Header Label: Industries We Work With */}
+        {/* Section Label */}
         <div className="flex items-center gap-2 mb-4">
-          {/* Custom gradient dot bullet point */}
           <span className="size-2.5 rounded-full bg-gradient-to-r from-[#00235A] to-[#004BC0]" />
           <span className="text-green text-sm md:text-[22px] font-bold tracking-wider uppercase md:normal-case">
-            Industries We Work With
+            Our Services
           </span>
         </div>
 
-        {/* Header Title & Subtitle Section */}
-        <div className="max-w-[655px] text-center mb-16 space-y-6">
+        {/* Heading */}
+        <div className="max-w-[680px] text-center mb-16 space-y-6">
           <h2 className="text-3xl md:text-5xl font-bold tracking-wide capitalize leading-snug">
-            What We Offer
+            Everything You Need to Build & Scale
           </h2>
           <p className="text-sm md:text-base text-[#E4E4E4] font-medium leading-relaxed tracking-wide">
-            We deliver tailored digital solutions designed to help businesses
-            grow, scale, and succeed. From strategy to execution, our team
-            ensures every service is aligned with your goals and built for
-            long-term impact.
+            From idea to launch and beyond — we cover the full spectrum of
+            product development so you can focus on building your business.
           </p>
         </div>
 
-        {/* Responsive Grid Layout for cards */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {offerings.map((offering, idx) => (
+          {services.map((service, idx) => (
             <div
               key={idx}
-              className="bg-black/10 backdrop-blur-[5px] border border-white/20 hover:border-green/60 rounded-xl p-6 md:p-8 flex flex-col justify-between transition-all duration-300 shadow-[0px_0px_30px_rgba(0,0,0,0.12)] min-h-[160px]"
+              className="group bg-black/10 backdrop-blur-[5px] border border-white/10 hover:border-green/50 rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(12,191,131,0.08)]"
             >
-              <div>
-                {/* Header inside Card: Icon + Title */}
-                <div className="flex items-center gap-3.5 mb-3.5">
-                  {/* Circle background wrapper for icon with transparent theme green */}
-                  <div className="w-9 h-9 rounded-full bg-[#0CBF83]/10 flex items-center justify-center shrink-0">
-                    <div className="text-green">{offering.icon}</div>
-                  </div>
-                  <h3 className="text-lg md:text-[18px] font-bold text-white leading-[23px]">
-                    {offering.title}
-                  </h3>
-                </div>
-
-                {/* Subtext description (indented to match left alignment of card headers) */}
-                <p className="pl-[50px] text-sm md:text-[16px] text-[#E4E4E4] font-medium leading-[20px]">
-                  {offering.description}
-                </p>
+              {/* Icon */}
+              <div className="w-10 h-10 rounded-xl bg-green/10 border border-green/20 flex items-center justify-center text-green shrink-0 transition-transform duration-300 group-hover:scale-110">
+                {service.icon}
               </div>
+
+              {/* Title */}
+              <h3 className="text-lg font-bold text-white leading-snug">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm text-white/65 font-medium leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
