@@ -16,41 +16,65 @@ export default function Industries() {
     {
       title: "HealthTech",
       description:
-        "Building HIPAA-compliant patient management dashboards, wellness monitoring platforms, and telemedicine apps that put patients first.",
+        "We build secure, user-friendly healthcare software that improves patient care, operational efficiency, and digital access to medical services.",
       icon: HeartPulse,
       color: "text-green bg-green/10 border-green/20",
       accent: "hover:shadow-green/10",
-      items: ["HIPAA Compliance", "Telemedicine", "Patient Dashboards"],
+      items: [
+        "Patient portal development",
+        "Telemedicine app development",
+        "Healthcare CRM solutions",
+        "Appointment booking systems",
+        "Medical record management",
+        "Healthcare mobile app development",
+      ],
     },
     {
       title: "FinTech",
       description:
-        "Developing high-security robo-advisors, fractional investing systems, and transaction pipelines built for trust and transparency.",
+        "We develop secure and scalable fintech platforms designed for transactions, automation, reporting, and seamless customer experiences.",
       icon: Wallet,
       color: "text-blue-500 bg-blue-500/10 border-blue-500/20",
       accent: "hover:shadow-blue-500/10",
-      items: ["Secure Ledgers", "Escrow APIs", "Auto-Investing"],
+      items: [
+        "Digital wallet development",
+        "Payment gateway integration",
+        "Lending platform development",
+        "Finance dashboard development",
+        "KYC and onboarding workflows",
+        "Fintech mobile app development",
+      ],
     },
     {
       title: "PropTech",
       description:
-        "Creating real-estate listing engines, commercial asset controllers, and fractional ownership portals with custom database systems.",
+        "We create real estate and property technology solutions that simplify listings, transactions, tenant management, and customer communication.",
       icon: Building,
       color: "text-purple-500 bg-purple-500/10 border-purple-500/20",
       accent: "hover:shadow-purple-500/10",
-      items: ["Property Analytics", "Smart Leases", "Asset Portals"],
+      items: [
+        "Property listing platforms",
+        "Real estate CRM development",
+        "Tenant management systems",
+        "Property management software",
+        "Booking and scheduling tools",
+        "Real estate mobile app development",
+      ],
     },
     {
       title: "EdTech",
       description:
-        "Designing modular learning management platforms, tracking systems, and interactive assessment tools for modern education.",
+        "We build engaging and scalable education technology platforms for online learning, virtual classrooms, course management, and student engagement.",
       icon: GraduationCap,
       color: "text-orange-500 bg-orange-500/10 border-orange-500/20",
       accent: "hover:shadow-orange-500/10",
       items: [
-        "LMS Architecture",
-        "Student Progress Analytics",
-        "Media Portals",
+        "Learning management systems",
+        "Virtual classroom platforms",
+        "Course marketplace development",
+        "Student progress dashboards",
+        "Online assessment tools",
+        "EdTech mobile app development",
       ],
     },
     {
@@ -60,19 +84,29 @@ export default function Industries() {
       icon: Lightbulb,
       color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
       accent: "hover:shadow-pink-500/10",
-      items: ["Property Analytics", "Smart Leases", "Asset Portals"],
+      items: [
+        "Custom chatbot development",
+        "AI-powered analytics",
+        "Process automation bots",
+        "AI-driven personalization",
+        "Predictive modeling solutions",
+        "AI integration services",
+      ],
     },
     {
       title: "E-Commerce",
       description:
-        "We build ecommerce solutions that streamline online sales, improve customer experiences, and simplify business operations.",
+        "We develop e-commerce platforms that help businesses sell online, manage operations, and deliver smooth shopping experiences across devices.",
       icon: ShoppingBag,
       color: "text-teal-500 bg-teal-500/10 border-teal-500/20",
       accent: "hover:shadow-teal-500/10",
       items: [
-        "LMS Architecture",
-        "Student Progress Analytics",
-        "Media Portals",
+        "Custom e-commerce development",
+        "Online marketplace development",
+        "Shopping cart and checkout systems",
+        "Inventory management solutions",
+        "Payment and shipping integrations",
+        "E-commerce mobile app development",
       ],
     },
   ];
@@ -103,12 +137,19 @@ export default function Industries() {
               Industries We Serve
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[700px]">
+          {/* <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[700px]">
             Tailored Technology For High-Growth Sectors
+          </h2> */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[700px]">
+            Software Solutions for High-Growth Industries
           </h2>
-          <p className="text-sm md:text-base text-white/60 font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
+          {/* <p className="text-sm md:text-base text-white/60 font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
             We possess deep domain expertise in designing, shipping, and
             maintaining production-grade software for specialized industries.
+          </p> */}
+          <p className="text-sm md:text-base text-white/60 font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
+            Industry-focused software solutions built for the way your business
+            works, your users behave, and your market grows.
           </p>
         </div>
 

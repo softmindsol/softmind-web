@@ -3,21 +3,25 @@ import { Typewriter } from "../ui/typewriter";
 import CustomButton from "../customs/customButton";
 
 export function Hero({
-  title = "AI SaaS & Custom Software Development Company",
-  typewriterPrefix = "For ",
-  typewriterPhrases = [
-    "Startups",
-    "Growing Businesses",
-    "Enterprises",
-    "Visionaries",
-  ],
-  description = (
-    <>
-      We build scalable web apps, mobile apps, <b>AI SaaS</b> platforms, and
-      dedicated development teams for <b>HealthTech, FinTech, EdTech,</b> and{" "}
-      <b>PropTech</b> companies.
-    </>
-  ),
+  // title = "AI SaaS & Custom Software Development Company",
+  title = "AI Enabled Product Engineering",
+  // typewriterPrefix = "For ",
+  typewriterPrefix = "And ",
+  // typewriterPhrases = [
+  //   "Startups",
+  //   "Growing Businesses",
+  //   "Enterprises",
+  //   "Visionaries",
+  // ],
+  typewriterPhrases = ["Digital Solution Partner"],
+  // description = (
+  //   <>
+  //     We build scalable web apps, mobile apps, <b>AI SaaS</b> platforms, and
+  //     dedicated development teams for <b>HealthTech, FinTech, EdTech,</b> and{" "}
+  //     <b>PropTech</b> companies.
+  //   </>
+  // ),
+  description = "Build your product or extend your engineering team with a trusted offshore software development company.",
   primaryButtonText = "Book a Discovery Call",
   primaryButtonLink = "#",
   secondaryButtonText = "View Our Work",
@@ -40,7 +44,7 @@ export function Hero({
       <div className="relative z-10 flex flex-col items-center w-full max-w-[871px] px-12 gap-12">
         {/* Headings */}
         <div className="flex flex-col items-center gap-6 text-center">
-          <h1 className="text-[28px] sm:text-[40px] lg:text-[54px] sm:leading-[1.2] lg:leading-[68px] font-bold font-jakarta capitalize text-navy">
+          <h1 className="text-[28px] sm:text-[40px] lg:text-[50px] sm:leading-[1.2] lg:leading-[68px] font-bold font-jakarta capitalize text-navy">
             {title}
             {typewriterPhrases && typewriterPhrases.length > 0 && (
               <>

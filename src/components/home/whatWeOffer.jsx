@@ -16,37 +16,37 @@ export default function WhatWeOffer() {
     {
       title: "Web Development",
       description:
-        "We build high-performance, scalable web applications using modern frameworks like Next.js, React, and Node.js — crafted to grow with your business.",
+        "We build scalable, secure, and high-performance web applications tailored to your business goals. From SaaS platforms to custom portals, our team delivers web apps that are fast, reliable, and built to grow.",
       icon: <Globe className="w-5 h-5" />,
     },
     {
       title: "Mobile App Development",
       description:
-        "Cross-platform and native mobile apps for iOS and Android that deliver seamless user experiences, built with React Native and Flutter.",
+        "We develop user-friendly mobile apps for iOS and Android with smooth performance and intuitive design. Whether you need an MVP or a full-scale mobile product, we help you launch faster with confidence.",
       icon: <Smartphone className="w-5 h-5" />,
     },
     {
       title: "AI SaaS Development",
       description:
-        "End-to-end AI-powered SaaS products — from architecture and model integration to production deployment, built for scale and reliability.",
+        "We build AI-powered SaaS products that automate workflows, improve decisions, and create smarter user experiences. From AI features to full SaaS platforms, we turn your product idea into scalable software.",
       icon: <Cpu className="w-5 h-5" />,
     },
     {
       title: "UI/UX Design",
       description:
-        "Data-driven, conversion-focused design that transforms complex workflows into intuitive, beautiful interfaces your users will love.",
+        "We design clean, modern, and conversion-focused interfaces for web and mobile applications. Our UI/UX process makes your product easy to use, visually engaging, and aligned with real user behavior.",
       icon: <Palette className="w-5 h-5" />,
     },
     {
-      title: "Dedicated Development Teams",
+      title: "MVP Development Services",
       description:
-        "Hire fully managed, dedicated engineers who embed into your team, follow your processes, and deliver like your in-house developers.",
+        "We help startups turn ideas into launch-ready MVPs quickly and cost-effectively. Our team focuses on core features, scalable architecture, and fast delivery so you can validate your product sooner.",
       icon: <Users className="w-5 h-5" />,
     },
     {
       title: "QA & Testing",
       description:
-        "Comprehensive quality assurance — manual, automated, and performance testing — to ensure your product ships bug-free and performs under load.",
+        "We test your software across functionality, performance, usability, and compatibility to ensure a smooth launch. Our QA team helps you reduce bugs, improve reliability, and deliver a better user experience.",
       icon: <ShieldCheck className="w-5 h-5" />,
     },
   ];
@@ -78,13 +78,21 @@ export default function WhatWeOffer() {
         </div>
 
         {/* Heading */}
-        <div className="max-w-[680px] text-center mb-16 space-y-6">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-wide capitalize leading-snug">
+        <div className="max-w-[800px] text-center mb-16 space-y-6">
+          {/* <h2 className="text-3xl md:text-5xl font-bold tracking-wide capitalize leading-snug">
             Everything You Need to Build & Scale
+          </h2> */}
+          <h2 className="text-3xl md:text-5xl font-bold tracking-wide capitalize leading-snug">
+            Custom Software Development Services for Product Teams
           </h2>
-          <p className="text-sm md:text-base text-[#E4E4E4] font-medium leading-relaxed tracking-wide">
+          {/* <p className="text-sm md:text-base text-[#E4E4E4] font-medium leading-relaxed tracking-wide">
             From idea to launch and beyond — we cover the full spectrum of
             product development so you can focus on building your business.
+          </p> */}
+          <p className="text-sm md:text-base text-[#E4E4E4] font-medium leading-relaxed tracking-wide">
+            We provide end-to-end software development services that help
+            startups and product teams build, launch, scale, and improve digital
+            products faster.
           </p>
         </div>
 
