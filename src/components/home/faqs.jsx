@@ -8,49 +8,55 @@ export default function Faqs() {
 
   const faqData = [
     {
-      question: "What services does Softmind Solutions offer?",
+      question: "What does SoftMind do?",
       answer:
-        "We provide full-cycle software development including web & mobile app development, AI/ML integration, UI/UX design, and staff augmentation for startups and enterprises.",
+        "SoftMind is an offshore software development company that helps startups, SaaS companies, and engineering teams build scalable web apps, mobile apps, AI solutions, cloud platforms, and custom software products.",
     },
     {
-      question: "How experienced is your team?",
+      question:
+        "Why should I choose SoftMind as my software development partner?",
       answer:
-        "Our team consists of senior engineers, developers, and designers with an average of 5+ years of experience delivering high-quality production applications.",
+        "SoftMind provides senior in-house developers, timezone-aligned collaboration, agile delivery, transparent communication, and flexible engagement models to help you build faster while reducing software development costs.",
     },
     {
-      question: "Can we hire your developers on a monthly basis?",
+      question: "Can I hire dedicated developers from SoftMind?",
       answer:
-        "Yes, we offer flexible dedicated hiring models on a monthly or contract basis to seamlessly augment your internal team.",
+        "Yes. You can hire dedicated developers from SoftMind who work directly with your team, join your standups, use your tools, and support your product roadmap as full-time remote engineers.",
     },
     {
-      question: "What industries do you specialize in?",
+      question: "How quickly can I onboard developers?",
       answer:
-        "We specialize in PropTech, FinTech, EdTech, HealthTech, AI Services, and E-Commerce, delivering tailored solutions for each sector.",
+        "You can typically onboard pre-vetted developers within 7 to 14 days, depending on your required skills, project scope, and team size.",
     },
     {
-      question: "Do you provide post-launch support?",
+      question: "What software development services does SoftMind offer?",
       answer:
-        "Absolutely. We provide comprehensive post-launch maintenance, monitoring, and updates to ensure your platform runs flawlessly.",
+        "SoftMind offers custom software development, web app development, mobile app development, AI app development, cloud app development, legacy app modernization, UI/UX design, QA testing, and staff augmentation services.",
     },
     {
-      question: "What technologies do you use?",
+      question: "What technologies does SoftMind work with?",
       answer:
-        "We utilize modern, industry-standard stacks including React, Next.js, Node.js, Python, React Native, AWS, and customized AI models.",
+        "SoftMind engineers work with modern technologies including React, Next.js, Node.js, React Native, AWS, AI integrations, APIs, DevOps tools, cloud platforms, and UI/UX design systems.",
     },
     {
-      question: "How do you ensure the quality of your deliverables?",
+      question: "Do SoftMind developers work in our timezone?",
       answer:
-        "We enforce strict testing procedures, continuous integration/delivery (CI/CD) pipelines, automated QA, and meticulous code review protocols.",
+        "Yes. SoftMind’s offshore developers work with timezone alignment, attend your meetings, communicate through your preferred tools, and integrate into your existing development workflow.",
     },
     {
-      question: "Can you work in our timezone?",
+      question: "Will I own the source code and intellectual property?",
       answer:
-        "Yes, we structure our schedules to provide a minimum of 4 hours of overlap with your timezone for smooth communication and daily updates.",
+        "Yes. Your source code, product, documentation, and intellectual property remain 100% yours. SoftMind does not claim ownership of your software or business assets.",
     },
     {
-      question: "How can we start working together?",
+      question: "What engagement models does SoftMind offer?",
       answer:
-        "You can get in touch through our contact form. We will arrange a discovery call to understand your requirements and outline a strategy.",
+        "SoftMind offers three flexible engagement models: software development outsourcing, dedicated development teams, and hire dedicated developers. You can choose the model that best fits your product, budget, timeline, and control needs.",
+    },
+    {
+      question: "Who is SoftMind best suited for?",
+      answer:
+        "SoftMind is best suited for startups, SaaS companies, product teams, and growing engineering teams that need reliable software development, dedicated developers, or offshore engineering support.",
     },
   ];
 
