@@ -115,60 +115,77 @@ export default function Faqs() {
               return (
                 <div
                   key={idx}
-                  className={`w-full rounded-lg transition-all duration-300 border ${
+                  className={`w-full rounded-[20px] transition-all duration-500 overflow-hidden relative group border backdrop-blur-sm ${
                     isOpen
-                      ? "border-white bg-[#161616]"
-                      : "border-white/20 bg-transparent"
+                      ? "border-[#0CBF83]/40 bg-gradient-to-br from-white/[0.08] to-[#0CBF83]/[0.05] shadow-[0_8px_30px_rgba(12,191,131,0.12)]"
+                      : "border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 hover:shadow-lg hover:-translate-y-0.5"
                   }`}
                 >
+                  {/* Subtle animated gradient background for active state */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r from-[#0CBF83]/0 via-[#0CBF83]/5 to-transparent pointer-events-none transition-opacity duration-700 ease-in-out ${
+                      isOpen ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+
                   {/* Accordion Question Bar */}
                   <div
                     onClick={() => handleToggle(idx)}
-                    className="flex items-center justify-between p-5 cursor-pointer select-none gap-4"
+                    className="flex items-center justify-between p-6 sm:p-7 cursor-pointer select-none gap-4 relative z-10"
                   >
                     <h3
-                      className={`text-sm md:text-[16px] leading-[20px] font-bold tracking-[1px] transition-colors duration-300 ${
+                      className={`text-[15px] sm:text-[17px] leading-[1.4] font-bold tracking-[0.5px] transition-all duration-300 ${
                         isOpen
-                          ? "text-white"
-                          : "text-white/50 hover:text-white/80"
+                          ? "text-[#0CBF83]"
+                          : "text-white/80 group-hover:text-white"
                       }`}
                     >
                       {faq.question}
                     </h3>
 
-                    {/* SVG Dropdown Arrow Icon (rotates up when active) */}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className={`w-[18px] h-[18px] shrink-0 transition-all duration-300 ${
-                        isOpen ? "rotate-180 text-white" : "text-white/50"
+                    {/* Icon Container with elegant hover and active state */}
+                    <div
+                      className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out border ${
+                        isOpen
+                          ? "bg-[#0CBF83] border-[#0CBF83] text-[#161616] rotate-180 shadow-[0_0_20px_rgba(12,191,131,0.4)]"
+                          : "bg-transparent border-white/20 text-white/70 group-hover:bg-white/10 group-hover:border-white/40 group-hover:text-white"
                       }`}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-5 h-5 transition-transform duration-500"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* Dynamic Height expanding body wrapper */}
                   <div
-                    className={`grid transition-all duration-300 ease-in-out ${
+                    className={`grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                       isOpen
                         ? "grid-rows-[1fr] opacity-100"
                         : "grid-rows-[0fr] opacity-0 pointer-events-none"
                     }`}
                   >
                     <div className="overflow-hidden">
-                      {/* Divider line inside open box */}
-                      <div className="h-[1px] bg-[#EFEFEF]/10 mx-5" />
+                      <div className="relative z-10 pb-7 px-6 sm:px-7">
+                        {/* Elegant divider */}
+                        <div
+                          className={`w-12 h-[2px] rounded-full mb-5 transition-all duration-700 delay-100 ${isOpen ? "bg-[#0CBF83]/50 w-full max-w-[100px]" : "bg-transparent w-0"}`}
+                        />
 
-                      {/* Answer Body text */}
-                      <p className="p-5 text-xs md:text-[14px] leading-[18px] text-white/80 font-medium tracking-[1px]">
-                        {faq.answer}
-                      </p>
+                        {/* Answer Body text */}
+                        <p className="text-[14px] sm:text-[16px] leading-[1.7] text-white/70 font-medium tracking-wide">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
