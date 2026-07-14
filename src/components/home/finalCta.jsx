@@ -16,7 +16,7 @@ export default function FinalCta() {
     <section className="relative w-full bg-white py-20 md:py-28 overflow-hidden font-jakarta">
       {/* ── Multi-layered background glow system ── */}
 
-      <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1289px]">
+      <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1350px]">
         {/* ── Glowing pill badge ── */}
         <div className="flex justify-center mb-10">
           <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full px-4 py-1.5">
@@ -30,16 +30,15 @@ export default function FinalCta() {
         {/* ── Main heading ── */}
         <div className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-[56px] lg:leading-[1.12] font-bold text-navy tracking-tight max-w-[780px] mx-auto">
-            Let&apos;s Turn Your{" "}
+            Ready to Build Faster with{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0]">
-              Vision Into a Product
+              Senior Offshore Developers?
             </span>{" "}
-            the World Uses
           </h2>
-          <p className="mt-5 text-sm md:text-base text-grey font-medium leading-[26px] tracking-wide max-w-[580px] mx-auto">
-            Book a free 30-minute discovery call. We&apos;ll walk through your
-            requirements, suggest architecture, and give you a realistic
-            timeline — no commitment required.
+          <p className="mt-5 text-sm md:text-base text-grey font-medium leading-[26px] tracking-wide max-w-[620px] mx-auto">
+            Scale your product team, reduce development costs, and ship software
+            faster with Softmind dedicated engineers and offshore development
+            teams.
           </p>
         </div>
 
@@ -63,7 +62,7 @@ export default function FinalCta() {
                 className="group flex items-center gap-3 w-full sm:w-auto bg-green hover:bg-[#0aad76] text-navy font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:shadow-[0_0_28px_rgba(12,191,131,0.45)] hover:scale-[1.03] active:scale-[0.98]"
               >
                 <CalendarCheck className="w-5 h-5 shrink-0" />
-                Book a Discovery Call
+                Book a Free Consultation
                 <ArrowRight className="w-4 h-4 ml-auto sm:ml-0 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
@@ -73,7 +72,7 @@ export default function FinalCta() {
                 className="group flex items-center gap-3 w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
                 <PhoneCall className="w-5 h-5 shrink-0" />
-                Talk to Sales
+                Hire Dedicated Developers
               </a>
             </div>
 
@@ -103,7 +102,7 @@ export default function FinalCta() {
                   </div>
                 </div>
 
-                <span className="ml-2 text-white/60 text-sm font-medium">
+                <span className="ml-2 text-white/65 text-sm font-medium">
                   4.9 / 5 from our clients
                 </span>
               </div>
@@ -118,7 +117,7 @@ export default function FinalCta() {
                     <span className="text-2xl font-bold text-white tracking-tight">
                       {stat.value}
                     </span>
-                    <span className="text-xs text-white/45 font-medium tracking-wide">
+                    <span className="text-xs text-white/65 whitespace-nowrap font-medium tracking-wide">
                       {stat.label}
                     </span>
                   </div>

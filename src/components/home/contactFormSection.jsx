@@ -1,7 +1,33 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, MessageSquare, Phone } from "lucide-react";
+import {
+  CheckCircle2,
+  MessageSquare,
+  Phone,
+  ArrowRight,
+  ChevronDown,
+} from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "../ui/button";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid work email address"),
+  projectType: z.string().min(1, "Please select a project type"),
+  budget: z.string().optional(),
+  message: z
+    .string()
+    .min(10, "Please provide at least a brief description of your project"),
+});
 
 const projectTypes = [
   "Select project type...",
@@ -46,30 +72,40 @@ const howItWorksSteps = [
 ];
 
 export default function ContactFormSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    projectType: "",
-    budget: "",
-    message: "",
-  });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      projectType: "",
+      budget: "",
+      message: "",
+    },
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form submission logic — redirect to contact page or use an API
+  const watchProjectType = watch("projectType");
+  const watchBudget = watch("budget");
+
+  const onSubmit = async (data) => {
+    // Form submission logic — API call goes here
+    await new Promise((resolve) => setTimeout(resolve, 800)); // Simulate network request
     setSubmitted(true);
   };
 
   return (
-    <section className="relative w-full bg-white py-16 md:py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gray-200 py-16 md:py-24 overflow-hidden font-jakarta">
       {/* Subtle background */}
       <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#00235A_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E5F6FE] rounded-full blur-[150px] opacity-40 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-navy rounded-full blur-[150px] opacity-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green rounded-full blur-[150px] opacity-20 pointer-events-none" />
 
       <div className="relative mx-auto px-6 md:px-12">
         {/* Section Label */}
@@ -84,8 +120,8 @@ export default function ContactFormSection() {
             Tell Us About Your Project
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-relaxed max-w-[540px]">
-            Ready to build something great? Share your requirements and we&apos;ll
-            get back to you within 24 hours.
+            Ready to build something great? Share your requirements and
+            we&apos;ll get back to you within 24 hours.
           </p>
         </div>
 
@@ -97,8 +133,8 @@ export default function ContactFormSection() {
                 How Does It Work?
               </h3>
               <p className="text-sm text-grey font-medium leading-relaxed">
-                Getting started is simple. Here&apos;s what happens after you send
-                your message:
+                Getting started is simple. Here&apos;s what happens after you
+                send your message:
               </p>
             </div>
 
@@ -147,7 +183,7 @@ export default function ContactFormSection() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white border border-gray-100 rounded-3xl shadow-[0_8px_48px_rgba(0,0,0,0.08)] p-8 md:p-10">
+          <div className="bg-white/65 border border-gray-100 rounded-3xl shadow-[0_8px_48px_rgba(0,0,0,0.08)] p-8 md:p-10">
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center gap-5 py-12">
                 <div className="w-16 h-16 rounded-full bg-green/10 border border-green/30 flex items-center justify-center">
@@ -155,8 +191,8 @@ export default function ContactFormSection() {
                 </div>
                 <h3 className="text-2xl font-bold text-dark">Message Sent!</h3>
                 <p className="text-grey font-medium text-sm leading-relaxed max-w-xs">
-                  Thank you! Our team will review your request and get back
-                  to you within 24 hours.
+                  Thank you! Our team will review your request and get back to
+                  you within 24 hours.
                 </p>
                 <Link href="/contact-us">
                   <button className="mt-2 px-6 py-3 bg-navy text-white rounded-full text-sm font-bold hover:bg-[#003080] transition-all duration-300">
@@ -165,7 +201,10 @@ export default function ContactFormSection() {
                 </Link>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-5"
+              >
                 <h3 className="text-xl font-bold text-dark mb-1">
                   Start a Conversation
                 </h3>
@@ -181,14 +220,20 @@ export default function ContactFormSection() {
                     </label>
                     <input
                       id="name"
-                      name="name"
                       type="text"
-                      required
                       placeholder="John Smith"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200"
+                      {...register("name")}
+                      className={`w-full bg-white px-4 py-3 rounded-xl border text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 transition-all duration-200 ${
+                        errors.name
+                          ? "border-red-500 focus:ring-red-500/30"
+                          : "border-gray-200 focus:ring-green/30 focus:border-green/50"
+                      }`}
                     />
+                    {errors.name && (
+                      <span className="text-red-500 text-xs font-semibold">
+                        {errors.name.message}
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label
@@ -199,14 +244,20 @@ export default function ContactFormSection() {
                     </label>
                     <input
                       id="email"
-                      name="email"
                       type="email"
-                      required
                       placeholder="john@company.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200"
+                      {...register("email")}
+                      className={`w-full bg-white px-4 py-3 rounded-xl border text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 transition-all duration-200 ${
+                        errors.email
+                          ? "border-red-500 focus:ring-red-500/30"
+                          : "border-gray-200 focus:ring-green/30 focus:border-green/50"
+                      }`}
                     />
+                    {errors.email && (
+                      <span className="text-red-500 text-xs font-semibold">
+                        {errors.email.message}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -218,20 +269,41 @@ export default function ContactFormSection() {
                   >
                     Project Type *
                   </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    required
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200 bg-white"
-                  >
-                    {projectTypes.map((type, idx) => (
-                      <option key={idx} value={idx === 0 ? "" : type}>
-                        {type}
-                      </option>
-                    ))}
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      id="projectType"
+                      className={`flex items-center justify-between w-full px-4 py-3 rounded-xl border text-sm font-medium text-dark focus:outline-none focus:ring-2 transition-all duration-200 bg-white ${
+                        errors.projectType
+                          ? "border-red-500 focus:ring-red-500/30"
+                          : "border-gray-200 focus:ring-green/30 focus:border-green/50"
+                      }`}
+                    >
+                      <span>
+                        {watchProjectType || "Select project type..."}
+                      </span>
+                      <ChevronDown className="w-4 h-4 opacity-50" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[--anchor-width] z-50">
+                      {projectTypes.slice(1).map((type, idx) => (
+                        <DropdownMenuItem
+                          key={idx}
+                          onClick={() =>
+                            setValue("projectType", type, {
+                              shouldValidate: true,
+                            })
+                          }
+                          className="cursor-pointer"
+                        >
+                          {type}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  {errors.projectType && (
+                    <span className="text-red-500 text-xs font-semibold">
+                      {errors.projectType.message}
+                    </span>
+                  )}
                 </div>
 
                 {/* Budget */}
@@ -242,19 +314,28 @@ export default function ContactFormSection() {
                   >
                     Budget Range
                   </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200 bg-white"
-                  >
-                    {budgetRanges.map((range, idx) => (
-                      <option key={idx} value={idx === 0 ? "" : range}>
-                        {range}
-                      </option>
-                    ))}
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      id="budget"
+                      className="flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200 bg-white"
+                    >
+                      <span>{watchBudget || "Select budget range..."}</span>
+                      <ChevronDown className="w-4 h-4 opacity-50" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[--anchor-width] z-50">
+                      {budgetRanges.slice(1).map((range, idx) => (
+                        <DropdownMenuItem
+                          key={idx}
+                          onClick={() =>
+                            setValue("budget", range, { shouldValidate: true })
+                          }
+                          className="cursor-pointer"
+                        >
+                          {range}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 {/* Message */}
@@ -267,36 +348,31 @@ export default function ContactFormSection() {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    required
                     rows={4}
                     placeholder="Tell us about your project — what you're building, your target users, and any specific requirements..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200 resize-none"
+                    {...register("message")}
+                    className={`w-full bg-white px-4 py-3 rounded-xl border text-sm font-medium text-dark placeholder:text-grey/50 focus:outline-none focus:ring-2 transition-all duration-200 resize-none ${
+                      errors.message
+                        ? "border-red-500 focus:ring-red-500/30"
+                        : "border-gray-200 focus:ring-green/30 focus:border-green/50"
+                    }`}
                   />
+                  {errors.message && (
+                    <span className="text-red-500 text-xs font-semibold">
+                      {errors.message.message}
+                    </span>
+                  )}
                 </div>
 
                 {/* Submit Button */}
-                <button
+                <Button
                   type="submit"
-                  className="w-full py-4 bg-navy text-white font-bold rounded-xl hover:bg-[#003080] transition-all duration-300 hover:shadow-lg text-sm tracking-wide mt-1 flex items-center justify-center gap-2 group"
+                  disabled={isSubmitting}
+                  className="w-full py-6 bg-navy text-white font-bold rounded-xl hover:bg-[#003080] disabled:bg-navy/70 transition-all duration-300 hover:shadow-lg text-sm tracking-wide mt-1 flex items-center justify-center gap-2 group"
                 >
-                  Send Message
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </button>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
 
                 <p className="text-center text-xs text-grey/60 font-medium">
                   No spam. Your information is kept confidential and protected
