@@ -4,6 +4,7 @@ import Link from "next/link";
 import FinalCta from "@/components/home/finalCta";
 import { ArrowLeft, LinkIcon, Mail } from "lucide-react";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import SummarizeButton from "@/components/blogsComponents/summarizeButton";
 
 const blogPosts = {
   "blog-detail": {
@@ -147,6 +148,12 @@ export default function BlogDetail({ params }) {
 
           {/* Article Content */}
           <article className="flex-1 max-w-[850px] text-[17px] leading-[1.8] text-gray-700 font-medium">
+            <div className="mb-8">
+              <SummarizeButton 
+                content={`${post.title}\n\nArtificial Intelligence (AI) is no longer a futuristic concept — it has become a true driver of innovation and business growth. Organizations across the globe are integrating AI into their core operations to improve decision-making, enhance customer experiences, and unlock new opportunities. As technology continues to evolve, AI is transforming the way businesses operate, helping them become more agile and competitive.`} 
+                theme="light" 
+              />
+            </div>
             <p className="mb-8">
               Artificial Intelligence (AI) is no longer a futuristic concept —
               it has become a true driver of innovation and business growth.

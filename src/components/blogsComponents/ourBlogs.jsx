@@ -207,6 +207,7 @@ export default function OurBlogs() {
                             {blog.time}
                           </span>
                         </div>
+                        {/* <SummarizeButton content={`${blog.title}\n\n${blog.description}`} theme="dark" /> */}
                       </div>
                     </div>
                   </div>
