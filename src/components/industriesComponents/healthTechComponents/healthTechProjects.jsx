@@ -40,8 +40,27 @@ const projects = [
 
 const HealthTechProjects = () => {
   return (
-    <section className="relative w-full bg-white py-20 lg:py-24 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 py-20 lg:py-24 font-jakarta overflow-hidden">
       <div className="mx-auto px-6 lg:px-12 flex flex-col gap-[100px]">
+        {/* Header Section */}
+        <div className="flex flex-col items-center justify-center space-y-4 mb-4 text-center">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
+            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
+              Case Studies
+            </h3>
+          </div>
+          <h2 className="max-w-[1000px] text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-dark capitalize">
+            Success Stories That Deliver Real Healthcare Impact
+          </h2>
+          <p className="max-w-[800px] text-[16px] lg:text-[18px] font-medium text-grey leading-[26px]">
+            See how we&apos;ve helped healthcare startups, providers, and
+            digital health companies turn ideas into secure, scalable software.
+            Our case studies showcase measurable outcomes, faster launches, and
+            solutions that create lasting business value.
+          </p>
+        </div>
+
         {projects.map((project) => (
           <div
             key={project.id}

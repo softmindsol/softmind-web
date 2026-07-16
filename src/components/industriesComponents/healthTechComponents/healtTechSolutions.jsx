@@ -13,56 +13,58 @@ import { HtSolutions } from "../../../../public/images";
 
 const solutionsData = [
   {
-    title: "Electronic Health Record (EHR) Systems",
-    description: "Securely manage patient records and medical histories.",
+    title: "Custom Healthcare Software Development",
+    description:
+      "Develop bespoke healthcare applications designed around your workflows, patients, clinicians, and operational requirements.",
     icon: MdOutlineHomeWork,
     position: "left",
   },
   {
-    title: "Hospital Management Systems",
+    title: "Healthcare Mobile App Development",
     description:
-      "Streamline administration, billing, scheduling, and operations.",
+      "Create secure iOS, Android, and cross-platform healthcare applications that improve patient engagement and provide healthcare professionals with access to critical information anytime, anywhere.",
     icon: TbUsersGroup,
     position: "right",
   },
   {
-    title: "Remote Patient Monitoring Solutions",
+    title: "Telemedicine Platform Development",
     description:
-      "Track health metrics through connected devices and wearables.",
+      "Launch secure virtual care platforms featuring video consultations, appointment scheduling, messaging, e-prescriptions, payment integration, and remote care management.",
     icon: MdOutlineManageSearch,
     position: "left",
   },
   {
-    title: "Medical Billing & Insurance Systems",
+    title: "Electronic Health Record (EHR) & EMR Development",
     description:
-      "Simplify claims processing, invoicing, and reimbursement workflows.",
+      "Develop interoperable EHR and EMR systems that improve clinical documentation, patient record management, and healthcare data accessibility.",
     icon: MdOutlineAnalytics,
     position: "right",
   },
   {
-    title: "Telemedicine Platforms",
-    description: "Enable remote consultations and virtual healthcare services.",
+    title: "Patient Portal Development",
+    description:
+      "Empower patients with secure self-service portals for appointment booking, medical records, prescriptions, secure messaging, and ongoing engagement.",
     icon: TbSpeakerphone,
     position: "left",
   },
   {
-    title: "Patient Engagement Platforms",
+    title: "Remote Patient Monitoring Solutions",
     description:
-      "Improve communication, appointment management, and treatment adherence",
+      "Monitor patients remotely using wearable devices, IoT sensors, and real-time health analytics to improve chronic disease management and preventive care.",
     icon: MdOutlinePieChart,
     position: "right",
   },
   {
-    title: "Healthcare Analytics Platforms",
+    title: "AI Healthcare Software Development",
     description:
-      "Transform patient and operational data into actionable insights.",
+      "Leverage artificial intelligence to automate clinical workflows, enhance diagnostics, predict patient risks, optimize operations, and deliver smarter healthcare experiences.",
     icon: MdOutlineDashboard,
     position: "left",
   },
   {
-    title: "Pharmacy Management Solutions",
+    title: "Healthcare Data & Analytics Solutions",
     description:
-      "Manage prescriptions, inventory, dispensing, and compliance efficiently.",
+      "Transform healthcare data into actionable insights through real-time dashboards, business intelligence, predictive analytics, and performance reporting.",
     icon: MdOutlineManageAccounts,
     position: "right",
   },
@@ -79,13 +81,21 @@ const HealthTechSolutions = () => {
         <div className="flex flex-col items-center justify-center space-y-4 mb-16 lg:mb-20 text-center">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green">
-              Solutions
+            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
+              Why Choose Us
             </h3>
+            {/* <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
+              Healthcare Software Development Services
+            </h3> */}
           </div>
-          <h2 className="max-w-[800px] text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-white capitalize">
-            Everything You Need To Build Smarter Real Estate
+          <h2 className="max-w-[1000px] text-[24px] md:text-[32px] font-bold leading-[1.3] lg:leading-[44px] tracking-[1px] text-white capitalize">
+            Healthcare Software Development Services
           </h2>
+          <p className="max-w-[1000px] text-base font-medium tracking-[1px] text-white/75">
+            From idea validation to enterprise-scale platforms, we provide
+            end-to-end healthcare software development services tailored to your
+            business objectives.
+          </p>
         </div>
 
         {/* Main Content Layout */}
