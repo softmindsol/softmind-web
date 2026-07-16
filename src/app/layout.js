@@ -18,6 +18,7 @@ export const metadata = {
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ChatbaseWidget from "@/components/layout/ChatbaseWidget";
+import { RouteLoader } from "@/components/customs/routeLoader";
 
 export default function RootLayout({ children }) {
   return (
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <Navbar />
+        <RouteLoader />
         <main className="flex-1">{children}</main>
         <Footer />
         <ChatbaseWidget />
