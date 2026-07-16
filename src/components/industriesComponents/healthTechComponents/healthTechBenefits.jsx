@@ -69,16 +69,16 @@ const HealthTechBenefits = () => {
         <div className="flex flex-col items-center justify-center space-y-4 mb-16 lg:mb-20 text-center">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
-              Benefits of Collaborating with Softmind
+            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green capitalize">
+              Benefits of Collaborating with SoftMind
             </h3>
           </div>
           <h2 className="max-w-[900px] text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-dark capitalize">
-            Why Partner with Softmind Solutions?
+            Why Partner with SoftMind Solutions?
           </h2>
           <p className="max-w-[800px] text-[16px] lg:text-[18px] font-medium text-dark/75 leading-[26px]">
             Choosing the right healthcare technology partner can determine
-            whether your product succeeds or struggles. At Softmind Solutions,
+            whether your product succeeds or struggles. At SoftMind Solutions,
             we combine healthcare expertise with a product-first approach to
             help you launch faster, scale confidently, and maximize your ROI.
           </p>
