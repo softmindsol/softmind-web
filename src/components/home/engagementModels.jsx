@@ -97,7 +97,7 @@ export default function EngagementModels() {
               <div>
                 {/* Highlight Badge */}
                 {model.highlight && (
-                  <span className="absolute top-4 right-6 bg-green text-navy font-bold text-xs uppercase tracking-[1px] px-3 py-1 rounded-full">
+                  <span className="absolute -top-3.5 sm:top-4 right-4 bg-green text-navy font-bold text-xs uppercase tracking-[1px] px-3 py-1 rounded-full">
                     Recommended
                   </span>
                 )}

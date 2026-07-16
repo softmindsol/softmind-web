@@ -53,10 +53,10 @@ const features = [
 const HealthTechBenefits = () => {
   return (
     <section className="relative w-full bg-gray-300 py-20 lg:py-24 font-jakarta">
-      <div
-        className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-10 blur-[130px]"
+      {/* <div
+        className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-1 blur-[130px]"
         style={{ backgroundColor: "green" }}
-      />
+      /> */}
       <div className="absolute left-[-152px] select-none pointer-events-none">
         <Image
           src={SoftMindSolutionLogoDark}
