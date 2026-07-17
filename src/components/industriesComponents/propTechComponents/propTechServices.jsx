@@ -3,34 +3,62 @@ import React from "react";
 import {
   MdOutlineComputer,
   MdOutlineMobileFriendly,
-  MdOutlineCloudDone,
+  MdOutlineHomeWork,
+  MdOutlineManageSearch,
+  MdOutlineFormatListBulleted,
+  MdOutlineDashboard,
+  MdOutlineManageAccounts,
 } from "react-icons/md";
-import { AiOutlineApi } from "react-icons/ai";
+import { FaRobot } from "react-icons/fa6";
 
 const services = [
   {
-    title: "Custom Web Application Development",
+    title: "Custom PropTech Software Development",
     description:
-      "Scalable and secure web apps tailored for real estate professionals, enabling efficient property management and seamless user experiences.",
+      "Build purpose-designed software that solves your operational challenges, supports your business model, and adapts as your company grows.",
     icon: MdOutlineComputer,
   },
   {
-    title: "Mobile App Development",
+    title: "Property Management Platform Development",
     description:
-      "Intuitive iOS and Android applications for tenants and landlords, offering on-the-go access to property data, payments, and support.",
+      "Centralize leases, rent collection, maintenance, tenant communication, documents, and portfolio reporting in one efficient platform.",
+    icon: MdOutlineHomeWork,
+  },
+  {
+    title: "Real Estate Marketplace Development",
+    description:
+      "Connect buyers, sellers, landlords, tenants, and agents through intuitive marketplaces with advanced search, maps, listings, and inquiry tools.",
+    icon: MdOutlineManageSearch,
+  },
+  {
+    title: "PropTech Mobile App Development",
+    description:
+      "Give users convenient access to property search, payments, maintenance, communication, and account management across iOS and Android devices.",
     icon: MdOutlineMobileFriendly,
   },
   {
-    title: "Cloud Infrastructure & Migration",
+    title: "Property Listing Portal Development",
     description:
-      "Robust cloud solutions to ensure your PropTech platforms are always online, secure, and ready to scale with your business.",
-    icon: MdOutlineCloudDone,
+      "Deliver fast, searchable listing experiences with geo-based discovery, detailed property pages, agent profiles, alerts, and listing management tools.",
+    icon: MdOutlineFormatListBulleted,
   },
   {
-    title: "API Integration & Development",
+    title: "Tenant Portal Development",
     description:
-      "Seamlessly connect your platforms with third-party services like payment gateways, MLS databases, and smart home IoT devices.",
-    icon: AiOutlineApi,
+      "Reduce administrative work by enabling tenants to make payments, submit requests, access documents, renew leases, and communicate online.",
+    icon: MdOutlineDashboard,
+  },
+  {
+    title: "Real Estate CRM Development",
+    description:
+      "Help agents and property teams manage leads, listings, deals, follow-ups, commissions, and client relationships through one connected system.",
+    icon: MdOutlineManageAccounts,
+  },
+  {
+    title: "AI PropTech Software Development",
+    description:
+      "Apply AI to property valuation, pricing, tenant screening, predictive maintenance, investment analysis, and personalized property recommendations.",
+    icon: FaRobot,
   },
 ];
 
@@ -41,18 +69,20 @@ const PropTechServices = () => {
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center space-y-4 mb-16 lg:mb-20 text-center">
           <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green">
-              Services
+            <div className="" />
+            <h3 className="text-[20px] lg:text-[46px] font-bold tracking-[1px] text-green">
+              PropTech Software Development Services
             </h3>
           </div>
-          <h2 className="max-w-[900px] text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-dark capitalize">
-            Our PropTech Development Services
-          </h2>
+          <p className="max-w-[1000px] font-medium tracking-[1px] text-dark capitalize">
+            From early-stage validation to large-scale platform development, we
+            provide end-to-end PropTech development services aligned with your
+            product, users, and commercial goals.
+          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

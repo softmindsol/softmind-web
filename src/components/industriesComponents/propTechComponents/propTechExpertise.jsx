@@ -3,48 +3,48 @@ import React from "react";
 import { TbMapSearch } from "react-icons/tb";
 import {
   MdOutlinePayments,
-  MdOutlineForum,
   MdOutlineWifiTethering,
+  MdOutlineCloudDone,
 } from "react-icons/md";
 import { AiOutlineApi } from "react-icons/ai";
-import { FaFileSignature } from "react-icons/fa6";
+import { SiGoogleanalytics } from "react-icons/si";
 
 const expertiseAreas = [
   {
-    title: "Interactive Maps & Location Services",
+    title: "Property Data Integrations",
     description:
-      "Integrate Google Maps, Mapbox, and advanced GIS tools for property search, neighborhood data, and custom boundaries.",
-    icon: TbMapSearch,
-  },
-  {
-    title: "Payment & Transaction Processing",
-    description:
-      "Secure rent collection, automated payouts, booking deposits, and multi-party transactions using Stripe and local payment gateways.",
-    icon: MdOutlinePayments,
-  },
-  {
-    title: "Property Data APIs & MLS Integration",
-    description:
-      "Connect your product to MLS data, Zillow APIs, property registries, and real-time market data providers.",
+      "Connect your platform with MLS feeds, internal databases, third-party listing sources, and market data providers to keep information accurate and up to date.",
     icon: AiOutlineApi,
   },
   {
-    title: "E-Signatures & Document Management",
+    title: "Mapping and Location Intelligence",
     description:
-      "Automate lease agreements, digital signatures, and secure document storage using DocuSign or custom integrations.",
-    icon: FaFileSignature,
+      "Improve property discovery with interactive maps, geo-search, neighborhood insights, commute data, boundaries, and location-based recommendations.",
+    icon: TbMapSearch,
   },
   {
-    title: "Real-Time Communication",
+    title: "Payments and Lease Automation",
     description:
-      "Build instant messaging, automated notifications, and agent-tenant communication tools using WebSockets and Twilio.",
-    icon: MdOutlineForum,
+      "Simplify rent collection, deposits, invoicing, renewals, e-signatures, reminders, and financial reconciliation through automated workflows.",
+    icon: MdOutlinePayments,
   },
   {
-    title: "Smart Building & IoT Integration",
+    title: "Property Analytics",
     description:
-      "Connect software with smart locks, thermostats, and access control systems for seamless property access and monitoring.",
+      "Transform operational, market, and portfolio data into clear dashboards that support faster decisions and stronger asset performance.",
+    icon: SiGoogleanalytics,
+  },
+  {
+    title: "Smart Building Technology",
+    description:
+      "Integrate IoT devices and building systems to monitor energy use, occupancy, access, maintenance needs, and property conditions in real time.",
     icon: MdOutlineWifiTethering,
+  },
+  {
+    title: "Scalable Cloud Architecture",
+    description:
+      "Support growing property inventories, user volumes, and transaction activity with secure, high-performance cloud infrastructure.",
+    icon: MdOutlineCloudDone,
   },
 ];
 
@@ -52,17 +52,19 @@ const PropTechExpertise = () => {
   return (
     <section className="relative w-full bg-black py-20 lg:py-24 font-jakarta overflow-hidden">
       <div className="relative z-10 mx-auto px-6 lg:px-12">
-        <div className="flex flex-col gap-12 lg:gap-40 items-start">
+        <div className="flex flex-col gap-12 lg:gap-20 items-center">
           {/* Left Text */}
-          <div className="flex-1 lg:sticky lg:top-32">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-              <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green">
-                PropTech Expertise
+          <div className="flex flex-col text-center">
+            <div className="flex items-center gap-2 mb-6 justify-center">
+              <div className="" />
+              <h3 className="text-[20px] lg:text-[46px] font-bold tracking-[1px] text-green">
+                Our PropTech Expertise
               </h3>
             </div>
-            <h2 className="text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-white capitalize mb-6">
-              Technical Capabilities Built for Real Estate
+            <h2 className="text-lg font-medium text-white mb-6 max-w-[800px]">
+              We combine real estate knowledge with modern engineering to build
+              products that perform reliably across complex property workflows,
+              data sources, and user journeys.
             </h2>
           </div>
 

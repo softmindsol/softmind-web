@@ -3,12 +3,13 @@ import HowWeWorkProp from "@/components/industriesComponents/propTechComponents/
 import PropTechProjects from "@/components/industriesComponents/propTechComponents/propTechProjects";
 import PropTechSolutions from "@/components/industriesComponents/propTechComponents/propTechSolutions";
 import WhySoftMind from "@/components/industriesComponents/propTechComponents/whySoftMind";
-import ReachUsOut from "@/components/home/reachUsOut";
 import PropTechServices from "@/components/industriesComponents/propTechComponents/propTechServices";
 import PropTechExpertise from "@/components/industriesComponents/propTechComponents/propTechExpertise";
 import PropTechCaseStudy from "@/components/industriesComponents/propTechComponents/propTechCaseStudy";
-import TestimonialSlider from "@/components/home/testimonialSlider";
+import PropTechTestimonial from "@/components/industriesComponents/propTechComponents/propTechTestimonial";
 import WhyPartner from "@/components/industriesComponents/propTechComponents/whyPartner";
+import EngagementModels from "@/components/home/engagementModels";
+import ReachUsOut from "@/components/home/reachUsOut";
 
 export const metadata = {
   title:
@@ -35,11 +36,14 @@ const PropTech = () => {
       <PropTechServices />
       <PropTechExpertise />
       <WhySoftMind />
-      <WhyPartner />
       <HowWeWorkProp />
       <PropTechProjects />
       <PropTechCaseStudy />
-      <TestimonialSlider />
+      <PropTechTestimonial />
+      <EngagementModels />
+      <WhyPartner />
+      <WhySoftMind />
+      {/* <PropTechFaq /> */}
       <ReachUsOut />
     </main>
   );
