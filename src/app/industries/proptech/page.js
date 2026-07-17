@@ -42,7 +42,6 @@ const PropTech = () => {
       <PropTechTestimonial />
       <EngagementModels />
       <WhyPartner />
-      <WhySoftMind />
       {/* <PropTechFaq /> */}
       <ReachUsOut />
     </main>
