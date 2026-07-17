@@ -157,7 +157,7 @@ function LoaderContent() {
 
             {/* Loading text */}
             <div className="relative text-center z-10">
-              <motion.h3
+              {/* <motion.h3
                 animate={{ opacity: [0.6, 1, 0.6] }}
                 transition={{
                   repeat: Infinity,
@@ -167,7 +167,7 @@ function LoaderContent() {
                 className="text-white font-semibold text-lg tracking-wide"
               >
                 SoftMind Solutions
-              </motion.h3>
+              </motion.h3> */}
 
               <div className="flex items-center justify-center gap-1.5 mt-2">
                 <span className="text-slate-400 text-sm font-medium">

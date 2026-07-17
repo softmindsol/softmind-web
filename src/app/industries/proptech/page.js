@@ -4,29 +4,42 @@ import PropTechProjects from "@/components/industriesComponents/propTechComponen
 import PropTechSolutions from "@/components/industriesComponents/propTechComponents/propTechSolutions";
 import WhySoftMind from "@/components/industriesComponents/propTechComponents/whySoftMind";
 import ReachUsOut from "@/components/home/reachUsOut";
+import PropTechServices from "@/components/industriesComponents/propTechComponents/propTechServices";
+import PropTechExpertise from "@/components/industriesComponents/propTechComponents/propTechExpertise";
+import PropTechCaseStudy from "@/components/industriesComponents/propTechComponents/propTechCaseStudy";
+import TestimonialSlider from "@/components/home/testimonialSlider";
+import WhyPartner from "@/components/industriesComponents/propTechComponents/whyPartner";
 
 export const metadata = {
-  title: "PropTech | SoftMind Solutions",
-  description: "PropTech Solutions by SoftMind Solutions",
+  title:
+    "PropTech Software Development Company for Startups | Real Estate Tech Solutions — Softmind Solutions",
+  description:
+    "Softmind Solutions builds custom PropTech software for real estate startups and property tech companies in the USA and MENA — property management platforms, real estate marketplaces, listing portals, tenant apps, and AI-powered property tools. Offshore quality, startup-friendly pricing.",
 };
 
 const PropTech = () => {
   return (
     <main className="w-full flex flex-col items-center">
       <Hero
-        title="Transforming Real Estate"
+        title="PropTech Software Development"
         typewriterPrefix=""
-        typewriterPhrases={["Through Technology"]}
-        description="PropTech is the integration of digital solutions into real estate to streamline operations, improve experiences, automate workflows, and unlock new growth opportunities."
-        primaryButtonText="Start a Project"
+        typewriterPhrases={["Services for Startups"]}
+        description="Turn complex real estate processes into simple, scalable digital experiences. We build PropTech products that help businesses automate operations, connect users, unlock property data, and bring new ideas to market faster."
+        primaryButtonText="Book a Free Discovery Call"
         primaryButtonLink="/contact"
-        secondaryButtonText={null}
+        secondaryButtonText="View Our PropTech Projects"
+        secondaryButtonLink="#"
         showBottomText={false}
       />
       <PropTechSolutions />
+      <PropTechServices />
+      <PropTechExpertise />
       <WhySoftMind />
+      <WhyPartner />
       <HowWeWorkProp />
       <PropTechProjects />
+      <PropTechCaseStudy />
+      <TestimonialSlider />
       <ReachUsOut />
     </main>
   );
