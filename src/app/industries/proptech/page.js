@@ -8,8 +8,10 @@ import PropTechExpertise from "@/components/industriesComponents/propTechCompone
 import PropTechCaseStudy from "@/components/industriesComponents/propTechComponents/propTechCaseStudy";
 import PropTechTestimonial from "@/components/industriesComponents/propTechComponents/propTechTestimonial";
 import WhyPartner from "@/components/industriesComponents/propTechComponents/whyPartner";
+import PropTechFaq from "@/components/industriesComponents/propTechComponents/propTechFaq";
 import EngagementModels from "@/components/home/engagementModels";
 import ReachUsOut from "@/components/home/reachUsOut";
+import FinalCta from "@/components/home/finalCta";
 
 export const metadata = {
   title:
@@ -42,8 +44,8 @@ const PropTech = () => {
       <PropTechTestimonial />
       <EngagementModels />
       <WhyPartner />
-      {/* <PropTechFaq /> */}
-      <ReachUsOut />
+      <PropTechFaq />
+      <FinalCta />
     </main>
   );
 };
