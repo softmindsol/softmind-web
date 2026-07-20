@@ -64,41 +64,77 @@ const services = [
 
 const PropTechServices = () => {
   return (
-    <section className="relative w-full bg-white py-20 lg:py-24 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-[#f8f9fb] py-24 font-jakarta overflow-hidden">
+      {/* Decorative background blur */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute -top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full bg-green/10 blur-[120px]"></div>
+        <div className="absolute top-[40%] -left-[10%] w-[400px] h-[400px] rounded-full bg-green/10 blur-[100px]"></div>
+      </div>
+
       <div className="relative z-10 mx-auto px-6 lg:px-12">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center space-y-4 mb-16 lg:mb-20 text-center">
-          <div className="flex items-center gap-2">
-            <div className="" />
-            <h3 className="text-[20px] lg:text-[46px] font-bold tracking-[1px] text-green">
-              PropTech Software Development Services
-            </h3>
+        <div className="flex flex-col items-center justify-center space-y-4 mb-20 text-center">
+          <div className="inline-flex items-center gap-2 text-green text-[22px] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-navy"></span>
+            Our Services
           </div>
-          <p className="max-w-[1000px] font-medium tracking-[1px] text-dark capitalize">
+          <h3 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-dark">
+            PropTech Software <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-emerald-600">
+              Development Services
+            </span>
+          </h3>
+          <p className="max-w-3xl text-lg text-grey leading-relaxed">
             From early-stage validation to large-scale platform development, we
-            provide end-to-end PropTech development services aligned with your
-            product, users, and commercial goals.
+            provide end-to-end PropTech solutions aligned with your product,
+            users, and commercial goals.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="group relative flex flex-col p-8 bg-white border border-[#EFEFEF] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
+                className="group relative flex flex-col p-8 bg-white rounded-3xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden z-10"
               >
-                <div className="w-14 h-14 rounded-full bg-green/10 flex items-center justify-center mb-6 group-hover:bg-green transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-green group-hover:text-white transition-colors duration-300" />
+                {/* Hover Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+
+                {/* Decorative large icon in background on hover */}
+                <Icon className="absolute -bottom-6 -right-6 w-32 h-32 text-white opacity-0 group-hover:opacity-10 transition-all duration-700 transform group-hover:rotate-12 group-hover:scale-125 -z-10" />
+
+                <div className="w-16 h-16 rounded-2xl bg-green/10 flex items-center justify-center mb-8 group-hover:bg-white/20 transition-colors duration-500 shadow-sm">
+                  <Icon className="w-8 h-8 text-green group-hover:text-white transition-colors duration-500" />
                 </div>
-                <h3 className="text-[24px] font-bold text-dark mb-4 group-hover:text-green transition-colors duration-300">
+                <h3 className="text-[22px] font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-[16px] text-grey leading-[24px]">
+                <p className="text-[16px] text-grey leading-relaxed group-hover:text-white/90 transition-colors duration-500">
                   {service.description}
                 </p>
+
+                {/* Floating arrow indicator */}
+                <div className="mt-8 pt-4 flex items-center text-green font-semibold group-hover:text-white transition-colors duration-500">
+                  <span className="flex items-center gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    Explore{" "}
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </span>
+                </div>
               </div>
             );
           })}

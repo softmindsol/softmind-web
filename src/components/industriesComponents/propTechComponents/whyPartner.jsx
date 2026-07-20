@@ -32,7 +32,7 @@ const partnerReasons = [
 
 const WhyPartner = () => {
   return (
-    <section className="relative w-full bg-primary/10 py-20 lg:py-24 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-white py-20 lg:py-24 font-jakarta overflow-hidden">
       <div className="relative z-10 mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           {/* Left Text */}
@@ -65,7 +65,7 @@ const WhyPartner = () => {
               return (
                 <div
                   key={index}
-                  className="p-6 bg-white border border-[#EFEFEF] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-105"
+                  className="p-6 bg-gray-200 border border-gray-300 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-105"
                 >
                   <div className="w-12 h-12 rounded-full bg-navy/5 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-navy" />
