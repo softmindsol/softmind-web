@@ -139,10 +139,10 @@ export default function PropTechFaq() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/30 w-fit"
           >
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-            <span className="text-xs font-semibold tracking-wider text-neutral-300 uppercase">
+            <span className="w-2 h-2 rounded-full bg-green animate-pulse"></span>
+            <span className="text-xs font-semibold tracking-wider text-white uppercase">
               FAQ
             </span>
           </motion.div>
@@ -187,8 +187,8 @@ export default function PropTechFaq() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`group border rounded-2xl overflow-hidden transition-all duration-300 ${
                   isOpen
-                    ? "bg-white/5 border-white/20 shadow-lg shadow-black/50"
-                    : "bg-black/20 border-white/5 hover:border-white/15 hover:bg-white/[0.02]"
+                    ? "bg-white/10 border-white/20 shadow-lg shadow-black/50"
+                    : "bg-black/20 border-white/20 hover:border-white/15 hover:bg-white/[0.02]"
                 }`}
               >
                 <button
@@ -223,7 +223,7 @@ export default function PropTechFaq() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 md:px-8 md:pb-8 text-neutral-400 text-base md:text-lg leading-relaxed">
+                      <div className="px-6 pb-6 md:px-8 md:pb-8 text-white/80 text-sm md:text-base leading-relaxed">
                         <div className="w-full h-px bg-white/10 mb-6"></div>
                         {faq.answer}
                       </div>
