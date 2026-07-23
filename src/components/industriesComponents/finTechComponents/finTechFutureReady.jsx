@@ -235,18 +235,14 @@ export default function FinTechFutureReady() {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-[45px] lg:leading-[1.2] font-bold text-white tracking-tight mb-6">
-            Future-Ready Financial Services,{" "}
+            Custom Fintech Software Development{" "}
             <div className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0] pt-2">
               Built for Scale
             </div>
           </h2>
 
           <p className="text-base md:text-lg text-white/80 font-medium leading-[1.6]">
-            Modernize financial operations with AI-powered automation,
-            cloud-native platforms, and intelligent workflows. From digital
-            banking and payments to underwriting and compliance, we help
-            financial institutions accelerate innovation, strengthen security,
-            and deliver seamless customer experiences.
+            As a top fintech software development company MENA and USA, we modernize operations with AI-powered automation, cloud-native platforms, and intelligent workflows. From digital banking to compliance, we help institutions and SMBs accelerate innovation and deliver seamless customer experiences.
           </p>
         </div>
 

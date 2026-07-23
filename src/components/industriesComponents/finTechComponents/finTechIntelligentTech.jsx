@@ -89,9 +89,9 @@ export default function FinTechIntelligentTech() {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-[45px] lg:leading-[1.2] font-bold text-white tracking-tight mb-6">
-            Intelligent Technologies Driving the{" "}
+            Intelligent Tech from an AI Fintech{" "}
             <p className="pt-3 text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
-              Future of Financial Services
+              Software Development Company
             </p>
           </h2>
 

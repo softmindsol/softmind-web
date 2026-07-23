@@ -30,15 +30,15 @@ const tabData = {
     badge: "Digital Core",
     items: [
       {
-        title: "Customer Onboarding & Digital Banking",
+        title: "Neobank & Digital Banking Development",
         description:
-          "Accelerate customer onboarding with Banking-as-a-Service (BaaS), digital KYC/AML, and intelligent automation. Deliver secure, compliant, and frictionless digital banking experiences while reducing operational complexity.",
+          "Accelerate onboarding with Banking-as-a-Service (BaaS). As a premier neobank development company MENA, we provide digital banking platform development for startups to deliver frictionless experiences and reduce complexity.",
         icon: UserPlus,
       },
       {
-        title: "Fraud Prevention & Compliance",
+        title: "KYC AML Software Development",
         description:
-          "Protect customers and financial assets with AI-powered fraud detection, real-time anomaly monitoring, identity verification, and zero-trust security frameworks that strengthen compliance and reduce financial risk.",
+          "Protect financial assets with AI-powered fraud detection, identity verification, and zero-trust security frameworks. We specialize in fintech compliance software development GDPR PCI to strengthen compliance and reduce risk.",
         icon: ShieldAlert,
       },
       {
@@ -72,15 +72,15 @@ const tabData = {
     badge: "Global Rails",
     items: [
       {
-        title: "Real-time Payment Platforms",
+        title: "Payment Platform Development",
         description:
-          "Build secure, scalable real-time payment infrastructures that enable instant transactions, improve settlement speed, and enhance payment reliability across digital channels.",
+          "As a leading payment platform development company Middle East, we build scalable real-time payment infrastructures that enable instant transactions, improve settlement speed, and enhance reliability.",
         icon: Activity,
       },
       {
-        title: "Payment Orchestration & Gateway Development",
+        title: "Payment Gateway Development for Startups",
         description:
-          "Develop intelligent payment orchestration platforms and custom payment gateways that optimize routing, increase transaction success rates, and deliver seamless payment experiences.",
+          "Develop intelligent orchestration platforms and custom payment gateways. We provide robust payment gateway development company for startups services to optimize routing and deliver seamless payment experiences.",
         icon: Sliders,
       },
       {
@@ -102,9 +102,9 @@ const tabData = {
         icon: Globe,
       },
       {
-        title: "Closed-loop Payment Ecosystems",
+        title: "Digital Wallet Development",
         description:
-          "Design closed-loop payment ecosystems that reduce processing costs, accelerate settlements, and create personalized payment experiences that increase customer retention.",
+          "Partner with a top digital wallet development company Saudi Arabia to design closed-loop payment ecosystems that reduce processing costs, accelerate settlements, and create personalized payment experiences.",
         icon: Repeat,
       },
       {
@@ -128,7 +128,7 @@ const tabData = {
       {
         title: "Compliance & Risk Management",
         description:
-          "Strengthen lending and insurance operations with AI-powered compliance monitoring, digital identity verification, automated governance, and proactive risk management.",
+          "Strengthen lending operations with AI-powered compliance monitoring. Our fintech compliance software development GDPR PCI ensures secure digital identity verification and proactive risk management.",
         icon: ShieldCheck,
       },
       {
@@ -138,9 +138,9 @@ const tabData = {
         icon: BarChart3,
       },
       {
-        title: "Intelligent Automation for Underwriting & Claims",
+        title: "Custom Lending Platform Development",
         description:
-          "Automate underwriting, loan processing, mortgage approvals, and insurance claims using AI-powered workflows that reduce manual effort, improve accuracy, and accelerate turnaround times.",
+          "Automate loan processing and underwriting with AI-powered workflows. We provide comprehensive lending software development and BNPL software development company services to accelerate turnaround times.",
         icon: Cpu,
       },
       {
@@ -197,9 +197,9 @@ export default function FinTechWhatWeDo() {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-[45px] lg:leading-[1.2] font-bold text-navy tracking-tight mb-6">
-            Your End-to-End Financial Services{" "}
+            A Leading Fintech App Development Company{" "}
             <p className="py-3 text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
-              Technology Partner
+              & Technology Partner
             </p>
           </h2>
 

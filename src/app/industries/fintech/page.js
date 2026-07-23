@@ -28,14 +28,12 @@ const FinTech = () => {
         description={
           <div className="flex flex-col gap-6 items-center">
             <p className="max-w-[750px] mx-auto text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed">
-              We build fintech software for startups in the USA and MENA that is
-              secure by architecture, compliant by design, and built to scale
-              from the first sprint.
+              Providing expert <strong>fintech software development for startups USA</strong> and MENA. As a trusted <strong>offshore fintech development company</strong>, we build custom fintech applications that are secure by architecture, compliant by design, and built to scale from the first sprint.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-4 text-navy text-[13px] md:text-[14px] font-jakarta">
               <span className="flex items-center gap-2 font-bold bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5 shadow-sm hover:border-green/40 hover:bg-green/5 transition-all cursor-default">
                 <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-                Offshore expertise
+                Offshore fintech development company USA clients
               </span>
               <span className="flex items-center gap-2 font-bold bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5 shadow-sm hover:border-[#004BC0]/40 hover:bg-[#004BC0]/5 transition-all cursor-default">
                 <span className="w-2 h-2 rounded-full bg-[#004BC0] animate-pulse" />

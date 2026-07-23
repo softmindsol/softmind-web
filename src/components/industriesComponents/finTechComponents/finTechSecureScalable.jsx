@@ -14,9 +14,9 @@ import {
 const playbookData = [
   {
     num: "01",
-    title: "AI-Led Product Engineering",
+    title: "Fintech MVP Development & Engineering",
     description:
-      "Accelerate the delivery of digital banking, payments, and insurance products with AI-powered software engineering, intelligent automation, and modern development practices that reduce costs and shorten time-to-market.",
+      "As an expert fintech MVP development company, we accelerate the delivery of digital banking and payment products with AI-powered software engineering that reduces costs and shortens time-to-market.",
     icon: Cpu,
   },
   {

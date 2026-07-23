@@ -58,9 +58,8 @@ export default function FinTechDeepExpertise() {
 
           <p className="text-base md:text-lg text-white/70 font-medium leading-[1.6]">
             From banks and fintechs to payment providers and financial
-            technology platforms, we build secure, scalable, and intelligent
-            solutions that simplify complex operations, optimize transaction
-            flows, and create exceptional customer experiences.
+            technology platforms, we provide custom fintech software development that simplifies complex operations, optimizes transaction
+            flows, and creates exceptional customer experiences for startups and enterprises.
           </p>
         </div>
 
