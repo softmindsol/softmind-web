@@ -3,12 +3,36 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const platforms = [
-  { name: "Shopify & Shopify Plus", desc: "D2C brands that need fast launch, easy management, and room to scale.", logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
-  { name: "WooCommerce", desc: "Content-led stores that need flexibility and deep WordPress customisation.", logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg" },
-  { name: "Headless — Next.js & React", desc: "Brands that want complete frontend control, faster performance, and greater flexibility.", logo: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
-  { name: "Magento / Adobe Commerce", desc: "Large catalogs, multi-store operations, and complex enterprise requirements.", logo: "https://cdn.worldvectorlogo.com/logos/magento.svg" },
-  { name: "BigCommerce", desc: "B2B and mid-market businesses that need strong multi-channel capabilities.", logo: "https://cdn.worldvectorlogo.com/logos/bigcommerce-1.svg" },
-  { name: "Custom Development", desc: "Marketplaces and unique business models that off-the-shelf platforms cannot support.", logo: "https://cdn.worldvectorlogo.com/logos/node-js-7.svg" },
+  {
+    name: "Shopify & Shopify Plus",
+    desc: "D2C brands that need fast launch, easy management, and room to scale.",
+    logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg",
+  },
+  {
+    name: "WooCommerce",
+    desc: "Content-led stores that need flexibility and deep WordPress customisation.",
+    logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg",
+  },
+  {
+    name: "Headless — Next.js & React",
+    desc: "Brands that want complete frontend control, faster performance, and greater flexibility.",
+    logo: "https://cdn.worldvectorlogo.com/logos/react-2.svg",
+  },
+  {
+    name: "Magento / Adobe Commerce",
+    desc: "Large catalogs, multi-store operations, and complex enterprise requirements.",
+    logo: "https://cdn.worldvectorlogo.com/logos/magento.svg",
+  },
+  {
+    name: "BigCommerce",
+    desc: "B2B and mid-market businesses that need strong multi-channel capabilities.",
+    logo: "https://cdn.worldvectorlogo.com/logos/bigcommerce-1.svg",
+  },
+  {
+    name: "Custom Development",
+    desc: "Marketplaces and unique business models that off-the-shelf platforms cannot support.",
+    logo: "https://cdn.worldvectorlogo.com/logos/node-js-7.svg",
+  },
 ];
 
 export default function EcomPlatforms() {
@@ -16,7 +40,7 @@ export default function EcomPlatforms() {
     <section className="relative w-full py-20 lg:py-24 bg-[#161616] font-jakarta overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-navy/30 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative mx-auto max-w-[1200px] px-6 md:px-12 flex flex-col items-center">
+      <div className="relative mx-auto px-6 md:px-12 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,17 +48,24 @@ export default function EcomPlatforms() {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-green" />
+            <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
             <span className="text-white text-[20px] font-bold tracking-wide">
               Platforms We Build With
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold text-white mb-6 max-w-3xl mx-auto">
-            The Right Platform for Where You&apos;re Going
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold text-white mb-4 max-w-3xl mx-auto">
+            The Right Platform for{" "}
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              Where You&apos;re Going
+            </p>
           </h2>
-          <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
-            You are not locked into one technology. Your platform is selected around your business model, growth plans, operational needs, and customer experience. <br/>
-            <span className="text-white font-bold mt-2 inline-block">Choose for the Next Stage not Just the Launch</span>
+          <p className="text-white/80 text-base md:text-lg max-w-[400px] mx-auto font-medium leading-relaxed">
+            You are not locked into one technology. Your platform is selected
+            around your business model, growth plans, operational needs, and
+            customer experience. <br />
+            <span className="text-white font-bold mt-4 inline-block">
+              Choose for the Next Stage not Just the Launch
+            </span>
           </p>
         </motion.div>
 
@@ -52,10 +83,12 @@ export default function EcomPlatforms() {
                 <img
                   src={platform.logo}
                   alt={platform.name}
-                  className="h-full w-auto opacity-70 group-hover:opacity-100 transition-all duration-300 filter grayscale brightness-200 group-hover:filter-none group-hover:brightness-100"
+                  className="h-full w-auto opacity-70 group-hover:opacity-100 transition-all duration-300 filter brightness-200 group-hover:filter-none group-hover:brightness-100"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{platform.name}</h3>
+              <h3 className="text-xl font-bold text-white mb-3">
+                {platform.name}
+              </h3>
               <p className="text-white/60 font-medium text-sm leading-relaxed">
                 {platform.desc}
               </p>

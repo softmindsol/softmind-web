@@ -7,7 +7,6 @@ import FinTechSecureScalable from "@/components/industriesComponents/finTechComp
 import FinTechAIExpertise from "@/components/industriesComponents/finTechComponents/finTechAIExpertise";
 import EngagementModels from "@/components/home/engagementModels";
 import TestimonialSlider from "@/components/home/testimonialSlider";
-import FinalCta from "@/components/home/finalCta";
 import ReachUsOut from "@/components/home/reachUsOut";
 
 export const metadata = {
@@ -28,7 +27,12 @@ const FinTech = () => {
         description={
           <div className="flex flex-col gap-6 items-center">
             <p className="max-w-[750px] mx-auto text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed">
-              Providing expert <strong>fintech software development for startups USA</strong> and MENA. As a trusted <strong>offshore fintech development company</strong>, we build custom fintech applications that are secure by architecture, compliant by design, and built to scale from the first sprint.
+              Providing expert{" "}
+              <strong>fintech software development for startups USA</strong> and
+              MENA. As a trusted{" "}
+              <strong>offshore fintech development company</strong>, we build
+              custom fintech applications that are secure by architecture,
+              compliant by design, and built to scale from the first sprint.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-4 text-navy text-[13px] md:text-[14px] font-jakarta">
               <span className="flex items-center gap-2 font-bold bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5 shadow-sm hover:border-green/40 hover:bg-green/5 transition-all cursor-default">

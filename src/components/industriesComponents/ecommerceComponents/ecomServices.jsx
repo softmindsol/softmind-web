@@ -170,9 +170,6 @@ export default function EcomServices() {
               <div className="absolute w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-md rounded-3xl">
                 {/* Front Side */}
                 <div className="absolute inset-0 w-full h-full bg-white p-8 rounded-3xl border border-gray-100 flex flex-col gap-5 [backface-visibility:hidden]">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F8FAFC] flex items-center justify-center">
-                    {service.icon}
-                  </div>
                   <div>
                     <h3 className="text-2xl font-bold text-dark mb-3">
                       {service.title}
@@ -191,6 +188,9 @@ export default function EcomServices() {
 
                 {/* Back Side */}
                 <div className="absolute inset-0 w-full h-full bg-navy text-white p-8 rounded-3xl flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  <div className="w-16 h-12 flex items-center justify-start">
+                    {service.icon}
+                  </div>
                   <h4 className="text-xl font-bold text-green mb-4">
                     Key capabilities
                   </h4>

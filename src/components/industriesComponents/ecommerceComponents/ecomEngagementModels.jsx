@@ -51,7 +51,7 @@ export default function EcomEngagementModels() {
   ];
 
   return (
-    <section className="relative w-full bg-[#161616] py-16 md:py-24 text-dark overflow-hidden font-jakarta">
+    <section className="relative w-full bg-navy py-16 md:py-24 text-dark overflow-hidden font-jakarta">
       {/* Background Radial Glow */}
       <div
         className="absolute top-[-187px] left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full pointer-events-none opacity-40 blur-[130px]"
@@ -80,7 +80,9 @@ export default function EcomEngagementModels() {
             Choose an Engagement Model That Fits Your Goals
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[750px] mt-2">
-            Whether you need a complete product team, dedicated engineering support, or help with a specific project, we offer flexible engagement models designed around your scope, timeline, and budget.
+            Whether you need a complete product team, dedicated engineering
+            support, or help with a specific project, we offer flexible
+            engagement models designed around your scope, timeline, and budget.
           </p>
         </div>
 

@@ -361,7 +361,7 @@ export default function EcomOurWork() {
         )}
       </div>
 
-      <div className="relative mx-auto max-w-[1200px] px-6 md:px-12">
+      <div className="relative mx-auto px-6 md:px-12">
         {/* Top Header Layout */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between items-center lg:items-start gap-8 mb-[47px] text-center lg:text-left">
           {/* Label and Section Title */}
@@ -375,8 +375,10 @@ export default function EcomOurWork() {
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-white">
               See What We’ve Helped Businesses Build
             </h2>
-            <p className="text-base text-white/70 font-medium leading-[24px] tracking-[1px]">
-              Explore how we have helped startups and growing eCommerce businesses solve complex challenges, improve customer experiences, and create platforms built for long-term growth.
+            <p className="text-base text-white/80 font-medium leading-[24px] tracking-[1px]">
+              Explore how we have helped startups and growing eCommerce
+              businesses solve complex challenges, improve customer experiences,
+              and create platforms built for long-term growth.
             </p>
           </div>
 

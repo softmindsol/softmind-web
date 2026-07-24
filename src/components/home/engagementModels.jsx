@@ -77,7 +77,7 @@ export default function EngagementModels() {
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[750px]">
             How We Partner With Your Business
           </h2>
-          <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[600px] mt-2">
+          <p className="text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-wide max-w-[600px]">
             Choose the alignment that fits your project scope, budget, and
             timeline. No rigid contracts, only high-performance delivery.
           </p>

@@ -12,8 +12,8 @@ const techColumns = [
       "React Native mobile apps",
       "Tailwind CSS and design systems",
       "Progressive Web Apps",
-      "Core Web Vitals optimization"
-    ]
+      "Core Web Vitals optimization",
+    ],
   },
   {
     title: "Backend & Infrastructure",
@@ -24,8 +24,8 @@ const techColumns = [
       "PostgreSQL and MongoDB",
       "Redis caching",
       "Elasticsearch-powered search",
-      "CDN and edge delivery"
-    ]
+      "CDN and edge delivery",
+    ],
   },
   {
     title: "Commerce Capabilities",
@@ -36,15 +36,15 @@ const techColumns = [
       "Logistics and fulfilment",
       "Subscription and billing",
       "ERP and CRM integrations",
-      "Tax and compliance systems"
-    ]
-  }
+      "Tax and compliance systems",
+    ],
+  },
 ];
 
 export default function EcomTechnology() {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-white font-jakarta overflow-hidden">
-      <div className="relative mx-auto max-w-[1200px] px-6 md:px-12">
+    <section className="relative w-full py-20 lg:py-28 bg-black font-jakarta overflow-hidden">
+      <div className="relative mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -62,22 +62,27 @@ export default function EcomTechnology() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold text-navy"
+            className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold text-white"
           >
-            Built for Performance at Every Layer
+            Built for Performance at{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              Every Layer
+            </span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base md:text-lg text-grey font-medium leading-relaxed max-w-3xl mx-auto"
+            className="text-base md:text-lg text-white/80 font-medium leading-relaxed max-w-3xl mx-auto"
           >
-            A strong eCommerce experience depends on more than design. It needs a reliable technology foundation that keeps your store fast, secure, connected, and ready to scale.
+            A strong eCommerce experience depends on more than design. It needs
+            a reliable technology foundation that keeps your store fast, secure,
+            connected, and ready to scale.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           {techColumns.map((col, idx) => (
             <motion.div
               key={idx}
@@ -85,14 +90,17 @@ export default function EcomTechnology() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
-              className="bg-[#F8FAFC] rounded-3xl p-8 border border-gray-100 shadow-sm"
+              className="bg-[#F8FAFC] w-full rounded-3xl p-8 border border-gray-100 shadow-sm"
             >
               <h3 className="text-xl font-bold text-navy mb-6 pb-4 border-b border-gray-200">
                 {col.title}
               </h3>
               <ul className="flex flex-col gap-4">
                 {col.items.map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-dark font-medium">
+                  <li
+                    key={i}
+                    className="flex items-center gap-3 text-dark font-medium"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-green shrink-0" />
                     {item}
                   </li>
