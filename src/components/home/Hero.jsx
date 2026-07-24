@@ -41,7 +41,7 @@ export function Hero({
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-[930px] px-12 gap-12">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-[1100px] px-12 gap-12">
         {/* Headings */}
         <div className="flex flex-col items-center gap-6 text-center">
           <h1 className="text-[28px] sm:text-[40px] lg:text-[50px] sm:leading-[1.2] lg:leading-[68px] font-bold font-jakarta capitalize text-navy">
