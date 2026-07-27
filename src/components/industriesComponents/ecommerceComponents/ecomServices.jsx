@@ -170,6 +170,9 @@ export default function EcomServices() {
               <div className="absolute w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-md rounded-3xl">
                 {/* Front Side */}
                 <div className="absolute inset-0 w-full h-full bg-white p-8 rounded-3xl border border-gray-100 flex flex-col gap-5 [backface-visibility:hidden]">
+                  <div className="w-16 h-12 flex items-center justify-start">
+                    {service.icon}
+                  </div>
                   <div>
                     <h3 className="text-2xl font-bold text-dark mb-3">
                       {service.title}
@@ -200,7 +203,7 @@ export default function EcomServices() {
                         key={i}
                         className="flex items-start gap-2 text-sm font-medium text-white/80"
                       >
-                        <span className="text-green shrink-0 mt-1">✔</span>
+                        <span className="text-green shrink-0">✔</span>
                         <span>{cap}</span>
                       </li>
                     ))}
