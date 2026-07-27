@@ -138,7 +138,7 @@ export default function EcomSolutions() {
           ))}
         </div>
 
-        <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_40px_rgba(0,0,0,0.04)]">
+        <div className="bg-white shadow-[0_0_20px_#e5e7eb] rounded-3xl overflow-hidden border border-gray-200">
           <AnimatePresence mode="wait">
             {solutions.map((sol) =>
               sol.id === activeTab ? (

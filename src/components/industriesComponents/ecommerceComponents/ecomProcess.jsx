@@ -85,7 +85,7 @@ export default function EcomProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
-              className="bg-white p-8 rounded-3xl border border-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-lg hover:shadow-green hover:border-green transition-all duration-300"
+              className="bg-white p-8 rounded-3xl border border-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-green transition-all duration-300"
             >
               <h3 className="text-xl font-bold text-dark mb-4">{step.title}</h3>
               <p className="text-grey font-medium text-sm leading-relaxed">
