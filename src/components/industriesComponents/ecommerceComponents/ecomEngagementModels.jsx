@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { SoftMindSolLogo } from "../../../../public/images";
+import {
+  SoftMindSolLogo,
+  SoftMindSolutionLogoDark,
+} from "../../../../public/images";
+import { Button } from "@/components/ui/button";
 
 export default function EcomEngagementModels() {
   const models = [
@@ -51,35 +54,31 @@ export default function EcomEngagementModels() {
   ];
 
   return (
-    <section className="relative w-full bg-navy py-16 md:py-24 text-dark overflow-hidden font-jakarta">
-      {/* Background Radial Glow */}
-      <div
-        className="absolute top-[-187px] left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full pointer-events-none opacity-40 blur-[130px]"
-        style={{ backgroundColor: "navy" }}
-      />
+    <section className="relative w-full bg-white py-16 md:py-24 text-dark overflow-hidden font-jakarta">
       <div className="absolute select-none pointer-events-none">
-        {SoftMindSolLogo && (
-          <Image
-            src={SoftMindSolLogo}
-            alt="SoftMindSol Logo"
-            className="object-cover max-h-[726px]"
-          />
-        )}
+        <Image
+          src={SoftMindSolutionLogoDark}
+          alt="SoftMindSol Logo"
+          className="object-cover opacity-20"
+        />
       </div>
 
-      <div className="relative mx-auto max-w-[1200px] px-6 md:px-12">
+      <div className="relative mx-auto px-12">
         {/* Section Heading */}
         <div className="flex flex-col items-center gap-3.5 text-center mb-12 md:mb-16">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
             <span className="text-green text-[22px] font-bold tracking-wide">
-              Engagement Models
+              Flexible Engagement Models
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[750px]">
-            Choose an Engagement Model That Fits Your Goals
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy max-w-[750px]">
+            Choose an Engagement Model{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              That Fits Your Goals
+            </span>
           </h2>
-          <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[750px] mt-2">
+          <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[700px] font-semibold">
             Whether you need a complete product team, dedicated engineering
             support, or help with a specific project, we offer flexible
             engagement models designed around your scope, timeline, and budget.
@@ -160,7 +159,7 @@ export default function EcomEngagementModels() {
               <div className="w-full mt-auto">
                 <Button
                   variant={model.highlight ? "default" : "outline"}
-                  className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm"
+                  className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm cursor-pointer rounded-full"
                   style={
                     model.highlight
                       ? {
