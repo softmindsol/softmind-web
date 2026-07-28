@@ -1,46 +1,88 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+"use client";
 import CustomButton from "@/components/customs/customButton";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
 
-export default function FinalCTA() {
+const EdFinalCta = () => {
   return (
-    <section className="relative w-full py-24 bg-[#00235A] overflow-hidden font-jakarta">
-      {/* Background decoration */}
-      <div className="absolute inset-0 w-full h-full">
-        {/* Glow left */}
-        <div className="absolute top-0 left-[-20%] w-[500px] h-[500px] bg-[#0CBF83] blur-[150px] opacity-20 rounded-full mix-blend-screen pointer-events-none" />
-        {/* Glow right */}
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#004BC0] blur-[150px] opacity-30 rounded-full mix-blend-screen pointer-events-none" />
-        
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none" />
+    <section className="relative w-full h-[450px] lg:h-[427px] font-jakarta overflow-hidden flex items-center justify-center bg-white">
+      <style>
+        {`
+          @keyframes aurora-1 {
+            0% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+            50% { transform: translate(25%, -15%) scale(1.4) rotate(180deg); }
+            100% { transform: translate(0%, 0%) scale(1) rotate(360deg); }
+          }
+          @keyframes aurora-2 {
+            0% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+            50% { transform: translate(-20%, 25%) scale(1.5) rotate(-180deg); }
+            100% { transform: translate(0%, 0%) scale(1) rotate(-360deg); }
+          }
+          @keyframes aurora-3 {
+            0% { transform: translate(0%, 0%) scale(1); opacity: 0.4; }
+            50% { transform: translate(15%, 15%) scale(1.6); opacity: 0.9; }
+            100% { transform: translate(0%, 0%) scale(1); opacity: 0.4; }
+          }
+        `}
+      </style>
+
+      {/* Animated Aurora Background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none mix-blend-screen opacity-90">
+        <div
+          className="absolute w-[500px] h-[500px] rounded-full bg-[#00235A] blur-[70px] lg:blur-[90px]"
+          style={{ animation: "aurora-1 8s infinite ease-in-out" }}
+        />
+        <div
+          className="absolute w-[450px] h-[450px] rounded-full bg-[#004BC0] blur-[80px] lg:blur-[100px] mix-blend-screen"
+          style={{ animation: "aurora-2 10s infinite ease-in-out" }}
+        />
+        <div
+          className="absolute w-[350px] h-[350px] rounded-full bg-[#0CBF83] blur-[90px] lg:blur-[120px] opacity-40 mix-blend-screen"
+          style={{ animation: "aurora-3 6s infinite ease-in-out" }}
+        />
       </div>
 
-      <div className="relative z-10 mx-auto px-6 lg:px-12 max-w-[800px] flex flex-col items-center text-center">
-        <div className="inline-flex px-4 py-1.5 bg-white/10 border border-white/20 rounded-full mb-8">
-          <span className="text-[#0CBF83] text-sm font-bold tracking-widest uppercase">
-            Start Today
-          </span>
+      {/* Glassmorphism Overlay */}
+      <div className="absolute inset-0 z-10 bg-white backdrop-blur-[20px]" />
+
+      {/* Content Container */}
+      <div className="relative z-20 flex flex-col items-center text-center px-4 max-w-[755px] mx-auto gap-[24px] lg:gap-[32px]">
+        {/* Tag / Header */}
+        <div className="flex flex-row items-center gap-[8px]">
+          <div className="w-[8px] h-[8px] rounded-full bg-gradient-to-r from-[#00235A] to-[#004BC0]" />
+          <h4 className="font-bold text-[18px] lg:text-[22px] leading-[1.2] lg:leading-[28px] tracking-[1px] text-green">
+            Reach Us Out
+          </h4>
         </div>
-        
-        <h2 className="text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.2] font-extrabold tracking-tight text-white mb-6">
-          Ready to Build Your <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-white">
-            EdTech Product?
-          </span>
+
+        {/* Title */}
+        <h2 className="font-bold text-[28px] lg:text-[36px] leading-[1.2] lg:leading-[45px] tracking-[1px] text-black capitalize max-w-[755px]">
+          Ready to Build Your EdTech Product?
         </h2>
-        
-        <p className="text-lg md:text-xl text-white/80 font-medium leading-relaxed mb-10 max-w-[600px]">
-          Tell us what you are building. We will help you define the smartest next step to launch and scale.
+
+        {/* Description */}
+        <p className="font-medium text-[15px] lg:text-[16px] leading-[1.4] lg:leading-[20px] tracking-[1px] text-[#666666] max-w-[620px]">
+          Tell us what you are building. We will help you define the smartest
+          next step.
         </p>
-        
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <CustomButton btnText="Start Your EdTech Project" />
-          <Button variant="outline" className="h-[52px] px-8 rounded-[12px] bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white font-bold text-[15px] sm:w-auto w-full transition-all duration-300">
-            Talk to an EdTech Specialist
-          </Button>
+
+        {/* Custom Button */}
+        <div className="flex items-center justify-center gap-4">
+          <Link href={"/contact-us"}>
+            <CustomButton btnText={"Start Your EdTech Project"} />
+          </Link>
+          <Link href={"/contact-us"}>
+            <Button className="flex flex-col justify-center items-center px-[30px] py-[12px] bg-green hover:bg-green/70 rounded-[100px] shadow-[0px_0px_20px_rgba(0,0,0,0.12),inset_0px_4px_4px_rgba(0,0,0,0.25)] transition-transform duration-300 cursor-pointer py-5.5">
+              <span className="font-bold text-[16px] leading-[20px] tracking-[1px]">
+                Talk to an EdTech Specialist
+              </span>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default EdFinalCta;

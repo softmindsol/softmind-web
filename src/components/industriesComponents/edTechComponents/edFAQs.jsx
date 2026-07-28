@@ -1,7 +1,9 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
+import { SoftMindSolutionLogo } from "../../../../public/images";
 
-export default function FAQs() {
+export default function EdFaqs() {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqData = [
@@ -63,40 +65,57 @@ export default function FAQs() {
 
   return (
     <section className="relative w-full bg-[#161616] text-white py-16 md:py-24 overflow-hidden font-jakarta">
-      {/* Background radial blue glow */}
+      {/* Background radial blue glow (Ellipse 25 equivalent) */}
       <div
-        className="absolute top-[-186px] left-1/2 -translate-x-1/2 w-[490px] h-[490px] rounded-full pointer-events-none opacity-40 blur-[140px]"
-        style={{ backgroundColor: "#00235A" }}
+        className="absolute top-[-186px] right-0 w-[490px] h-[490px] rounded-full pointer-events-none opacity-30 blur-[140px]"
+        style={{ backgroundColor: "navy" }}
       />
 
-      {/* Background left glow */}
+      {/* Background left glow (Ellipse 26 equivalent) */}
       <div
         className="absolute top-[303px] left-[-150px] w-[363px] h-[363px] rounded-full pointer-events-none opacity-30 blur-[130px]"
         style={{ backgroundColor: "#00235A" }}
       />
+      <div
+        className="absolute top-1/2 left-1/2 w-[363px] h-[363px] rounded-full pointer-events-none opacity-20 blur-[130px]"
+        style={{ backgroundColor: "green" }}
+      />
+
+      <div className="absolute select-none pointer-events-none opacity-10">
+        <Image
+          src={SoftMindSolutionLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px]"
+        />
+      </div>
 
       <div className="relative w-fit mx-auto px-12">
-        <div className="flex lg:flex-row flex-col items-center justify-between gap-12 lg:gap-8 lg:items-start">
+        <div className="flex flex-col items-center justify-between gap-12 lg:gap-8">
           {/* Left Column: Heading Layout */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-start gap-4 max-w-[569px] sticky top-24">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center gap-4 max-w-[569px]">
             <div className="flex items-center gap-2">
+              {/* Custom Theme Dot */}
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
-              <span className="text-[#0CBF83] text-[18px] md:text-[22px] font-bold tracking-[1px] leading-[28px]">
-                FAQs
+              <span className="text-[#0CBF83] text-[22px] font-bold tracking-[1px] leading-[28px]">
+                Faqs
               </span>
             </div>
 
-            <h2 className="text-center lg:text-start text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-white">
-              EdTech Development Questions
+            <h2 className="text-center lg:text-start text-2xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] text-white">
+              Curious?{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+                Read This First
+              </span>
             </h2>
 
-            <p className="text-center lg:text-start text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-[1px]">
-              Find clear answers about building EdTech products, our process, timelines, standards compliance, and offshore capabilities.
+            <p className="text-center text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-[1px]">
+              Find clear answers about our services, process, timelines,
+              pricing, and support to help you make informed decisions.
             </p>
           </div>
 
           {/* Right Column: Dynamic Accordions */}
-          <div className="lg:col-span-7 flex flex-col gap-4 w-full max-w-[644px]">
+          <div className="lg:col-span-7 flex flex-col gap-4 w-full max-w-[1024px]">
             {faqData.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
@@ -108,12 +127,14 @@ export default function FAQs() {
                       : "border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 hover:shadow-lg hover:-translate-y-0.5"
                   }`}
                 >
+                  {/* Subtle animated gradient background for active state */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-r from-[#0CBF83]/0 via-[#0CBF83]/5 to-transparent pointer-events-none transition-opacity duration-700 ease-in-out ${
                       isOpen ? "opacity-100" : "opacity-0"
                     }`}
                   />
 
+                  {/* Accordion Question Bar */}
                   <div
                     onClick={() => handleToggle(idx)}
                     className="flex items-center justify-between p-6 sm:p-7 cursor-pointer select-none gap-4 relative z-10"
@@ -128,6 +149,7 @@ export default function FAQs() {
                       {faq.question}
                     </h3>
 
+                    {/* Icon Container with elegant hover and active state */}
                     <div
                       className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out border ${
                         isOpen
@@ -150,6 +172,7 @@ export default function FAQs() {
                     </div>
                   </div>
 
+                  {/* Dynamic Height expanding body wrapper */}
                   <div
                     className={`grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                       isOpen
@@ -159,9 +182,12 @@ export default function FAQs() {
                   >
                     <div className="overflow-hidden">
                       <div className="relative z-10 pb-7 px-6 sm:px-7">
+                        {/* Elegant divider */}
                         <div
                           className={`w-12 h-[2px] rounded-full mb-5 transition-all duration-700 delay-100 ${isOpen ? "bg-[#0CBF83]/50 w-full max-w-[100px]" : "bg-transparent w-0"}`}
                         />
+
+                        {/* Answer Body text */}
                         <p className="text-[14px] sm:text-[16px] leading-[1.7] text-white/70 font-medium tracking-wide">
                           {faq.answer}
                         </p>
