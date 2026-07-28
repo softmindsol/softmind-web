@@ -28,41 +28,41 @@ const EdFinalCta = () => {
       </style>
 
       {/* Animated Aurora Background */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none mix-blend-screen opacity-90">
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60">
         <div
-          className="absolute w-[500px] h-[500px] rounded-full bg-[#00235A] blur-[70px] lg:blur-[90px]"
+          className="absolute w-[500px] h-[500px] rounded-full bg-[#6099f5] blur-[90px]"
           style={{ animation: "aurora-1 8s infinite ease-in-out" }}
         />
         <div
-          className="absolute w-[450px] h-[450px] rounded-full bg-[#004BC0] blur-[80px] lg:blur-[100px] mix-blend-screen"
+          className="absolute w-[450px] h-[450px] rounded-full bg-[#004BC0] blur-[130px]"
           style={{ animation: "aurora-2 10s infinite ease-in-out" }}
         />
         <div
-          className="absolute w-[350px] h-[350px] rounded-full bg-[#0CBF83] blur-[90px] lg:blur-[120px] opacity-40 mix-blend-screen"
+          className="absolute w-[350px] h-[350px] rounded-full bg-green blur-[120px] opacity-60"
           style={{ animation: "aurora-3 6s infinite ease-in-out" }}
         />
       </div>
 
       {/* Glassmorphism Overlay */}
-      <div className="absolute inset-0 z-10 bg-white backdrop-blur-[20px]" />
+      <div className="absolute inset-0 z-10 bg-white/70 backdrop-blur-[20px]" />
 
       {/* Content Container */}
       <div className="relative z-20 flex flex-col items-center text-center px-4 max-w-[755px] mx-auto gap-[24px] lg:gap-[32px]">
         {/* Tag / Header */}
         <div className="flex flex-row items-center gap-[8px]">
           <div className="w-[8px] h-[8px] rounded-full bg-gradient-to-r from-[#00235A] to-[#004BC0]" />
-          <h4 className="font-bold text-[18px] lg:text-[22px] leading-[1.2] lg:leading-[28px] tracking-[1px] text-green">
+          <h4 className="font-bold text-[18px] lg:text-[22px] leading-[1.2] lg:leading-[28px] tracking-[1px] text-navy">
             Reach Us Out
           </h4>
         </div>
 
         {/* Title */}
-        <h2 className="font-bold text-[28px] lg:text-[36px] leading-[1.2] lg:leading-[45px] tracking-[1px] text-black capitalize max-w-[755px]">
+        <h2 className="font-bold text-[28px] lg:text-[36px] leading-[1.2] lg:leading-[45px] tracking-[1px] text-black capitalize">
           Ready to Build Your EdTech Product?
         </h2>
 
         {/* Description */}
-        <p className="font-medium text-[15px] lg:text-[16px] leading-[1.4] lg:leading-[20px] tracking-[1px] text-[#666666] max-w-[620px]">
+        <p className="font-medium text-[15px] lg:text-[16px] leading-[1.4] lg:leading-[20px] tracking-[1px] text-dark max-w-[620px]">
           Tell us what you are building. We will help you define the smartest
           next step.
         </p>
