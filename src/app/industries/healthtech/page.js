@@ -3,10 +3,10 @@ import HealthTechSolutions from "@/components/industriesComponents/healthTechCom
 import HealthTechExpertise from "@/components/industriesComponents/healthTechComponents/healthTechExpertise";
 import HealthTechProjects from "@/components/industriesComponents/healthTechComponents/healthTechProjects";
 import EngagementModels from "@/components/home/engagementModels";
-import TestimonialSlider from "@/components/home/testimonialSlider";
 import HealthTechBenefits from "@/components/industriesComponents/healthTechComponents/healthTechBenefits";
 import HealthTechCTA from "@/components/industriesComponents/healthTechComponents/healthTechCTA";
 import HealthWhoWeServe from "@/components/industriesComponents/healthTechComponents/healthWhoWeServe";
+import HealthTestimonial from "@/components/industriesComponents/healthTechComponents/healthTestimonial";
 
 export const metadata = {
   title:
@@ -34,7 +34,7 @@ const HealthTech = () => {
       <HealthTechProjects />
       <EngagementModels />
       <HealthTechBenefits />
-      <TestimonialSlider />
+      <HealthTestimonial />
       <HealthTechCTA />
     </main>
   );

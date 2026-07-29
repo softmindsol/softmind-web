@@ -14,7 +14,7 @@ import { SoftMindSolutionLogoDark } from "../../../../public/images";
 const features = [
   {
     num: "01",
-    title: "Healthcare-Focused Expertise",
+    title: "Healthcare and Fitness Focused Expertise",
     desc: "Build with a team that understands the complexities of healthcare. From HIPAA-compliant applications to AI-powered health platforms, we create solutions that improve patient care while meeting industry standards.",
     icon: HiOutlineSparkles,
   },
@@ -77,10 +77,11 @@ const HealthTechBenefits = () => {
             Why Partner with SoftMind Solutions?
           </h2>
           <p className="max-w-[800px] text-[16px] lg:text-[18px] font-medium text-dark/75 leading-[26px]">
-            Choosing the right healthcare technology partner can determine
-            whether your product succeeds or struggles. At SoftMind Solutions,
-            we combine healthcare expertise with a product-first approach to
-            help you launch faster, scale confidently, and maximize your ROI.
+            Choosing the right healthcare and fitness technology partner can
+            determine whether your product succeeds or struggles. At Softmind
+            Solutions, we combine healthcare expertise with a product-first
+            approach to help you launch faster, scale confidently, and maximize
+            your ROI.
           </p>
         </div>
 

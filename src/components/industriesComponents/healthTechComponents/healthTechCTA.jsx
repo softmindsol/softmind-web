@@ -26,12 +26,12 @@ const HealthTechCTA = () => {
           <div className="flex-1 flex flex-col items-start space-y-6">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-              <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
+              <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green capitalize">
                 Why Choose Us
               </h3>
             </div>
-            <h2 className="text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-white capitalize">
-              Why Healthcare Businesses Choose Softmind Solutions
+            <h2 className="text-[32px] md:text-[40px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-white capitalize">
+              Why Healthcare and Fitness Businesses Choose Softmind Solutions
             </h2>
 
             <ul className="space-y-4 mt-4 w-full">
@@ -47,7 +47,7 @@ const HealthTechCTA = () => {
           </div>
 
           {/* CTA Right */}
-          <div className="w-full lg:w-[450px] bg-white/5 border border-white/10 rounded-[24px] p-8 lg:p-10 backdrop-blur-md flex flex-col items-center justify-center text-center gap-6 shadow-[0px_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="w-full lg:w-[480px] bg-white/5 border border-white/10 rounded-[24px] p-8 lg:p-10 backdrop-blur-md flex flex-col items-center justify-center text-center gap-6 shadow-[0px_8px_32px_rgba(0,0,0,0.2)]">
             <h3 className="text-[24px] font-bold text-white leading-[1.3]">
               Ready to Build Something Extraordinary?
             </h3>
@@ -64,9 +64,9 @@ const HealthTechCTA = () => {
                 </button>
               </Link>
               <Link href="/projects" className="w-full">
-                <button className="w-full py-[14px] bg-transparent border-2 border-white rounded-[100px] transition-all duration-300 hover:bg-white/10 hover:border-green">
+                <button className="w-ful px-5 py-[14px] bg-transparent border-2 border-white rounded-[100px] transition-all duration-300 hover:bg-white/10 hover:border-green">
                   <span className="font-bold text-[16px] tracking-[1px] text-white">
-                    View Our Healthcare Projects
+                    View Our Healthcare and Fitness Projects
                   </span>
                 </button>
               </Link>
