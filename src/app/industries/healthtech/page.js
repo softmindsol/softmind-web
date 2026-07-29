@@ -9,19 +9,19 @@ import HealthTechCTA from "@/components/industriesComponents/healthTechComponent
 
 export const metadata = {
   title:
-    "HealthTech Software Development Company | Custom Healthcare Software Solutions",
+    "Healthcare and Fitness Software Development Company | Custom Healthcare Software Solutions",
   description:
-    "We develop custom HealthTech applications, telemedicine platforms, EHR/EMR systems, patient portals, AI healthcare solutions, and remote patient monitoring software for startups, hospitals, and digital health companies across the USA and MENA.",
+    "We develop custom HealthTech and fitness applications, telemedicine platforms, EHR/EMR systems, patient portals, AI healthcare solutions, and remote patient monitoring software for startups, hospitals, and digital health companies across the USA and MENA.",
 };
 
 const HealthTech = () => {
   return (
     <main className="w-full flex flex-col items-center overflow-x-hidden">
       <Hero
-        title="Custom HealthTech Software"
+        title="Custom Healthcare and Fitness"
         typewriterPrefix=""
-        typewriterPhrases={["Development Company"]}
-        description="We don't just build healthcare software; we build intelligent healthcare solutions that improve outcomes, automate workflows, and drive better patient experiences. "
+        typewriterPhrases={["Software Development Services"]}
+        description="We don't just build healthcare and fitness software, we build intelligent healthcare and fitness solutions that improve outcomes, automate workflows, and drive better patient experiences."
         primaryButtonText="Start a Project"
         primaryButtonLink="/contact-us"
         secondaryButtonText={null}

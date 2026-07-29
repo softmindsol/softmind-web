@@ -9,7 +9,12 @@ import {
   MdOutlineManageAccounts,
 } from "react-icons/md";
 import { TbSpeakerphone, TbUsersGroup } from "react-icons/tb";
-import { HtSolutions } from "../../../../public/images";
+import {
+  HtSolutions,
+  SoftMindSolutionLogo,
+  SoftMindSolutionLogoDark,
+} from "../../../../public/images";
+import { IoFitnessOutline } from "react-icons/io5";
 
 const solutionsData = [
   {
@@ -68,6 +73,27 @@ const solutionsData = [
     icon: MdOutlineManageAccounts,
     position: "right",
   },
+  {
+    title: "Fitness and Wellness Mobile App Development",
+    description:
+      "Build intuitive fitness and wellness apps that deliver personalized workouts, nutrition guidance, progress tracking, and engaging experiences that keep users motivated and active.",
+    icon: IoFitnessOutline,
+    position: "left",
+  },
+  {
+    title: "Health and Fitness SaaS Platforms",
+    description:
+      "Develop scalable, cloud-based fitness and wellness platforms that help businesses deliver personalized services, manage operations, and connect users across devices and applications.",
+    icon: IoFitnessOutline,
+    position: "right",
+  },
+  {
+    title: "Gym and Fitness Club Management Software",
+    description:
+      "Streamline gym and fitness operations with smart management solutions that simplify memberships, scheduling, payments, client engagement, and performance tracking.",
+    icon: IoFitnessOutline,
+    position: "center",
+  },
 ];
 
 const HealthTechSolutions = () => {
@@ -75,26 +101,37 @@ const HealthTechSolutions = () => {
     <section className="relative w-full bg-[#161616] py-20 lg:py-24 overflow-hidden font-jakarta">
       {/* Top Glow */}
       <div className="absolute left-1/2 top-[-187px] h-[490px] w-[490px] -translate-x-1/2 rounded-full bg-navy blur-[212.4px] pointer-events-none" />
+      <div className="absolute lg:right-1/2 bottom-0 h-[490px] w-[490px] -translate-x-1/2 rounded-full bg-green blur-[212.4px] pointer-events-none" />
+      <div className="absolute left-1/4 select-none pointer-events-none">
+        <Image
+          src={SoftMindSolutionLogo}
+          alt="SoftMindSol Logo"
+          className="object-cover opacity-15"
+        />
+      </div>
 
       <div className="relative z-10 mx-auto px-6 lg:px-12">
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center space-y-4 mb-16 lg:mb-20 text-center">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
-            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
+            <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green capitalize">
               Why Choose Us
             </h3>
             {/* <h3 className="text-[20px] lg:text-[22px] font-bold tracking-[1px] text-green uppercase">
               Healthcare Software Development Services
             </h3> */}
           </div>
-          <h2 className="max-w-[1000px] text-[24px] md:text-[32px] font-bold leading-[1.3] lg:leading-[44px] tracking-[1px] text-white capitalize">
-            Healthcare Software Development Services
+          <h2 className="max-w-[700px] text-[24px] md:text-[40px] font-bold leading-[1.3] lg:leading-[44px] tracking-[1px] text-white capitalize">
+            Healthcare and Fitness Software{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              Development Services
+            </span>
           </h2>
-          <p className="max-w-[1000px] text-base font-medium tracking-[1px] text-white/75">
+          <p className="max-w-[1000px] text-base font-medium tracking-[1px] text-white/80">
             From idea validation to enterprise-scale platforms, we provide
-            end-to-end healthcare software development services tailored to your
-            business objectives.
+            end-to-end healthcare and fitness software development services
+            tailored to your business objectives.
           </p>
         </div>
 
@@ -120,11 +157,16 @@ const HealthTechSolutions = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
             {solutionsData.map((solution, index) => {
               const isLeft = solution.position === "left";
+              const isCenter = solution.position === "center";
               return (
                 <div
                   key={index}
                   className={`w-full lg:max-w-[458px] ${
-                    isLeft ? "lg:mr-auto" : "lg:ml-auto"
+                    isCenter
+                      ? "lg:col-span-2 mx-auto"
+                      : isLeft
+                        ? "lg:mr-auto"
+                        : "lg:ml-auto"
                   }`}
                 >
                   <SolutionCard data={solution} />
