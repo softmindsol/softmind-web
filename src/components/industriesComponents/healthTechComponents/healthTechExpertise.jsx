@@ -78,14 +78,15 @@ const HealthTechExpertise = () => {
         <div className="flex flex-col items-center justify-center space-y-6 mb-20 lg:mb-24 text-center">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white shadow-[0px_8px_24px_rgba(0,0,0,0.04)] border border-gray-100 transition-transform hover:scale-105 duration-300">
             <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-navy to-[#004BC0] animate-pulse" />
-            <h3 className="text-[14px] lg:text-[16px] font-bold tracking-[2px] text-green uppercase">
-              Our Expertise
+            <h3 className="text-[14px] lg:text-[16px] font-bold tracking-[2px] text-green capitalize">
+              Our Healthcare and Fitness Expertise
             </h3>
           </div>
           <h2 className="max-w-[1024px] text-[32px] md:text-[42px] lg:text-[40px] font-bold leading-tight tracking-tight text-dark capitalize">
-            We build healthcare solutions that improve patient outcomes,
-            streamline operations, and help providers deliver care more
-            efficiently.
+            See how we&apos;ve helped healthcare and fitness startups,
+            providers, and digital health companies turn ideas into secure,
+            scalable software. Our case studies showcase measurable outcomes,
+            faster launches, and solutions that create lasting business value.
           </h2>
         </div>
 
