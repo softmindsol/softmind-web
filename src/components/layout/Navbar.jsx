@@ -166,7 +166,7 @@ const INDUSTRIES_MEGA_MENU = {
   },
   industries: [
     {
-      label: "HealthTech",
+      label: "HealthTech & Fitness",
       desc: "Digital solutions that improve patient care, streamline operations and ensure regulatory compliance.",
       href: "/industries/healthtech",
       icon: (

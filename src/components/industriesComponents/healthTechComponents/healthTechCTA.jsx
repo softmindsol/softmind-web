@@ -47,7 +47,7 @@ const HealthTechCTA = () => {
           </div>
 
           {/* CTA Right */}
-          <div className="w-full lg:w-[480px] bg-white/5 border border-white/10 rounded-[24px] p-8 lg:p-10 backdrop-blur-md flex flex-col items-center justify-center text-center gap-6 shadow-[0px_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="w-full lg:w-[520px] bg-white/5 border border-white/10 rounded-[24px] p-8 lg:p-10 backdrop-blur-md flex flex-col items-center justify-center text-center gap-6 shadow-[0px_8px_32px_rgba(0,0,0,0.2)]">
             <h3 className="text-[24px] font-bold text-white leading-[1.3]">
               Ready to Build Something Extraordinary?
             </h3>
