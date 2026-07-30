@@ -112,18 +112,23 @@ const HealthWhoWeServe = () => {
 
       <div className="relative mx-auto px-6 lg:px-12 z-10">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center space-y-6 mb-20 lg:mb-24 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 mb-20 lg:mb-24 text-center">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white shadow-[0px_8px_24px_rgba(0,0,0,0.04)] border border-gray-100 transition-transform hover:scale-105 duration-300">
             <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-navy to-[#004BC0] animate-pulse" />
             <h3 className="text-[14px] lg:text-[16px] font-bold tracking-[2px] text-green capitalize">
               Who We Serve
             </h3>
           </div>
-          <h2 className="max-w-[1024px] text-[32px] md:text-[42px] lg:text-[40px] font-bold leading-tight tracking-tight text-dark capitalize">
-            We build secure, scalable health and fitness solutions that help
-            organizations launch faster, engage users, improve outcomes, and
-            streamline operations.
+          <h2 className="max-w-[560px] text-[32px] md:text-[42px] lg:text-[40px] font-bold leading-tight tracking-tight text-dark capitalize">
+            We build secure, scalable{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              health and fitness solutions
+            </span>
           </h2>
+          <p className="text-base max-w-[750px]">
+            that help organizations launch faster, engage users, improve
+            outcomes, and streamline operations.
+          </p>
         </div>
 
         {/* Cards Grid */}

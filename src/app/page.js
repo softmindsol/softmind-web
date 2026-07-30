@@ -25,9 +25,9 @@ export default function Home() {
       <WithWithoutSoftmind />
       <OurWork />
       <HowWeWork />
-      <ContactFormSection />
       <EngagementModels />
       <TestimonialSlider />
+      <ContactFormSection />
       <Faqs />
       <FinalCta />
     </div>

@@ -14,7 +14,7 @@ import { SoftMindSolLogo } from "../../../public/images";
 export default function Industries() {
   const industries = [
     {
-      title: "HealthTech",
+      title: "HealthTech & Fitness",
       description:
         "We build secure, user-friendly healthcare software that improves patient care, operational efficiency, and digital access to medical services.",
       icon: HeartPulse,
@@ -75,22 +75,6 @@ export default function Industries() {
         "Student progress dashboards",
         "Online assessment tools",
         "EdTech mobile app development",
-      ],
-    },
-    {
-      title: "AI Services",
-      description:
-        "We build intelligent solutions that automate workflows, improve efficiency, and enhance digital experiences.",
-      icon: Lightbulb,
-      color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
-      accent: "hover:shadow-pink-500/10",
-      items: [
-        "Custom chatbot development",
-        "AI-powered analytics",
-        "Process automation bots",
-        "AI-driven personalization",
-        "Predictive modeling solutions",
-        "AI integration services",
       ],
     },
     {
