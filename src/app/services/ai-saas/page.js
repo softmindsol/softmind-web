@@ -1,16 +1,19 @@
 import AiSaasOutcomes from "@/components/servicesComponents/aiSaasComponents/aiSaasOutcomes";
-import DevelopmetProcess from "@/components/servicesComponents/aiSaasComponents/developmetProcess";
+import AiSaasWorkflow from "@/components/servicesComponents/aiSaasComponents/aiSaasWorkflow";
 import ServicesShowCase from "@/components/servicesComponents/aiSaasComponents/servicesShowCase";
 import { Hero } from "@/components/home/Hero";
 export const metadata = {
-  title: "AI SaaS | SoftMind Solutions",
+  title:
+    "Custom AI SaaS Development Services | Build Intelligent SaaS Products",
   description:
-    "Building scalable, AI-driven SaaS platforms that automate workflows, unlock insights, and accelerate business growth.",
+    "Transform your business with custom AI SaaS development. SoftMind Solutions builds intelligent, scalable SaaS platforms that automate workflows, deliver predictive analytics, and unlock real business value.",
 };
 
 const AISaas = () => {
   return (
     <main className="w-full flex flex-col items-center">
+      <AiSaasWorkflow />
+
       <Hero
         title="Engineering Intelligent"
         typewriterPrefix=""
@@ -22,7 +25,6 @@ const AISaas = () => {
         showBottomText={false}
       />
       <ServicesShowCase />
-      <DevelopmetProcess />
       <AiSaasOutcomes />
     </main>
   );
