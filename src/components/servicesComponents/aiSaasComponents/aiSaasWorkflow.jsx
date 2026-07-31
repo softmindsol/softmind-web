@@ -65,8 +65,10 @@ const AiSaasWorkflow = () => {
 
   // Dynamic window sizing for SVG paths
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const updateDims = () =>
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     updateDims();
@@ -87,27 +89,28 @@ const AiSaasWorkflow = () => {
   return (
     <section
       ref={containerRef}
-      className="relative bg-black font-jakarta h-[600vh]"
+      className="relative w-full bg-black font-jakarta h-[600vh]"
     >
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
-        {/* Background Gradients */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/20 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/10 rounded-full blur-[150px] pointer-events-none" />
+      {mounted && (
+        <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+          {/* Background Gradients */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/20 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/10 rounded-full blur-[150px] pointer-events-none" />
 
-        {/* Section Title */}
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full z-40 px-4 pointer-events-none">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)]" />
-            <span className="text-[#0CBF83] text-[12px] sm:text-[16px] font-bold tracking-[1px] uppercase">
-              Prodigy Workflow
-            </span>
+          {/* Section Title */}
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full z-40 px-4 pointer-events-none">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)]" />
+              <span className="text-[#0CBF83] text-[12px] sm:text-[16px] font-bold tracking-[1px] uppercase">
+                Prodigy Workflow
+              </span>
+            </div>
+            <h2 className="text-[20px] sm:text-[32px] font-bold tracking-[1px] text-white">
+              End-to-End AI SaaS
+            </h2>
           </div>
-          <h2 className="text-[20px] sm:text-[32px] font-bold tracking-[1px] text-white">
-            End-to-End AI SaaS
-          </h2>
-        </div>
 
-        {/* SVG Canvas for Lines */}
+          {/* SVG Canvas for Lines */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <svg width="100%" height="100%">
             <defs>
@@ -360,7 +363,8 @@ const AiSaasWorkflow = () => {
           </span>
           <div className="w-[1px] h-[20px] bg-gradient-to-b from-white/60 to-transparent animate-pulse" />
         </div>
-      </div>
+        </div>
+      )}
     </section>
   );
 };
