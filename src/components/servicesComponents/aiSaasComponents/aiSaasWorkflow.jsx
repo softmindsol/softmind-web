@@ -42,41 +42,130 @@ const AiSaasWorkflow = () => {
       const loopLine = ".loop-line";
 
       // Setup paths for drawing
-      const paths = gsap.utils.toArray([line1, line2, line3, line4, outLine1, outLine2, loopLine]);
+      const paths = gsap.utils.toArray([
+        line1,
+        line2,
+        line3,
+        line4,
+        outLine1,
+        outLine2,
+        loopLine,
+      ]);
       paths.forEach((path) => {
-        const length = path.getTotalLength();
-        gsap.set(path, {
-          strokeDasharray: length,
-          strokeDashoffset: length
+        const el = document.querySelector(path);
+        if (el) {
+          const length = el.getTotalLength();
+          gsap.set(el, {
+            strokeDasharray: length,
+            strokeDashoffset: length,
+          });
+        }
+      });
+
+      // Floating blobs animation
+      const blobs = gsap.utils.toArray(".bg-blob");
+      blobs.forEach((blob, i) => {
+        gsap.to(blob, {
+          y: i % 2 === 0 ? 40 : -40,
+          x: i % 2 === 0 ? 30 : -30,
+          scale: 1.1,
+          duration: 5 + i,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
         });
       });
+
+      // Particles animation
+      const particles = gsap.utils.toArray(".particle");
+      particles.forEach((p, i) => {
+        gsap.to(p, {
+          y: (i % 2 === 0 ? 1 : -1) * (30 + i * 10),
+          x: (i % 3 === 0 ? 1 : -1) * (20 + i * 5),
+          opacity: 0.8,
+          scale: 1.5,
+          duration: 4 + i,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
+
+      // Title entrance animation
+      gsap.fromTo(
+        ".title-anim",
+        { opacity: 0, y: 30, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+          },
+        }
+      );
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom bottom",
-          scrub: 1,
-        }
+          scrub: 1.5,
+        },
       });
 
-      tl.to(hub, { y: 0, opacity: 1, scale: 1, duration: 1, ease: "none" })
-        .to(line1, { strokeDashoffset: 0, duration: 1, ease: "none" })
-        .to(b1, { x: 0, opacity: 1, duration: 1, ease: "none" }, "<")
-        .to(line2, { strokeDashoffset: 0, duration: 1, ease: "none" })
-        .to(b2, { x: 0, opacity: 1, duration: 1, ease: "none" }, "<")
-        .to(line3, { strokeDashoffset: 0, duration: 1, ease: "none" })
-        .to(b3, { x: 0, opacity: 1, duration: 1, ease: "none" }, "<")
-        .to(line4, { strokeDashoffset: 0, duration: 1, ease: "none" })
-        .to(b4, { x: 0, opacity: 1, duration: 1, ease: "none" }, "<")
-        .to([outLine1, outLine2], { strokeDashoffset: 0, duration: 1, ease: "none" })
-        .to(out, { y: 0, opacity: 1, duration: 1, ease: "none" }, "<")
-        .to(loopLine, { strokeDashoffset: 0, duration: 1, ease: "none" });
-
+      tl.fromTo(hub, { y: -50, opacity: 0, scale: 0.8, filter: "blur(10px)" }, { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" })
+        .to(line1, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
+        .fromTo(b1, { x: -80, opacity: 0, scale: 0.9, filter: "blur(5px)" }, { x: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" }, "<0.4")
+        .to(line2, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" }, "-=0.6")
+        .fromTo(b2, { x: 80, opacity: 0, scale: 0.9, filter: "blur(5px)" }, { x: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" }, "<0.4")
+        .to(line3, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
+        .fromTo(b3, { x: -80, opacity: 0, scale: 0.9, filter: "blur(5px)" }, { x: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" }, "<0.4")
+        .to(line4, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" }, "-=0.6")
+        .fromTo(b4, { x: 80, opacity: 0, scale: 0.9, filter: "blur(5px)" }, { x: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" }, "<0.4")
+        .to([outLine1, outLine2], { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
+        .fromTo(out, { y: 50, opacity: 0, scale: 0.9, filter: "blur(10px)" }, { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" }, "<0.4")
+        .to(loopLine, { strokeDashoffset: 0, duration: 1.5, ease: "power1.inOut" });
     }, containerRef);
 
     return () => ctx.revert();
   }, [mounted, dimensions]);
+
+  const handleMouseMove = (e) => {
+    if (window.innerWidth < 768) return;
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+
+    gsap.to(card, {
+      rotateX,
+      rotateY,
+      scale: 1.02,
+      duration: 0.4,
+      ease: "power2.out",
+      transformPerspective: 1000,
+    });
+  };
+
+  const handleMouseLeave = (e) => {
+    if (window.innerWidth < 768) return;
+    gsap.to(e.currentTarget, {
+      rotateX: 0,
+      rotateY: 0,
+      scale: 1,
+      duration: 0.7,
+      ease: "power3.out",
+    });
+  };
 
   const cx = dimensions.width / 2;
   const cyHub = dimensions.height * 0.15;
@@ -94,17 +183,34 @@ const AiSaasWorkflow = () => {
     >
       {mounted && (
         <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/20 rounded-full blur-[150px] pointer-events-none" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/10 rounded-full blur-[150px] pointer-events-none" />
+          <div className="bg-blob absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/30 rounded-full blur-[150px] pointer-events-none" />
+          <div className="bg-blob absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/20 rounded-full blur-[150px] pointer-events-none" />
+          
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            {[
+              { top: "15%", left: "20%" },
+              { top: "35%", left: "80%" },
+              { top: "55%", left: "15%" },
+              { top: "75%", left: "85%" },
+              { top: "25%", left: "60%" },
+              { top: "65%", left: "40%" },
+            ].map((pos, i) => (
+              <div
+                key={i}
+                className="particle absolute w-1 h-1 bg-[#0CBF83]/30 rounded-full blur-[1px]"
+                style={pos}
+              />
+            ))}
+          </div>
 
           <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full z-40 px-4 pointer-events-none">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)]" />
+            <div className="title-anim flex items-center justify-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)] shadow-[0_0_10px_#004BC0]" />
               <span className="text-[#0CBF83] text-[12px] sm:text-[16px] font-bold tracking-[1px] uppercase">
                 Prodigy Workflow
               </span>
             </div>
-            <h2 className="text-[20px] sm:text-[32px] font-bold tracking-[1px] text-white">
+            <h2 className="title-anim text-[20px] sm:text-[32px] font-bold tracking-[1px] text-white">
               End-to-End AI SaaS
             </h2>
           </div>
@@ -182,158 +288,168 @@ const AiSaasWorkflow = () => {
           </div>
 
           <div
-            className="hub-node absolute z-10 w-[200px] sm:w-[260px] -ml-[100px] sm:-ml-[130px] flex flex-col items-center justify-center bg-[#111] border border-[#0CBF83]/40 shadow-[0_0_30px_rgba(12,191,131,0.2)] rounded-xl py-3 px-4"
-            style={{
-              top: "15%",
-              left: "50%",
-              transform: "translateY(-100px) scale(0.8)",
-              opacity: 0,
-            }}
+            className="hub-node absolute z-10 w-[200px] sm:w-[260px] -ml-[100px] sm:-ml-[130px]"
+            style={{ top: "15%", left: "50%" }}
           >
-            <span className="text-[#0CBF83] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-1">
-              Central Hub
-            </span>
-            <h3 className="text-[14px] sm:text-[18px] font-bold text-white text-center">
-              AI SaaS Development
-            </h3>
-          </div>
-
-          <div
-            className="b1-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px] bg-[#1A1A1A] border border-white/10 shadow-lg rounded-xl p-3 sm:p-4"
-            style={{
-              top: "37%",
-              left: isMobile ? "25%" : "25%",
-              transform: "translateX(-100px)",
-              opacity: 0,
-            }}
-          >
-            <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold">
-                1
-              </div>
-              <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                Discovery & Strategy
-              </h4>
+            <div
+              className="group flex flex-col items-center justify-center bg-[#111]/80 backdrop-blur-md border border-[#0CBF83]/40 shadow-[0_0_30px_rgba(12,191,131,0.2)] rounded-xl py-3 px-4 transition-all duration-500 hover:shadow-[0_0_40px_rgba(12,191,131,0.5)] hover:border-[#0CBF83]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <span className="text-[#0CBF83] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-1 transition-transform duration-500 group-hover:-translate-y-1">
+                Central Hub
+              </span>
+              <h3 className="text-[14px] sm:text-[18px] font-bold text-white text-center transition-transform duration-500 group-hover:-translate-y-1">
+                AI SaaS Development
+              </h3>
             </div>
-            <ul className="flex flex-col gap-1 hidden sm:flex">
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> User Research
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> Tech Stack
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> Roadmapping
-              </li>
-            </ul>
           </div>
 
           <div
-            className="b2-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px] bg-[#1A1A1A] border border-white/10 shadow-lg rounded-xl p-3 sm:p-4"
-            style={{
-              top: "37%",
-              left: isMobile ? "75%" : "75%",
-              transform: "translateX(100px)",
-              opacity: 0,
-            }}
+            className="b1-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px]"
+            style={{ top: "37%", left: "25%" }}
           >
-            <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold">
-                2
+            <div
+              className="group bg-[#1A1A1A]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:translate-x-1">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
+                  1
+                </div>
+                <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
+                  Discovery & Strategy
+                </h4>
               </div>
-              <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                Design & Architecture
-              </h4>
+              <ul className="flex flex-col gap-1 hidden sm:flex">
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
+                  <span className="text-[#0CBF83]">▹</span> User Research
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
+                  <span className="text-[#0CBF83]">▹</span> Tech Stack
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
+                  <span className="text-[#0CBF83]">▹</span> Roadmapping
+                </li>
+              </ul>
             </div>
-            <ul className="flex flex-col gap-1 hidden sm:flex">
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> UX/UI Design
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> System Arch
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> Data Model
-              </li>
-            </ul>
           </div>
 
           <div
-            className="b3-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px] bg-[#1A1A1A] border border-white/10 shadow-lg rounded-xl p-3 sm:p-4"
-            style={{
-              top: "62%",
-              left: isMobile ? "25%" : "25%",
-              transform: "translateX(-100px)",
-              opacity: 0,
-            }}
+            className="b2-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px]"
+            style={{ top: "37%", left: "75%" }}
           >
-            <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold">
-                3
+            <div
+              className="group bg-[#1A1A1A]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:-translate-x-1">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
+                  2
+                </div>
+                <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
+                  Design & Architecture
+                </h4>
               </div>
-              <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                AI Development
-              </h4>
+              <ul className="flex flex-col gap-1 hidden sm:flex">
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
+                  <span className="text-[#0CBF83]">▹</span> UX/UI Design
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
+                  <span className="text-[#0CBF83]">▹</span> System Arch
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
+                  <span className="text-[#0CBF83]">▹</span> Data Model
+                </li>
+              </ul>
             </div>
-            <ul className="flex flex-col gap-1 hidden sm:flex">
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> SaaS Features
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> LLM Fine-Tuning
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> Data Pipelines
-              </li>
-            </ul>
           </div>
 
           <div
-            className="b4-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px] bg-[#1A1A1A] border border-white/10 shadow-lg rounded-xl p-3 sm:p-4"
-            style={{
-              top: "62%",
-              left: isMobile ? "75%" : "75%",
-              transform: "translateX(100px)",
-              opacity: 0,
-            }}
+            className="b3-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px]"
+            style={{ top: "62%", left: "25%" }}
           >
-            <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold">
-                4
+            <div
+              className="group bg-[#1A1A1A]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:translate-x-1">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
+                  3
+                </div>
+                <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
+                  AI Development
+                </h4>
               </div>
-              <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                Deploy & Optimize
-              </h4>
+              <ul className="flex flex-col gap-1 hidden sm:flex">
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
+                  <span className="text-[#0CBF83]">▹</span> SaaS Features
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
+                  <span className="text-[#0CBF83]">▹</span> LLM Fine-Tuning
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
+                  <span className="text-[#0CBF83]">▹</span> Data Pipelines
+                </li>
+              </ul>
             </div>
-            <ul className="flex flex-col gap-1 hidden sm:flex">
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> QA & Security
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> CI/CD Pipelines
-              </li>
-              <li className="text-white/60 text-[11px]">
-                <span className="text-[#0CBF83]">▹</span> Live Monitoring
-              </li>
-            </ul>
           </div>
 
           <div
-            className="out-node absolute z-20 w-[240px] sm:w-[320px] -ml-[120px] sm:-ml-[160px] flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-4 px-6 border border-white/20"
-            style={{
-              top: "82%",
-              left: "50%",
-              transform: "translateY(100px)",
-              opacity: 0,
-            }}
+            className="b4-node absolute z-10 w-[140px] sm:w-[240px] lg:w-[280px] -ml-[70px] sm:-ml-[120px] lg:-ml-[140px]"
+            style={{ top: "62%", left: "75%" }}
           >
-            <span className="text-[20px] sm:text-[24px] mb-1">🚀</span>
-            <h3 className="text-[14px] sm:text-[18px] font-bold text-white text-center leading-tight">
-              Production-Ready Product
-            </h3>
-            <span className="text-white/80 text-[10px] sm:text-[12px] font-medium mt-1">
-              Live, secure, and scalable.
-            </span>
+            <div
+              className="group bg-[#1A1A1A]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:-translate-x-1">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
+                  4
+                </div>
+                <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
+                  Deploy & Optimize
+                </h4>
+              </div>
+              <ul className="flex flex-col gap-1 hidden sm:flex">
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
+                  <span className="text-[#0CBF83]">▹</span> QA & Security
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
+                  <span className="text-[#0CBF83]">▹</span> CI/CD Pipelines
+                </li>
+                <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
+                  <span className="text-[#0CBF83]">▹</span> Live Monitoring
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            className="out-node absolute z-20 w-[240px] sm:w-[320px] -ml-[120px] sm:-ml-[160px]"
+            style={{ top: "82%", left: "50%" }}
+          >
+            <div
+              className="group flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-4 px-6 border border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_rgba(12,191,131,0.6)] hover:scale-[1.02]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <span className="text-[20px] sm:text-[24px] mb-1 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
+                🚀
+              </span>
+              <h3 className="text-[14px] sm:text-[18px] font-bold text-white text-center leading-tight transition-transform duration-500 group-hover:-translate-y-1">
+                Production-Ready Product
+              </h3>
+              <span className="text-white/80 text-[10px] sm:text-[12px] font-medium mt-1 transition-transform duration-500 group-hover:-translate-y-1">
+                Live, secure, and scalable.
+              </span>
+            </div>
           </div>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-40">
@@ -349,4 +465,3 @@ const AiSaasWorkflow = () => {
 };
 
 export default AiSaasWorkflow;
-
