@@ -265,25 +265,25 @@ const INDUSTRIES_MEGA_MENU = {
         </svg>
       ),
     },
-    {
-      label: "AI Products",
-      desc: "AI-powered applications and platforms that automate workflows and unlock new opportunities.",
-      href: "/industries/ai-products",
-      icon: (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-        </svg>
-      ),
-    },
+    // {
+    //   label: "AI Products",
+    //   desc: "AI-powered applications and platforms that automate workflows and unlock new opportunities.",
+    //   href: "/industries/ai-products",
+    //   icon: (
+    //     <svg
+    //       width="20"
+    //       height="20"
+    //       viewBox="0 0 24 24"
+    //       fill="none"
+    //       stroke="currentColor"
+    //       strokeWidth="1.75"
+    //       strokeLinecap="round"
+    //       strokeLinejoin="round"
+    //     >
+    //       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    //     </svg>
+    //   ),
+    // },
   ],
   // sidebar: {
   //   eyebrow: "Why SoftMind?",
@@ -622,41 +622,16 @@ export function Navbar() {
                                 </Link>
                               ))}
                             </div>
-                            <Link
+                            {/* <Link
                               href={col.viewAllHref}
                               onClick={() => setActiveDropdown(null)}
                               className="mt-3 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[12.5px] font-semibold text-green hover:gap-2.5 transition-all duration-200 group"
                             >
                               {col.viewAllLabel}
                               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-                            </Link>
+                            </Link> */}
                           </div>
                         ))}
-                      </div>
-                      {/* Trust bar */}
-                      <div className="border-t border-gray-100 bg-gray-50/60 px-6 py-3 flex items-center gap-3">
-                        <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
-                          Trusted by
-                        </span>
-                        <div className="flex items-center gap-5 text-[11px] font-semibold text-gray-400">
-                          {["Startups", "Scale-ups", "Enterprises"].map((t) => (
-                            <span key={t} className="flex items-center gap-1">
-                              <span className="w-1 h-1 rounded-full bg-green inline-block" />
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                        <div className="ml-auto">
-                          <span className="text-[11px] text-gray-400">
-                            Not sure where to start?{" "}
-                            <Link
-                              href="/contact"
-                              className="text-green font-semibold hover:underline underline-offset-2"
-                            >
-                              Talk to an expert →
-                            </Link>
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </div>
