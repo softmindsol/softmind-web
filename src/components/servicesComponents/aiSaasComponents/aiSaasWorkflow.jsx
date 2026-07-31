@@ -87,7 +87,7 @@ const AiSaasWorkflow = () => {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#161616] font-jakarta h-[600vh]"
+      className="relative bg-black font-jakarta h-[600vh]"
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
         {/* Background Gradients */}

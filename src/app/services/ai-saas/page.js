@@ -12,8 +12,6 @@ export const metadata = {
 const AISaas = () => {
   return (
     <main className="w-full flex flex-col items-center">
-      <AiSaasWorkflow />
-
       <Hero
         title="Engineering Intelligent"
         typewriterPrefix=""
@@ -25,6 +23,7 @@ const AISaas = () => {
         showBottomText={false}
       />
       <ServicesShowCase />
+      <AiSaasWorkflow />
       <AiSaasOutcomes />
     </main>
   );
