@@ -52,10 +52,9 @@ const AiSaasWorkflow = () => {
         loopLine,
       ]);
       paths.forEach((path) => {
-        const el = document.querySelector(path);
-        if (el) {
-          const length = el.getTotalLength();
-          gsap.set(el, {
+        if (path && typeof path.getTotalLength === "function") {
+          const length = path.getTotalLength();
+          gsap.set(path, {
             strokeDasharray: length,
             strokeDashoffset: length,
           });
