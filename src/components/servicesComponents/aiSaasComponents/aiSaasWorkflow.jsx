@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedCircle from "@/components/animated-circle/AnimatedCircle";
 
 const AiSaasWorkflow = () => {
   const containerRef = useRef(null);
@@ -548,6 +549,7 @@ const AiSaasWorkflow = () => {
           </div>
         )}
       </section>
+      <AnimatedCircle />
     </>
   );
 };
