@@ -32,7 +32,7 @@ export default function AnimatedCircle() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-[150vh] bg-white overflow-hidden"
+      className="relative w-full min-h-[150vh] bg-black overflow-hidden"
     >
       {/* 
         Sticky container keeps the visualization centered while we scroll 

@@ -51,7 +51,7 @@ export function AnimatedRing({
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 flex items-center justify-center pointer-events-none will-change-transform z-10"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none will-change-transform z-10"
     >
       <svg
         ref={svgRef}
