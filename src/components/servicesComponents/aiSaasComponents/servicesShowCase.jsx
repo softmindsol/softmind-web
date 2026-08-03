@@ -28,7 +28,8 @@ const tabsData = [
   {
     title: "Custom AI SaaS Product Development",
     icon: Code,
-    description: "Build secure, scalable SaaS platforms with modern architecture, intuitive user experiences, and AI-powered functionality tailored to your business.",
+    description:
+      "Build secure, scalable SaaS platforms with modern architecture, intuitive user experiences, and AI-powered functionality tailored to your business.",
     images: [
       "https://picsum.photos/id/1/800/400",
       "https://picsum.photos/id/2/800/400",
@@ -38,7 +39,8 @@ const tabsData = [
   {
     title: "AI SaaS MVP Development",
     icon: Rocket,
-    description: "Launch a market-ready MVP with essential features to validate your idea, gather user feedback, and accelerate product-market fit.",
+    description:
+      "Launch a market-ready MVP with essential features to validate your idea, gather user feedback, and accelerate product-market fit.",
     images: [
       "https://picsum.photos/id/4/800/400",
       "https://picsum.photos/id/5/800/400",
@@ -48,7 +50,8 @@ const tabsData = [
   {
     title: "SaaS UI/UX Design",
     icon: PenTool,
-    description: "Design intuitive user experiences that simplify complex workflows, improve usability, and increase product adoption.",
+    description:
+      "Design intuitive user experiences that simplify complex workflows, improve usability, and increase product adoption.",
     images: [
       "https://picsum.photos/id/7/800/400",
       "https://picsum.photos/id/8/800/400",
@@ -58,7 +61,8 @@ const tabsData = [
   {
     title: "AI Feature Development & Integration",
     icon: BrainCircuit,
-    description: "Enhance your SaaS platform with AI capabilities such as automation, predictive analytics, intelligent search, and personalized user experiences.",
+    description:
+      "Enhance your SaaS platform with AI capabilities such as automation, predictive analytics, intelligent search, and personalized user experiences.",
     images: [
       "https://picsum.photos/id/10/800/400",
       "https://picsum.photos/id/11/800/400",
@@ -68,7 +72,8 @@ const tabsData = [
   {
     title: "Generative AI SaaS Development",
     icon: Sparkles,
-    description: "Develop AI-powered SaaS products with intelligent assistants, content generation, document processing, and conversational experiences powered by modern LLMs.",
+    description:
+      "Develop AI-powered SaaS products with intelligent assistants, content generation, document processing, and conversational experiences powered by modern LLMs.",
     images: [
       "https://picsum.photos/id/13/800/400",
       "https://picsum.photos/id/14/800/400",
@@ -78,7 +83,8 @@ const tabsData = [
   {
     title: "SaaS API Development & Integration",
     icon: Cpu,
-    description: "Connect your SaaS platform with third-party applications, payment gateways, CRMs, ERPs, communication tools, and cloud services for seamless workflows.",
+    description:
+      "Connect your SaaS platform with third-party applications, payment gateways, CRMs, ERPs, communication tools, and cloud services for seamless workflows.",
     images: [
       "https://picsum.photos/id/16/800/400",
       "https://picsum.photos/id/17/800/400",
@@ -88,7 +94,8 @@ const tabsData = [
   {
     title: "SaaS Migration & Modernization",
     icon: RefreshCw,
-    description: "Modernize legacy applications with cloud-native architecture, improved security, enhanced performance, and AI-powered capabilities.",
+    description:
+      "Modernize legacy applications with cloud-native architecture, improved security, enhanced performance, and AI-powered capabilities.",
     images: [
       "https://picsum.photos/id/19/800/400",
       "https://picsum.photos/id/20/800/400",
@@ -98,7 +105,8 @@ const tabsData = [
   {
     title: "SaaS Optimization Services",
     icon: TrendingUp,
-    description: "Optimize application performance, user experience, cloud infrastructure, and AI functionality to maximize product efficiency and scalability.",
+    description:
+      "Optimize application performance, user experience, cloud infrastructure, and AI functionality to maximize product efficiency and scalability.",
     images: [
       "https://picsum.photos/id/22/800/400",
       "https://picsum.photos/id/23/800/400",
@@ -108,7 +116,8 @@ const tabsData = [
   {
     title: "AI SaaS Support & Maintenance",
     icon: Wrench,
-    description: "Keep your SaaS platform secure, reliable, and continuously evolving with proactive monitoring, performance optimization, and ongoing AI enhancements.",
+    description:
+      "Keep your SaaS platform secure, reliable, and continuously evolving with proactive monitoring, performance optimization, and ongoing AI enhancements.",
     images: [
       "https://picsum.photos/id/25/800/400",
       "https://picsum.photos/id/26/800/400",
@@ -172,13 +181,15 @@ const ServicesShowCase = () => {
               End-to-End AI SaaS Development Services
             </h2>
             <p className="text-[16px] md:text-[18px] font-medium leading-[24px] tracking-[1px] text-white/90 max-w-[800px]">
-              From product strategy to AI implementation and long-term support, we help you build intelligent, scalable SaaS products that drive measurable business growth.
+              From product strategy to AI implementation and long-term support,
+              we help you build intelligent, scalable SaaS products that drive
+              measurable business growth.
             </p>
           </div>
           {/* Main Content: Sidebar + Right Panel */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24">
             {/* Left Sidebar Tabs */}
-            <div className="flex-shrink-0 w-full lg:w-[400px]">
+            <div className="flex-shrink-0 w-full lg:w-[450px]">
               <div className="rounded-xl bg-white/5 border border-white/5 p-6 flex flex-col gap-2">
                 {tabsData.map((tab, index) => {
                   const Icon = tab.icon;
@@ -187,14 +198,14 @@ const ServicesShowCase = () => {
                     <button
                       key={index}
                       onClick={() => setActiveIndex(index)}
-                      className={`flex items-center gap-4 rounded-full px-5 py-3 transition-all duration-300 ${
+                      className={`flex items-start gap-4 rounded-full px-5 py-3 transition-all duration-300 ${
                         isActive
                           ? "bg-green/20 text-white opacity-100"
                           : "text-white opacity-40 hover:opacity-100"
                       }`}
                     >
-                      <Icon className="h-6 w-6 flex-shrink-0" />
-                      <span className="text-[18px] font-semibold tracking-[1px]">
+                      <Icon className="h-6 w-6 flex" />
+                      <span className="text-[14px] whitespace-nowrap font-semibold tracking-[1px]">
                         {tab.title}
                       </span>
                     </button>
@@ -211,7 +222,7 @@ const ServicesShowCase = () => {
                 opts={{ loop: true }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <h2 className="text-[32px] md:text-[46px] font-bold capitalize tracking-[1px] text-white">
+                  <h2 className="text-[28px] md:text-[36px] font-bold capitalize tracking-[1px] text-white">
                     {activeTab.title}
                   </h2>
                   <div className="hidden sm:block shrink-0">
@@ -249,10 +260,13 @@ const ServicesShowCase = () => {
             <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[12px] py-14 px-6 sm:px-12 flex flex-col items-center justify-center gap-7 shadow-2xl">
               <div className="flex flex-col items-center text-center gap-3 mb-8">
                 <h2 className="text-[32px] md:text-[40px] font-bold text-white">
-                  Build Your SaaS Product with an Experienced AI Development Team
+                  Build Your SaaS Product with an Experienced AI Development
+                  Team
                 </h2>
                 <p className="text-[16px] md:text-[18px] font-medium text-white/90 leading-[24px] tracking-[1px] max-w-[900px]">
-                  Work with AI engineers, SaaS architects, product designers, cloud specialists, and quality assurance professionals focused on building software that creates practical business value.
+                  Work with AI engineers, SaaS architects, product designers,
+                  cloud specialists, and quality assurance professionals focused
+                  on building software that creates practical business value.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 w-full">
