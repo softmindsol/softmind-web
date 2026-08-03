@@ -4,12 +4,16 @@ import React, { useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
-  BrainCircuit,
-  Cloud,
   Layers,
+  Code,
+  Rocket,
+  PenTool,
+  BrainCircuit,
+  Sparkles,
   Cpu,
-  Server,
-  Lightbulb,
+  RefreshCw,
+  TrendingUp,
+  Wrench,
 } from "lucide-react";
 import {
   Carousel,
@@ -22,10 +26,9 @@ import { SoftMindSolLogo } from "../../../../public/images";
 
 const tabsData = [
   {
-    title: "AI Model Development",
-    icon: BrainCircuit,
-    description:
-      "Great products go beyond features – they solve real problems with intelligence built in. We design and train custom AI models that understand your data, automate decisions, and scale seamlessly within your SaaS platform, turning raw information into a genuine competitive advantage.",
+    title: "Custom AI SaaS Product Development",
+    icon: Code,
+    description: "Build secure, scalable SaaS platforms with modern architecture, intuitive user experiences, and AI-powered functionality tailored to your business.",
     images: [
       "https://picsum.photos/id/1/800/400",
       "https://picsum.photos/id/2/800/400",
@@ -33,10 +36,9 @@ const tabsData = [
     ],
   },
   {
-    title: "SaaS Architecture",
-    icon: Layers,
-    description:
-      "Build a robust and scalable architecture tailored for AI-driven software. Our designs ensure high availability, efficient resource utilization, and seamless integration, empowering your SaaS products to grow alongside your business without technical bottlenecks.",
+    title: "AI SaaS MVP Development",
+    icon: Rocket,
+    description: "Launch a market-ready MVP with essential features to validate your idea, gather user feedback, and accelerate product-market fit.",
     images: [
       "https://picsum.photos/id/4/800/400",
       "https://picsum.photos/id/5/800/400",
@@ -44,10 +46,9 @@ const tabsData = [
     ],
   },
   {
-    title: "Cloud & Infrastructure",
-    icon: Cloud,
-    description:
-      "Deploy your applications on secure, high-performance cloud environments. We provide end-to-end infrastructure management and optimization, ensuring that your AI solutions operate flawlessly while maintaining cost efficiency and data compliance.",
+    title: "SaaS UI/UX Design",
+    icon: PenTool,
+    description: "Design intuitive user experiences that simplify complex workflows, improve usability, and increase product adoption.",
     images: [
       "https://picsum.photos/id/7/800/400",
       "https://picsum.photos/id/8/800/400",
@@ -55,10 +56,9 @@ const tabsData = [
     ],
   },
   {
-    title: "API Integration",
-    icon: Cpu,
-    description:
-      "Seamlessly connect your AI capabilities with third-party services and internal tools. Our robust API integration solutions simplify data flow, enhance functionality, and create a unified ecosystem that accelerates your product's time-to-market.",
+    title: "AI Feature Development & Integration",
+    icon: BrainCircuit,
+    description: "Enhance your SaaS platform with AI capabilities such as automation, predictive analytics, intelligent search, and personalized user experiences.",
     images: [
       "https://picsum.photos/id/10/800/400",
       "https://picsum.photos/id/11/800/400",
@@ -66,10 +66,9 @@ const tabsData = [
     ],
   },
   {
-    title: "MLOps & Deployment",
-    icon: Server,
-    description:
-      "Streamline the lifecycle of your machine learning models from development to production. Our MLOps practices ensure continuous integration, reliable deployment, and automated monitoring, reducing downtime and maintaining model accuracy over time.",
+    title: "Generative AI SaaS Development",
+    icon: Sparkles,
+    description: "Develop AI-powered SaaS products with intelligent assistants, content generation, document processing, and conversational experiences powered by modern LLMs.",
     images: [
       "https://picsum.photos/id/13/800/400",
       "https://picsum.photos/id/14/800/400",
@@ -77,14 +76,43 @@ const tabsData = [
     ],
   },
   {
-    title: "Product Strategy",
-    icon: Lightbulb,
-    description:
-      "Align your AI initiatives with your core business objectives. We offer strategic consulting to identify high-impact opportunities, define product roadmaps, and ensure that your intelligent SaaS solutions deliver measurable value to your users.",
+    title: "SaaS API Development & Integration",
+    icon: Cpu,
+    description: "Connect your SaaS platform with third-party applications, payment gateways, CRMs, ERPs, communication tools, and cloud services for seamless workflows.",
     images: [
       "https://picsum.photos/id/16/800/400",
       "https://picsum.photos/id/17/800/400",
       "https://picsum.photos/id/18/800/400",
+    ],
+  },
+  {
+    title: "SaaS Migration & Modernization",
+    icon: RefreshCw,
+    description: "Modernize legacy applications with cloud-native architecture, improved security, enhanced performance, and AI-powered capabilities.",
+    images: [
+      "https://picsum.photos/id/19/800/400",
+      "https://picsum.photos/id/20/800/400",
+      "https://picsum.photos/id/21/800/400",
+    ],
+  },
+  {
+    title: "SaaS Optimization Services",
+    icon: TrendingUp,
+    description: "Optimize application performance, user experience, cloud infrastructure, and AI functionality to maximize product efficiency and scalability.",
+    images: [
+      "https://picsum.photos/id/22/800/400",
+      "https://picsum.photos/id/23/800/400",
+      "https://picsum.photos/id/24/800/400",
+    ],
+  },
+  {
+    title: "AI SaaS Support & Maintenance",
+    icon: Wrench,
+    description: "Keep your SaaS platform secure, reliable, and continuously evolving with proactive monitoring, performance optimization, and ongoing AI enhancements.",
+    images: [
+      "https://picsum.photos/id/25/800/400",
+      "https://picsum.photos/id/26/800/400",
+      "https://picsum.photos/id/27/800/400",
     ],
   },
 ];
@@ -137,12 +165,15 @@ const ServicesShowCase = () => {
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-navy to-blue-600" />
               <h3 className="text-[22px] font-bold tracking-[1px] text-green">
-                AI SaaS Development Services
+                Custom AI SaaS Development Services
               </h3>
             </div>
             <h2 className="text-[32px] md:text-[46px] font-bold leading-tight tracking-[1px] text-white capitalize">
-              Transforming Ideas Into Intelligent Products
+              End-to-End AI SaaS Development Services
             </h2>
+            <p className="text-[16px] md:text-[18px] font-medium leading-[24px] tracking-[1px] text-white/90 max-w-[800px]">
+              From product strategy to AI implementation and long-term support, we help you build intelligent, scalable SaaS products that drive measurable business growth.
+            </p>
           </div>
           {/* Main Content: Sidebar + Right Panel */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24">
@@ -216,44 +247,49 @@ const ServicesShowCase = () => {
           {/* Stats Bar */}
           <div className="relative z-20 mx-auto px-4 sm:px-6 lg:px-8 -mb-44 lg:-mb-88">
             <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[12px] py-14 px-6 sm:px-12 flex flex-col items-center justify-center gap-7 shadow-2xl">
-              <h2 className="mb-12 text-center text-[32px] md:text-[40px] font-bold text-white">
-                Your AI Product Is Built To Scale
-              </h2>
-              <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0">
+              <div className="flex flex-col items-center text-center gap-3 mb-8">
+                <h2 className="text-[32px] md:text-[40px] font-bold text-white">
+                  Build Your SaaS Product with an Experienced AI Development Team
+                </h2>
+                <p className="text-[16px] md:text-[18px] font-medium text-white/90 leading-[24px] tracking-[1px] max-w-[900px]">
+                  Work with AI engineers, SaaS architects, product designers, cloud specialists, and quality assurance professionals focused on building software that creates practical business value.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 w-full">
                 {/* Stat 1 */}
-                <div className="flex flex-col px-4 sm:px-8">
+                <div className="flex flex-col px-4 sm:px-8 items-center text-center">
                   <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
                     50+
                   </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    AI/ML Engineers & Data Scientists
+                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
+                    AI and software projects delivered
                   </span>
                 </div>
                 {/* Stat 2 */}
-                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30">
+                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30 items-center text-center">
                   <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    $20M+
+                    20+
                   </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    In efficiency gains for our clients
+                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
+                    Industries served
                   </span>
                 </div>
                 {/* Stat 3 */}
-                <div className="flex flex-col px-4 sm:px-8 lg:border-l lg:border-white/30">
+                <div className="flex flex-col px-4 sm:px-8 lg:border-l lg:border-white/30 items-center text-center">
                   <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    95%
+                    98%
                   </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    Model accuracy across production
+                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
+                    Client satisfaction rate
                   </span>
                 </div>
                 {/* Stat 4 */}
-                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30 lg:border-l lg:border-white/30">
+                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30 lg:border-l lg:border-white/30 items-center text-center">
                   <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    50+
+                    Global
                   </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug pr-2 lg:pr-4">
-                    AI SaaS products shipped
+                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
+                    Development and delivery experience
                   </span>
                 </div>
               </div>

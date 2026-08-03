@@ -325,11 +325,11 @@ const AiSaasWorkflow = () => {
               <div className="title-anim flex items-center justify-center gap-2 mb-2">
                 <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)] shadow-[0_0_10px_#004BC0]" />
                 <span className="text-[#0CBF83] text-[12px] sm:text-[16px] font-bold tracking-[1px] uppercase">
-                  Prodigy Workflow
+                  AI SaaS Development
                 </span>
               </div>
-              <h2 className="title-anim text-[20px] sm:text-[32px] font-bold tracking-[1px] text-white">
-                End-to-End AI SaaS
+              <h2 className="title-anim text-[20px] sm:text-[32px] md:text-[40px] font-bold tracking-[1px] text-white leading-tight">
+                Build More Than Software.<br />Build an Intelligent SaaS Product.
               </h2>
             </div>
 
