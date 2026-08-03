@@ -3,7 +3,6 @@
 import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AnimatedCircle from "@/components/animated-circle/AnimatedCircle";
 
 const AiSaasWorkflow = () => {
   const containerRef = useRef(null);
@@ -270,7 +269,7 @@ const AiSaasWorkflow = () => {
         className="relative w-full bg-black font-jakarta h-[600vh] mt-32"
       >
         {mounted && (
-          <div className="sticky top-0 w-full h-screen flex items-center justify-center">
+          <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
             <div className="bg-blob absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/30 rounded-full blur-[150px] pointer-events-none" />
             <div className="bg-blob absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/20 rounded-full blur-[150px] pointer-events-none" />
 
@@ -549,7 +548,6 @@ const AiSaasWorkflow = () => {
           </div>
         )}
       </section>
-      <AnimatedCircle />
     </>
   );
 };
