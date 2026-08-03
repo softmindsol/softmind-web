@@ -143,6 +143,12 @@ const AiSaasWorkflow = () => {
           },
           "<0.4",
         )
+        .fromTo(
+          ".b1-sub",
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+          "-=0.5",
+        )
         .to(
           line2,
           { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" },
@@ -161,6 +167,12 @@ const AiSaasWorkflow = () => {
           },
           "<0.4",
         )
+        .fromTo(
+          ".b2-sub",
+          { opacity: 0, x: 10 },
+          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+          "-=0.5",
+        )
         .to(line3, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
         .fromTo(
           b3,
@@ -174,6 +186,12 @@ const AiSaasWorkflow = () => {
             ease: "power2.out",
           },
           "<0.4",
+        )
+        .fromTo(
+          ".b3-sub",
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+          "-=0.5",
         )
         .to(
           line4,
@@ -193,6 +211,12 @@ const AiSaasWorkflow = () => {
           },
           "<0.4",
         )
+        .fromTo(
+          ".b4-sub",
+          { opacity: 0, x: 10 },
+          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+          "-=0.5",
+        )
         .to([outLine1, outLine2], {
           strokeDashoffset: 0,
           duration: 1.2,
@@ -211,11 +235,18 @@ const AiSaasWorkflow = () => {
           },
           "<0.4",
         )
+        .fromTo(
+          ".out-sub",
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" },
+          "-=0.5",
+        )
         .to(loopLine, {
           strokeDashoffset: 0,
           duration: 1.5,
           ease: "power1.inOut",
-        });
+        })
+        .set(loopLine, { strokeDasharray: "10,10" });
     }, containerRef);
 
     return () => ctx.revert();
@@ -411,14 +442,14 @@ const AiSaasWorkflow = () => {
                   </h4>
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
-                    <span className="text-[#0CBF83]">▹</span> User Research
+                  <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Business & User Research
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
-                    <span className="text-[#0CBF83]">▹</span> Tech Stack
+                  <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI Feasibility & Stack
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
-                    <span className="text-[#0CBF83]">▹</span> Roadmapping
+                  <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Roadmap & Metrics
                   </li>
                 </ul>
               </div>
@@ -442,14 +473,14 @@ const AiSaasWorkflow = () => {
                   </h4>
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
-                    <span className="text-[#0CBF83]">▹</span> UX/UI Design
+                  <li className="b2-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
+                    <span className="text-[#0CBF83] mr-1">▹</span> UX/UI Design
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
-                    <span className="text-[#0CBF83]">▹</span> System Arch
+                  <li className="b2-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
+                    <span className="text-[#0CBF83] mr-1">▹</span> System Architecture
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
-                    <span className="text-[#0CBF83]">▹</span> Data Model
+                  <li className="b2-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model & Data Arch
                   </li>
                 </ul>
               </div>
@@ -473,14 +504,14 @@ const AiSaasWorkflow = () => {
                   </h4>
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
-                    <span className="text-[#0CBF83]">▹</span> SaaS Features
+                  <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Core SaaS Features
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
-                    <span className="text-[#0CBF83]">▹</span> LLM Fine-Tuning
+                  <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model Integration
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
-                    <span className="text-[#0CBF83]">▹</span> Data Pipelines
+                  <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Data Pipelines & APIs
                   </li>
                 </ul>
               </div>
@@ -504,38 +535,53 @@ const AiSaasWorkflow = () => {
                   </h4>
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
-                    <span className="text-[#0CBF83]">▹</span> QA & Security
+                  <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
+                    <span className="text-[#0CBF83] mr-1">▹</span> QA & Security Testing
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
-                    <span className="text-[#0CBF83]">▹</span> CI/CD Pipelines
+                  <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Cloud Deploy & CI/CD
                   </li>
-                  <li className="text-white/60 text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
-                    <span className="text-[#0CBF83]">▹</span> Live Monitoring
+                  <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
+                    <span className="text-[#0CBF83] mr-1">▹</span> Monitoring & Iteration
                   </li>
                 </ul>
               </div>
             </div>
 
             <div
-              className="out-node absolute z-20 w-[240px] sm:w-[320px] -ml-[120px] sm:-ml-[160px]"
+              className="out-node absolute z-20 w-[280px] sm:w-[420px] -ml-[140px] sm:-ml-[210px]"
               style={{ top: "82%", left: "50%" }}
             >
               <div
-                className="group flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-4 px-6 border border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_rgba(12,191,131,0.6)] hover:scale-[1.02]"
+                className="group flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-5 px-6 border border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_rgba(12,191,131,0.6)] hover:scale-[1.02]"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <span className="text-[20px] sm:text-[24px] mb-1 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
+                <span className="text-[20px] sm:text-[28px] mb-2 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
                   🚀
                 </span>
-                <h3 className="text-[14px] sm:text-[18px] font-bold text-white text-center leading-tight transition-transform duration-500 group-hover:-translate-y-1">
-                  Production-Ready Product
+                <h3 className="text-[16px] sm:text-[20px] font-bold text-white text-center leading-tight transition-transform duration-500 group-hover:-translate-y-1">
+                  Production-Ready AI SaaS
                 </h3>
-                <span className="text-white/80 text-[10px] sm:text-[12px] font-medium mt-1 transition-transform duration-500 group-hover:-translate-y-1">
-                  Live, secure, and scalable.
-                </span>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 w-full text-left">
+                  <div className="out-sub flex items-start gap-2">
+                    <span className="text-white mt-[2px] text-[10px]">✓</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Fully functional AI SaaS live in production</span>
+                  </div>
+                  <div className="out-sub flex items-start gap-2">
+                    <span className="text-white mt-[2px] text-[10px]">✓</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Scalable architecture for user demand</span>
+                  </div>
+                  <div className="out-sub flex items-start gap-2">
+                    <span className="text-white mt-[2px] text-[10px]">✓</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Secure, tested, and monitored infrastructure</span>
+                  </div>
+                  <div className="out-sub flex items-start gap-2">
+                    <span className="text-white mt-[2px] text-[10px]">✓</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Ongoing improvement feedback loop</span>
+                  </div>
+                </div>
               </div>
             </div>
 
