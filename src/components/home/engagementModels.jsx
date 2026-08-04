@@ -157,7 +157,7 @@ export default function EngagementModels() {
               <div className="w-full mt-auto">
                 <Button
                   variant={model.highlight ? "default" : "outline"}
-                  className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm"
+                  className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm rounded-full cursor-pointer hover:bg-green/80 transition-colors duration-200"
                   style={
                     model.highlight
                       ? {

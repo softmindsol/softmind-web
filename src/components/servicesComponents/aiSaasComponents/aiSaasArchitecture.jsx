@@ -1,45 +1,51 @@
 "use client";
 import React from "react";
-import { 
-  ShieldCheck, 
-  Layers, 
-  Cloud, 
-  Users, 
-  Activity, 
-  EyeOff 
+import {
+  ShieldCheck,
+  Layers,
+  Cloud,
+  Users,
+  Activity,
+  EyeOff,
 } from "lucide-react";
 
 const architectureData = [
   {
     icon: Layers,
     title: "Multi-Tenant & Single-Tenant Architecture",
-    description: "We help you select and implement the tenancy model that best supports your customers and business strategy."
+    description:
+      "We help you select and implement the tenancy model that best supports your customers and business strategy.",
   },
   {
     icon: Cloud,
     title: "Cloud-Native Infrastructure",
-    description: "We build SaaS applications using cloud services, containerization, automated deployment, and scalable infrastructure components that can respond to changing demand."
+    description:
+      "We build SaaS applications using cloud services, containerization, automated deployment, and scalable infrastructure components that can respond to changing demand.",
   },
   {
     icon: Users,
     title: "Role-Based Access Control",
-    description: "Structured permissions ensure users can only access the features, accounts, and information relevant to their responsibilities."
+    description:
+      "Structured permissions ensure users can only access the features, accounts, and information relevant to their responsibilities.",
   },
   {
     icon: ShieldCheck,
     title: "Data Protection",
-    description: "We use secure authentication, encryption, access controls, data validation, audit logging, and protected development practices to reduce security risks."
+    description:
+      "We use secure authentication, encryption, access controls, data validation, audit logging, and protected development practices to reduce security risks.",
   },
   {
     icon: Activity,
     title: "Reliable Performance",
-    description: "Application monitoring, load testing, caching, database optimization, and fault-handling mechanisms help maintain a responsive user experience as usage grows."
+    description:
+      "Application monitoring, load testing, caching, database optimization, and fault-handling mechanisms help maintain a responsive user experience as usage grows.",
   },
   {
     icon: EyeOff,
     title: "AI Governance and Monitoring",
-    description: "For AI-powered features, we can implement evaluation processes, human review mechanisms, usage monitoring, permission controls, and model guardrails."
-  }
+    description:
+      "For AI-powered features, we can implement evaluation processes, human review mechanisms, usage monitoring, permission controls, and model guardrails.",
+  },
 ];
 
 export default function AiSaasArchitecture() {
@@ -59,14 +65,17 @@ export default function AiSaasArchitecture() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
             <span className="text-green text-[18px] md:text-[22px] font-bold tracking-wide">
-              Architecture & Security
+              Architecture, Security, & Scalability
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white capitalize">
             Secure and Scalable SaaS Architecture from the Start
           </h2>
           <p className="text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-wide mt-2">
-            Your SaaS architecture affects performance, security, development speed, operational cost, and the ability to scale. We design each product around its expected user volume, data requirements, integration needs, and compliance environment.
+            Your SaaS architecture affects performance, security, development
+            speed, operational cost, and the ability to scale. We design each
+            product around its expected user volume, data requirements,
+            integration needs, and compliance environment.
           </p>
         </div>
 
@@ -81,7 +90,7 @@ export default function AiSaasArchitecture() {
               >
                 {/* Accent Corner Glow */}
                 <div className="absolute -right-24 -bottom-24 w-48 h-48 bg-green/10 rounded-full blur-2xl group-hover:bg-green/15 transition-all duration-500" />
-                
+
                 <div>
                   {/* Icon Block */}
                   <div className="w-12 h-12 rounded-xl bg-green/10 border border-green/20 flex items-center justify-center text-green mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-green/20 group-hover:border-green/30">

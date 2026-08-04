@@ -6,33 +6,36 @@ const caseStudies = [
   {
     title: "Vitria AI",
     tags: ["Generative AI", "Video Processing", "LLMs"],
-    description: "An automated AI video production and content generation platform enabling marketing teams to generate personalized, localized video ad campaigns at scale.",
+    description:
+      "An automated AI video production and content generation platform enabling marketing teams to generate personalized, localized video ad campaigns at scale.",
     metric: "450%",
     metricLabel: "Campaign speed increase",
     accent: "from-[#ECEFF1] to-[#CFD8DC]",
     visualText: "🎥 AI Video SaaS",
-    textColor: "text-slate-800"
+    textColor: "text-slate-800",
   },
   {
     title: "BuiltRight",
     tags: ["PropTech", "Predictive Analytics", "Workflows"],
-    description: "A comprehensive property assessment and building management system featuring intelligent cost estimation and automated regulatory compliance checking.",
+    description:
+      "A comprehensive property assessment and building management system featuring intelligent cost estimation and automated regulatory compliance checking.",
     metric: "99.8%",
     metricLabel: "Compliance verification accuracy",
     accent: "from-[#E0F2FE] to-[#BAE6FD]",
     visualText: "🏠 PropTech AI",
-    textColor: "text-blue-900"
+    textColor: "text-blue-900",
   },
   {
     title: "CoreAI Health",
     tags: ["NLP", "Document Processing", "Security"],
-    description: "An intelligent healthcare administration platform extracting critical metadata from patient records and contracts, using secure retrieval-augmented generation.",
+    description:
+      "An intelligent healthcare administration platform extracting critical metadata from patient records and contracts, using secure retrieval-augmented generation.",
     metric: "92%",
     metricLabel: "Reduction in manual data entry",
-    accent: "from-[#F1F5F9] to-[#E2E8F0]",
+    accent: "from-[#ECEFF1] to-[#CFD8DC]",
     visualText: "🩺 Medical NLP",
-    textColor: "text-emerald-950"
-  }
+    textColor: "text-emerald-950",
+  },
 ];
 
 export default function AiSaasCaseStudy() {
@@ -45,7 +48,7 @@ export default function AiSaasCaseStudy() {
       <div className="relative mx-auto px-6 lg:px-12 max-w-[1280px]">
         {/* Header Layout */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between items-center lg:items-start gap-8 mb-16 text-center lg:text-left">
-          <div className="flex flex-col items-center lg:items-start gap-3.5 max-w-[650px]">
+          <div className="flex flex-col items-center lg:items-start gap-3.5 max-w-[700px]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
               <span className="text-green text-[18px] md:text-[22px] font-bold tracking-wide">
@@ -55,10 +58,9 @@ export default function AiSaasCaseStudy() {
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy capitalize">
               AI SaaS Products Built Around Real Business Needs
             </h2>
-          </div>
-          <div className="lg:max-w-[450px]">
             <p className="text-sm md:text-base text-grey font-medium leading-relaxed">
-              Explore how we apply AI, cloud engineering, and product design to solve real business challenges across different industries.
+              Explore how we apply AI, cloud engineering, and product design to
+              solve real business challenges across different industries.
             </p>
           </div>
         </div>
@@ -72,10 +74,14 @@ export default function AiSaasCaseStudy() {
             >
               <div>
                 {/* Visual Placeholder Graphic */}
-                <div className={`w-full aspect-[414/250] rounded-xl bg-gradient-to-br ${study.accent} flex items-center justify-center relative overflow-hidden mb-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.04)]`}>
+                <div
+                  className={`w-full aspect-[414/250] rounded-xl bg-gradient-to-br ${study.accent} flex items-center justify-center relative overflow-hidden mb-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.04)]`}
+                >
                   {/* Visual Floating elements */}
                   <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-20" />
-                  <span className={`text-[20px] font-black tracking-tight z-10 ${study.textColor} bg-white/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/50 shadow-sm`}>
+                  <span
+                    className={`text-[20px] font-black tracking-tight z-10 ${study.textColor} backdrop-blur-md px-4 py-2 rounded-full`}
+                  >
                     {study.visualText}
                   </span>
                 </div>

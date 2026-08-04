@@ -1,50 +1,56 @@
 "use client";
 import React from "react";
-import { 
-  BrainCircuit, 
-  Target, 
-  Settings, 
-  Clock, 
-  TrendingUp, 
-  HeartHandshake 
+import {
+  BrainCircuit,
+  Target,
+  Settings,
+  Clock,
+  TrendingUp,
+  HeartHandshake,
 } from "lucide-react";
 
 const reasons = [
   {
     icon: BrainCircuit,
     title: "AI and SaaS Expertise in One Team",
-    description: "Our software engineers understand SaaS architecture, while our AI specialists understand models, data, evaluation, and intelligent automation."
+    description:
+      "Our software engineers understand SaaS architecture, while our AI specialists understand models, data, evaluation, and intelligent automation.",
   },
   {
     icon: Target,
     title: "Product-Focused Development",
-    description: "We consider user needs, market positioning, monetization, adoption, and long-term maintainability alongside technical implementation."
+    description:
+      "We consider user needs, market positioning, monetization, adoption, and long-term maintainability alongside technical implementation.",
   },
   {
     icon: Settings,
     title: "Solutions Designed Around Your Business",
-    description: "Your application is developed around your workflows, customers, commercial model, security needs, and future product roadmap."
+    description:
+      "Your application is developed around your workflows, customers, commercial model, security needs, and future product roadmap.",
   },
   {
     icon: Clock,
     title: "Agile and Transparent Delivery",
-    description: "Projects are delivered through clear milestones, regular communication, working product demonstrations, and continuous stakeholder feedback."
+    description:
+      "Projects are delivered through clear milestones, regular communication, working product demonstrations, and continuous stakeholder feedback.",
   },
   {
     icon: TrendingUp,
     title: "Scalable Engineering",
-    description: "We design applications to support future features, integrations, users, and data volumes without requiring complete redevelopment."
+    description:
+      "We design applications to support future features, integrations, users, and data volumes without requiring complete redevelopment.",
   },
   {
     icon: HeartHandshake,
     title: "Long-Term Product Support",
-    description: "Our involvement can continue after launch through monitoring, maintenance, AI model improvements, cloud optimization, and feature development."
-  }
+    description:
+      "Our involvement can continue after launch through monitoring, maintenance, AI model improvements, cloud optimization, and feature development.",
+  },
 ];
 
 export default function WhyChooseSoftmind() {
   return (
-    <section className="relative w-full bg-gray-50 text-dark py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-blue-200 text-dark py-24 overflow-hidden font-jakarta">
       {/* Background blobs */}
       <div className="absolute top-0 right-1/4 w-[350px] h-[350px] bg-green/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] bg-navy/5 rounded-full blur-[100px] pointer-events-none" />
@@ -62,7 +68,9 @@ export default function WhyChooseSoftmind() {
             Why Businesses Choose Softmind for AI SaaS Development
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide mt-2">
-            We help businesses transform ideas into intelligent SaaS products with expert strategy, expert engineering, innovative AI solutions, and reliable delivery.
+            We help businesses transform ideas into intelligent SaaS products
+            with expert strategy, expert engineering, innovative AI solutions,
+            and reliable delivery.
           </p>
         </div>
 

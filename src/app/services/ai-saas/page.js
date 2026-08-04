@@ -7,16 +7,17 @@ import DevelopmetProcess from "@/components/servicesComponents/aiSaasComponents/
 import AiSaasArchitecture from "@/components/servicesComponents/aiSaasComponents/aiSaasArchitecture";
 import AiSaasCaseStudy from "@/components/servicesComponents/aiSaasComponents/aiSaasCaseStudy";
 import EngagementModels from "@/components/home/engagementModels";
-import AiSaasTestimonials from "@/components/servicesComponents/aiSaasComponents/aiSaasTestimonials";
 import WhyChooseSoftmind from "@/components/servicesComponents/aiSaasComponents/whyChooseSoftmind";
 import AiSaasTechStack from "@/components/servicesComponents/aiSaasComponents/aiSaasTechStack";
 import ContactFormSection from "@/components/home/contactFormSection";
 import AiSaasFaqs from "@/components/servicesComponents/aiSaasComponents/aiSaasFaqs";
+import TestimonialSlider from "@/components/home/testimonialSlider";
 
 export const metadata = {
-  title: "Custom AI SaaS Development Services | Tezeract",
+  title:
+    "Custom AI SaaS Development Services | Build Intelligent SaaS Products",
   description:
-    "Build secure, scalable AI SaaS products with Tezeract. From strategy and MVP development to AI integration, modernization, and ongoing support.",
+    "Build secure, scalable AI SaaS products with SoftMind. From strategy and MVP development to AI integration, modernization, and ongoing support.",
 };
 
 const AISaas = () => {
@@ -40,7 +41,7 @@ const AISaas = () => {
       <AiSaasArchitecture />
       <AiSaasCaseStudy />
       <EngagementModels />
-      <AiSaasTestimonials />
+      <TestimonialSlider />
       <WhyChooseSoftmind />
       <AiSaasTechStack />
       <ContactFormSection />

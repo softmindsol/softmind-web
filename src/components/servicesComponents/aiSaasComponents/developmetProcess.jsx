@@ -6,90 +6,59 @@ import { motion, useScroll } from "framer-motion";
 const stepsData = [
   {
     step: "Step 1",
-    title: "Discover",
+    title: "Discovery and Consultation",
     description:
-      "We dive deep into your business, data, and users to uncover opportunities where AI can create measurable impact and long-term value.",
-    workOn: [
-      "Data Audit",
-      "Stakeholder Interviews",
-      "Market Research",
-      "Use-Case Mapping",
-      "Feasibility Analysis",
-      "Insights",
-    ],
+      "We begin by understanding your product idea, target market, users, business model, existing technology, and desired outcomes.",
     image: "https://picsum.photos/id/119/600/400",
   },
   {
     step: "Step 2",
-    title: "Architect",
+    title: "Product Planning and Architecture",
     description:
-      "Architect is the process of translating business requirements into a clear, scalable technical blueprint that guides the build of a robust AI-powered SaaS system.",
-    workOn: [
-      "System Design",
-      "Data Architecture",
-      "Model Selection",
-      "Tech Stack",
-      "Scope Definition",
-      "Prioritization.",
-    ],
+      "We translate the product vision into a prioritized feature set, technical roadmap and AI components required for the solution.",
     image: "https://picsum.photos/id/2/600/400",
   },
   {
     step: "Step 3",
-    title: "Build & Train",
+    title: "Data Assessment and Preparation",
     description:
-      "The Build & Train phase is where engineers develop the platform and train AI models, iterating on algorithms and infrastructure to solve real business problems effectively.",
-    workOn: [
-      "Model Training",
-      "Backend Development",
-      "Prototyping",
-      "Fine-Tuning",
-      "Experimentation",
-    ],
+      "For products that depend on proprietary data, we assess its quality, availability, structure, security, and suitability for the intended AI use case.",
     image: "https://picsum.photos/id/3/600/400",
   },
   {
     step: "Step 4",
-    title: "Integrate",
+    title: "UI/UX Design and Prototyping",
     description:
-      "Integrate is the stage where we connect AI models with your existing systems via APIs, validating functionality and ensuring seamless data flow before full deployment.",
-    workOn: [
-      "API Development",
-      "Data Pipelines",
-      "Testing",
-      "Workflow Automation",
-      "Validation",
-    ],
+      "Our design team creates user journeys, wireframes, and interactive prototypes before full development begins.",
     image: "https://picsum.photos/id/4/600/400",
   },
   {
     step: "Step 5",
-    title: "Validate",
+    title: "SaaS and AI Development",
     description:
-      "Validate is the process of rigorously testing models and systems to identify performance issues, gather feedback, and refine accuracy before going live.",
-    workOn: [
-      "Model Accuracy",
-      "Load Testing",
-      "Feedback",
-      "Bug Fixes",
-      "Iteration",
-      "Refinement",
-    ],
+      "Our engineers build the front end, back end, AI functionality, APIs, databases, integrations, and cloud infrastructure in planned development cycles.",
     image: "https://picsum.photos/id/5/600/400",
   },
   {
     step: "Step 6",
-    title: "Deploy & Scale",
+    title: "Testing, Security, and Quality Assurance",
     description:
-      "Your product is fully prepared for the next step, whether that's production deployment or scaling to meet growing user demand.",
-    workOn: [
-      "Cloud Deployment",
-      "Monitoring",
-      "Technical Docs",
-      "MLOps Pipeline",
-      "Developer Handoff",
-    ],
+      "We test the application across functionality, usability, performance, compatibility, integrations, and security.",
     image: "https://picsum.photos/id/6/600/400",
+  },
+  {
+    step: "Step 7",
+    title: "Deployment and Launch",
+    description:
+      "We prepare the production environment, configure monitoring, migrate required data, and support the release process.",
+    image: "https://picsum.photos/id/7/600/400",
+  },
+  {
+    step: "Step 8",
+    title: "Monitoring and Continuous Improvement",
+    description:
+      "After launch, we monitor software performance, infrastructure, user behavior, and AI outputs for feature improvements, performance optimization, and future product releases.",
+    image: "https://picsum.photos/id/8/600/400",
   },
 ];
 
@@ -103,7 +72,7 @@ const DevelopmetProcess = () => {
   });
 
   return (
-    <section className="bg-white py-24 font-jakarta overflow-hidden">
+    <section className="bg-gray-200 py-24 font-jakarta overflow-hidden">
       <div className="flex flex-col items-center gap-3.5 text-center mb-12 md:mb-16">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
@@ -112,12 +81,11 @@ const DevelopmetProcess = () => {
           </span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-dark max-w-[700px]">
-          Turning Ideas into Intelligent Products
+          Our AI SaaS Product Development Process
         </h2>
         <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[800px] mt-2">
-          Our structured AI SaaS development process combines research,
-          architecture, and engineering to deliver intelligent products that
-          align with your business goals and user needs.
+          Our development process combines product strategy, user-centered
+          design, AI engineering, and agile software delivery.
         </p>
       </div>
       <div ref={containerRef} className="relative mx-auto px-6 lg:px-12">
@@ -137,7 +105,7 @@ const DevelopmetProcess = () => {
             return (
               <div
                 key={index}
-                className={`relative flex flex-col ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"} items-start justify-between w-full`}
+                className={`relative flex flex-col ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"} items-center justify-between w-full`}
               >
                 {/* Center Dot (Desktop Only) */}
                 <motion.div
@@ -183,14 +151,14 @@ const DevelopmetProcess = () => {
                     {step.description}
                   </p>
 
-                  <h4 className="text-[18px] font-bold text-dark mb-2">
+                  {/* <h4 className="text-[18px] font-bold text-dark mb-2">
                     We work on
                   </h4>
                   <ul className="flex flex-col gap-[2px] text-[14px] md:text-[16px] text-grey font-medium leading-[1.4]">
                     {step.workOn.map((item, idx) => (
                       <li key={idx}>{item}</li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </motion.div>
               </div>
             );
