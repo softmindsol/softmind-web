@@ -47,8 +47,8 @@ export default function AiSaasCaseStudy() {
 
       <div className="relative mx-auto px-6 lg:px-12 max-w-[1280px]">
         {/* Header Layout */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between items-center lg:items-start gap-8 mb-16 text-center lg:text-left">
-          <div className="flex flex-col items-center lg:items-start gap-3.5 max-w-[700px]">
+        <div className="flex flex-col justify-center items-center gap-8 mb-16 text-center">
+          <div className="flex flex-col items-center gap-3.5 max-w-[700px]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
               <span className="text-green text-[18px] md:text-[22px] font-bold tracking-wide">
