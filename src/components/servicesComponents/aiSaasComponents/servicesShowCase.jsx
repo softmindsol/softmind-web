@@ -156,10 +156,10 @@ const ServicesShowCase = () => {
   const activeTab = tabsData[activeIndex];
 
   return (
-    <section className="relative bg-white font-jakarta lg:py-28">
+    <section className="relative bg-white font-jakarta">
       {/* Background glow */}
-      <div className="bg-[#161616] relative py-24 lg:pb-48">
-        <div className="absolute left-1/2 top-24 h-[490px] w-[490px] -translate-x-1/2 -translate-y-[187px] rounded-full bg-navy blur-[212.4px] hidden xl:block" />
+      <div className="bg-[#161616] relative py-24">
+        {/* <div className="absolute left-1/2 top-24 h-[490px] w-[490px] -translate-x-1/2 -translate-y-[187px] rounded-full bg-navy blur-[212.4px] hidden xl:block" /> */}
         <div className="absolute select-none pointer-events-none">
           <Image
             src={SoftMindSolLogo}

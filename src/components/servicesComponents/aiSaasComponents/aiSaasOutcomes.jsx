@@ -74,7 +74,7 @@ const AiSaasOutcomes = () => {
         {/* Background Glow Effect */}
         <div className="absolute left-1/2 top-[-187px] w-[490px] h-[490px] bg-[#00235A] rounded-full blur-[212px] -translate-x-1/2 pointer-events-none" />
 
-        <div className="relative z-10 mx-auto px-6 lg:px-12">
+        <div className="relative w-full z-10 mx-auto px-6 lg:px-12">
           <div className="flex flex-col items-center gap-3.5 mb-16 text-center">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
@@ -96,7 +96,8 @@ const AiSaasOutcomes = () => {
                   Solving Real Challenges
                 </h3>
                 <p className="text-[16px] font-medium text-white/90 leading-[20px] tracking-[1px]">
-                  We develop AI functionality that solves real operational and user experience challenges.
+                  We develop AI functionality that solves real operational and
+                  user experience challenges.
                 </p>
               </div>
 
@@ -146,7 +147,8 @@ const AiSaasOutcomes = () => {
             AI SaaS Consulting & Product Strategy
           </h2>
           <p className="text-[16px] sm:text-[18px] font-medium text-white/90 leading-[120%] tracking-[1px] text-center max-w-[950px]">
-            Validate your idea, define the right AI opportunities, and create a clear roadmap for successful product development.
+            Validate your idea, define the right AI opportunities, and create a
+            clear roadmap for successful product development.
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-[1000px]">
             {[
@@ -156,9 +158,12 @@ const AiSaasOutcomes = () => {
               "Technical architecture planning",
               "Data readiness evaluation",
               "Development roadmap creation",
-              "Cost & resource estimation"
+              "Cost & resource estimation",
             ].map((service, index) => (
-              <span key={index} className="bg-white/10 text-white border border-white/20 rounded-full px-5 py-2.5 text-[14px] md:text-[15px] font-medium tracking-wide">
+              <span
+                key={index}
+                className="bg-white/10 text-white border border-white/20 rounded-full px-5 py-2.5 text-[14px] md:text-[15px] font-medium tracking-wide"
+              >
                 {service}
               </span>
             ))}

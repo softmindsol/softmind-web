@@ -238,7 +238,13 @@ const AiSaasWorkflow = () => {
         .fromTo(
           ".out-sub",
           { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power2.out",
+          },
           "-=0.5",
         )
         .to(loopLine, {
@@ -329,7 +335,9 @@ const AiSaasWorkflow = () => {
                 </span>
               </div>
               <h2 className="title-anim text-[20px] sm:text-[32px] md:text-[40px] font-bold tracking-[1px] text-white leading-tight">
-                Build More Than Software.<br />Build an Intelligent SaaS Product.
+                Build More Than Software.
+                <br />
+                Build an Intelligent SaaS Product.
               </h2>
             </div>
 
@@ -443,13 +451,16 @@ const AiSaasWorkflow = () => {
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
                   <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Business & User Research
+                    <span className="text-[#0CBF83] mr-1">▹</span> Business &
+                    User Research
                   </li>
                   <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
-                    <span className="text-[#0CBF83] mr-1">▹</span> AI Feasibility & Stack
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI
+                    Feasibility & Stack
                   </li>
                   <li className="b1-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Roadmap & Metrics
+                    <span className="text-[#0CBF83] mr-1">▹</span> Roadmap &
+                    Metrics
                   </li>
                 </ul>
               </div>
@@ -477,10 +488,12 @@ const AiSaasWorkflow = () => {
                     <span className="text-[#0CBF83] mr-1">▹</span> UX/UI Design
                   </li>
                   <li className="b2-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
-                    <span className="text-[#0CBF83] mr-1">▹</span> System Architecture
+                    <span className="text-[#0CBF83] mr-1">▹</span> System
+                    Architecture
                   </li>
                   <li className="b2-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
-                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model & Data Arch
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model &
+                    Data Arch
                   </li>
                 </ul>
               </div>
@@ -505,13 +518,16 @@ const AiSaasWorkflow = () => {
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
                   <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Core SaaS Features
+                    <span className="text-[#0CBF83] mr-1">▹</span> Core SaaS
+                    Features
                   </li>
                   <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-75">
-                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model Integration
+                    <span className="text-[#0CBF83] mr-1">▹</span> AI Model
+                    Integration
                   </li>
                   <li className="b3-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:translate-x-1 delay-150">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Data Pipelines & APIs
+                    <span className="text-[#0CBF83] mr-1">▹</span> Data
+                    Pipelines & APIs
                   </li>
                 </ul>
               </div>
@@ -536,13 +552,16 @@ const AiSaasWorkflow = () => {
                 </div>
                 <ul className="flex flex-col gap-1 hidden sm:flex">
                   <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1">
-                    <span className="text-[#0CBF83] mr-1">▹</span> QA & Security Testing
+                    <span className="text-[#0CBF83] mr-1">▹</span> QA & Security
+                    Testing
                   </li>
                   <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-75">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Cloud Deploy & CI/CD
+                    <span className="text-[#0CBF83] mr-1">▹</span> Cloud Deploy
+                    & CI/CD
                   </li>
                   <li className="b4-sub text-white/70 text-[10px] sm:text-[11px] transition-all duration-500 group-hover:text-white group-hover:-translate-x-1 delay-150">
-                    <span className="text-[#0CBF83] mr-1">▹</span> Monitoring & Iteration
+                    <span className="text-[#0CBF83] mr-1">▹</span> Monitoring &
+                    Iteration
                   </li>
                 </ul>
               </div>
@@ -567,19 +586,27 @@ const AiSaasWorkflow = () => {
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 w-full text-left">
                   <div className="out-sub flex items-start gap-2">
                     <span className="text-white mt-[2px] text-[10px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Fully functional AI SaaS live in production</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
+                      Fully functional AI SaaS live in production
+                    </span>
                   </div>
                   <div className="out-sub flex items-start gap-2">
                     <span className="text-white mt-[2px] text-[10px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Scalable architecture for user demand</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
+                      Scalable architecture for user demand
+                    </span>
                   </div>
                   <div className="out-sub flex items-start gap-2">
                     <span className="text-white mt-[2px] text-[10px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Secure, tested, and monitored infrastructure</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
+                      Secure, tested, and monitored infrastructure
+                    </span>
                   </div>
                   <div className="out-sub flex items-start gap-2">
                     <span className="text-white mt-[2px] text-[10px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">Ongoing improvement feedback loop</span>
+                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
+                      Ongoing improvement feedback loop
+                    </span>
                   </div>
                 </div>
               </div>

@@ -35,7 +35,7 @@ export default function AiSaasTrust() {
   ];
 
   return (
-    <section className="relative w-full py-16 overflow-hidden bg-white border-b border-gray-100 font-jakarta">
+    <section className="relative w-full py-16 overflow-hidden bg-gray-200 border-b border-gray-100 font-jakarta">
       {/* Marquee CSS Keyframes */}
       <style jsx="true">{`
         @keyframes marquee {
@@ -60,15 +60,15 @@ export default function AiSaasTrust() {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-green/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="mx-auto px-6 md:px-12 mb-8 text-center">
-        <span className="text-xs font-bold tracking-[2px] uppercase text-grey/60">
+        <span className="text-sm font-bold tracking-[2px] uppercase text-black">
           Trusted by Innovative SaaS & Enterprise Teams Worldwide
         </span>
       </div>
 
       {/* Infinite Scrolling Client Logos */}
       <div className="relative w-full overflow-hidden flex items-center mb-16">
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-gray-200 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-gray-200 to-transparent z-10 pointer-events-none" />
 
         <div className="marquee-container flex items-center gap-16 md:gap-24 py-2">
           {logos.map((logo, idx) => (
@@ -80,7 +80,7 @@ export default function AiSaasTrust() {
               <span className="font-extrabold text-lg text-navy tracking-tight">
                 {logo.name}
               </span>
-              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full">
+              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
                 {logo.industry}
               </span>
             </div>
@@ -104,23 +104,28 @@ export default function AiSaasTrust() {
       </div>
 
       {/* Proof of Work Stats Card */}
-      <div className="max-w-[1288px] mx-auto px-6 lg:px-12 relative z-20">
+      <div className="w-full mx-auto px-6 lg:px-12 relative z-20">
         <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[20px] py-12 px-6 sm:px-12 flex flex-col items-center justify-center gap-8 shadow-2xl relative overflow-hidden group border border-white/5">
           {/* Logo Watermark inside Card */}
-          <div className="absolute right-0 top-0 select-none pointer-events-none opacity-[0.03] translate-x-12 -translate-y-12">
+          <div className="absolute left-0 top-0 select-none pointer-events-none translate-x-12 -translate-y-12">
             <Image
               src={SoftMindSolLogo}
               alt="SoftMind Logo"
-              className="object-cover max-w-[400px]"
+              className="object-cover max-w-[300px]"
             />
           </div>
 
-          <div className="flex flex-col items-center text-center gap-3 max-w-[900px]">
-            <h2 className="text-[24px] sm:text-[32px] md:text-[38px] font-bold text-white leading-tight">
-              Build Your SaaS Product with an Experienced AI Development Team
+          <div className="flex flex-col items-center text-center gap-3">
+            <h2 className="text-[24px] sm:text-[32px] md:text-[38px] font-bold text-white leading-tight max-w-[700px]">
+              Build Your SaaS Product with an Experienced{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+                AI Development Team
+              </span>
             </h2>
-            <p className="text-[14px] sm:text-[16px] font-medium text-white/80 leading-[22px] tracking-[0.5px]">
-              Work with AI engineers, SaaS architects, product designers, cloud specialists, and quality assurance professionals focused on building software that creates practical business value.
+            <p className="max-w-[850px] text-[14px] sm:text-[16px] font-medium text-white/80 leading-[22px] tracking-[0.5px]">
+              Work with AI engineers, SaaS architects, product designers, cloud
+              specialists, and quality assurance professionals focused on
+              building software that creates practical business value.
             </p>
           </div>
 
@@ -139,7 +144,7 @@ export default function AiSaasTrust() {
                 <span className="text-[32px] md:text-[40px] font-black text-green mb-1 drop-shadow-[0_2px_10px_rgba(12,191,131,0.25)]">
                   {stat.value}
                 </span>
-                <span className="text-[14px] font-medium text-white/85 leading-snug">
+                <span className="text-[14px] font-medium text-white leading-snug">
                   {stat.label}
                 </span>
               </div>
