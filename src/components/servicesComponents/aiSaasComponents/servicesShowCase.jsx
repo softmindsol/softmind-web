@@ -255,60 +255,6 @@ const ServicesShowCase = () => {
               </Carousel>
             </div>
           </div>
-          {/* Stats Bar */}
-          <div className="relative z-20 mx-auto px-4 sm:px-6 lg:px-8 -mb-44 lg:-mb-88">
-            <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[12px] py-14 px-6 sm:px-12 flex flex-col items-center justify-center gap-7 shadow-2xl">
-              <div className="flex flex-col items-center text-center gap-3 mb-8">
-                <h2 className="text-[32px] md:text-[40px] font-bold text-white">
-                  Build Your SaaS Product with an Experienced AI Development
-                  Team
-                </h2>
-                <p className="text-[16px] md:text-[18px] font-medium text-white/90 leading-[24px] tracking-[1px] max-w-[900px]">
-                  Work with AI engineers, SaaS architects, product designers,
-                  cloud specialists, and quality assurance professionals focused
-                  on building software that creates practical business value.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 w-full">
-                {/* Stat 1 */}
-                <div className="flex flex-col px-4 sm:px-8 items-center text-center">
-                  <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    50+
-                  </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
-                    AI and software projects delivered
-                  </span>
-                </div>
-                {/* Stat 2 */}
-                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30 items-center text-center">
-                  <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    20+
-                  </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
-                    Industries served
-                  </span>
-                </div>
-                {/* Stat 3 */}
-                <div className="flex flex-col px-4 sm:px-8 lg:border-l lg:border-white/30 items-center text-center">
-                  <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    98%
-                  </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
-                    Client satisfaction rate
-                  </span>
-                </div>
-                {/* Stat 4 */}
-                <div className="flex flex-col px-4 sm:px-8 sm:border-l sm:border-white/30 lg:border-l lg:border-white/30 items-center text-center">
-                  <span className="text-[32px] md:text-[36px] font-bold text-white mb-2 md:mb-3">
-                    Global
-                  </span>
-                  <span className="text-[15px] md:text-[16px] font-medium text-white/90 leading-snug">
-                    Development and delivery experience
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

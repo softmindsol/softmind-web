@@ -1,8 +1,18 @@
-import AiSaasOutcomes from "@/components/servicesComponents/aiSaasComponents/aiSaasOutcomes";
+import { Hero } from "@/components/home/Hero";
+import AiSaasTrust from "@/components/servicesComponents/aiSaasComponents/aiSaasTrust";
 import AiSaasWorkflow from "@/components/servicesComponents/aiSaasComponents/aiSaasWorkflow";
 import ServicesShowCase from "@/components/servicesComponents/aiSaasComponents/servicesShowCase";
-import { Hero } from "@/components/home/Hero";
+import AiSaasOutcomes from "@/components/servicesComponents/aiSaasComponents/aiSaasOutcomes";
 import DevelopmetProcess from "@/components/servicesComponents/aiSaasComponents/developmetProcess";
+import AiSaasArchitecture from "@/components/servicesComponents/aiSaasComponents/aiSaasArchitecture";
+import AiSaasCaseStudy from "@/components/servicesComponents/aiSaasComponents/aiSaasCaseStudy";
+import EngagementModels from "@/components/home/engagementModels";
+import AiSaasTestimonials from "@/components/servicesComponents/aiSaasComponents/aiSaasTestimonials";
+import WhyChooseSoftmind from "@/components/servicesComponents/aiSaasComponents/whyChooseSoftmind";
+import AiSaasTechStack from "@/components/servicesComponents/aiSaasComponents/aiSaasTechStack";
+import ContactFormSection from "@/components/home/contactFormSection";
+import AiSaasFaqs from "@/components/servicesComponents/aiSaasComponents/aiSaasFaqs";
+
 export const metadata = {
   title: "Custom AI SaaS Development Services | Tezeract",
   description:
@@ -22,10 +32,19 @@ const AISaas = () => {
         secondaryButtonText={null}
         showBottomText={false}
       />
-      <ServicesShowCase />
+      <AiSaasTrust />
       <AiSaasWorkflow />
-      <DevelopmetProcess />
+      <ServicesShowCase />
       <AiSaasOutcomes />
+      <DevelopmetProcess />
+      <AiSaasArchitecture />
+      <AiSaasCaseStudy />
+      <EngagementModels />
+      <AiSaasTestimonials />
+      <WhyChooseSoftmind />
+      <AiSaasTechStack />
+      <ContactFormSection />
+      <AiSaasFaqs />
     </main>
   );
 };
