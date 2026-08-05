@@ -334,10 +334,10 @@ const AiSaasWorkflow = () => {
   };
 
   const cx = dimensions.width / 2;
-  const cyHub = dimensions.height * 0.15;
-  const cyRow1 = dimensions.height * 0.4;
-  const cyRow2 = dimensions.height * 0.65;
-  const cyOut = dimensions.height * 0.85;
+  const cyHub = dimensions.height * 0.10;
+  const cyRow1 = dimensions.height * 0.28;
+  const cyRow2 = dimensions.height * 0.50;
+  const cyOut = dimensions.height * 0.72;
 
   const isMobile = dimensions.width < 768;
   const offset = isMobile ? dimensions.width * 0.35 : dimensions.width * 0.25;
@@ -406,7 +406,7 @@ const AiSaasWorkflow = () => {
                 {/* 1. Hub -> Branch 1 */}
                 <path
                   className="line1 opacity-50"
-                  d={`M ${cx} ${cyHub + 40} C ${cx} ${cyRow1 - 80}, ${cx - offset} ${cyHub + 80}, ${cx - offset} ${cyRow1 - 40}`}
+                  d={`M ${cx} ${cyHub + 40} C ${cx} ${cyRow1 - 50}, ${cx - offset} ${cyHub + 50}, ${cx - offset} ${cyRow1 - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="2"
@@ -415,7 +415,7 @@ const AiSaasWorkflow = () => {
                 {/* 2. Branch 1 -> Branch 2 */}
                 <path
                   className="line2 opacity-50"
-                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow1} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow1 - 30}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow1 - 30}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow1}`}
+                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow1} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow1 - 25}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow1 - 25}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow1}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="2"
@@ -424,7 +424,7 @@ const AiSaasWorkflow = () => {
                 {/* 3. Branch 2 -> Branch 3 */}
                 <path
                   className="line3 opacity-50"
-                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset} ${cyRow1 + 120}, ${cx - offset} ${cyRow2 - 120}, ${cx - offset} ${cyRow2 - 40}`}
+                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset} ${cyRow1 + 80}, ${cx - offset} ${cyRow2 - 80}, ${cx - offset} ${cyRow2 - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="2"
@@ -433,7 +433,7 @@ const AiSaasWorkflow = () => {
                 {/* 4. Branch 3 -> Branch 4 */}
                 <path
                   className="line4 opacity-50"
-                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow2} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow2 - 30}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow2 - 30}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow2}`}
+                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow2} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow2 - 25}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow2 - 25}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow2}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="2"
@@ -443,7 +443,7 @@ const AiSaasWorkflow = () => {
                 {/* Branch 1 -> Final Outcome */}
                 <path
                   className="out-line-conv1 opacity-30"
-                  d={`M ${cx - offset} ${cyRow1 + 40} C ${cx - offset - 100} ${cyRow2}, ${cx - 50} ${cyOut - 100}, ${cx} ${cyOut - 40}`}
+                  d={`M ${cx - offset} ${cyRow1 + 40} C ${cx - offset - 40} ${cyRow2}, ${cx - 30} ${cyOut - 60}, ${cx} ${cyOut - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="1.5"
@@ -452,7 +452,7 @@ const AiSaasWorkflow = () => {
                 {/* Branch 2 -> Final Outcome */}
                 <path
                   className="out-line-conv2 opacity-30"
-                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset + 100} ${cyRow2}, ${cx + 50} ${cyOut - 100}, ${cx} ${cyOut - 40}`}
+                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset + 40} ${cyRow2}, ${cx + 30} ${cyOut - 60}, ${cx} ${cyOut - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="1.5"
@@ -461,7 +461,7 @@ const AiSaasWorkflow = () => {
                 {/* Branch 3 -> Final Outcome */}
                 <path
                   className="out-line-conv3 opacity-40"
-                  d={`M ${cx - offset} ${cyRow2 + 40} C ${cx - offset} ${cyOut - 80}, ${cx - 40} ${cyOut - 80}, ${cx} ${cyOut - 40}`}
+                  d={`M ${cx - offset} ${cyRow2 + 40} C ${cx - offset} ${cyOut - 50}, ${cx - 30} ${cyOut - 50}, ${cx} ${cyOut - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="1.5"
@@ -470,7 +470,7 @@ const AiSaasWorkflow = () => {
                 {/* Branch 4 -> Final Outcome */}
                 <path
                   className="out-line-conv4 opacity-40"
-                  d={`M ${cx + offset} ${cyRow2 + 40} C ${cx + offset} ${cyOut - 80}, ${cx + 40} ${cyOut - 80}, ${cx} ${cyOut - 40}`}
+                  d={`M ${cx + offset} ${cyRow2 + 40} C ${cx + offset} ${cyOut - 50}, ${cx + 30} ${cyOut - 50}, ${cx} ${cyOut - 40}`}
                   fill="none"
                   stroke="url(#line-grad)"
                   strokeWidth="1.5"
@@ -490,7 +490,7 @@ const AiSaasWorkflow = () => {
             {/* Hub Node */}
             <div
               className="hub-node absolute z-10 w-[200px] sm:w-[260px] -ml-[100px] sm:-ml-[130px]"
-              style={{ top: "15%", left: "50%" }}
+              style={{ top: "10%", left: "50%" }}
             >
               <div
                 className="group flex flex-col items-center justify-center bg-[#111]/80 backdrop-blur-md border border-[#0CBF83]/40 shadow-[0_0_30px_rgba(12,191,131,0.2)] rounded-xl py-3 px-4 transition-all duration-500 hover:shadow-[0_0_40px_rgba(12,191,131,0.5)] hover:border-[#0CBF83]"
@@ -510,7 +510,7 @@ const AiSaasWorkflow = () => {
             {/* Branch 1 Node */}
             <div
               className="b1-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "37%", left: "25%" }}
+              style={{ top: "28%", left: "25%" }}
             >
               <div
                 className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
@@ -531,42 +531,42 @@ const AiSaasWorkflow = () => {
               </div>
 
               {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-2 pl-4 border-l-2 border-[#0CBF83]/30">
+              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
                 {/* Sub-branch 1.1 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
+                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Business & User Research
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Stakeholder interviews, competitor analysis, user mapping.
                   </span>
                 </div>
 
                 {/* Sub-branch 1.2 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
+                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       AI Feasibility & Tech Stack
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Is AI the right fit, which models/tools & cloud stack to use.
                   </span>
                 </div>
 
                 {/* Sub-branch 1.3 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
+                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Roadmap & Success Metrics
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Phased delivery plan, KPIs to measure project success.
                   </span>
                 </div>
@@ -576,7 +576,7 @@ const AiSaasWorkflow = () => {
             {/* Branch 2 Node */}
             <div
               className="b2-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "37%", left: "75%" }}
+              style={{ top: "28%", left: "75%" }}
             >
               <div
                 className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
@@ -597,42 +597,42 @@ const AiSaasWorkflow = () => {
               </div>
 
               {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-2 pl-4 border-l-2 border-[#0CBF83]/30">
+              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
                 {/* Sub-branch 2.1 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       UX/UI Design
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Wireframes, interactive prototypes, product user flows.
                   </span>
                 </div>
 
                 {/* Sub-branch 2.2 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       System Architecture
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Backend systems, databases, multi-tenancy & API layers.
                   </span>
                 </div>
 
                 {/* Sub-branch 2.3 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       AI Model & Data Arch
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Model choices, data flow pipelines & vector store storage.
                   </span>
                 </div>
@@ -642,7 +642,7 @@ const AiSaasWorkflow = () => {
             {/* Branch 3 Node */}
             <div
               className="b3-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "62%", left: "25%" }}
+              style={{ top: "50%", left: "25%" }}
             >
               <div
                 className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
@@ -663,42 +663,42 @@ const AiSaasWorkflow = () => {
               </div>
 
               {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-2 pl-4 border-l-2 border-[#0CBF83]/30">
+              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
                 {/* Sub-branch 3.1 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Core SaaS Feature Build
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Auth, dashboards, subscription/billing, and multi-tenancy.
                   </span>
                 </div>
 
                 {/* Sub-branch 3.2 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       AI Model Integration
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Connecting, training & fine-tuning LLMs or custom ML models.
                   </span>
                 </div>
 
                 {/* Sub-branch 3.3 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Data Pipelines & APIs
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Connecting external databases, tools & third-party integrations.
                   </span>
                 </div>
@@ -708,7 +708,7 @@ const AiSaasWorkflow = () => {
             {/* Branch 4 Node */}
             <div
               className="b4-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "62%", left: "75%" }}
+              style={{ top: "50%", left: "75%" }}
             >
               <div
                 className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
@@ -729,42 +729,42 @@ const AiSaasWorkflow = () => {
               </div>
 
               {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-2 pl-4 border-l-2 border-[#0CBF83]/30">
+              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
                 {/* Sub-branch 4.1 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       QA & Security Testing
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Functional code review, load testing, and security hardening.
                   </span>
                 </div>
 
                 {/* Sub-branch 4.2 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Cloud Deployment & CI/CD
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Scalable cloud setups, automated CI/CD deployment pipelines.
                   </span>
                 </div>
 
                 {/* Sub-branch 4.3 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 p-2 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
+                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
                     <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
                       Monitoring & Iteration
                     </span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-3">
+                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
                     Performance logs, user analytics tracking, and updates.
                   </span>
                 </div>
@@ -774,7 +774,7 @@ const AiSaasWorkflow = () => {
             {/* Final Outcome Convergence Node */}
             <div
               className="out-node absolute z-20 w-[280px] sm:w-[460px] lg:w-[500px] -ml-[140px] sm:-ml-[230px] lg:-ml-[250px]"
-              style={{ top: "82%", left: "50%" }}
+              style={{ top: "72%", left: "50%" }}
             >
               <div
                 className="group flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-5 px-6 border border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_rgba(12,191,131,0.7)] hover:scale-[1.02] relative"
