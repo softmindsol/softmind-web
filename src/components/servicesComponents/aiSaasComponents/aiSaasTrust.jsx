@@ -107,11 +107,11 @@ export default function AiSaasTrust() {
       <div className="w-full mx-auto px-6 lg:px-12 relative z-20">
         <div className="w-full bg-[linear-gradient(93.08deg,#00235A_0.43%,#000D22_100%)] rounded-[20px] py-12 px-6 sm:px-12 flex flex-col items-center justify-center gap-8 shadow-2xl relative overflow-hidden group border border-white/5">
           {/* Logo Watermark inside Card */}
-          <div className="absolute left-0 top-0 select-none pointer-events-none translate-x-12 -translate-y-12">
+          <div className="absolute -left-12 top-0 select-none pointer-events-none translate-x-12 -translate-y-12">
             <Image
               src={SoftMindSolLogo}
               alt="SoftMind Logo"
-              className="object-cover"
+              className="object-cover max-w-[450px]"
             />
           </div>
 
