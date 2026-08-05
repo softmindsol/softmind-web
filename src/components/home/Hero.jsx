@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { Typewriter } from "../ui/typewriter";
 import CustomButton from "../customs/customButton";
+import LiquidEther from "../customs/liquidEther";
 
 export function Hero({
   // title = "AI SaaS & Custom Software Development Company",
@@ -28,17 +29,39 @@ export function Hero({
   secondaryButtonLink = "#",
   bottomText = "Loved by 300+ Clients across the world",
   showBottomText = true,
+  showLiquidBackground = true,
 }) {
   return (
     <section className="relative w-full h-full lg:min-h-[700px] flex flex-col items-center justify-center lg:pt-28 pt-20 pb-20 overflow-hidden bg-white animate-in fade-in slide-in-from-top-14 duration-500">
+      {/* Liquid Background */}
+      {showLiquidBackground && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <LiquidEther
+            colors={["#a7f3d0", "#a7f3d0", "#c4d9f8"]}
+            mouseForce={20}
+            cursorSize={80}
+            isViscous={false}
+            viscous={10}
+            iterationsViscous={32}
+            iterationsPoisson={32}
+            resolution={0.5}
+            isBounce={false}
+            autoDemo
+            autoSpeed={0.5}
+            autoIntensity={1}
+            takeoverDuration={0.25}
+            autoResumeDelay={1000}
+            autoRampDuration={0.6}
+          />
+        </div>
+      )}
+
       {/* Background Abstract Blurs */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* Left Blur (Ellipse 20) */}
+      {/* <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute w-[608px] h-[498px] left-[17px] top-[17px] bg-[#E5F6FE] blur-[35.55px] rounded-full" />
 
-        {/* Right Blur (Ellipse 21) */}
         <div className="absolute w-[386px] h-[386px] left-[60%] lg:left-[974px] top-[150px] lg:top-[243px] bg-[rgba(164,255,225,0.95)] blur-[150px] rounded-full" />
-      </div>
+      </div> */}
 
       {/* Main Content Container */}
       <div className="relative z-10 flex flex-col items-center w-full max-w-[1200px] px-12 gap-12">
