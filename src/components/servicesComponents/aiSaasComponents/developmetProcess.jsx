@@ -81,7 +81,10 @@ const DevelopmetProcess = () => {
           </span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-dark max-w-[700px]">
-          Our AI SaaS Product Development Process
+          Our AI SaaS Product{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+            Development Process
+          </span>
         </h2>
         <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[800px] mt-2">
           Our development process combines product strategy, user-centered

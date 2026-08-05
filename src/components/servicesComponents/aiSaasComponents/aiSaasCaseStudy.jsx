@@ -56,7 +56,10 @@ export default function AiSaasCaseStudy() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy capitalize">
-              AI SaaS Products Built Around Real Business Needs
+              AI SaaS Products Built Around{" "}
+              <p className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+                Real Business Needs
+              </p>
             </h2>
             <p className="text-sm md:text-base text-grey font-medium leading-relaxed">
               Explore how we apply AI, cloud engineering, and product design to

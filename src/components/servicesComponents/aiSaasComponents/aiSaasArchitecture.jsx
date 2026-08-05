@@ -69,7 +69,10 @@ export default function AiSaasArchitecture() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white capitalize">
-            Secure and Scalable SaaS Architecture from the Start
+            Secure and Scalable SaaS{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              Architecture from the Start
+            </span>
           </h2>
           <p className="text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-wide mt-2">
             Your SaaS architecture affects performance, security, development

@@ -65,7 +65,10 @@ export default function WhyChooseSoftmind() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy capitalize">
-            Why Businesses Choose Softmind for AI SaaS Development
+            Why Businesses Choose Softmind{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              for AI SaaS Development
+            </span>
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide mt-2">
             We help businesses transform ideas into intelligent SaaS products

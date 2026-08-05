@@ -75,7 +75,10 @@ export default function EngagementModels() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white max-w-[750px]">
-            How We Partner With Your Business
+            How We Partner{" "}
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              With Your Business
+            </p>
           </h2>
           <p className="text-sm md:text-base text-white/80 font-medium leading-[24px] tracking-wide max-w-[600px]">
             Choose the alignment that fits your project scope, budget, and

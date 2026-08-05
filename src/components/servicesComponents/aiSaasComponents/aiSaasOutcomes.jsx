@@ -68,22 +68,25 @@ const listItems = [
 
 const AiSaasOutcomes = () => {
   return (
-    <section className="relative font-jakarta bg-white pb-24 lg:pb-32">
+    <section className="w-full relative font-jakarta pb-24">
       {/* Dark Background Section */}
-      <div className="bg-[#161616] relative py-24 lg:pb-48 overflow-hidden">
+      <div className="bg-green/30 relative py-24 lg:pb-48 overflow-hidden">
         {/* Background Glow Effect */}
-        <div className="absolute left-1/2 top-[-187px] w-[490px] h-[490px] bg-[#00235A] rounded-full blur-[212px] -translate-x-1/2 pointer-events-none" />
+        <div className="absolute left-1/2 top-[-187px] w-[490px] h-[490px] bg-white rounded-full blur-[212px] -translate-x-1/2 pointer-events-none" />
 
         <div className="relative w-full z-10 mx-auto px-6 lg:px-12">
           <div className="flex flex-col items-center gap-3.5 mb-16 text-center">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
-              <span className="text-[#0CBF83] text-[18px] md:text-[22px] font-bold tracking-[1px]">
+              <span className="text-green text-[18px] md:text-[22px] font-bold tracking-[1px]">
                 AI Capabilities for SaaS Products
               </span>
             </div>
-            <h2 className="text-[32px] sm:text-[46px] leading-[1.2] font-bold tracking-[1px] text-white capitalize max-w-[800px]">
-              Intelligent AI Capabilities for Modern SaaS Products
+            <h2 className="text-[32px] sm:text-[46px] leading-[1.2] font-bold tracking-[1px] text-navy capitalize max-w-[800px]">
+              Intelligent AI Capabilities for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+                Modern SaaS Products
+              </span>
             </h2>
           </div>
 
@@ -92,10 +95,10 @@ const AiSaasOutcomes = () => {
             {/* Left Column (Content) */}
             <div className="flex flex-col flex-1 gap-10">
               <div className="flex flex-col gap-3.5">
-                <h3 className="text-[22px] font-bold text-white tracking-[1px]">
+                <h3 className="text-[22px] font-bold text-black tracking-[1px]">
                   Solving Real Challenges
                 </h3>
-                <p className="text-[16px] font-medium text-white/90 leading-[20px] tracking-[1px]">
+                <p className="text-[16px] font-medium text-grey leading-[20px] tracking-[1px]">
                   We develop AI functionality that solves real operational and
                   user experience challenges.
                 </p>
@@ -114,10 +117,10 @@ const AiSaasOutcomes = () => {
                       </span>
                     </div>
                     <div className="flex flex-col gap-1 mt-[-2px]">
-                      <h4 className="text-[18px] font-bold text-white leading-[23px]">
+                      <h4 className="text-[18px] font-bold text-navy leading-[23px]">
                         {item.title}
                       </h4>
-                      <p className="text-[15px] font-medium text-white/80 leading-[145%] max-w-[500px]">
+                      <p className="text-[15px] font-medium text-black leading-[145%] max-w-[500px]">
                         {item.desc}
                       </p>
                     </div>
@@ -127,7 +130,7 @@ const AiSaasOutcomes = () => {
             </div>
 
             {/* Right Column (Image) */}
-            <div className="flex-1 lg:max-w-[45%]">
+            <div className="flex-1">
               <div className="rounded-[12px] overflow-hidden h-full min-h-[400px] lg:min-h-[766px] w-full relative shadow-lg">
                 <img
                   src="https://picsum.photos/id/48/800/1200"
@@ -162,7 +165,7 @@ const AiSaasOutcomes = () => {
             ].map((service, index) => (
               <span
                 key={index}
-                className="bg-white/10 text-white border border-white/20 rounded-full px-5 py-2.5 text-[14px] md:text-[15px] font-medium tracking-wide"
+                className="bg-white/10 hover:bg-white/20 transition-colors duration-300 cursor-pointer text-white border border-white/20 rounded-full px-5 py-2.5 text-[14px] md:text-[15px] font-medium tracking-wide"
               >
                 {service}
               </span>

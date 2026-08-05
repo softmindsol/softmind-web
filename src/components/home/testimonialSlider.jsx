@@ -91,7 +91,10 @@ export default function TestimonialSlider() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] capitalize text-dark">
-            What Our Client Says About Us
+            What Our Client Says{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              About Us
+            </span>
           </h2>
         </div>
 

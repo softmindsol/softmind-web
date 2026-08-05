@@ -9,65 +9,325 @@ const categories = [
   "Back-End Development",
   "Cloud & Infrastructure",
   "Databases & Vector Search",
-  "DevOps & MLOps"
+  "DevOps & MLOps",
 ];
 
 const techData = {
   "AI & Machine Learning": [
-    { name: "OpenAI", icon: "🧠", color: "#00A37F", bg: "rgba(0,163,127,0.15)", border: "rgba(0,163,127,0.2)" },
-    { name: "Anthropic", icon: "🤖", color: "#D4AA7D", bg: "rgba(212,170,125,0.15)", border: "rgba(212,170,125,0.2)" },
-    { name: "Google Gemini", icon: "✨", color: "#388AF6", bg: "rgba(56,138,246,0.15)", border: "rgba(56,138,246,0.2)" },
-    { name: "Hugging Face", icon: "🤗", color: "#FFD21E", bg: "rgba(255,210,30,0.15)", border: "rgba(255,210,30,0.2)" },
-    { name: "PyTorch", icon: "🔥", color: "#EE4C2C", bg: "rgba(238,76,44,0.15)", border: "rgba(238,76,44,0.2)" },
-    { name: "TensorFlow", icon: "🍊", color: "#FF6F00", bg: "rgba(255,111,0,0.15)", border: "rgba(255,111,0,0.2)" },
-    { name: "LangChain", icon: "🦜", color: "#13A886", bg: "rgba(19,168,134,0.15)", border: "rgba(19,168,134,0.2)" },
-    { name: "LlamaIndex", icon: "🦙", color: "#B66DFF", bg: "rgba(182,109,255,0.15)", border: "rgba(182,109,255,0.2)" },
-    { name: "Scikit-learn", icon: "📊", color: "#F7931E", bg: "rgba(247,147,30,0.15)", border: "rgba(247,147,30,0.2)" }
+    {
+      name: "OpenAI",
+      icon: "🧠",
+      color: "#00A37F",
+      bg: "rgba(0,163,127,0.15)",
+      border: "rgba(0,163,127,0.2)",
+    },
+    {
+      name: "Anthropic",
+      icon: "🤖",
+      color: "#D4AA7D",
+      bg: "rgba(212,170,125,0.15)",
+      border: "rgba(212,170,125,0.2)",
+    },
+    {
+      name: "Google Gemini",
+      icon: "✨",
+      color: "#388AF6",
+      bg: "rgba(56,138,246,0.15)",
+      border: "rgba(56,138,246,0.2)",
+    },
+    {
+      name: "Hugging Face",
+      icon: "🤗",
+      color: "#FFD21E",
+      bg: "rgba(255,210,30,0.15)",
+      border: "rgba(255,210,30,0.2)",
+    },
+    {
+      name: "PyTorch",
+      icon: "🔥",
+      color: "#EE4C2C",
+      bg: "rgba(238,76,44,0.15)",
+      border: "rgba(238,76,44,0.2)",
+    },
+    {
+      name: "TensorFlow",
+      icon: "🍊",
+      color: "#FF6F00",
+      bg: "rgba(255,111,0,0.15)",
+      border: "rgba(255,111,0,0.2)",
+    },
+    {
+      name: "LangChain",
+      icon: "🦜",
+      color: "#13A886",
+      bg: "rgba(19,168,134,0.15)",
+      border: "rgba(19,168,134,0.2)",
+    },
+    {
+      name: "LlamaIndex",
+      icon: "🦙",
+      color: "#B66DFF",
+      bg: "rgba(182,109,255,0.15)",
+      border: "rgba(182,109,255,0.2)",
+    },
+    {
+      name: "Scikit-learn",
+      icon: "📊",
+      color: "#F7931E",
+      bg: "rgba(247,147,30,0.15)",
+      border: "rgba(247,147,30,0.2)",
+    },
   ],
   "Front-End Development": [
-    { name: "React", icon: "⚛️", color: "#61DAFB", bg: "rgba(97,218,251,0.15)", border: "rgba(97,218,251,0.2)" },
-    { name: "Next.js", icon: "▲", color: "#ffffff", bg: "rgba(255,255,255,0.1)", border: "rgba(255,255,255,0.15)" },
-    { name: "Vue.js", icon: "🟢", color: "#4FC08D", bg: "rgba(79,192,141,0.15)", border: "rgba(79,192,141,0.2)" },
-    { name: "TypeScript", icon: "TS", color: "#3178C6", bg: "rgba(49,120,198,0.15)", border: "rgba(49,120,198,0.2)", isText: true },
-    { name: "JavaScript", icon: "JS", color: "#F7DF1E", bg: "rgba(247,223,30,0.15)", border: "rgba(247,223,30,0.2)", isText: true },
-    { name: "Flutter", icon: "🐦", color: "#02569B", bg: "rgba(2,86,155,0.15)", border: "rgba(2,86,155,0.2)" }
+    {
+      name: "React",
+      icon: "⚛️",
+      color: "#61DAFB",
+      bg: "rgba(97,218,251,0.15)",
+      border: "rgba(97,218,251,0.2)",
+    },
+    {
+      name: "Next.js",
+      icon: "▲",
+      color: "#ffffff",
+      bg: "rgba(255,255,255,0.1)",
+      border: "rgba(255,255,255,0.15)",
+    },
+    {
+      name: "Vue.js",
+      icon: "🟢",
+      color: "#4FC08D",
+      bg: "rgba(79,192,141,0.15)",
+      border: "rgba(79,192,141,0.2)",
+    },
+    {
+      name: "TypeScript",
+      icon: "TS",
+      color: "#3178C6",
+      bg: "rgba(49,120,198,0.15)",
+      border: "rgba(49,120,198,0.2)",
+      isText: true,
+    },
+    {
+      name: "JavaScript",
+      icon: "JS",
+      color: "#F7DF1E",
+      bg: "rgba(247,223,30,0.15)",
+      border: "rgba(247,223,30,0.2)",
+      isText: true,
+    },
+    {
+      name: "Flutter",
+      icon: "🐦",
+      color: "#02569B",
+      bg: "rgba(2,86,155,0.15)",
+      border: "rgba(2,86,155,0.2)",
+    },
   ],
   "Back-End Development": [
-    { name: "Python", icon: "🐍", color: "#3776AB", bg: "rgba(55,118,171,0.15)", border: "rgba(55,118,171,0.2)" },
-    { name: "Node.js", icon: "⬡", color: "#339933", bg: "rgba(51,153,51,0.15)", border: "rgba(51,153,51,0.2)" },
-    { name: "Django", icon: "⚙️", color: "#092E20", bg: "rgba(9,46,32,0.15)", border: "rgba(9,46,32,0.2)" },
-    { name: "FastAPI", icon: "⚡", color: "#059669", bg: "rgba(5,150,105,0.15)", border: "rgba(5,150,105,0.2)" },
-    { name: "Flask", icon: "🌶️", color: "#FF5722", bg: "rgba(255,87,34,0.15)", border: "rgba(255,87,34,0.2)" },
-    { name: "NestJS", icon: "🦁", color: "#E0234E", bg: "rgba(224,35,78,0.15)", border: "rgba(224,35,78,0.2)" }
+    {
+      name: "Python",
+      icon: "🐍",
+      color: "#3776AB",
+      bg: "rgba(55,118,171,0.15)",
+      border: "rgba(55,118,171,0.2)",
+    },
+    {
+      name: "Node.js",
+      icon: "⬡",
+      color: "#339933",
+      bg: "rgba(51,153,51,0.15)",
+      border: "rgba(51,153,51,0.2)",
+    },
+    {
+      name: "Django",
+      icon: "⚙️",
+      color: "#092E20",
+      bg: "rgba(9,46,32,0.15)",
+      border: "rgba(9,46,32,0.2)",
+    },
+    {
+      name: "FastAPI",
+      icon: "⚡",
+      color: "#059669",
+      bg: "rgba(5,150,105,0.15)",
+      border: "rgba(5,150,105,0.2)",
+    },
+    {
+      name: "Flask",
+      icon: "🌶️",
+      color: "#FF5722",
+      bg: "rgba(255,87,34,0.15)",
+      border: "rgba(255,87,34,0.2)",
+    },
+    {
+      name: "NestJS",
+      icon: "🦁",
+      color: "#E0234E",
+      bg: "rgba(224,35,78,0.15)",
+      border: "rgba(224,35,78,0.2)",
+    },
   ],
   "Cloud & Infrastructure": [
-    { name: "Amazon Web Services", icon: "☁️", color: "#FF9900", bg: "rgba(255,153,0,0.15)", border: "rgba(255,153,0,0.2)" },
-    { name: "Microsoft Azure", icon: "🔷", color: "#0078D4", bg: "rgba(0,120,212,0.15)", border: "rgba(0,120,212,0.2)" },
-    { name: "Google Cloud Platform", icon: "☁️", color: "#4285F4", bg: "rgba(66,133,244,0.15)", border: "rgba(66,133,244,0.2)" },
-    { name: "Docker", icon: "🐋", color: "#2496ED", bg: "rgba(36,150,237,0.15)", border: "rgba(36,150,237,0.2)" },
-    { name: "Kubernetes", icon: "☸️", color: "#326CE5", bg: "rgba(50,108,229,0.15)", border: "rgba(50,108,229,0.2)" },
-    { name: "Terraform", icon: "⬢", color: "#844FBA", bg: "rgba(132,79,186,0.15)", border: "rgba(132,79,186,0.2)" },
-    { name: "Serverless services", icon: "⚡", color: "#FD5750", bg: "rgba(253,87,80,0.15)", border: "rgba(253,87,80,0.2)" }
+    {
+      name: "Amazon Web Services",
+      icon: "☁️",
+      color: "#FF9900",
+      bg: "rgba(255,153,0,0.15)",
+      border: "rgba(255,153,0,0.2)",
+    },
+    {
+      name: "Microsoft Azure",
+      icon: "🔷",
+      color: "#0078D4",
+      bg: "rgba(0,120,212,0.15)",
+      border: "rgba(0,120,212,0.2)",
+    },
+    {
+      name: "Google Cloud Platform",
+      icon: "☁️",
+      color: "#4285F4",
+      bg: "rgba(66,133,244,0.15)",
+      border: "rgba(66,133,244,0.2)",
+    },
+    {
+      name: "Docker",
+      icon: "🐋",
+      color: "#2496ED",
+      bg: "rgba(36,150,237,0.15)",
+      border: "rgba(36,150,237,0.2)",
+    },
+    {
+      name: "Kubernetes",
+      icon: "☸️",
+      color: "#326CE5",
+      bg: "rgba(50,108,229,0.15)",
+      border: "rgba(50,108,229,0.2)",
+    },
+    {
+      name: "Terraform",
+      icon: "⬢",
+      color: "#844FBA",
+      bg: "rgba(132,79,186,0.15)",
+      border: "rgba(132,79,186,0.2)",
+    },
+    {
+      name: "Serverless services",
+      icon: "⚡",
+      color: "#FD5750",
+      bg: "rgba(253,87,80,0.15)",
+      border: "rgba(253,87,80,0.2)",
+    },
   ],
   "Databases & Vector Search": [
-    { name: "PostgreSQL", icon: "🐘", color: "#336791", bg: "rgba(51,103,145,0.15)", border: "rgba(51,103,145,0.2)" },
-    { name: "MySQL", icon: "🐬", color: "#00758F", bg: "rgba(0,117,143,0.15)", border: "rgba(0,117,143,0.2)" },
-    { name: "MongoDB", icon: "🍃", color: "#47A248", bg: "rgba(71,162,72,0.15)", border: "rgba(71,162,72,0.2)" },
-    { name: "Redis", icon: "⚡", color: "#DC382D", bg: "rgba(220,56,45,0.15)", border: "rgba(220,56,45,0.2)" },
-    { name: "Pinecone", icon: "🌲", color: "#10B981", bg: "rgba(16,185,129,0.15)", border: "rgba(16,185,129,0.2)" },
-    { name: "Weaviate", icon: "🧭", color: "#3ECF8E", bg: "rgba(62,207,142,0.15)", border: "rgba(62,207,142,0.2)" },
-    { name: "Elasticsearch", icon: "🔍", color: "#005571", bg: "rgba(0,85,113,0.15)", border: "rgba(0,85,113,0.2)" },
-    { name: "Snowflake", icon: "❄️", color: "#29B6F6", bg: "rgba(41,182,246,0.15)", border: "rgba(41,182,246,0.2)" }
+    {
+      name: "PostgreSQL",
+      icon: "🐘",
+      color: "#336791",
+      bg: "rgba(51,103,145,0.15)",
+      border: "rgba(51,103,145,0.2)",
+    },
+    {
+      name: "MySQL",
+      icon: "🐬",
+      color: "#00758F",
+      bg: "rgba(0,117,143,0.15)",
+      border: "rgba(0,117,143,0.2)",
+    },
+    {
+      name: "MongoDB",
+      icon: "🍃",
+      color: "#47A248",
+      bg: "rgba(71,162,72,0.15)",
+      border: "rgba(71,162,72,0.2)",
+    },
+    {
+      name: "Redis",
+      icon: "⚡",
+      color: "#DC382D",
+      bg: "rgba(220,56,45,0.15)",
+      border: "rgba(220,56,45,0.2)",
+    },
+    {
+      name: "Pinecone",
+      icon: "🌲",
+      color: "#10B981",
+      bg: "rgba(16,185,129,0.15)",
+      border: "rgba(16,185,129,0.2)",
+    },
+    {
+      name: "Weaviate",
+      icon: "🧭",
+      color: "#3ECF8E",
+      bg: "rgba(62,207,142,0.15)",
+      border: "rgba(62,207,142,0.2)",
+    },
+    {
+      name: "Elasticsearch",
+      icon: "🔍",
+      color: "#005571",
+      bg: "rgba(0,85,113,0.15)",
+      border: "rgba(0,85,113,0.2)",
+    },
+    {
+      name: "Snowflake",
+      icon: "❄️",
+      color: "#29B6F6",
+      bg: "rgba(41,182,246,0.15)",
+      border: "rgba(41,182,246,0.2)",
+    },
   ],
   "DevOps & MLOps": [
-    { name: "GitHub Actions", icon: "🐙", color: "#ffffff", bg: "rgba(255,255,255,0.1)", border: "rgba(255,255,255,0.15)" },
-    { name: "GitLab CI/CD", icon: "🦊", color: "#FC6D26", bg: "rgba(252,109,38,0.15)", border: "rgba(252,109,38,0.2)" },
-    { name: "Jenkins", icon: "👷", color: "#D24939", bg: "rgba(210,73,57,0.15)", border: "rgba(210,73,57,0.2)" },
-    { name: "Prometheus", icon: "🔥", color: "#E6522C", bg: "rgba(230,82,44,0.15)", border: "rgba(230,82,44,0.2)" },
-    { name: "Grafana", icon: "📊", color: "#F47A20", bg: "rgba(244,122,32,0.15)", border: "rgba(244,122,32,0.2)" },
-    { name: "Datadog", icon: "🐶", color: "#632CA6", bg: "rgba(99,44,166,0.15)", border: "rgba(99,44,166,0.2)" },
-    { name: "Sentry", icon: "🚨", color: "#362D59", bg: "rgba(54,45,89,0.15)", border: "rgba(54,45,89,0.2)" }
-  ]
+    {
+      name: "GitHub Actions",
+      icon: "🐙",
+      color: "#ffffff",
+      bg: "rgba(255,255,255,0.1)",
+      border: "rgba(255,255,255,0.15)",
+    },
+    {
+      name: "GitLab CI/CD",
+      icon: "🦊",
+      color: "#FC6D26",
+      bg: "rgba(252,109,38,0.15)",
+      border: "rgba(252,109,38,0.2)",
+    },
+    {
+      name: "Jenkins",
+      icon: "👷",
+      color: "#D24939",
+      bg: "rgba(210,73,57,0.15)",
+      border: "rgba(210,73,57,0.2)",
+    },
+    {
+      name: "Prometheus",
+      icon: "🔥",
+      color: "#E6522C",
+      bg: "rgba(230,82,44,0.15)",
+      border: "rgba(230,82,44,0.2)",
+    },
+    {
+      name: "Grafana",
+      icon: "📊",
+      color: "#F47A20",
+      bg: "rgba(244,122,32,0.15)",
+      border: "rgba(244,122,32,0.2)",
+    },
+    {
+      name: "Datadog",
+      icon: "🐶",
+      color: "#632CA6",
+      bg: "rgba(99,44,166,0.15)",
+      border: "rgba(99,44,166,0.2)",
+    },
+    {
+      name: "Sentry",
+      icon: "🚨",
+      color: "#362D59",
+      bg: "rgba(54,45,89,0.15)",
+      border: "rgba(54,45,89,0.2)",
+    },
+  ],
 };
 
 export default function AiSaasTechStack() {
@@ -100,10 +360,14 @@ export default function AiSaasTechStack() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white capitalize">
-            Our AI SaaS Development Technology Stack
+            Our AI SaaS Development{" "}
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              Technology Stack
+            </p>
           </h2>
           <p className="text-sm md:text-base text-white/80 font-medium leading-relaxed max-w-[700px] mt-2">
-            We select technologies according to your product requirements rather than forcing every project into the same technical framework.
+            We select technologies according to your product requirements rather
+            than forcing every project into the same technical framework.
           </p>
         </div>
 
@@ -135,7 +399,7 @@ export default function AiSaasTechStack() {
               style={{ borderColor: item.border }}
             >
               {/* Inner glowing element */}
-              <div 
+              <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl pointer-events-none"
                 style={{ backgroundColor: item.color, filter: "blur(20px)" }}
               />
@@ -167,7 +431,8 @@ export default function AiSaasTechStack() {
 
         {/* Bottom note */}
         <p className="text-center text-xs text-white/40 mt-12 font-medium tracking-wider uppercase">
-          + many more tools selected specifically according to project requirements
+          + many more tools selected specifically according to project
+          requirements
         </p>
       </div>
     </section>

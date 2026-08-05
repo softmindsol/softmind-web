@@ -77,7 +77,10 @@ export default function AiSaasFaqs() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-navy capitalize">
-            Frequently Asked Questions About AI SaaS Development
+            Frequently Asked Questions About{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              AI SaaS Development
+            </span>
           </h2>
           <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide mt-2">
             Find answers to common questions about developing custom AI-powered
