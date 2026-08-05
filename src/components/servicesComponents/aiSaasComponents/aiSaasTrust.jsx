@@ -70,7 +70,7 @@ export default function AiSaasTrust() {
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-gray-200 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-gray-200 to-transparent z-10 pointer-events-none" />
 
-        <div className="marquee-container flex items-center gap-16 md:gap-24 py-2">
+        <div className="marquee-container flex items-center gap-16 md:gap-20 py-2">
           {logos.map((logo, idx) => (
             <div
               key={`logo-1-${idx}`}
@@ -95,7 +95,7 @@ export default function AiSaasTrust() {
               <span className="font-extrabold text-lg text-navy tracking-tight">
                 {logo.name}
               </span>
-              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full">
+              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
                 {logo.industry}
               </span>
             </div>
@@ -111,7 +111,7 @@ export default function AiSaasTrust() {
             <Image
               src={SoftMindSolLogo}
               alt="SoftMind Logo"
-              className="object-cover max-w-[300px]"
+              className="object-cover"
             />
           </div>
 
