@@ -75,17 +75,23 @@ const StepItem = ({ step, index, activeStep, setActiveStep }) => {
   const isActive = activeStep === index;
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className={`py-[10vh] min-h-[50vh] flex flex-col justify-center transition-all duration-700 ease-out ${isActive ? "opacity-100 translate-x-0" : "opacity-30 -translate-x-8"}`}
     >
       <div className="inline-flex items-center gap-4 mb-6">
-        <span className={`h-[2px] transition-all duration-700 ${isActive ? "w-12 bg-[#0CBF83]" : "w-6 bg-gray-300"}`}></span>
-        <span className={`font-bold tracking-widest uppercase text-sm transition-colors duration-700 ${isActive ? "text-[#0CBF83]" : "text-gray-400"}`}>
+        <span
+          className={`h-[2px] transition-all duration-700 ${isActive ? "w-12 bg-[#0CBF83]" : "w-6 bg-gray-300"}`}
+        ></span>
+        <span
+          className={`font-bold tracking-widest uppercase text-sm transition-colors duration-700 ${isActive ? "text-[#0CBF83]" : "text-gray-400"}`}
+        >
           {step.step}
         </span>
       </div>
-      <h3 className={`text-[32px] lg:text-[42px] font-extrabold mb-6 leading-tight transition-colors duration-700 ${isActive ? "text-[#00235A]" : "text-gray-400"}`}>
+      <h3
+        className={`text-[32px] lg:text-[42px] font-extrabold mb-6 leading-tight transition-colors duration-700 ${isActive ? "text-[#00235A]" : "text-gray-400"}`}
+      >
         {step.title}
       </h3>
       <p className="text-lg text-gray-500 leading-relaxed max-w-[450px]">
@@ -104,7 +110,6 @@ const DevelopmetProcess = () => {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0CBF83]/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
 
-      {/* Header */}
       <div className="pt-24 pb-12 md:py-32 px-6 lg:px-12 max-w-[1400px] mx-auto text-center relative z-10">
         <div className="flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F8FAFC] border border-gray-100 shadow-sm">
@@ -133,12 +138,12 @@ const DevelopmetProcess = () => {
           {/* Text Column (Scrolling) */}
           <div className="w-1/2 pr-12 lg:pr-24 pb-[30vh] pt-[5vh]">
             {stepsData.map((step, index) => (
-              <StepItem 
-                key={index} 
-                step={step} 
-                index={index} 
+              <StepItem
+                key={index}
+                step={step}
+                index={index}
                 activeStep={activeStep}
-                setActiveStep={setActiveStep} 
+                setActiveStep={setActiveStep}
               />
             ))}
           </div>
@@ -157,10 +162,10 @@ const DevelopmetProcess = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </AnimatePresence>
-              
+
               {/* Image Overlay Gradient */}
               <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#00235A] via-[#00235A]/50 to-transparent pointer-events-none opacity-90" />
-              
+
               {/* Step Indicator on Image */}
               <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[24px] shadow-2xl">
                 <motion.h4
