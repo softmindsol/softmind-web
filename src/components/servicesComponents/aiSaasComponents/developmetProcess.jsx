@@ -132,7 +132,7 @@ const DevelopmetProcess = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="w-full mx-auto relative z-10">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-start w-full px-6 lg:px-12">
           {/* Text Column (Scrolling) */}
