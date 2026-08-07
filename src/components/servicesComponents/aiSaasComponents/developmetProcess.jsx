@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const stepsData = [
   {
@@ -62,110 +62,157 @@ const stepsData = [
   },
 ];
 
-const DevelopmetProcess = () => {
-  const containerRef = useRef(null);
+const StepItem = ({ step, index, setActiveStep }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -40% 0px" });
 
-  // Track scroll progress of the container to animate the central line
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"],
-  });
+  useEffect(() => {
+    if (isInView) {
+      setActiveStep(index);
+    }
+  }, [isInView, index, setActiveStep]);
 
   return (
-    <section className="bg-gray-200 py-24 font-jakarta overflow-hidden">
-      <div className="flex flex-col items-center gap-3.5 text-center mb-12 md:mb-16">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
-          <span className="text-green text-[22px] font-bold tracking-wide">
-            Development Process
-          </span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-dark max-w-[700px]">
-          Our AI SaaS Product{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
-            Development Process
-          </span>
-        </h2>
-        <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide max-w-[800px] mt-2">
-          Our development process combines product strategy, user-centered
-          design, AI engineering, and agile software delivery.
-        </p>
+    <div
+      ref={ref}
+      className={`py-[15vh] lg:py-[20vh] flex flex-col justify-center transition-all duration-700 ease-out ${isInView ? "opacity-100 translate-x-0" : "opacity-30 -translate-x-8"}`}
+    >
+      <div className="inline-flex items-center gap-4 mb-6">
+        <span className="w-12 h-[2px] bg-[#0CBF83]"></span>
+        <span className="text-[#0CBF83] font-bold tracking-widest uppercase text-sm">
+          {step.step}
+        </span>
       </div>
-      <div ref={containerRef} className="relative mx-auto px-6 lg:px-12">
-        {/* Background Gray Line (Desktop Only) */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[4px] bg-[#EFEFEF] -translate-x-1/2 rounded-full" />
+      <h3 className="text-[32px] lg:text-[42px] font-extrabold text-[#00235A] mb-6 leading-tight">
+        {step.title}
+      </h3>
+      <p className="text-lg text-gray-500 leading-relaxed max-w-[450px]">
+        {step.description}
+      </p>
+    </div>
+  );
+};
 
-        {/* Animated Green Line (Desktop Only) */}
-        <motion.div
-          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[4px] bg-[#0CBF83] -translate-x-1/2 rounded-full origin-top"
-          style={{ scaleY: scrollYProgress }}
-        />
+const DevelopmetProcess = () => {
+  const [activeStep, setActiveStep] = useState(0);
 
-        <div className="relative z-10 flex flex-col gap-16 md:gap-32">
-          {stepsData.map((step, index) => {
-            const isImageLeft = index % 2 === 0;
+  return (
+    <section className="bg-white font-jakarta overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0CBF83]/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
 
-            return (
-              <div
+      {/* Header */}
+      <div className="pt-24 pb-12 md:py-32 px-6 lg:px-12 max-w-[1400px] mx-auto text-center relative z-10">
+        <div className="flex flex-col items-center gap-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F8FAFC] border border-gray-100 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
+            <span className="text-[#00235A] text-[13px] font-bold tracking-widest uppercase">
+              Development Process
+            </span>
+          </div>
+          <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-extrabold text-[#00235A] tracking-tight max-w-[800px] leading-tight">
+            Our AI SaaS Product{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0]">
+              Development Process
+            </span>
+          </h2>
+          <p className="text-[16px] md:text-[18px] text-gray-500 font-medium leading-relaxed max-w-[700px] mt-4">
+            Our development process combines product strategy, user-centered
+            design, AI engineering, and agile software delivery.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-[1400px] mx-auto relative z-10">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-start w-full px-6 lg:px-12">
+          {/* Text Column (Scrolling) */}
+          <div className="w-1/2 pr-12 lg:pr-24 pb-[30vh]">
+            {stepsData.map((step, index) => (
+              <StepItem
                 key={index}
-                className={`relative flex flex-col ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"} items-center justify-between w-full`}
-              >
-                {/* Center Dot (Desktop Only) */}
-                <motion.div
-                  initial={{ backgroundColor: "#EFEFEF" }}
-                  whileInView={{ backgroundColor: "#0CBF83" }}
-                  viewport={{ once: false, margin: "10000px 0px -50% 0px" }}
-                  transition={{ duration: 0.3 }}
-                  className="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 w-6 h-6 rounded-full z-20"
+                step={step}
+                index={index}
+                setActiveStep={setActiveStep}
+              />
+            ))}
+          </div>
+
+          {/* Image Column (Sticky) */}
+          <div className="w-1/2 sticky top-32 h-[calc(100vh-8rem)] flex flex-col justify-start pl-8 pt-4">
+            <div className="relative w-full aspect-[4/3] max-h-[70vh] rounded-[40px] overflow-hidden shadow-[0_20px_60px_rgba(0,35,90,0.08)] border border-gray-100 bg-white">
+              <AnimatePresence>
+                <motion.img
+                  key={activeStep}
+                  src={stepsData[activeStep].image}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
+              </AnimatePresence>
 
-                {/* Image Block */}
-                <motion.div
-                  initial={{ opacity: 0, x: isImageLeft ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="w-full md:w-[45%]"
-                >
-                  <div className="rounded-xl overflow-hidden shadow-[0px_4px_30px_rgba(0,0,0,0.05)] h-[250px] sm:h-[346px] w-full">
-                    <img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </motion.div>
+              {/* Image Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00235A]/80 via-transparent to-transparent pointer-events-none" />
 
-                {/* Text Block */}
-                <motion.div
-                  initial={{ opacity: 0, x: isImageLeft ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  className="w-full md:w-[45%] mt-8 md:mt-0 flex flex-col"
+              {/* Step Indicator on Image */}
+              <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl">
+                <motion.h4
+                  key={`title-${activeStep}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="text-white text-[22px] font-bold mb-1"
                 >
-                  <span className="text-[18px] font-medium text-grey mb-1">
+                  {stepsData[activeStep].title}
+                </motion.h4>
+                <motion.span
+                  key={`step-${activeStep}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="text-white/80 font-medium text-[15px]"
+                >
+                  {stepsData[activeStep].step} of {stepsData.length}
+                </motion.span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden flex flex-col gap-12 px-6 pb-24">
+          {stepsData.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg relative">
+                <img src={step.image} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#00235A]/80 to-transparent" />
+                <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-1.5 rounded-full">
+                  <span className="text-white font-bold text-sm tracking-widest uppercase">
                     {step.step}
                   </span>
-                  <h3 className="text-[28px] md:text-[32px] font-bold text-dark mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-[16px] md:text-[18px] font-medium text-grey leading-[1.4] mb-6">
-                    {step.description}
-                  </p>
-
-                  {/* <h4 className="text-[18px] font-bold text-dark mb-2">
-                    We work on
-                  </h4>
-                  <ul className="flex flex-col gap-[2px] text-[14px] md:text-[16px] text-grey font-medium leading-[1.4]">
-                    {step.workOn.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul> */}
-                </motion.div>
+                </div>
               </div>
-            );
-          })}
+              <div className="px-2">
+                <h3 className="text-[26px] font-extrabold text-[#00235A] mb-3 leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed text-[16px]">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
