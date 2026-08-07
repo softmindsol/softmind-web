@@ -62,9 +62,9 @@ const stepsData = [
   },
 ];
 
-const StepItem = ({ step, index, setActiveStep }) => {
+const StepItem = ({ step, index, activeStep, setActiveStep }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-40% 0px -40% 0px" });
+  const isInView = useInView(ref, { margin: "-20% 0px -40% 0px" });
 
   useEffect(() => {
     if (isInView) {
@@ -72,18 +72,20 @@ const StepItem = ({ step, index, setActiveStep }) => {
     }
   }, [isInView, index, setActiveStep]);
 
+  const isActive = activeStep === index;
+
   return (
-    <div
-      ref={ref}
-      className={`py-[15vh] lg:py-[20vh] flex flex-col justify-center transition-all duration-700 ease-out ${isInView ? "opacity-100 translate-x-0" : "opacity-30 -translate-x-8"}`}
+    <div 
+      ref={ref} 
+      className={`py-[10vh] min-h-[50vh] flex flex-col justify-center transition-all duration-700 ease-out ${isActive ? "opacity-100 translate-x-0" : "opacity-30 -translate-x-8"}`}
     >
       <div className="inline-flex items-center gap-4 mb-6">
-        <span className="w-12 h-[2px] bg-[#0CBF83]"></span>
-        <span className="text-[#0CBF83] font-bold tracking-widest uppercase text-sm">
+        <span className={`h-[2px] transition-all duration-700 ${isActive ? "w-12 bg-[#0CBF83]" : "w-6 bg-gray-300"}`}></span>
+        <span className={`font-bold tracking-widest uppercase text-sm transition-colors duration-700 ${isActive ? "text-[#0CBF83]" : "text-gray-400"}`}>
           {step.step}
         </span>
       </div>
-      <h3 className="text-[32px] lg:text-[42px] font-extrabold text-[#00235A] mb-6 leading-tight">
+      <h3 className={`text-[32px] lg:text-[42px] font-extrabold mb-6 leading-tight transition-colors duration-700 ${isActive ? "text-[#00235A]" : "text-gray-400"}`}>
         {step.title}
       </h3>
       <p className="text-lg text-gray-500 leading-relaxed max-w-[450px]">
@@ -129,20 +131,21 @@ const DevelopmetProcess = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex items-start w-full px-6 lg:px-12">
           {/* Text Column (Scrolling) */}
-          <div className="w-1/2 pr-12 lg:pr-24 pb-[30vh]">
+          <div className="w-1/2 pr-12 lg:pr-24 pb-[30vh] pt-[5vh]">
             {stepsData.map((step, index) => (
-              <StepItem
-                key={index}
-                step={step}
-                index={index}
-                setActiveStep={setActiveStep}
+              <StepItem 
+                key={index} 
+                step={step} 
+                index={index} 
+                activeStep={activeStep}
+                setActiveStep={setActiveStep} 
               />
             ))}
           </div>
 
           {/* Image Column (Sticky) */}
           <div className="w-1/2 sticky top-32 h-[calc(100vh-8rem)] flex flex-col justify-start pl-8 pt-4">
-            <div className="relative w-full aspect-[4/3] max-h-[70vh] rounded-[40px] overflow-hidden shadow-[0_20px_60px_rgba(0,35,90,0.08)] border border-gray-100 bg-white">
+            <div className="relative w-full aspect-[4/3] max-h-[70vh] rounded-[40px] overflow-hidden shadow-[0_20px_60px_rgba(0,35,90,0.12)] border border-gray-100 bg-white">
               <AnimatePresence>
                 <motion.img
                   key={activeStep}
@@ -154,12 +157,12 @@ const DevelopmetProcess = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </AnimatePresence>
-
+              
               {/* Image Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#00235A]/80 via-transparent to-transparent pointer-events-none" />
-
+              <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#00235A] via-[#00235A]/50 to-transparent pointer-events-none opacity-90" />
+              
               {/* Step Indicator on Image */}
-              <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-xl">
+              <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[24px] shadow-2xl">
                 <motion.h4
                   key={`title-${activeStep}`}
                   initial={{ opacity: 0, y: 10 }}
