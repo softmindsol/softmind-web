@@ -5,7 +5,7 @@ import { FaPlane } from "react-icons/fa";
 const nodes = [
   {
     id: "01",
-    title: "Requirement\nElicitation",
+    title: "Product discovery &\nfeasibility analysis",
     x: "12.5%",
     y: "79.2%",
     textPos: "top",
@@ -13,7 +13,7 @@ const nodes = [
   },
   {
     id: "02",
-    title: "Project\nProposal",
+    title: "AI opportunity\nassessment",
     x: "29.1%",
     y: "54.3%",
     textPos: "top-left",
@@ -21,7 +21,7 @@ const nodes = [
   },
   {
     id: "03",
-    title: "Design &\nArchitecture",
+    title: "Feature\nprioritization",
     x: "47.2%",
     y: "45.3%",
     textPos: "top",
@@ -29,7 +29,7 @@ const nodes = [
   },
   {
     id: "04",
-    title: "Development\nPhase",
+    title: "Technical architecture\nplanning",
     x: "41.6%",
     y: "73.6%",
     textPos: "bottom",
@@ -37,7 +37,7 @@ const nodes = [
   },
   {
     id: "05",
-    title: "Testing and QA",
+    title: "TestData readiness\nevaluation",
     x: "62.5%",
     y: "67.9%",
     textPos: "bottom",
@@ -45,11 +45,19 @@ const nodes = [
   },
   {
     id: "06",
-    title: "Delivery and\nMaintenance",
+    title: "Development roadmap\ncreation",
     x: "79.1%",
     y: "54.3%",
     textPos: "right",
     delay: 3600,
+  },
+  {
+    id: "07",
+    title: "Cost & resource\nestimation",
+    x: "72.9%",
+    y: "31.7%",
+    textPos: "top",
+    delay: 4000,
   },
 ];
 
@@ -124,8 +132,15 @@ const HowWeWorkProp = () => {
             </h3>
           </div>
           <h2 className="max-w-[900px] text-[32px] md:text-[46px] font-bold leading-[1.2] lg:leading-[58px] tracking-[1px] text-white capitalize">
-            Purpose Written Into Every Line Of Code.
+            AI SaaS Consulting &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400">
+              Product Strategy
+            </span>
           </h2>
+          <p className="text-[16px] sm:text-[18px] font-medium text-white/80 leading-relaxed max-w-[700px] mt-2">
+            Validate your idea, define the right AI opportunities, and create a
+            clear roadmap for successful product development.
+          </p>
         </div>
 
         {/* Desktop Path Layout */}

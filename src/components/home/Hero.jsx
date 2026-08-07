@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import { Typewriter } from "../ui/typewriter";
 import CustomButton from "../customs/customButton";
 import LiquidEther from "../customs/liquidEther";
+import ClutchWidget from "../customs/clutchWidget";
 
 export function Hero({
   // title = "AI SaaS & Custom Software Development Company",
@@ -107,9 +108,13 @@ export function Hero({
             <span className="font-jakarta font-medium text-[14px] md:text-[16px] text-[#666666] text-center tracking-wide px-2">
               {bottomText}
             </span>
+            uhuk
             <div className="flex-1 h-[2px] bg-[#EFEFEF] rounded-full" />
           </div>
         )}
+        <div className="flex justify-center lg:justify-start">
+          <ClutchWidget />
+        </div>
       </div>
     </section>
   );
