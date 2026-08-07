@@ -1,3 +1,4 @@
+import HowWeWorkProp from "@/components/industriesComponents/propTechComponents/howWeWorkProp";
 import React from "react";
 
 const listItems = [
@@ -131,77 +132,7 @@ const AiSaasOutcomes = () => {
       </div>
 
       {/* Bottom Section: Roadmap */}
-      <div className="relative z-20 w-full bg-black py-20 lg:py-28 border-t border-gray-100">
-        <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
-          {/* Header */}
-          <div className="flex flex-col items-center justify-center gap-4 mb-20 text-center">
-            <h2 className="text-[32px] sm:text-[42px] lg:text-[48px] font-extrabold text-[#00235A] tracking-tight capitalize">
-              AI SaaS Consulting &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0]">
-                Product Strategy
-              </span>
-            </h2>
-            <p className="text-[16px] sm:text-[18px] text-gray-500 leading-relaxed max-w-[750px]">
-              Validate your idea, define the right AI opportunities, and create
-              a clear roadmap for successful product development.
-            </p>
-          </div>
-
-          {/* Timeline */}
-          <div className="relative max-w-[1000px] mx-auto">
-            {/* Center Line (Desktop) */}
-            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 -translate-x-1/2" />
-
-            {/* Left Line (Mobile) */}
-            <div className="md:hidden absolute left-[31px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200" />
-
-            <div className="flex flex-col gap-8 md:gap-12">
-              {roadmapSteps.map((step, index) => {
-                const isEven = index % 2 === 0;
-                return (
-                  <div
-                    key={index}
-                    className={`relative flex flex-col md:flex-row items-center w-full group`}
-                  >
-                    {/* Desktop Layout Structure */}
-                    <div
-                      className={`hidden md:flex w-full ${isEven ? "justify-start" : "justify-end"}`}
-                    >
-                      <div
-                        className={`w-[calc(50%-40px)] ${isEven ? "text-right pr-4" : "text-left pl-4"}`}
-                      >
-                        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-[#0CBF83]/40 transition-all duration-300 transform group-hover:-translate-y-1">
-                          <span className="inline-block text-[#0CBF83] text-[13px] font-bold tracking-wider uppercase mb-2">
-                            Phase 0{index + 1}
-                          </span>
-                          <h4 className="text-[18px] lg:text-[20px] font-bold text-[#00235A] leading-snug">
-                            {step}
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Node */}
-                    <div className="absolute left-[20px] md:left-1/2 top-6 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-6 h-6 rounded-full bg-white border-[4px] border-[#0CBF83] z-10 transition-transform duration-300 group-hover:scale-[1.3] group-hover:border-[#004BC0]" />
-
-                    {/* Mobile Layout Structure */}
-                    <div className="flex md:hidden w-full pl-16 pr-4">
-                      <div className="w-full bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                        <span className="inline-block text-[#0CBF83] text-[12px] font-bold tracking-wider uppercase mb-1">
-                          Phase 0{index + 1}
-                        </span>
-                        <h4 className="text-[17px] font-bold text-[#00235A] leading-snug">
-                          {step}
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
+      <HowWeWorkProp />
     </section>
   );
 };
