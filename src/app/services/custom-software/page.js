@@ -1,29 +1,49 @@
-import AiSaasOutcomes from "@/components/servicesComponents/aiSaasComponents/aiSaasOutcomes";
-import DevelopmetProcess from "@/components/servicesComponents/aiSaasComponents/developmetProcess";
-import ServicesShowCase from "@/components/servicesComponents/aiSaasComponents/servicesShowCase";
 import { Hero } from "@/components/home/Hero";
+import CustomSoftwareServices from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareServices";
+import CustomSoftwareSolutions from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareSolutions";
+import CustomSoftwareExpertise from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareExpertise";
+import CustomSoftwareProcess from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareProcess";
+import CustomSoftwareWhyChoose from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareWhyChoose";
+import CustomSoftwareWhyInvest from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareWhyInvest";
+import CustomSoftwareCaseStudy from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareCaseStudy";
+import CustomSoftwareTestimonials from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareTestimonials";
+import CustomSoftwareIndustry from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareIndustry";
+import CustomSoftwareFaq from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareFaq";
+
 export const metadata = {
-  title: "Custom Software | SoftMind Solutions",
+  title:
+    "Offshore Custom Software Development Company for Startups | Softmind Solutions",
   description:
-    "Designing and engineering tailored software solutions that streamline operations, solve unique challenges, and scale with your business.",
+    "Softmind Solutions builds custom software for startups and growing businesses in the USA and MENA — web apps, mobile apps, SaaS platforms, API development, and AI-powered software. Senior engineers, offshore rates, startup-grade speed.",
 };
 
 const CustomSoftware = () => {
   return (
     <main className="w-full flex flex-col items-center">
       <Hero
-        title="Building Custom Software"
-        typewriterPrefix=""
-        typewriterPhrases={["That Powers Your Business"]}
-        description="Designing and engineering tailored software solutions that streamline operations, solve unique challenges, and scale with your business."
-        primaryButtonText="Start a Project"
+        title="Custom Software Development Services"
+        typewriterPrefix="For "
+        typewriterPhrases={[
+          "Startups",
+          "USA & MENA Businesses",
+          "Scaling Enterprises",
+        ]}
+        description="Off-the-shelf software forces your business to adapt to its limitations. Custom software gives you the flexibility to automate operations, improve customer experiences, and scale without compromise."
+        primaryButtonText="Talk to a Software Expert"
         primaryButtonLink="/contact"
         secondaryButtonText={null}
         showBottomText={false}
       />
-      <ServicesShowCase />
-      <DevelopmetProcess />
-      <AiSaasOutcomes />
+      <CustomSoftwareServices />
+      <CustomSoftwareSolutions />
+      <CustomSoftwareExpertise />
+      <CustomSoftwareProcess />
+      <CustomSoftwareWhyChoose />
+      <CustomSoftwareWhyInvest />
+      <CustomSoftwareCaseStudy />
+      <CustomSoftwareTestimonials />
+      <CustomSoftwareIndustry />
+      <CustomSoftwareFaq />
     </main>
   );
 };
