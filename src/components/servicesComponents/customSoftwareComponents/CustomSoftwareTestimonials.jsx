@@ -1,8 +1,5 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 
 export default function CustomSoftwareTestimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,129 +7,191 @@ export default function CustomSoftwareTestimonials() {
   const testimonials = [
     {
       name: "Anas Ashraf",
-      location: "Mexico — Founder & CTO",
-      rating: 5,
+      location: "Mexico",
+      rating: 4,
       feedback:
-        "Great team. I really enjoyed working with them, and will work with them in the future for sure. They are very responsive and will deliver the product no matter what. I initially started with some features and then added some but they were okay with it and made sure they helped me. I also liked how there was a product manager that managed development and saw the bigger picture.",
+        "Great team. I really enjoyed working with them, and will work with them in the future for sure. They are very responsive and will deliver the product no matter what. I initially started with some features and then added some but they were okay with it and made sure they helped me. I also liked how there was a product manager, that would manage the development and saw the bigger picture. I totally recommend.",
+      // High-quality professional corporate suit portraits matching the visual style
       image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80", // Placeholder portrait matching styling
     },
     {
       name: "Alejandro Silva",
-      location: "Spain — Head of Product",
+      location: "Spain",
       rating: 5,
       feedback:
-        "Working with Softmind Solutions was an absolute breeze. Their technical capability and proactive communication resolved key performance blockers early in our production timeline. The dedicated software engineering team maintained perfect alignment with our key milestones. Excellent delivery standards!",
+        "Working with them was an absolute breeze. Their technical capability and proactive communication resolved key performance blockers early in our production timeline. The dedicated product manager maintained perfect alignment with our key milestones. Excellent delivery standards!",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
     },
     {
       name: "Marcus Vance",
-      location: "USA — Managing Director",
+      location: "USA",
       rating: 5,
       feedback:
-        "Highly professional team that goes above and beyond to ensure execution meets strategic objectives. Their responsiveness is outstanding, and their ability to scale resource allocation flexibly made a huge difference to our go-to-market speed. Highly recommended for custom software builds.",
+        "Highly professional team that goes above and beyond to ensure execution meets strategic objectives. Their responsiveness is outstanding, and their ability to scale resource allocation flexibly made a huge difference to our go-to-market speed. Highly recommended for complex SaaS builds.",
       image:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
     },
   ];
 
+  // Auto slide effect every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 4500);
+    }, 3000);
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  return (
-    <section className="relative w-full bg-white text-[#00235A] py-20 lg:py-28 font-jakarta overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#004BC0]/5 rounded-full blur-[140px] pointer-events-none" />
+  // Dynamic positioning for the three card layers
+  const getCardPositionStyles = (cardIndex) => {
+    const diff =
+      (cardIndex - activeIndex + testimonials.length) % testimonials.length;
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] border border-gray-200 shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
-            <span className="text-[#00235A] text-xs font-bold uppercase tracking-widest">
-              Client Reviews
+    if (diff === 0) {
+      // Prominent Center Card
+      return {
+        style: {
+          transform: "translate(0px, 40px) rotate(0deg) scale(1)",
+          zIndex: 30,
+        },
+        className: "shadow-[0px_4px_30px_rgba(12,191,131,0.2)] opacity-100",
+      };
+    } else if (diff === 1) {
+      // Right rotated card behind
+      return {
+        style: {
+          transform: "translate(90px, 0px) rotate(15deg) scale(0.92)",
+          zIndex: 10,
+        },
+        className: "shadow-md opacity-85",
+      };
+    } else {
+      // Left rotated card behind (Flipped matrix scale representation)
+      return {
+        style: {
+          transform: "translate(-90px, 0px) rotate(-15deg) scale(0.92)",
+          zIndex: 20,
+        },
+        className: "shadow-md opacity-85",
+      };
+    }
+  };
+
+  return (
+    <section className="relative w-full bg-white text-dark py-16 md:py-24 overflow-hidden font-jakarta">
+      <div className="mx-auto px-6 lg:px-0 flex flex-col items-center">
+        {/* Header Label & Title */}
+        <div className="flex flex-col items-center gap-3.5 text-center mb-16">
+          <div className="flex items-center gap-2">
+            {/* Custom Theme Dot */}
+            <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
+            <span className="text-green text-[22px] font-bold tracking-[1px] leading-[28px]">
+              Testimonial
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-extrabold tracking-tight text-[#00235A]">
-            Trusted by Businesses Building the Future
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-[1px] capitalize text-dark">
+            Trusted by Businesses{" "}
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-green to-[#004BC0]">
+              Building the Future
+            </p>
           </h2>
-          <p className="text-[16px] md:text-[18px] text-gray-600 font-medium leading-[26px]">
-            From startups to growing enterprises, businesses trust Softmind Solutions to deliver reliable software, transparent collaboration, and measurable results. Here&apos;s what our clients have to say about partnering with our team to build innovative digital solutions.
+          <p className="text-center max-w-[850px] text-base text-grey font-medium tracking-[1px]">
+            From startups to growing enterprises, businesses trust Softmind
+            Solutions to deliver reliable software, transparent collaboration,
+            and measurable results. Here&apos;s what our clients have to say
+            about partnering with our team to build innovative digital
+            solutions.
           </p>
         </div>
 
-        {/* Testimonials Showcase Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Main Focused Testimonial Box */}
-          <div className="lg:col-span-8 bg-[#F8FAFC] border border-gray-200/80 rounded-[32px] p-8 lg:p-12 shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[380px]">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#0CBF83]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Content Layout split into Stacked Cards and Testimonial Details */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[460px]">
+          {/* Left Column: Stacked Cards (Takes up 6 cols) */}
+          <div className="lg:col-span-6 flex justify-center items-center h-[420px] relative z-10">
+            <div className="relative w-[303px] h-[346px]">
+              {testimonials.map((testimonial, idx) => {
+                const layout = getCardPositionStyles(idx);
+                return (
+                  <div
+                    key={idx}
+                    style={layout.style}
+                    className={`absolute inset-0 w-full h-full rounded-xl overflow-hidden transition-all duration-700 ease-in-out bg-[#F3F4F6] ${layout.className}`}
+                  >
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
-            <div>
-              <div className="flex items-center gap-1 mb-6">
-                {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#FFBF00] text-[#FFBF00]" />
-                ))}
+          {/* Right Column: Testimonial copy & Ratings (Takes up 6 cols) */}
+          <div className="lg:col-span-6 flex flex-col justify-center items-center md:items-start space-y-6 max-w-[563px] lg:pl-12">
+            {/* Name, Location, and Rating Stars */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <h3 className="text-3xl lg:text-[36px] lg:leading-[45px] font-bold tracking-[1px] text-dark">
+                  {testimonials[activeIndex].name}
+                </h3>
+                <span className="md:text-start text-center text-base text-grey font-medium tracking-[1px] block">
+                  {testimonials[activeIndex].location}
+                </span>
               </div>
 
-              <p className="text-base sm:text-lg md:text-xl text-[#00235A] leading-relaxed font-medium italic mb-8">
+              {/* Dynamic Rating Stars Layout */}
+              <div className="flex justify-center md:justify-start items-center gap-[4px]">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill={
+                      i < testimonials[activeIndex].rating
+                        ? "#FFBF00"
+                        : "#DBDBDB"
+                    }
+                    className="w-6 h-6 shrink-0"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial Message Body Copy */}
+            <div className="min-h-[200px] flex items-start">
+              <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-[1px] italic transition-opacity duration-500">
                 &quot;{testimonials[activeIndex].feedback}&quot;
               </p>
             </div>
 
-            <div className="flex items-center gap-4 border-t border-gray-200 pt-6">
-              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#0CBF83] shadow-md shrink-0">
-                <img
-                  src={testimonials[activeIndex].image}
-                  alt={testimonials[activeIndex].name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#00235A]">
-                  {testimonials[activeIndex].name}
-                </h3>
-                <span className="text-xs font-semibold text-gray-500">
-                  {testimonials[activeIndex].location}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation & Thumbnail Stack */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
-            {testimonials.map((item, idx) => {
-              const isActive = activeIndex === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`flex items-center gap-4 p-5 rounded-[20px] text-left transition-all duration-300 border ${
-                    isActive
-                      ? "bg-[#00235A] text-white border-[#0CBF83] shadow-lg translate-x-1"
-                      : "bg-[#F8FAFC] hover:bg-gray-100 text-gray-700 border-gray-200"
-                  }`}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-12 h-12 rounded-full object-cover shrink-0 border border-white/20"
+            {/* Pagination Indicators (Ellipse 27, 28, 29 specs) */}
+            <div className="flex items-center gap-[4px] pt-4">
+              {testimonials.map((_, idx) => {
+                const isActive = activeIndex === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveIndex(idx)}
+                    className={`w-3.5 h-3.5 rounded-full transition-all duration-500 ${
+                      isActive
+                        ? "bg-[linear-gradient(135deg,#0CBF83_0%,#06593D_100%)]"
+                        : "bg-[#EFEFEF]"
+                    }`}
+                    aria-label={`Go to testimonial page ${idx + 1}`}
                   />
-                  <div>
-                    <h4 className={`text-sm font-bold ${isActive ? "text-white" : "text-[#00235A]"}`}>
-                      {item.name}
-                    </h4>
-                    <span className={`text-xs ${isActive ? "text-[#0CBF83]" : "text-gray-500"}`}>
-                      {item.location}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

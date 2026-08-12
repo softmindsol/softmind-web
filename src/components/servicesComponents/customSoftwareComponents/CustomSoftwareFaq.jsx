@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { SoftMindSolutionLogoDark } from "../../../../public/images";
 
 const faqs = [
   {
@@ -38,7 +40,14 @@ export default function CustomSoftwareFaq() {
   };
 
   return (
-    <section className="relative w-full bg-white text-dark py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-white text-dark py-16 lg:py-24 overflow-hidden font-jakarta">
+      <div className="absolute left-0 w-fit select-none pointer-events-none">
+        <Image
+          src={SoftMindSolutionLogoDark}
+          alt="SoftMindSol Logo"
+          className="object-cover max-h-[726px] opacity-20"
+        />
+      </div>
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -57,7 +66,7 @@ export default function CustomSoftwareFaq() {
               AI SaaS Development
             </span>
           </h2>
-          <p className="text-sm md:text-base text-grey font-medium leading-[24px] tracking-wide mt-2">
+          <p className="text-sm md:text-base text-black/80 font-medium leading-[24px] tracking-wide mt-2">
             Find answers to common questions about developing custom AI-powered
             SaaS platforms, timelines, costs, and data handling.
           </p>
@@ -72,7 +81,7 @@ export default function CustomSoftwareFaq() {
                 key={idx}
                 className={`border rounded-2xl transition-all duration-500 ease-out ${
                   isOpen
-                    ? "border-green bg-gradient-to-br from-gray-50 to-white shadow-[0_4px_20px_rgba(12,191,131,0.06)] scale-[1.01]"
+                    ? "backdrop-blur-md border-green bg-gradient-to-br from-gray-50 to-white shadow-[0_4px_20px_rgba(12,191,131,0.06)] scale-[1.01]"
                     : "border-gray-200 hover:border-green/30 hover:bg-gray-50/30 bg-white"
                 }`}
               >
@@ -101,13 +110,13 @@ export default function CustomSoftwareFaq() {
                 <div
                   className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
                     isOpen
-                      ? "grid-rows-[1fr] opacity-100 border-t border-gray-100"
+                      ? "grid-rows-[1fr] opacity-100"
                       : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
                     <p
-                      className={`p-6 text-[14px] sm:text-[15px] font-medium text-grey leading-relaxed transition-all duration-500 delay-75 ${
+                      className={`px-6 pb-6 text-[14px] sm:text-[15px] font-medium text-black/80 leading-relaxed transition-all duration-500 delay-75 ${
                         isOpen
                           ? "translate-y-0 opacity-100"
                           : "-translate-y-2 opacity-0"
