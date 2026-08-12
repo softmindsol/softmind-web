@@ -88,7 +88,7 @@ export default function CustomSoftwareServices() {
     <section className="relative w-full bg-[#161616] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Ambient background glows */}
       <div
-        className="absolute top-1/4 left-[-100px] w-[450px] h-[450px] rounded-full pointer-events-none opacity-20 blur-[130px]"
+        className="absolute top-0 left-0 w-[450px] h-[450px] rounded-full pointer-events-none opacity-30 blur-[100px]"
         style={{ backgroundColor: "#004BC0" }}
       />
       <div
@@ -96,9 +96,9 @@ export default function CustomSoftwareServices() {
         style={{ backgroundColor: "#0CBF83" }}
       />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
+        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[870px] mx-auto">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
             <span className="text-[#0CBF83] text-[18px] md:text-[20px] font-bold tracking-[1px]">
@@ -106,15 +106,20 @@ export default function CustomSoftwareServices() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-bold tracking-[0.5px] text-white">
-            Custom Software Development Services That Drive Business Growth
+            Custom Software Development Services That{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
+              Drive Business Growth
+            </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            Whether you&apos;re building a new digital product, modernizing legacy systems, or automating complex workflows, our engineering team delivers software that creates measurable business value.
+            Whether you&apos;re building a new digital product, modernizing
+            legacy systems, or automating complex workflows, our engineering
+            team delivers software that creates measurable business value.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="max-w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -124,30 +129,28 @@ export default function CustomSoftwareServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="group relative bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#0CBF83]/50 rounded-[24px] p-8 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-[0_12px_40px_rgba(12,191,131,0.15)] hover:-translate-y-1.5"
+                className="group relative bg-[#ffffff05] hover:bg-[#ffffff0a] border border-white/[0.06] hover:border-[#0CBF83]/40 rounded-[20px] p-6 transition-all duration-500 flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(12,191,131,0.12)] hover:-translate-y-2 overflow-hidden"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-[#0CBF83] group-hover:scale-110 transition-transform duration-300 border border-white/10">
-                      <Icon className="w-7 h-7" />
+                {/* Subtle Hover Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0CBF83]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[20px]" />
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-5 gap-3">
+                    <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 border border-white/10 shadow-inner">
+                      <Icon className="w-[22px] h-[22px] stroke-[1.5]" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#0CBF83] bg-[#0CBF83]/10 px-3 py-1 rounded-full border border-[#0CBF83]/20">
+                    <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-[#0CBF83] bg-[#0CBF83]/10 px-2.5 py-1 rounded-full border border-[#0CBF83]/20">
                       {service.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-xl md:text-[22px] font-bold text-white mb-3 group-hover:text-[#0CBF83] transition-colors">
+                  <h3 className="text-[18px] md:text-[20px] font-bold text-white/90 mb-3 group-hover:text-[#0CBF83] transition-colors duration-300 leading-snug">
                     {service.title}
                   </h3>
 
-                  <p className="text-white/70 text-[15px] leading-[24px] font-normal">
+                  <p className="text-white/60 text-[14px] leading-[22px] font-medium group-hover:text-white/70 transition-colors duration-300 flex-grow">
                     {service.description}
                   </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/5 flex items-center text-sm font-semibold text-white/60 group-hover:text-[#0CBF83] transition-colors">
-                  <span>Explore Capability</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.div>
             );
@@ -156,7 +159,7 @@ export default function CustomSoftwareServices() {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center flex flex-col items-center">
-          <Link href="/contact">
+          <Link href="/contact-us">
             <CustomButton btnText="Start Your Software Project" />
           </Link>
         </div>
