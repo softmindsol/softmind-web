@@ -127,7 +127,7 @@ export default function ContactFormSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-start">
           {/* Left: How it Works */}
-          <div className="flex flex-col gap-8">
+          <div className="sticky top-52 flex flex-col gap-8">
             <div>
               <h3 className="text-2xl font-bold text-dark mb-2">
                 How Does It Work?
@@ -164,7 +164,7 @@ export default function ContactFormSection() {
             </div>
 
             {/* Trust Badges */}
-            <div className="bg-[#F8FAFC] rounded-2xl border border-gray-100 p-6 flex flex-col gap-3">
+            {/* <div className="bg-[#F8FAFC] rounded-2xl border border-gray-100 p-6 flex flex-col gap-3">
               <p className="text-sm font-bold text-dark">Why teams trust us:</p>
               {[
                 "300+ projects delivered across 4 industries",
@@ -179,7 +179,7 @@ export default function ContactFormSection() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Form */}

@@ -9,6 +9,8 @@ import CustomSoftwareCaseStudy from "@/components/servicesComponents/customSoftw
 import CustomSoftwareTestimonials from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareTestimonials";
 import CustomSoftwareIndustry from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareIndustry";
 import CustomSoftwareFaq from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareFaq";
+import ContactForm from "@/components/contactUsComponents/ContactForm";
+import ContactFormSection from "@/components/home/contactFormSection";
 
 export const metadata = {
   title:
@@ -41,6 +43,7 @@ const CustomSoftware = () => {
       <CustomSoftwareCaseStudy />
       <CustomSoftwareTestimonials />
       <CustomSoftwareIndustry />
+      <ContactFormSection />
       <CustomSoftwareFaq />
     </main>
   );
