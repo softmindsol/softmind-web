@@ -20,35 +20,55 @@ const solutions = [
     title: "Enterprise Applications",
     description:
       "Digitize complex business operations with secure enterprise applications that improve collaboration, automate workflows, and provide real-time visibility across departments.",
-    highlights: ["Workflow Automation", "Cross-department Sync", "Role-based Access"],
+    highlights: [
+      "Workflow Automation",
+      "Cross-department Sync",
+      "Role-based Access",
+    ],
   },
   {
     icon: Rocket,
     title: "SaaS Product Development",
     description:
       "Launch scalable SaaS platforms with subscription management, multi-tenant architecture, secure infrastructure, and room to grow as your customer base expands.",
-    highlights: ["Multi-Tenant Architecture", "Billing Integrations", "High Scalability"],
+    highlights: [
+      "Multi-Tenant Architecture",
+      "Billing Integrations",
+      "High Scalability",
+    ],
   },
   {
     icon: Users,
     title: "Customer & Employee Portals",
     description:
       "Create secure self-service portals that improve communication, simplify workflows, and provide users with personalized access to the information they need.",
-    highlights: ["Self-service Workflows", "Secure Authentication", "Personalized Portals"],
+    highlights: [
+      "Self-service Workflows",
+      "Secure Authentication",
+      "Personalized Portals",
+    ],
   },
   {
     icon: Database,
     title: "ERP Solutions",
     description:
       "Unify finance, inventory, HR, procurement, and operations into a single platform that improves efficiency and enables better decision-making.",
-    highlights: ["Financial Integration", "Inventory Control", "Operational Efficiency"],
+    highlights: [
+      "Financial Integration",
+      "Inventory Control",
+      "Operational Efficiency",
+    ],
   },
   {
     icon: UserCheck,
     title: "CRM Development",
     description:
       "Build CRM systems tailored to your sales process that help teams manage relationships, automate follow-ups, and increase customer retention.",
-    highlights: ["Pipeline Tracking", "Automated Follow-ups", "Customer Insights"],
+    highlights: [
+      "Pipeline Tracking",
+      "Automated Follow-ups",
+      "Customer Insights",
+    ],
   },
   {
     icon: ShoppingBag,
@@ -69,7 +89,11 @@ const solutions = [
     title: "Business Intelligence Dashboards",
     description:
       "Turn raw business data into interactive dashboards that help executives monitor KPIs, identify trends, and make faster, data-driven decisions.",
-    highlights: ["Real-time Metrics", "Interactive Charts", "Executive Reports"],
+    highlights: [
+      "Real-time Metrics",
+      "Interactive Charts",
+      "Executive Reports",
+    ],
   },
 ];
 
@@ -80,7 +104,7 @@ export default function CustomSoftwareSolutions() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0CBF83]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
           <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] border border-gray-200 shadow-sm">
@@ -90,10 +114,16 @@ export default function CustomSoftwareSolutions() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-extrabold tracking-tight text-[#00235A]">
-            Custom Software Solutions Built Around Your Business
+            Custom Software Solutions Built{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
+              Around Your Business
+            </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-gray-600 font-medium leading-[26px]">
-            Every organization has unique processes, customers, and growth objectives. That&apos;s why we develop software designed specifically for the way your business operates—not the other way around.
+            Every organization has unique processes, customers, and growth
+            objectives. That&apos;s why we develop software designed
+            specifically for the way your business operates—not the other way
+            around.
           </p>
         </div>
 
@@ -126,7 +156,10 @@ export default function CustomSoftwareSolutions() {
 
                 <div className="space-y-2 border-t border-gray-200/60 pt-4">
                   {item.highlights.map((h, hIdx) => (
-                    <div key={hIdx} className="flex items-center text-xs font-semibold text-gray-500 gap-2">
+                    <div
+                      key={hIdx}
+                      className="flex items-center text-xs font-semibold text-gray-500 gap-2"
+                    >
                       <CheckCircle className="w-3.5 h-3.5 text-[#0CBF83] shrink-0" />
                       <span>{h}</span>
                     </div>

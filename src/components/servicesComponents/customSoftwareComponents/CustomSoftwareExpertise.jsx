@@ -115,11 +115,11 @@ export default function CustomSoftwareExpertise() {
     <section className="relative w-full bg-[#161616] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Background ambient light */}
       <div
-        className="absolute top-1/3 right-[-150px] w-[500px] h-[500px] rounded-full pointer-events-none opacity-25 blur-[150px]"
+        className="absolute top-0 right-[-150px] w-[350px] h-[350px] rounded-full pointer-events-none opacity-25 blur-[150px]"
         style={{ backgroundColor: "#004BC0" }}
       />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
           <div className="flex items-center gap-2">
@@ -132,7 +132,9 @@ export default function CustomSoftwareExpertise() {
             End-to-End Software Development Expertise
           </h2>
           <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            From strategy to deployment, our multidisciplinary team helps you build software that supports today&apos;s needs while preparing your business for tomorrow.
+            From strategy to deployment, our multidisciplinary team helps you
+            build software that supports today&apos;s needs while preparing your
+            business for tomorrow.
           </p>
         </div>
 
@@ -149,13 +151,15 @@ export default function CustomSoftwareExpertise() {
                   onClick={() => setActiveTab(idx)}
                   className={`flex items-center gap-4 w-full px-6 py-4 rounded-[18px] text-left transition-all duration-300 border ${
                     isActive
-                      ? "bg-gradient-to-r from-[#00235A] to-[#004BC0] text-white border-[#0CBF83]/50 shadow-[0_4px_25px_rgba(12,191,131,0.2)] translate-x-2"
+                      ? "bg-gradient-to-r from-[#00235A] to-[#004BC0] border-none text-white translate-x-2"
                       : "bg-white/[0.02] hover:bg-white/[0.06] text-white/70 border-white/10"
                   }`}
                 >
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                      isActive ? "bg-[#0CBF83] text-[#161616]" : "bg-white/10 text-white/80"
+                      isActive
+                        ? "bg-[#0CBF83] text-[#161616]"
+                        : "bg-white/10 text-white/80"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -199,7 +203,9 @@ export default function CustomSoftwareExpertise() {
 
             <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-white/50 font-medium">
               <span>Softmind Engineering Excellence</span>
-              <span>Step {activeTab + 1} of {capabilities.length}</span>
+              <span>
+                Step {activeTab + 1} of {capabilities.length}
+              </span>
             </div>
           </div>
         </div>
