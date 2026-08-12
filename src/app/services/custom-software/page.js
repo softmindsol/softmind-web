@@ -22,11 +22,9 @@ const CustomSoftware = () => {
     <main className="w-full flex flex-col items-center">
       <Hero
         title="Custom Software Development Services"
-        typewriterPrefix="For "
+        typewriterPrefix=""
         typewriterPhrases={[
-          "Startups",
-          "USA & MENA Businesses",
-          "Scaling Enterprises",
+          "Build Custom Software That Solves Real Business Problems",
         ]}
         description="Off-the-shelf software forces your business to adapt to its limitations. Custom software gives you the flexibility to automate operations, improve customer experiences, and scale without compromise."
         primaryButtonText="Talk to a Software Expert"

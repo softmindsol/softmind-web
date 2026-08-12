@@ -74,7 +74,7 @@ export function Hero({
               <>
                 <br />
                 <span className="text-green">{typewriterPrefix}</span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0] drop-shadow-sm">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0] drop-shadow-sm select-none box-decoration-clone">
                   <Typewriter
                     phrases={typewriterPhrases}
                     cursor={false}
