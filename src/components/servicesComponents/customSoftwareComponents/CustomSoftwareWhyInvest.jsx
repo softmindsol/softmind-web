@@ -61,11 +61,11 @@ const points = [
 
 export default function CustomSoftwareWhyInvest() {
   return (
-    <section className="relative w-full bg-white text-[#00235A] py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-white text-[#00235A] py-20 lg:py-24 font-jakarta overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#0CBF83]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
           <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] border border-gray-200 shadow-sm">
@@ -78,7 +78,9 @@ export default function CustomSoftwareWhyInvest() {
             Why Invest in Custom Software?
           </h2>
           <p className="text-[16px] md:text-[18px] text-gray-600 font-medium leading-[26px]">
-            Off-the-shelf software forces your organization to compromise. Tailored software engineered for your precise business model yields long-term ROI, agility, and independence.
+            Off-the-shelf software forces your organization to compromise.
+            Tailored software engineered for your precise business model yields
+            long-term ROI, agility, and independence.
           </p>
         </div>
 
@@ -124,7 +126,8 @@ export default function CustomSoftwareWhyInvest() {
           </h3>
 
           <p className="text-white/80 text-base md:text-lg max-w-[600px] mb-8 font-medium">
-            Schedule a free discovery call with our senior software architects to discuss your technical requirements and product roadmap.
+            Schedule a free discovery call with our senior software architects
+            to discuss your technical requirements and product roadmap.
           </p>
 
           <Link href="/contact">
