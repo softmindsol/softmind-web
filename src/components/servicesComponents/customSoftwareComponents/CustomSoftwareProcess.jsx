@@ -19,7 +19,11 @@ const steps = [
     title: "Discovery & Business Analysis",
     description:
       "We start by understanding your business, users, processes, and objectives. This allows us to identify opportunities where technology can create the greatest impact.",
-    deliverables: ["Business requirements", "Process analysis", "Technical assessment"],
+    deliverables: [
+      "Business requirements",
+      "Process analysis",
+      "Technical assessment",
+    ],
   },
   {
     number: "02",
@@ -27,7 +31,11 @@ const steps = [
     title: "Strategy & Roadmap",
     description:
       "Together, we define project priorities, architecture, timelines, and budgets to create a practical roadmap for successful delivery.",
-    deliverables: ["Product roadmap", "Technology recommendations", "Project scope"],
+    deliverables: [
+      "Product roadmap",
+      "Technology recommendations",
+      "Project scope",
+    ],
   },
   {
     number: "03",
@@ -51,7 +59,11 @@ const steps = [
     title: "Testing & Deployment",
     description:
       "Comprehensive quality assurance ensures your application performs reliably before deployment into production.",
-    deliverables: ["Automated testing", "Security validation", "Production deployment"],
+    deliverables: [
+      "Automated testing",
+      "Security validation",
+      "Production deployment",
+    ],
   },
   {
     number: "06",
@@ -59,7 +71,11 @@ const steps = [
     title: "Continuous Improvement",
     description:
       "After launch, we analyze usage, gather feedback, and continuously improve your software to maximize business value.",
-    deliverables: ["Performance monitoring", "Feature enhancements", "Optimization roadmap"],
+    deliverables: [
+      "Performance monitoring",
+      "Feature enhancements",
+      "Optimization roadmap",
+    ],
   },
 ];
 
@@ -68,13 +84,13 @@ export default function CustomSoftwareProcess() {
   const currentStep = steps[activeStep];
 
   return (
-    <section className="relative w-full bg-white text-[#00235A] py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 text-[#00235A] py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#004BC0]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
+        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[900px] mx-auto">
           <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F8FAFC] border border-gray-200 shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
             <span className="text-[#00235A] text-xs font-bold uppercase tracking-widest">
@@ -85,7 +101,9 @@ export default function CustomSoftwareProcess() {
             Our Custom Software Development Process
           </h2>
           <p className="text-[16px] md:text-[18px] text-gray-600 font-medium leading-[26px]">
-            A structured, collaborative approach that minimizes risk, accelerates delivery, and ensures your software aligns with business goals at every stage.
+            A structured, collaborative approach that minimizes risk,
+            accelerates delivery, and ensures your software aligns with business
+            goals at every stage.
           </p>
         </div>
 
@@ -105,7 +123,9 @@ export default function CustomSoftwareProcess() {
               >
                 <span
                   className={`text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-2 ${
-                    isActive ? "bg-[#0CBF83] text-[#161616]" : "bg-gray-200 text-gray-700"
+                    isActive
+                      ? "bg-[#0CBF83] text-[#161616]"
+                      : "bg-gray-200 text-gray-700"
                   }`}
                 >
                   {step.number}
@@ -119,7 +139,7 @@ export default function CustomSoftwareProcess() {
         </div>
 
         {/* Selected Step Detail Box */}
-        <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-[32px] p-8 lg:p-12 shadow-xl relative overflow-hidden">
+        <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-[32px] p-8 lg:p-12 shadow-xl relative overflow-hidden rounded-xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}
@@ -172,7 +192,9 @@ export default function CustomSoftwareProcess() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#0CBF83]/20 rounded-full blur-2xl pointer-events-none" />
                   <div>
                     <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10">
-                      {React.createElement(currentStep.icon, { className: "w-7 h-7" })}
+                      {React.createElement(currentStep.icon, {
+                        className: "w-7 h-7",
+                      })}
                     </div>
                     <span className="text-xs font-bold text-[#0CBF83] uppercase tracking-widest block mb-1">
                       Structured Agile Standard
@@ -203,7 +225,9 @@ export default function CustomSoftwareProcess() {
             {activeStep + 1} / {steps.length}
           </span>
           <button
-            onClick={() => setActiveStep((prev) => Math.min(steps.length - 1, prev + 1))}
+            onClick={() =>
+              setActiveStep((prev) => Math.min(steps.length - 1, prev + 1))
+            }
             disabled={activeStep === steps.length - 1}
             className="px-4 py-2 rounded-xl bg-[#00235A] text-white text-xs font-bold disabled:opacity-40"
           >

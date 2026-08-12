@@ -76,20 +76,26 @@ export default function CustomSoftwareWhyChoose() {
         style={{ backgroundColor: "#0CBF83" }}
       />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[860px] mx-auto">
+        <div className="flex flex-col items-center text-center space-y-4 mb-16 mx-auto">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
             <span className="text-[#0CBF83] text-[18px] md:text-[20px] font-bold tracking-[1px]">
               The Softmind Difference
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-bold tracking-[0.5px] text-white">
-            Why Businesses Choose Softmind Solutions
+          <h2 className="max-w-[750px] text-3xl sm:text-4xl lg:text-[46px] lg:leading-[60px] font-bold tracking-[0.5px] text-white">
+            Why Businesses Choose{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
+              Softmind Solutions
+            </span>
           </h2>
-          <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            We Build Software That Creates Business Value — Technology should solve business challenges, not create new ones. Every solution we develop is aligned with measurable business outcomes, from operational efficiency to revenue growth.
+          <p className="max-w-[870px] text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
+            We Build Software That Creates Business Value — Technology should
+            solve business challenges, not create new ones. Every solution we
+            develop is aligned with measurable business outcomes, from
+            operational efficiency to revenue growth.
           </p>
         </div>
 
@@ -123,7 +129,7 @@ export default function CustomSoftwareWhyChoose() {
         </div>
 
         {/* Offshore & Regional Value Highlights Banner */}
-        <div className="bg-gradient-to-r from-[#00235A]/90 via-[#004BC0]/80 to-[#00235A]/90 border border-[#0CBF83]/30 rounded-[32px] p-8 lg:p-12 shadow-2xl backdrop-blur-md relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#00235A]/90 via-[#004BC0]/70 to-[#00235A]/90 border border-[#0CBF83]/30 rounded-[32px] p-8 lg:p-12 shadow-2xl backdrop-blur-md relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#0CBF83]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="text-center max-w-[700px] mx-auto mb-10">
