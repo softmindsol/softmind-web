@@ -1,5 +1,11 @@
 import React from "react";
-import { Activity, CreditCard, BookOpen, ShoppingBag, Home } from "lucide-react";
+import {
+  Activity,
+  CreditCard,
+  BookOpen,
+  ShoppingBag,
+  Home,
+} from "lucide-react";
 
 const industries = [
   {
@@ -37,7 +43,7 @@ const industries = [
 const IndustriesWeServe = () => {
   return (
     <section className="bg-[#161616] font-jakarta py-20 lg:py-28">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="w-full mx-auto px-6 lg:px-12">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-green" />
@@ -62,7 +68,10 @@ const IndustriesWeServe = () => {
               }`}
               style={
                 index >= 3 && industries.length === 5 && index === 3
-                  ? { gridColumn: "span 1 / span 1", lgGridColumn: "span 2 / span 2" }
+                  ? {
+                      gridColumn: "span 1 / span 1",
+                      lgGridColumn: "span 2 / span 2",
+                    }
                   : {}
               }
             >
@@ -72,7 +81,7 @@ const IndustriesWeServe = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-[#161616]/80 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   {industry.icon}

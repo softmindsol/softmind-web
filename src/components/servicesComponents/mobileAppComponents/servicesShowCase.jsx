@@ -188,7 +188,7 @@ const ServicesShowCase = () => {
         />
       </div>
 
-      <div className="relative mx-auto px-6 lg:px-12 max-w-[1400px]">
+      <div className="relative mx-auto px-6 lg:px-12 w-full">
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center space-y-4 mb-16 text-center">
           <div className="flex items-center gap-2">
@@ -201,7 +201,11 @@ const ServicesShowCase = () => {
             Transform your ideas into mobile experiences built for growth.
           </h2>
           <p className="text-[16px] md:text-[18px] font-medium leading-[24px] tracking-[1px] text-white/90 max-w-3xl">
-            Whether you're launching a new digital product or modernizing an existing application, our mobile app development team combines product strategy, UI/UX design, engineering, AI, and quality assurance to build mobile solutions aligned with your business goals.
+            Whether you&apos;re launching a new digital product or modernizing
+            an existing application, our mobile app development team combines
+            product strategy, UI/UX design, engineering, AI, and quality
+            assurance to build mobile solutions aligned with your business
+            goals.
           </p>
         </div>
 
@@ -251,7 +255,7 @@ const ServicesShowCase = () => {
               <p className="text-[16px] font-medium leading-[24px] tracking-[1px] text-white/80">
                 {activeTab.description}
               </p>
-              
+
               {/* Carousel Container */}
               <div className="relative mt-2 w-full shadow-[0px_4px_30px_rgba(12,191,131,0.2)] rounded-xl overflow-hidden">
                 <CarouselContent>

@@ -1,5 +1,12 @@
 import React from "react";
-import { Smartphone, Layers, Server, Database, Cloud, Brain } from "lucide-react";
+import {
+  Smartphone,
+  Layers,
+  Server,
+  Database,
+  Cloud,
+  Brain,
+} from "lucide-react";
 
 const techCategories = [
   {
@@ -30,14 +37,20 @@ const techCategories = [
   {
     title: "AI & Data",
     icon: <Brain className="w-6 h-6 text-green" />,
-    items: ["Generative AI", "Machine Learning", "Natural Language Processing", "Predictive Analytics", "Computer Vision"],
+    items: [
+      "Generative AI",
+      "Machine Learning",
+      "Natural Language Processing",
+      "Predictive Analytics",
+      "Computer Vision",
+    ],
   },
 ];
 
 const TechStack = () => {
   return (
     <section className="bg-white font-jakarta py-20 lg:py-28 relative overflow-hidden">
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+      <div className="relative z-10 w-full mx-auto px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-100 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-navy to-green" />
@@ -52,7 +65,10 @@ const TechStack = () => {
             </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-gray-500 font-medium leading-relaxed max-w-[700px] mt-2">
-            Modern technologies for secure, scalable, and high-performing applications. Technology selection is based on your application's requirements, scalability needs, security requirements, and business objectives.
+            Modern technologies for secure, scalable, and high-performing
+            applications. Technology selection is based on your application's
+            requirements, scalability needs, security requirements, and business
+            objectives.
           </p>
         </div>
 

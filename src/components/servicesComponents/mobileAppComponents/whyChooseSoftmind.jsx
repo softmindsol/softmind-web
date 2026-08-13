@@ -1,5 +1,13 @@
 import React from "react";
-import { Briefcase, Users, Layout, Maximize2, Shield, Zap, Handshake } from "lucide-react";
+import {
+  Briefcase,
+  Users,
+  Layout,
+  Maximize2,
+  Shield,
+  Zap,
+  Handshake,
+} from "lucide-react";
 
 const reasons = [
   {
@@ -42,7 +50,7 @@ const reasons = [
 const WhyChooseSoftmind = () => {
   return (
     <section className="bg-[#F8FAFC] font-jakarta py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+      <div className="w-full mx-auto px-6 lg:px-12">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-navy to-green" />
@@ -66,7 +74,9 @@ const WhyChooseSoftmind = () => {
             <div
               key={index}
               className={`bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
-                index === reasons.length - 1 ? "lg:col-span-3 lg:max-w-xl lg:mx-auto" : ""
+                index === reasons.length - 1
+                  ? "lg:col-span-3 lg:max-w-xl lg:mx-auto"
+                  : ""
               }`}
             >
               <div className="w-16 h-16 rounded-2xl bg-green/10 flex items-center justify-center mb-6">

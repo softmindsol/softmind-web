@@ -8,7 +8,7 @@ import TechStack from "@/components/servicesComponents/mobileAppComponents/techS
 import WhyChooseSoftmind from "@/components/servicesComponents/mobileAppComponents/whyChooseSoftmind";
 import IndustriesWeServe from "@/components/servicesComponents/mobileAppComponents/industriesWeServe";
 import MobileFaqs from "@/components/servicesComponents/mobileAppComponents/mobileFaqs";
-import MobileCta from "@/components/servicesComponents/mobileAppComponents/mobileCta";
+import FinalCta from "@/components/home/finalCta";
 
 export const metadata = {
   title:
@@ -39,7 +39,7 @@ const MobileApp = () => {
       <WhyChooseSoftmind />
       <IndustriesWeServe />
       <MobileFaqs />
-      <MobileCta />
+      <FinalCta />
     </main>
   );
 };

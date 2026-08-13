@@ -1,5 +1,12 @@
 import React from "react";
-import { Users, DollarSign, Settings, Heart, Maximize, BarChart } from "lucide-react";
+import {
+  Users,
+  DollarSign,
+  Settings,
+  Heart,
+  Maximize,
+  BarChart,
+} from "lucide-react";
 
 const valueItems = [
   {
@@ -44,7 +51,7 @@ const BusinessValue = () => {
   return (
     <section className="w-full relative font-jakarta bg-[#F8FAFC]">
       <div className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+        <div className="relative z-10 w-full mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col items-center gap-4 mb-16 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm">
@@ -60,7 +67,10 @@ const BusinessValue = () => {
               </span>
             </h2>
             <p className="text-[16px] sm:text-[18px] font-medium text-gray-500 leading-relaxed max-w-[800px] mt-2">
-              From app concept to scalable digital product. A successful mobile application needs more than great code. It needs a clear strategy, intuitive experience, reliable technology, and continuous optimization.
+              From app concept to scalable digital product. A successful mobile
+              application needs more than great code. It needs a clear strategy,
+              intuitive experience, reliable technology, and continuous
+              optimization.
             </p>
           </div>
 

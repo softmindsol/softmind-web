@@ -30,7 +30,7 @@ const Capabilities = () => {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
+      <div className="relative z-10 w-full mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-start">
           <div className="w-full md:w-1/3 sticky top-32">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 shadow-sm mb-6">
@@ -43,7 +43,8 @@ const Capabilities = () => {
               Mobile App Development Capabilities
             </h2>
             <p className="text-[16px] text-white/70 leading-relaxed font-medium">
-              Technology expertise that turns complex requirements into reliable mobile products.
+              Technology expertise that turns complex requirements into reliable
+              mobile products.
             </p>
           </div>
 
