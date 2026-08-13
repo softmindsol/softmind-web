@@ -9,6 +9,8 @@ import WhyChooseSoftmind from "@/components/servicesComponents/mobileAppComponen
 import IndustriesWeServe from "@/components/servicesComponents/mobileAppComponents/industriesWeServe";
 import MobileFaqs from "@/components/servicesComponents/mobileAppComponents/mobileFaqs";
 import FinalCta from "@/components/home/finalCta";
+import TestimonialSlider from "@/components/home/testimonialSlider";
+import CustomSoftwareCaseStudy from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareCaseStudy";
 
 export const metadata = {
   title:
@@ -38,6 +40,8 @@ const MobileApp = () => {
       <TechStack />
       <WhyChooseSoftmind />
       <IndustriesWeServe />
+      <CustomSoftwareCaseStudy />
+      <TestimonialSlider />
       <MobileFaqs />
       <FinalCta />
     </main>
