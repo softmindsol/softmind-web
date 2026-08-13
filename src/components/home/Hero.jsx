@@ -108,7 +108,6 @@ export function Hero({
             <span className="font-jakarta font-medium text-[14px] md:text-[16px] text-[#666666] text-center tracking-wide px-2">
               {bottomText}
             </span>
-            uhuk
             <div className="flex-1 h-[2px] bg-[#EFEFEF] rounded-full" />
           </div>
         )}
