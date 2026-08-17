@@ -49,7 +49,7 @@ const reasons = [
 
 const WhyChooseSoftmind = () => {
   return (
-    <section className="bg-[#F8FAFC] font-jakarta py-20 lg:py-28">
+    <section className="bg-gray-200 font-jakarta py-20 lg:py-28">
       <div className="w-full mx-auto px-6 lg:px-12">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm">

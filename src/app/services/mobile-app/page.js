@@ -11,6 +11,7 @@ import MobileFaqs from "@/components/servicesComponents/mobileAppComponents/mobi
 import FinalCta from "@/components/home/finalCta";
 import TestimonialSlider from "@/components/home/testimonialSlider";
 import CustomSoftwareCaseStudy from "@/components/servicesComponents/customSoftwareComponents/CustomSoftwareCaseStudy";
+import ContactFormSection from "@/components/home/contactFormSection";
 
 export const metadata = {
   title:
@@ -42,6 +43,7 @@ const MobileApp = () => {
       <IndustriesWeServe />
       <CustomSoftwareCaseStudy />
       <TestimonialSlider />
+      <ContactFormSection />
       <MobileFaqs />
       <FinalCta />
     </main>
