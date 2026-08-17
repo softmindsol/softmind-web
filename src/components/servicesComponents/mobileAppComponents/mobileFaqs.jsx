@@ -50,16 +50,16 @@ const MobileFaqs = () => {
   };
 
   return (
-    <section className="bg-white font-jakarta py-20 lg:py-28">
+    <section className="bg-black w-full font-jakarta py-20 lg:py-28">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
-        <div className="flex flex-col items-center gap-4 mb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-100 shadow-sm">
+        <div className="flex flex-col items-center gap-4 mb-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-100 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-navy to-green" />
-            <span className="text-navy text-[13px] font-bold tracking-widest uppercase">
-              FAQ
+            <span className="text-navy text-[14px] font-bold tracking-widest">
+              FAQs
             </span>
           </div>
-          <h2 className="text-[32px] sm:text-[42px] font-extrabold text-navy tracking-tight leading-tight">
+          <h2 className="text-[32px] sm:text-[42px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue-600 tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
         </div>
@@ -72,8 +72,8 @@ const MobileFaqs = () => {
                 key={index}
                 className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
                   isOpen
-                    ? "border-green/30 bg-green/5"
-                    : "border-gray-200 bg-white hover:border-gray-300"
+                    ? "border-green bg-green/15"
+                    : "bg-green/10 border-white"
                 }`}
               >
                 <button
@@ -81,7 +81,7 @@ const MobileFaqs = () => {
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
                   <span
-                    className={`text-[18px] font-bold pr-8 ${isOpen ? "text-navy" : "text-gray-800"}`}
+                    className={`text-[18px] font-semibold pr-8 ${isOpen ? "text-green" : "text-white"}`}
                   >
                     {faq.question}
                   </span>
@@ -92,7 +92,7 @@ const MobileFaqs = () => {
                         : "bg-gray-100 text-gray-500"
                     }`}
                   >
-                    <ChevronDown className="w-5 h-5" />
+                    <ChevronDown className="w-5 h-5 font-bold" />
                   </div>
                 </button>
                 <AnimatePresence>
@@ -103,7 +103,7 @@ const MobileFaqs = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-6 pt-0 text-[16px] text-gray-600 leading-relaxed">
+                      <div className="px-6 pb-6 pt-0 text-[16px] text-white/90 leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>
