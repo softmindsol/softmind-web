@@ -9,49 +9,49 @@ const stepsData = [
     title: "Discovery & Strategy",
     description:
       "We understand your business, users, market, challenges, and objectives to define a clear mobile product strategy.",
-    image: "/images/ht-solutions.webp",
+    image: "https://picsum.photos/seed/discovery/600/400",
   },
   {
     step: "02",
     title: "Product Planning",
     description:
       "We translate requirements into a prioritized roadmap, technical architecture, feature set, and development plan.",
-    image: "/images/pt-solutions.webp",
+    image: "https://picsum.photos/seed/planning/600/400",
   },
   {
     step: "03",
     title: "UI/UX Design",
     description:
       "We create intuitive user journeys and interfaces that balance usability, brand identity, accessibility, and business goals.",
-    image: "/images/ht-solutions.webp",
+    image: "https://picsum.photos/seed/design/600/400",
   },
   {
     step: "04",
     title: "Mobile App Development",
     description:
       "Our engineers build your application using modern development frameworks and scalable architecture tailored to your requirements.",
-    image: "/images/pt-solutions.webp",
+    image: "https://picsum.photos/seed/development/600/400",
   },
   {
     step: "05",
     title: "Testing & Quality Assurance",
     description:
       "We conduct functional, performance, security, usability, and device compatibility testing to ensure a reliable product.",
-    image: "/images/ht-solutions.webp",
+    image: "https://picsum.photos/seed/testing/600/400",
   },
   {
     step: "06",
     title: "Deployment",
     description:
       "We prepare and deploy your application across the required platforms while ensuring it meets relevant app store requirements.",
-    image: "/images/pt-solutions.webp",
+    image: "https://picsum.photos/seed/deployment/600/400",
   },
   {
     step: "07",
     title: "Optimization & Support",
     description:
       "After launch, we monitor performance, resolve issues, introduce improvements, and evolve the application as your business grows.",
-    image: "/images/ht-solutions.webp",
+    image: "https://picsum.photos/seed/support/600/400",
   },
 ];
 
