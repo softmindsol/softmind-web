@@ -9,49 +9,49 @@ const stepsData = [
     title: "Discovery & Strategy",
     description:
       "We understand your business, users, market, challenges, and objectives to define a clear mobile product strategy.",
-    image: "https://picsum.photos/id/119/600/400",
+    image: "/images/ht-solutions.webp",
   },
   {
     step: "02",
     title: "Product Planning",
     description:
       "We translate requirements into a prioritized roadmap, technical architecture, feature set, and development plan.",
-    image: "https://picsum.photos/id/2/600/400",
+    image: "/images/pt-solutions.webp",
   },
   {
     step: "03",
     title: "UI/UX Design",
     description:
       "We create intuitive user journeys and interfaces that balance usability, brand identity, accessibility, and business goals.",
-    image: "https://picsum.photos/id/3/600/400",
+    image: "/images/ht-solutions.webp",
   },
   {
     step: "04",
     title: "Mobile App Development",
     description:
       "Our engineers build your application using modern development frameworks and scalable architecture tailored to your requirements.",
-    image: "https://picsum.photos/id/4/600/400",
+    image: "/images/pt-solutions.webp",
   },
   {
     step: "05",
     title: "Testing & Quality Assurance",
     description:
       "We conduct functional, performance, security, usability, and device compatibility testing to ensure a reliable product.",
-    image: "https://picsum.photos/id/5/600/400",
+    image: "/images/ht-solutions.webp",
   },
   {
     step: "06",
     title: "Deployment",
     description:
       "We prepare and deploy your application across the required platforms while ensuring it meets relevant app store requirements.",
-    image: "https://picsum.photos/id/6/600/400",
+    image: "/images/pt-solutions.webp",
   },
   {
     step: "07",
     title: "Optimization & Support",
     description:
       "After launch, we monitor performance, resolve issues, introduce improvements, and evolve the application as your business grows.",
-    image: "https://picsum.photos/id/7/600/400",
+    image: "/images/ht-solutions.webp",
   },
 ];
 
@@ -98,9 +98,11 @@ const DevelopmentProcess = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-white font-jakarta overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-green/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+    <section className="bg-white font-jakarta relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-green/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+      </div>
 
       <div className="pt-24 pb-12 md:py-32 px-6 lg:px-12 w-full mx-auto text-center relative z-10">
         <div className="flex flex-col items-center gap-4">

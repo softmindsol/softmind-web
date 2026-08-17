@@ -27,8 +27,10 @@ const capabilities = [
 const Capabilities = () => {
   return (
     <section className="bg-[#161616] font-jakarta py-20 lg:py-28 relative">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+      </div>
 
       <div className="relative z-10 w-full mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-start">
