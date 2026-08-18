@@ -103,12 +103,16 @@ export default function WebAppServices() {
             </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            From customer-facing platforms to complex enterprise systems, we build web applications that combine intuitive experiences with powerful functionality. Our end-to-end web application development services help businesses transform ideas into reliable digital products that are built to scale.
+            From customer-facing platforms to complex enterprise systems, we
+            build web applications that combine intuitive experiences with
+            powerful functionality. Our end-to-end web application development
+            services help businesses transform ideas into reliable digital
+            products that are built to scale.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="max-w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -122,7 +126,7 @@ export default function WebAppServices() {
               >
                 {/* Subtle Hover Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0CBF83]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[20px]" />
-                
+
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-5 gap-3">
                     <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 border border-white/10 shadow-inner">
@@ -144,13 +148,6 @@ export default function WebAppServices() {
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center flex flex-col items-center">
-          <Link href="/contact">
-            <CustomButton btnText="Let's Build Your Web Application" />
-          </Link>
         </div>
       </div>
     </section>
