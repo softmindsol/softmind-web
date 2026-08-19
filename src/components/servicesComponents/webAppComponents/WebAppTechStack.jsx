@@ -65,7 +65,7 @@ export default function WebAppTechStack() {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Tabs */}
-          <div className="w-full lg:w-1/3 flex flex-col gap-3">
+          <div className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {stack.map((cat) => {
               const Icon = cat.icon;
               const isActive = activeTab === cat.id;
@@ -73,14 +73,14 @@ export default function WebAppTechStack() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 border ${
+                  className={`flex items-center gap-3 lg:gap-4 px-5 py-3 lg:px-6 lg:py-4 rounded-2xl transition-all duration-300 border shrink-0 ${
                     isActive
                       ? "bg-gradient-to-r from-[#0CBF83]/10 to-transparent border-[#0CBF83]/40 text-white"
                       : "bg-[#ffffff03] border-white/5 text-white/60 hover:bg-[#ffffff08] hover:text-white"
                   }`}
                 >
-                  <Icon className={`w-6 h-6 ${isActive ? "text-[#0CBF83]" : "text-white/40"}`} />
-                  <span className="text-lg font-bold">{cat.title}</span>
+                  <Icon className={`w-5 h-5 lg:w-6 lg:h-6 ${isActive ? "text-[#0CBF83]" : "text-white/40"}`} />
+                  <span className="text-base lg:text-lg font-bold whitespace-nowrap">{cat.title}</span>
                 </button>
               );
             })}

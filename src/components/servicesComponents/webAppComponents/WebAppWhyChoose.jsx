@@ -97,16 +97,16 @@ export default function WebAppWhyChoose() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="bg-white/[0.03] hover:bg-white/[0.07] border border-black/10 hover:border-[#0CBF83]/40 rounded-[24px] p-7 transition-all duration-300 shadow-lg hover:-translate-y-1 flex flex-col"
+                className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#0CBF83]/40 rounded-[24px] p-6 lg:p-8 transition-all duration-400 shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(12,191,131,0.15)] hover:-translate-y-2 flex flex-col"
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-dark mb-3">
+                  <h3 className="text-[18px] lg:text-[22px] font-bold text-white mb-3 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-grey text-sm leading-[22px] font-normal">
+                  <p className="text-white/70 text-sm leading-[22px] font-normal">
                     {pillar.description}
                   </p>
                 </div>

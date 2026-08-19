@@ -92,14 +92,14 @@ export default function WebAppProcess() {
           </p>
         </div>
 
-        <div className="hidden lg:grid grid-cols-7 gap-3 mb-12 max-w-[1200px] mx-auto">
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-7 gap-3 mb-8 lg:mb-12 max-w-[1200px] mx-auto pb-4 lg:pb-0 no-scrollbar snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
               <button
                 key={idx}
                 onClick={() => setActiveStep(idx)}
-                className={`flex flex-col items-center text-center p-3 rounded-2xl transition-all duration-300 relative border ${
+                className={`min-w-[120px] lg:min-w-0 flex flex-col items-center text-center p-3 rounded-2xl transition-all duration-300 relative border shrink-0 snap-center ${
                   isActive
                     ? "bg-[#0CBF83]/10 text-white border-[#0CBF83] shadow-[0_0_20px_rgba(12,191,131,0.2)] translate-y-[-2px]"
                     : "bg-[#ffffff05] text-white/60 border-white/10 hover:bg-[#ffffff0a] hover:text-white"
@@ -152,8 +152,8 @@ export default function WebAppProcess() {
                 </p>
               </div>
 
-              <div className="lg:col-span-5 flex justify-center">
-                <div className="w-full max-w-[380px] bg-gradient-to-br from-[#00235A] to-[#004BC0] rounded-[24px] p-8 text-white shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[280px]">
+              <div className="lg:col-span-5 flex justify-center mt-6 lg:mt-0">
+                <div className="w-full max-w-[380px] bg-gradient-to-br from-[#00235A] to-[#004BC0] rounded-[24px] p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[220px] lg:min-h-[280px]">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#0CBF83]/20 rounded-full blur-2xl pointer-events-none" />
                   <div className="flex flex-col items-center text-center">
                     <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10 shadow-lg">

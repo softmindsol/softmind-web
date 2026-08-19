@@ -122,7 +122,7 @@ export default function WebAppServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="group relative bg-[#ffffff05] hover:bg-[#ffffff0a] border border-white/[0.06] hover:border-[#0CBF83]/40 rounded-[20px] p-6 transition-all duration-500 flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(12,191,131,0.12)] hover:-translate-y-2 overflow-hidden"
+                className="group relative bg-[#ffffff05] hover:bg-[#ffffff0a] border border-white/[0.06] hover:border-[#0CBF83]/40 rounded-[20px] p-6 lg:p-8 transition-all duration-500 flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(12,191,131,0.12)] hover:-translate-y-2 overflow-hidden"
               >
                 {/* Subtle Hover Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0CBF83]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[20px]" />
@@ -137,7 +137,7 @@ export default function WebAppServices() {
                     </span>
                   </div>
 
-                  <h3 className="text-[18px] md:text-[20px] font-bold text-white/90 mb-3 group-hover:text-[#0CBF83] transition-colors duration-300 leading-snug">
+                  <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-bold text-white/90 mb-3 group-hover:text-[#0CBF83] transition-colors duration-300 leading-snug">
                     {service.title}
                   </h3>
 

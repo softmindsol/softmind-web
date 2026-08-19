@@ -80,7 +80,7 @@ export default function WebAppIndustry() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className={`bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#0CBF83]/40 rounded-[24px] p-8 transition-all duration-300 shadow-lg group ${
+                className={`bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#0CBF83]/40 rounded-[24px] p-6 lg:p-8 transition-all duration-300 shadow-lg group flex flex-col ${
                   idx === 4 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""
                 }`}
               >

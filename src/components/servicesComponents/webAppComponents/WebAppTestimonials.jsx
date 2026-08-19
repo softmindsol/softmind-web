@@ -47,7 +47,7 @@ export default function WebAppTestimonials() {
     if (diff === 0) {
       return {
         style: {
-          transform: "translate(0px, 40px) rotate(0deg) scale(1)",
+          transform: "translate(0px, 20px) rotate(0deg) scale(1)",
           zIndex: 30,
         },
         className: "shadow-[0px_4px_30px_rgba(12,191,131,0.3)] opacity-100 border border-[#0CBF83]/50",
@@ -55,7 +55,7 @@ export default function WebAppTestimonials() {
     } else if (diff === 1) {
       return {
         style: {
-          transform: "translate(90px, 0px) rotate(15deg) scale(0.92)",
+          transform: "translate(15%, 0px) rotate(10deg) scale(0.92)",
           zIndex: 10,
         },
         className: "shadow-md opacity-50 border border-white/10",
@@ -63,7 +63,7 @@ export default function WebAppTestimonials() {
     } else {
       return {
         style: {
-          transform: "translate(-90px, 0px) rotate(-15deg) scale(0.92)",
+          transform: "translate(-15%, 0px) rotate(-10deg) scale(0.92)",
           zIndex: 20,
         },
         className: "shadow-md opacity-50 border border-white/10",
@@ -94,9 +94,9 @@ export default function WebAppTestimonials() {
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[460px]">
-          <div className="lg:col-span-6 flex justify-center items-center h-[420px] relative z-10">
-            <div className="relative w-[303px] h-[346px]">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[460px] overflow-hidden sm:overflow-visible">
+          <div className="lg:col-span-6 flex justify-center items-center h-[380px] lg:h-[420px] relative z-10 w-full">
+            <div className="relative w-[260px] sm:w-[303px] h-[300px] sm:h-[346px]">
               {testimonials.map((testimonial, idx) => {
                 const layout = getCardPositionStyles(idx);
                 return (

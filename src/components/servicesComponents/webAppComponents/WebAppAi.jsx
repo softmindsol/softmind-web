@@ -51,12 +51,12 @@ export default function WebAppAi() {
         {/* Right Grid */}
         <div className="w-full lg:w-1/2 relative">
           <div className="absolute inset-0 bg-gradient-to-br from-[#00235A]/30 to-[#0CBF83]/10 border border-white/10 rounded-[32px] transform rotate-3" />
-          <div className="bg-[#161616] border border-white/10 rounded-[32px] p-8 lg:p-10 shadow-2xl relative">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+          <div className="bg-[#161616] border border-white/10 rounded-[32px] p-6 lg:p-10 shadow-2xl relative">
+            <h3 className="text-lg lg:text-xl font-bold text-white mb-6 flex items-center gap-3">
               <Brain className="w-6 h-6 text-[#0CBF83]" />
               AI Capabilities We Integrate
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
               {capabilities.map((cap, idx) => {
                 const Icon = cap.icon;
                 return (
