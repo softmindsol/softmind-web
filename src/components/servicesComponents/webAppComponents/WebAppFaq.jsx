@@ -48,7 +48,7 @@ export default function WebAppFaq() {
   };
 
   return (
-    <section className="relative w-full bg-gradient-b from-[#161616] to-white text-white py-16 lg:py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gradient-to-b from-[#161616] to-white text-white py-16 lg:py-24 overflow-hidden font-jakarta">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto px-6 lg:px-12 w-fit">
