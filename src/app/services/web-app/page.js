@@ -2,6 +2,17 @@ import { Hero } from "@/components/home/Hero";
 import React from "react";
 import WebAppServices from "@/components/servicesComponents/webAppComponents/WebAppServices";
 import WebAppWhyChoose from "@/components/servicesComponents/webAppComponents/WebAppWhyChoose";
+import WebAppProcess from "@/components/servicesComponents/webAppComponents/WebAppProcess";
+import WebAppIndustry from "@/components/servicesComponents/webAppComponents/WebAppIndustry";
+import WebAppAi from "@/components/servicesComponents/webAppComponents/WebAppAi";
+import WebAppTechStack from "@/components/servicesComponents/webAppComponents/WebAppTechStack";
+import WebAppCta from "@/components/servicesComponents/webAppComponents/WebAppCta";
+import WebAppCaseStudy from "@/components/servicesComponents/webAppComponents/WebAppCaseStudy";
+import WebAppTestimonials from "@/components/servicesComponents/webAppComponents/WebAppTestimonials";
+import WebAppFaq from "@/components/servicesComponents/webAppComponents/WebAppFaq";
+import WebAppForm from "@/components/servicesComponents/webAppComponents/WebAppForm";
+import TestimonialSlider from "@/components/home/testimonialSlider";
+import ContactFormSection from "@/components/home/contactFormSection";
 
 export const metadata = {
   title:
@@ -27,6 +38,15 @@ const WebApp = () => {
       />
       <WebAppServices />
       <WebAppWhyChoose />
+      <WebAppProcess />
+      <WebAppIndustry />
+      <WebAppAi />
+      <WebAppTechStack />
+      <WebAppCta />
+      <WebAppCaseStudy />
+      <TestimonialSlider />
+      <ContactFormSection />
+      <WebAppFaq />
     </main>
   );
 };
