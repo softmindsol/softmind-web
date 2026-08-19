@@ -48,7 +48,7 @@ export default function WebAppFaq() {
   };
 
   return (
-    <section className="relative w-full bg-[#161616] text-white py-16 lg:py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gradient-b from-[#161616] to-white text-white py-16 lg:py-24 overflow-hidden font-jakarta">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#0CBF83]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto px-6 lg:px-12 w-fit">
@@ -75,8 +75,8 @@ export default function WebAppFaq() {
                 key={idx}
                 className={`border rounded-2xl transition-all duration-500 ease-out overflow-hidden ${
                   isOpen
-                    ? "bg-[#ffffff0a] border-[#0CBF83]/40 shadow-[0_4px_20px_rgba(12,191,131,0.06)]"
-                    : "bg-[#ffffff03] border-white/10 hover:border-white/20 hover:bg-[#ffffff05]"
+                    ? "bg-[#ffffff80] border-[#0CBF83]/40 shadow-[0_4px_20px_rgba(12,191,131,0.06)]"
+                    : "text-dark bg-green/20 border-white/10 hover:border-white/20 hover:bg-[#ffffff05]"
                 }`}
               >
                 <button
@@ -85,29 +85,33 @@ export default function WebAppFaq() {
                 >
                   <span
                     className={`text-[16px] sm:text-[18px] font-bold tracking-wide transition-colors duration-300 ${
-                      isOpen ? "text-[#0CBF83]" : "text-white group-hover:text-[#0CBF83]"
+                      isOpen
+                        ? "text-[#0CBF83]"
+                        : "text-dark group-hover:text-[#0CBF83]"
                     }`}
                   >
                     {faq.question}
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 shrink-0 transition-all duration-500 ease-out ${
-                      isOpen
-                        ? "rotate-180 text-[#0CBF83]"
-                        : "text-white/50 group-hover:text-white"
+                      isOpen ? "rotate-180 text-green" : "text-dark"
                     }`}
                   />
                 </button>
 
                 <div
                   className={`grid transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    isOpen
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
                     <p
-                      className={`px-6 pb-6 text-[14px] sm:text-[15px] font-medium text-white/70 leading-relaxed transition-all duration-500 delay-75 ${
-                        isOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                      className={`px-6 pb-6 text-[14px] sm:text-[15px] font-medium text-grey leading-relaxed transition-all duration-500 delay-75 ${
+                        isOpen
+                          ? "translate-y-0 opacity-100"
+                          : "-translate-y-2 opacity-0"
                       }`}
                     >
                       {faq.answer}

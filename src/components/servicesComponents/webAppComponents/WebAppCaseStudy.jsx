@@ -26,7 +26,9 @@ export default function WebAppCaseStudy() {
           </span>
         </h2>
         <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px] max-w-[850px] mt-4">
-          Explore how our team helps businesses automate processes, improve user experiences, modernize legacy systems, and build scalable digital products.
+          Explore how our team helps businesses automate processes, improve user
+          experiences, modernize legacy systems, and build scalable digital
+          products.
         </p>
 
         <div className="mt-8">
@@ -36,7 +38,6 @@ export default function WebAppCaseStudy() {
         </div>
       </div>
 
-      {/* Render Portfolio Slider Component (Dark mode assumed or overrides) */}
       <div className="brightness-125 contrast-125 filter">
         <OurWork />
       </div>

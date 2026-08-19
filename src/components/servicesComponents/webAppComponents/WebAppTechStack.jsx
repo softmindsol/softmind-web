@@ -9,7 +9,15 @@ const stack = [
     id: "frontend",
     title: "Frontend",
     icon: LayoutTemplate,
-    tech: ["React.js", "Next.js", "Vue.js", "Angular", "TypeScript", "HTML5", "CSS3"],
+    tech: [
+      "React.js",
+      "Next.js",
+      "Vue.js",
+      "Angular",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+    ],
   },
   {
     id: "backend",
@@ -33,7 +41,15 @@ const stack = [
     id: "apis",
     title: "APIs & Integrations",
     icon: Network,
-    tech: ["REST APIs", "GraphQL", "Third-party APIs", "Payment gateways", "CRM", "ERP", "Enterprise integrations"],
+    tech: [
+      "REST APIs",
+      "GraphQL",
+      "Third-party APIs",
+      "Payment gateways",
+      "CRM",
+      "ERP",
+      "Enterprise integrations",
+    ],
   },
 ];
 
@@ -41,9 +57,9 @@ export default function WebAppTechStack() {
   const [activeTab, setActiveTab] = useState(stack[0].id);
 
   return (
-    <section className="relative w-full bg-[#111111] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-white text-dark py-20 lg:py-28 font-jakarta overflow-hidden">
       <div className="absolute top-1/2 left-[-150px] w-[500px] h-[500px] bg-[#004BC0]/10 rounded-full blur-[140px] pointer-events-none" />
-      
+
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[900px] mx-auto">
           <div className="flex items-center gap-2">
@@ -52,20 +68,27 @@ export default function WebAppTechStack() {
               Technology Stack
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-bold tracking-[0.5px] text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[56px] font-bold tracking-[0.5px] text-dark">
             Powered by Modern{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
               Technologies
             </span>
           </h2>
-          <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            We select technologies based on your application's requirements, scalability goals, performance expectations, and long-term roadmap. Whether you're building an MVP, modernizing legacy software, or scaling an established platform, we'll help you choose the right technology.
+          <p className="text-[16px] md:text-[18px] text-grey font-medium leading-[26px]">
+            We select technologies based on your application&apos;s
+            requirements, scalability goals, performance expectations, and
+            long-term roadmap. Whether you&apos;re building an MVP, modernizing
+            legacy software, or scaling an established platform, we&apos;ll help
+            you choose the right technology.
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Tabs */}
-          <div className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div
+            className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 no-scrollbar"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
             {stack.map((cat) => {
               const Icon = cat.icon;
               const isActive = activeTab === cat.id;
@@ -75,12 +98,16 @@ export default function WebAppTechStack() {
                   onClick={() => setActiveTab(cat.id)}
                   className={`flex items-center gap-3 lg:gap-4 px-5 py-3 lg:px-6 lg:py-4 rounded-2xl transition-all duration-300 border shrink-0 ${
                     isActive
-                      ? "bg-gradient-to-r from-[#0CBF83]/10 to-transparent border-[#0CBF83]/40 text-white"
-                      : "bg-[#ffffff03] border-white/5 text-white/60 hover:bg-[#ffffff08] hover:text-white"
+                      ? "bg-gradient-to-r from-[#0CBF83]/10 to-transparent border-[#0CBF83]/40 text-green"
+                      : "bg-[#ffffff03] border-white/5 text-grey hover:bg-gray-100 cursor-pointer"
                   }`}
                 >
-                  <Icon className={`w-5 h-5 lg:w-6 lg:h-6 ${isActive ? "text-[#0CBF83]" : "text-white/40"}`} />
-                  <span className="text-base lg:text-lg font-bold whitespace-nowrap">{cat.title}</span>
+                  <Icon
+                    className={`w-5 h-5 lg:w-6 lg:h-6 ${isActive ? "text-[#0CBF83]" : "text-white/40"}`}
+                  />
+                  <span className="text-base lg:text-lg font-bold whitespace-nowrap">
+                    {cat.title}
+                  </span>
                 </button>
               );
             })}
@@ -101,7 +128,9 @@ export default function WebAppTechStack() {
                       className="bg-[#161616] border border-white/10 rounded-[32px] p-8 lg:p-12 min-h-[350px] shadow-2xl relative overflow-hidden flex flex-col justify-center"
                     >
                       <div className="absolute top-0 right-0 w-64 h-64 bg-[#0CBF83]/5 rounded-full blur-3xl pointer-events-none" />
-                      <h3 className="text-2xl font-bold text-white mb-8">{cat.title} Technologies</h3>
+                      <h3 className="text-2xl font-bold text-white mb-8">
+                        {cat.title} Technologies
+                      </h3>
                       <div className="flex flex-wrap gap-4">
                         {cat.tech.map((t, idx) => (
                           <div
@@ -113,7 +142,7 @@ export default function WebAppTechStack() {
                         ))}
                       </div>
                     </motion.div>
-                  )
+                  ),
               )}
             </AnimatePresence>
           </div>
