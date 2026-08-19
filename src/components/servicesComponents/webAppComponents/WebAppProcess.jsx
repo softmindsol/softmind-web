@@ -88,11 +88,13 @@ export default function WebAppProcess() {
             </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            Whether you&apos;re launching a new digital product, replacing legacy software, or modernizing an existing platform, our structured process ensures predictable and scalable delivery.
+            Whether you&apos;re launching a new digital product, replacing
+            legacy software, or modernizing an existing platform, our structured
+            process ensures predictable and scalable delivery.
           </p>
         </div>
 
-        <div className="flex overflow-x-auto lg:grid lg:grid-cols-7 gap-3 mb-8 lg:mb-12 max-w-[1200px] mx-auto pb-4 lg:pb-0 no-scrollbar snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-7 gap-3 mb-8 lg:mb-12 max-w-[1200px] mx-auto py-4 lg:pb-0 no-scrollbar snap-x">
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (

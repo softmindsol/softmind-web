@@ -103,10 +103,10 @@ export default function WebAppWhyChoose() {
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-[18px] lg:text-[22px] font-bold text-white mb-3 leading-snug">
+                  <h3 className="text-[18px] lg:text-[22px] font-bold text-dark mb-3 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-white/70 text-sm leading-[22px] font-normal">
+                  <p className="text-grey text-sm leading-[22px] font-normal">
                     {pillar.description}
                   </p>
                 </div>
