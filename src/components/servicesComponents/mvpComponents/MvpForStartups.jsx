@@ -2,7 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Rocket, Building2, TrendingUp, Shield, Users, Lightbulb } from "lucide-react";
+import {
+  Rocket,
+  Building2,
+  TrendingUp,
+  Shield,
+  Users,
+  Lightbulb,
+} from "lucide-react";
 
 const audiences = [
   {
@@ -43,7 +50,7 @@ const audiences = [
 
 export default function MvpForStartups() {
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 py-16 lg:py-24 font-jakarta overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0CBF83]/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -89,9 +96,13 @@ export default function MvpForStartups() {
                 />
 
                 {/* Tag */}
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${item.tagBg} mb-6`}>
+                <div
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${item.tagBg} mb-6`}
+                >
                   <Icon className={`w-4 h-4 ${item.tagText}`} />
-                  <span className={`text-sm font-bold tracking-wide ${item.tagText}`}>
+                  <span
+                    className={`text-sm font-bold tracking-wide ${item.tagText}`}
+                  >
                     {item.tag}
                   </span>
                 </div>
