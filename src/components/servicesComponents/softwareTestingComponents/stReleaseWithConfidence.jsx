@@ -13,14 +13,13 @@ const BENEFITS = [
 
 export default function StReleaseWithConfidence() {
   return (
-    <section className="relative w-full bg-white py-20 md:py-28 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gray-200 py-20 md:py-28 overflow-hidden font-jakarta">
       {/* Background decorative blurs */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-green/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#004BC0]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1280px]">
         <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
-
           {/* Left: Text Content */}
           <div className="flex-1 flex flex-col gap-6">
             <div className="flex items-center gap-2">
@@ -39,8 +38,8 @@ export default function StReleaseWithConfidence() {
 
             <p className="text-[15px] md:text-[16px] text-grey leading-[1.75] font-medium max-w-[580px]">
               Our offshore software testing services give you access to
-              experienced QA professionals without the overhead of maintaining
-              a large internal testing team.
+              experienced QA professionals without the overhead of maintaining a
+              large internal testing team.
             </p>
 
             <a
@@ -48,7 +47,16 @@ export default function StReleaseWithConfidence() {
               className="mt-2 inline-flex items-center gap-2 bg-green hover:bg-[#0aad76] text-white font-bold text-[14px] tracking-wide rounded-full px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_24px_rgba(12,191,131,0.4)] hover:scale-[1.03] active:scale-[0.98] self-start"
             >
               Get a Free QA Consultation
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
@@ -72,7 +80,17 @@ export default function StReleaseWithConfidence() {
                 {BENEFITS.map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-4 py-4 group">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green/10 group-hover:bg-green/20 flex items-center justify-center transition-colors duration-200 mt-0.5">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-green">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-green"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </div>
@@ -86,7 +104,6 @@ export default function StReleaseWithConfidence() {
               <div className="absolute bottom-[-40px] right-[-40px] w-[160px] h-[160px] rounded-full bg-gradient-to-br from-green/10 to-[#004BC0]/5 blur-2xl pointer-events-none" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
