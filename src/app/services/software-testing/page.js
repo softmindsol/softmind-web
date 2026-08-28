@@ -10,6 +10,7 @@ import StComparisonDiff from "@/components/servicesComponents/softwareTestingCom
 import StCta from "@/components/servicesComponents/softwareTestingComponents/stCta";
 import StFaqs from "@/components/servicesComponents/softwareTestingComponents/stFaqs";
 import ContactFormSection from "@/components/home/contactFormSection";
+import StEngagementModels from "@/components/servicesComponents/softwareTestingComponents/stEngagementModels";
 
 export const metadata = {
   title:
@@ -36,6 +37,7 @@ const SoftwareTesting = () => {
       <StWhyChoose />
       <StQaStrategy />
       <StWorkWithTeam />
+      <StEngagementModels />
       <StDigitalProduct />
       <StIndustries />
       <StComparisonDiff />
@@ -47,4 +49,3 @@ const SoftwareTesting = () => {
 };
 
 export default SoftwareTesting;
-
