@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { FiCheck, FiArrowRight } from "react-icons/fi";
 
 const BENEFITS = [
   "Reduce software testing costs without compromising quality",
@@ -47,18 +48,7 @@ export default function StReleaseWithConfidence() {
               className="mt-2 inline-flex items-center gap-2 bg-green hover:bg-[#0aad76] text-white font-bold text-[14px] tracking-wide rounded-full px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_24px_rgba(12,191,131,0.4)] hover:scale-[1.03] active:scale-[0.98] self-start"
             >
               Get a Free QA Consultation
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <FiArrowRight size={16} />
             </a>
           </div>
 
@@ -80,19 +70,7 @@ export default function StReleaseWithConfidence() {
                 {BENEFITS.map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-4 py-4 group">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green/10 group-hover:bg-green/20 flex items-center justify-center transition-colors duration-200 mt-0.5">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-green"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                      <FiCheck size={12} className="text-green" strokeWidth={3} />
                     </div>
                     <span className="text-[14px] md:text-[15px] font-medium text-dark/80 leading-[1.6] group-hover:text-dark transition-colors duration-200">
                       {benefit}

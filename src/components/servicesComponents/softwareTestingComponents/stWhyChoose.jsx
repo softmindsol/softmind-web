@@ -1,65 +1,43 @@
 "use client";
 import React from "react";
+import {
+  FiDollarSign,
+  FiClock,
+  FiTrendingUp,
+  FiUsers,
+  FiCode,
+  FiHeart,
+  FiArrowRight,
+} from "react-icons/fi";
 
 const REASONS = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
+    icon: <FiDollarSign size={24} />,
     title: "Reduce QA Costs Without Reducing Quality",
     desc: "Build testing capacity without the cost of recruiting, training, managing, and maintaining a large in-house QA department. Offshore QA outsourcing gives you access to specialized testing expertise while keeping your technology investment focused on growth.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
+    icon: <FiClock size={24} />,
     title: "Accelerate Your Time to Market",
     desc: "Don't let lengthy testing cycles delay your product launch. An experienced offshore QA team can work alongside your developers to increase testing capacity, identify issues earlier, and help move releases forward faster.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-        <polyline points="17 6 23 6 23 12" />
-      </svg>
-    ),
+    icon: <FiTrendingUp size={24} />,
     title: "Scale Your QA Team When You Need It",
     desc: "Your testing requirements can change from one release to the next. Scale your QA resources up or down based on your product roadmap, release schedule, and testing workload.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
+    icon: <FiUsers size={24} />,
     title: "Access Specialized Testing Expertise",
     desc: "Different products require different testing strategies. Gain access to QA professionals with experience across manual testing, automation, security, performance, mobile, accessibility, usability, and other testing disciplines.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
+    icon: <FiCode size={24} />,
     title: "Keep Your Development Team Focused",
     desc: "Let your developers focus on building and improving your product while dedicated QA professionals manage testing activities, defect identification, regression testing, and quality validation.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
+    icon: <FiHeart size={24} />,
     title: "Improve Product Quality and Customer Experience",
     desc: "Quality isn't just about finding bugs. It's about delivering software that works reliably, performs well, protects users, and provides a frictionless experience.",
   },
@@ -129,9 +107,7 @@ export default function StWhyChoose() {
             className="inline-flex items-center gap-2 bg-green hover:bg-[#0aad76] text-white font-bold text-[14px] tracking-wide rounded-full px-8 py-4 transition-all duration-300 hover:shadow-[0_0_28px_rgba(12,191,131,0.45)] hover:scale-[1.03] active:scale-[0.98]"
           >
             Start With a Free QA Consultation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <FiArrowRight size={16} />
           </a>
           <p className="text-white/40 text-[13px] font-medium">
             No commitment required · Free 30-min session

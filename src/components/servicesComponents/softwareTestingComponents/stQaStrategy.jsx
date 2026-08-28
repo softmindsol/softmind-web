@@ -1,77 +1,43 @@
 "use client";
 import React, { useState } from "react";
+import { FiSearch, FiClipboard, FiFileText, FiCode, FiBarChart2, FiRefreshCw, FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const STEPS = [
   {
     number: "01",
     title: "Understand Your Product",
     desc: "We learn about your application, users, business requirements, technology, release process, and quality objectives.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    ),
+    icon: <FiSearch size={20} />,
   },
   {
     number: "02",
     title: "Identify Testing Requirements",
     desc: "We determine which testing types, environments, devices, platforms, and scenarios are most relevant to your product.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
-        <rect x="9" y="3" width="6" height="4" rx="1" />
-        <path d="M9 14l2 2 4-4" />
-      </svg>
-    ),
+    icon: <FiClipboard size={20} />,
   },
   {
     number: "03",
     title: "Build the QA Strategy",
     desc: "We develop a structured testing plan based on your priorities, timelines, risks, and budget.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    ),
+    icon: <FiFileText size={20} />,
   },
   {
     number: "04",
     title: "Execute Testing",
     desc: "Our QA specialists perform planned testing and continuously identify, document, and validate defects.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
+    icon: <FiCode size={20} />,
   },
   {
     number: "05",
     title: "Report & Communicate",
     desc: "You receive clear visibility into testing progress, issues, risks, and quality metrics.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10" />
-        <line x1="12" y1="20" x2="12" y2="4" />
-        <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    ),
+    icon: <FiBarChart2 size={20} />,
   },
   {
     number: "06",
     title: "Improve With Every Release",
     desc: "Testing insights are used to strengthen your QA process, improve test coverage, and reduce recurring defects over time.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 4 23 10 17 10" />
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-      </svg>
-    ),
+    icon: <FiRefreshCw size={20} />,
   },
 ];
 
@@ -108,7 +74,6 @@ export default function StQaStrategy() {
 
         {/* Steps Layout */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-
           {/* Left: Step List */}
           <div className="flex flex-col gap-3 lg:w-[420px] w-full shrink-0">
             {STEPS.map((step, idx) => (
@@ -199,23 +164,18 @@ export default function StQaStrategy() {
                   disabled={activeStep === 0}
                   className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/50 hover:border-white/30 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 12H5M12 5l-7 7 7 7" />
-                  </svg>
+                  <FiArrowLeft size={16} />
                 </button>
                 <button
                   onClick={() => setActiveStep((prev) => Math.min(STEPS.length - 1, prev + 1))}
                   disabled={activeStep === STEPS.length - 1}
                   className="w-10 h-10 rounded-full bg-green/20 border border-green/30 flex items-center justify-center text-green hover:bg-green/30 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <FiArrowRight size={16} />
                 </button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
