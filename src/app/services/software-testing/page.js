@@ -42,8 +42,8 @@ const SoftwareTesting = () => {
       <StIndustries />
       <StComparisonDiff />
       <StCta />
-      <StFaqs />
       <ContactFormSection />
+      <StFaqs />
     </main>
   );
 };
