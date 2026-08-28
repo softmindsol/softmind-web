@@ -59,7 +59,7 @@ export default function StFaq() {
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wide text-white capitalize">
             Everything You Need to Know About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
-              MVP Development
+              Offshore Software Testing
             </span>
           </h2>
         </div>

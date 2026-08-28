@@ -3,6 +3,11 @@ import StReleaseWithConfidence from "@/components/servicesComponents/softwareTes
 import StTestingServices from "@/components/servicesComponents/softwareTestingComponents/stTestingServices";
 import StWhyChoose from "@/components/servicesComponents/softwareTestingComponents/stWhyChoose";
 import StQaStrategy from "@/components/servicesComponents/softwareTestingComponents/stQaStrategy";
+import StWorkWithTeam from "@/components/servicesComponents/softwareTestingComponents/stWorkWithTeam";
+import StDigitalProduct from "@/components/servicesComponents/softwareTestingComponents/stDigitalProduct";
+import StIndustries from "@/components/servicesComponents/softwareTestingComponents/stIndustries";
+import StComparisonDiff from "@/components/servicesComponents/softwareTestingComponents/stComparisonDiff";
+import StCta from "@/components/servicesComponents/softwareTestingComponents/stCta";
 import StFaqs from "@/components/servicesComponents/softwareTestingComponents/stFaqs";
 import ContactFormSection from "@/components/home/contactFormSection";
 
@@ -30,10 +35,16 @@ const SoftwareTesting = () => {
       <StTestingServices />
       <StWhyChoose />
       <StQaStrategy />
-      <ContactFormSection />
+      <StWorkWithTeam />
+      <StDigitalProduct />
+      <StIndustries />
+      <StComparisonDiff />
+      <StCta />
       <StFaqs />
+      <ContactFormSection />
     </main>
   );
 };
 
 export default SoftwareTesting;
+
