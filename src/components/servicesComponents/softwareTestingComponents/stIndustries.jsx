@@ -1,62 +1,38 @@
 "use client";
 import React from "react";
+import { FiActivity, FiDollarSign, FiBook, FiHome, FiShoppingCart, FiArrowRight, FiPlus } from "react-icons/fi";
 
 const INDUSTRIES = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    ),
+    icon: <FiActivity size={24} />,
     label: "Healthcare & Fitness",
     desc: "Validate applications where reliability, usability, security, and performance are critical to delivering better digital experiences.",
     color: "from-[#0CBF83] to-[#00a36e]",
     href: "/industries/healthcare",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
+    icon: <FiDollarSign size={24} />,
     label: "Fintech",
     desc: "Test financial applications for functionality, security, performance, reliability, and seamless user experiences.",
     color: "from-[#004BC0] to-[#0038a8]",
     href: "/industries/fintech",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-      </svg>
-    ),
+    icon: <FiBook size={24} />,
     label: "EdTech",
     desc: "Ensure learning platforms and educational applications remain reliable, accessible, intuitive, and ready to support growing user demand.",
     color: "from-[#7C3AED] to-[#6d28d9]",
     href: "/industries/edtech",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
+    icon: <FiHome size={24} />,
     label: "PropTech",
     desc: "Test property platforms and digital real estate solutions across functionality, performance, usability, and device compatibility.",
     color: "from-[#F59E0B] to-[#d97706]",
     href: "/industries/proptech",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="9" cy="21" r="1" />
-        <circle cx="20" cy="21" r="1" />
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-      </svg>
-    ),
+    icon: <FiShoppingCart size={24} />,
     label: "E-commerce",
     desc: "Reduce checkout friction, improve platform reliability, and validate critical customer journeys across devices and environments.",
     color: "from-[#EC4899] to-[#db2777]",
@@ -72,7 +48,6 @@ export default function StIndustries() {
       <div className="absolute bottom-[-60px] left-[-60px] w-[400px] h-[400px] rounded-full bg-[#004BC0]/15 blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1280px]">
-
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-5">
@@ -122,9 +97,7 @@ export default function StIndustries() {
               {/* Learn more */}
               <div className="flex items-center gap-1.5 text-[12.5px] font-bold text-green opacity-0 group-hover:opacity-100 transition-all duration-200 mt-auto">
                 Explore industry
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <FiArrowRight size={12} />
               </div>
             </a>
           ))}
@@ -132,11 +105,7 @@ export default function StIndustries() {
           {/* CTA Card */}
           <div className="group relative flex flex-col gap-5 p-7 rounded-[22px] border border-dashed border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-green/20 transition-all duration-300 items-center justify-center text-center">
             <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/30 group-hover:text-green group-hover:bg-green/10 transition-all duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="16" />
-                <line x1="8" y1="12" x2="16" y2="12" />
-              </svg>
+              <FiPlus size={24} />
             </div>
             <div>
               <p className="text-[15px] font-bold text-white/60 group-hover:text-white transition-colors duration-200">
@@ -151,9 +120,7 @@ export default function StIndustries() {
               className="inline-flex items-center gap-1.5 text-[13px] font-bold text-green hover:underline"
             >
               Contact us
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <FiArrowRight size={12} />
             </a>
           </div>
         </div>

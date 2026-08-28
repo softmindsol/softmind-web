@@ -1,21 +1,33 @@
 "use client";
 import React from "react";
+import {
+  FiMonitor,
+  FiSmartphone,
+  FiCloud,
+  FiServer,
+  FiShoppingCart,
+  FiCode,
+  FiDatabase,
+  FiUser,
+  FiBriefcase,
+  FiGlobe,
+} from "react-icons/fi";
 
 const PLATFORMS = [
-  { label: "Web applications", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
-  { label: "Mobile applications", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> },
-  { label: "SaaS platforms", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg> },
-  { label: "Enterprise software", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> },
-  { label: "E-commerce platforms", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> },
-  { label: "APIs and integrations", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> },
-  { label: "Cloud applications", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg> },
-  { label: "Customer portals", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
-  { label: "Business applications", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg> },
-  { label: "Digital platforms", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> },
+  { label: "Web applications",    icon: <FiMonitor size={18} /> },
+  { label: "Mobile applications", icon: <FiSmartphone size={18} /> },
+  { label: "SaaS platforms",      icon: <FiCloud size={18} /> },
+  { label: "Enterprise software", icon: <FiServer size={18} /> },
+  { label: "E-commerce platforms",icon: <FiShoppingCart size={18} /> },
+  { label: "APIs and integrations",icon: <FiCode size={18} /> },
+  { label: "Cloud applications",  icon: <FiDatabase size={18} /> },
+  { label: "Customer portals",    icon: <FiUser size={18} /> },
+  { label: "Business applications",icon: <FiBriefcase size={18} /> },
+  { label: "Digital platforms",   icon: <FiGlobe size={18} /> },
 ];
 
 const STATS = [
-  { value: "10+", label: "Digital product types supported" },
+  { value: "10+",  label: "Digital product types supported" },
   { value: "100%", label: "Test coverage focus" },
   { value: "7–14", label: "Days to onboard your QA team" },
   { value: "24/7", label: "Round-the-clock testing capability" },
@@ -29,7 +41,6 @@ export default function StDigitalProduct() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1280px]">
-
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-green/10 border border-green/20 rounded-full px-4 py-1.5 mb-5">

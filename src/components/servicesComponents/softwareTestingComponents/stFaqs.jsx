@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { FiChevronDown } from "react-icons/fi";
 
 const faqs = [
   {
@@ -96,7 +96,7 @@ export default function StFaq() {
                         : "bg-gray-100 text-gray-500 group-hover:bg-[#0CBF83]/10 group-hover:text-[#0CBF83]"
                     }`}
                   >
-                    <ChevronDown className="w-5 h-5 transition-transform duration-300" />
+                    <FiChevronDown size={20} className="transition-transform duration-300" />
                   </div>
                 </button>
 
