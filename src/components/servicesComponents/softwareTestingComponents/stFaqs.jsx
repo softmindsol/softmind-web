@@ -7,32 +7,42 @@ const faqs = [
   {
     question: "How much does software testing cost?",
     answer:
-      "The cost of software testing depends on factors including the size and complexity of your application, the types of testing required (manual, automation, performance, security), the testing environment, and the duration of the engagement. Offshore software testing with Softmind is significantly more cost-effective than maintaining an in-house QA team, without compromising quality. We provide transparent pricing tailored to your specific testing requirements.",
-  },
-  {
-    question: "What is the difference between QA and software testing?",
-    answer:
-      "Software testing refers to the specific activities of executing your application to find defects and verify functionality. Quality Assurance (QA) is broader — it encompasses the processes, standards, methodologies, and practices that ensure quality throughout the entire development lifecycle. At Softmind, we provide both: structured QA processes and hands-on software testing services.",
+      "Offshore software testing is the practice of outsourcing software QA and testing activities to a specialized team located in another country or region. The offshore team works with the client's development and product teams to test applications, identify defects, and improve software quality.",
   },
   {
     question: "How do I outsource software testing?",
     answer:
-      "Outsourcing software testing starts with identifying your testing needs — which types of testing your product requires, your release frequency, and your quality goals. You then select a reliable offshore QA partner, define the scope and engagement model, onboard the team, and integrate them into your development workflow. Softmind makes this process straightforward — we handle assessment, planning, and execution so you can focus on your product.",
+      "Outsourcing software testing can help businesses reduce QA costs, access specialized testing expertise, increase testing capacity, accelerate releases, and allow internal teams to focus on core product and business activities.",
   },
   {
-    question: "When should a startup hire a QA team?",
+    question: "What types of software testing do you provide?",
     answer:
-      "A startup should invest in QA as soon as it has a product that real users are interacting with — or is preparing for launch. Catching defects early in the development process is significantly cheaper than fixing them after release. Offshore QA through Softmind gives startups access to experienced QA professionals without the cost and complexity of building an internal testing department.",
+      "Our offshore software testing capabilities include manual testing, automation testing, functional testing, performance testing, security testing, accessibility testing, usability testing, localization testing, compatibility testing, and mobile application testing.",
   },
   {
-    question: "What types of testing does Softmind provide?",
+    question: "Can you test both web and mobile applications?",
     answer:
-      "Softmind provides a comprehensive range of software testing services including manual testing, automation testing, functional testing, performance testing, security testing, mobile app testing, accessibility testing, usability testing, localization testing, and compatibility testing. We develop a testing strategy tailored to your specific product, users, and release goals.",
+      "Yes. Offshore QA teams can test web applications and mobile applications across functionality, usability, performance, compatibility, security, and other quality requirements.",
   },
   {
-    question: "How quickly can Softmind set up a QA team for my project?",
+    question: "Can you work with our existing development team?",
     answer:
-      "We can typically onboard a dedicated QA team within 7 to 14 days, depending on your testing requirements, technology stack, and team size. We begin with a discovery session to understand your application, define the testing scope, and build a structured QA plan before execution begins.",
+      "Yes. An offshore QA team can operate as an extension of your existing development organization and integrate with your development workflows, communication processes, and release cycles.",
+  },
+  {
+    question: "How quickly can an offshore QA team start?",
+    answer:
+      "The onboarding timeline depends on the project scope, required expertise, testing environment, and team size. A discovery discussion can help determine the resources and timeline required for your project.",
+  },
+  {
+    question: "Can I hire an offshore QA team for a short-term project?",
+    answer:
+      "Yes. Offshore software testing can be structured around project-based engagements, specific releases, short-term testing requirements, or ongoing QA programs.",
+  },
+  {
+    question: "How much does offshore software testing cost?",
+    answer:
+      "The cost depends on factors such as application complexity, testing scope, required expertise, automation requirements, team size, and engagement duration. We can recommend a testing approach based on your requirements and budget.",
   },
 ];
 
@@ -96,7 +106,10 @@ export default function StFaq() {
                         : "bg-gray-100 text-gray-500 group-hover:bg-[#0CBF83]/10 group-hover:text-[#0CBF83]"
                     }`}
                   >
-                    <FiChevronDown size={20} className="transition-transform duration-300" />
+                    <FiChevronDown
+                      size={20}
+                      className="transition-transform duration-300"
+                    />
                   </div>
                 </button>
 

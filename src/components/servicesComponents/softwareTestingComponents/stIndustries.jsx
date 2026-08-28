@@ -1,6 +1,14 @@
 "use client";
 import React from "react";
-import { FiActivity, FiDollarSign, FiBook, FiHome, FiShoppingCart, FiArrowRight, FiPlus } from "react-icons/fi";
+import {
+  FiActivity,
+  FiDollarSign,
+  FiBook,
+  FiHome,
+  FiShoppingCart,
+  FiArrowRight,
+  FiPlus,
+} from "react-icons/fi";
 
 const INDUSTRIES = [
   {
@@ -80,7 +88,9 @@ export default function StIndustries() {
               <div className="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-green/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center text-white shadow-lg`}>
+              <div
+                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center text-white shadow-lg`}
+              >
                 {industry.icon}
               </div>
 
@@ -101,28 +111,6 @@ export default function StIndustries() {
               </div>
             </a>
           ))}
-
-          {/* CTA Card */}
-          <div className="group relative flex flex-col gap-5 p-7 rounded-[22px] border border-dashed border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-green/20 transition-all duration-300 items-center justify-center text-center">
-            <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/30 group-hover:text-green group-hover:bg-green/10 transition-all duration-300">
-              <FiPlus size={24} />
-            </div>
-            <div>
-              <p className="text-[15px] font-bold text-white/60 group-hover:text-white transition-colors duration-200">
-                Don&apos;t see your industry?
-              </p>
-              <p className="text-[13px] text-white/35 mt-1">
-                We work across many sectors. Let&apos;s talk about your product.
-              </p>
-            </div>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-green hover:underline"
-            >
-              Contact us
-              <FiArrowRight size={12} />
-            </a>
-          </div>
         </div>
       </div>
     </section>
