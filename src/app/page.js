@@ -1,4 +1,4 @@
-import { Hero } from "@/components/home/Hero";
+import HeroSlider from "@/components/home/HeroSlider";
 import ClientLogos from "@/components/home/clientLogos";
 import WhatWeOffer from "@/components/home/whatWeOffer";
 import Industries from "@/components/home/industries";
@@ -16,7 +16,7 @@ import FinalCta from "@/components/home/finalCta";
 export default function Home() {
   return (
     <div className="w-full flex flex-col">
-      <Hero />
+      <HeroSlider />
       <WhatWeOffer />
       <ClientLogos />
       <Industries />
