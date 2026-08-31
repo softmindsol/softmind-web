@@ -9,6 +9,7 @@ import FahadAnwar from "./fahad-anwar.svg";
 import AhmarBaig from "./ahmar-baig.svg";
 import PtSolutions from "./pt-solutions.webp";
 import HtSolutions from "./ht-solutions.webp";
+import MsLogo from "./microsoft-logo.webp";
 
 export {
   Logo,
@@ -22,4 +23,5 @@ export {
   AhmarBaig,
   PtSolutions,
   HtSolutions,
+  MsLogo,
 };

@@ -4,30 +4,15 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaArrowRight } from "react-icons/fa";
-import { FaAws } from "react-icons/fa6";
+import { FaAws, FaMeta } from "react-icons/fa6";
 import { BsAnthropic } from "react-icons/bs";
+import { SiCisco } from "react-icons/si";
+import { MsLogo } from "../../../public/images";
+import Link from "next/link";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTANTS
-// ─────────────────────────────────────────────────────────────────────────────
-
-/** How long each slide stays visible before auto-advancing (ms) */
 const AUTO_PLAY_INTERVAL = 6000;
-
-/**
- * Height offset to pull the hero section behind the sticky navbar.
- * Breakdown: navbar height (64px) + sticky top gap (16px) + buffer (2px) = 82px
- */
 const NAVBAR_OFFSET = 82;
 
-/** Vertical spacing inside the section to push content below the navbar */
-const CONTENT_TOP_SPACER = 98;
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA
-// ─────────────────────────────────────────────────────────────────────────────
-
-/** Each slide's content. Add or edit slides here without touching the component. */
 const SLIDES = [
   {
     id: 1,
@@ -42,7 +27,8 @@ const SLIDES = [
     image: "/images/hero-slide-2.jpg",
     badge: "Digital Infrastructure",
     heading: "We Don't Just Build Software.",
-    subheading: "We Build the Infrastructure\nYour Business Cannot Grow Without.",
+    subheading:
+      "We Build the Infrastructure\nYour Business Cannot Grow Without.",
     tags: ["Cloud Architecture", "Scalable Systems", "DevOps"],
   },
   {
@@ -55,72 +41,25 @@ const SLIDES = [
   },
 ];
 
-/** Technology partners shown in the bottom logo bar. */
 const TECH_LOGOS = [
-  { name: "Google",    icon: <FcGoogle size={28} /> },
-  { name: "Meta",      icon: <FaFacebook size={26} color="#0866FF" /> },
-  { name: "AWS",       icon: <FaAws size={28} color="#FF9900" /> },
+  { name: "Google", icon: <FcGoogle size={28} /> },
+  {
+    name: "Microsoft",
+    icon: (
+      <Image
+        src={MsLogo}
+        alt="Microsoft"
+        width={24}
+        height={24}
+        className="object-contain"
+      />
+    ),
+  },
+  { name: "Meta", icon: <FaMeta size={28} color="#0369E5" /> },
   { name: "Anthropic", icon: <BsAnthropic size={24} color="#ffffff" /> },
+  { name: "Cisco", icon: <SiCisco size={36} color="#049FD8" /> },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ANIMATION STYLES
-// Injected as a <style> tag so we can use keyframes with Tailwind classes.
-// ─────────────────────────────────────────────────────────────────────────────
-
-const ANIMATION_STYLES = `
-  /* Background image subtle zoom on slide enter */
-  @keyframes imgZoomIn {
-    from { transform: scale(1.08); }
-    to   { transform: scale(1); }
-  }
-
-  /* Slide text reveals upward */
-  @keyframes textSlideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Badge slides in from left */
-  @keyframes badgeFadeIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  /* Simple fade for counter number */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  /* Vertical progress track fill */
-  @keyframes progressFill {
-    from { height: 0%; }
-    to   { height: 100%; }
-  }
-
-  /* Slide counter number animations */
-  @keyframes numUp   { from { opacity: 0; transform: translateY(16px);  } to { opacity: 1; transform: translateY(0); } }
-  @keyframes numDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* ── Utility classes ── */
-  .hs-img-enter    { animation: imgZoomIn  1.2s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
-  .hs-badge        { animation: badgeFadeIn 0.6s cubic-bezier(0.22,1,0.36,1) 0.10s both; }
-  .hs-heading      { animation: textSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
-  .hs-subheading   { animation: textSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.28s both; }
-  .hs-tags         { animation: textSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.40s both; }
-  .hs-cta          { animation: textSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.50s both; }
-  .hs-counter      { animation: fadeIn      0.5s ease                        0.30s both; }
-  .hs-prog-fill    { animation: progressFill 6s linear forwards; }
-  .num-enter-next  { animation: numUp   0.4s cubic-bezier(0.22,1,0.36,1) both; }
-  .num-enter-prev  { animation: numDown 0.4s cubic-bezier(0.22,1,0.36,1) both; }
-`;
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SUB-COMPONENTS
-// ─────────────────────────────────────────────────────────────────────────────
-
-/** Renders all slide background images (only the active one is visible). */
 function SlideBackgrounds({ slides, currentSlide }) {
   return (
     <>
@@ -129,30 +68,20 @@ function SlideBackgrounds({ slides, currentSlide }) {
         return (
           <div
             key={slide.id}
-            className="absolute inset-0"
-            style={{ opacity: isActive ? 1 : 0, transition: "opacity 0.8s ease", zIndex: 0 }}
+            className={`absolute inset-0 z-0 transition-opacity duration-[800ms] ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
           >
             <Image
               src={slide.image}
               alt={`Hero slide ${idx + 1}: ${slide.heading}`}
               fill
               priority={idx === 0}
-              className={`object-cover object-center ${isActive ? "hs-img-enter" : ""}`}
+              className={`object-cover object-center ${isActive ? "animate-hs-img-enter" : ""}`}
               sizes="100vw"
             />
             {/* Left-heavy dark gradient so left-aligned text stays readable */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(105deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.20) 100%)",
-              }}
-            />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.65)_45%,rgba(0,0,0,0.20)_100%)]" />
             {/* Bottom fade to blend into the logo bar */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-40"
-              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)" }}
-            />
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,rgba(0,0,0,0.75)_0%,transparent_100%)]" />
           </div>
         );
       })}
@@ -163,12 +92,11 @@ function SlideBackgrounds({ slides, currentSlide }) {
 /** Left-aligned text block: badge → heading → subheading → tags → CTA buttons. */
 function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
   return (
-    <div className="flex flex-col gap-6 max-w-2xl">
-
+    <div className="flex flex-col gap-6 max-w-3xl">
       {/* ── Category badge ── */}
-      <div className="hs-badge">
+      <div className="animate-hs-badge">
         <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/30 text-white/80 text-xs font-bold tracking-[3px] uppercase">
-          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#0CBF83" }} />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83]" />
           {slide.badge}
         </span>
       </div>
@@ -176,36 +104,22 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
       {/* ── Main heading ── */}
       <h1 className="text-white font-extrabold leading-none tracking-tight">
         {/* Line 1 — plain white */}
-        <span
-          className="hs-heading block"
-          style={{ fontSize: "clamp(2rem, 5vw, 4rem)", opacity: 0 }}
-        >
+        <span className="animate-hs-heading block xl:text-5xl md:text-4xl text-3xl">
           {slide.heading}
         </span>
 
         {/* Line 2 — white-to-green gradient */}
-        <span
-          className="hs-subheading block mt-1"
-          style={{
-            fontSize: "clamp(1.6rem, 4.2vw, 3.4rem)",
-            opacity: 0,
-            color: "transparent",
-            backgroundImage: "linear-gradient(120deg, #ffffff 30%, #a7f3d0 100%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            whiteSpace: "pre-line",
-          }}
-        >
+        <span className="animate-hs-subheading block mt-3 text-lg tracking-wide font-medium">
           {slide.subheading}
         </span>
       </h1>
 
       {/* ── Keyword tags ── */}
-      <div className="hs-tags flex flex-wrap gap-2" style={{ opacity: 0 }}>
+      <div className="animate-hs-tags flex flex-wrap gap-2 opacity-0">
         {slide.tags.map((tag) => (
           <span
             key={tag}
-            className="px-3 py-1 rounded-full text-xs font-semibold text-white/70 border border-white/15 bg-white/5 backdrop-blur-sm tracking-wide"
+            className="px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/45 bg-white/15 backdrop-blur-sm tracking-wide"
           >
             {tag}
           </span>
@@ -213,19 +127,23 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
       </div>
 
       {/* ── CTA buttons ── */}
-      <div className="hs-cta flex flex-wrap gap-4 mt-2" style={{ opacity: 0 }}>
-        <button
-          onClick={onDiscoveryCall}
-          className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-bold text-sm tracking-wide text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(12,191,131,0.4)]"
-          style={{ background: "linear-gradient(135deg, #0CBF83 0%, #004BC0 100%)" }}
-        >
-          Book a Discovery Call
-          <FaArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </button>
+      <div className="animate-hs-cta flex flex-wrap gap-4 mt-2 opacity-0">
+        <Link href="/contact-us">
+          <button
+            onClick={onDiscoveryCall}
+            className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-bold text-sm tracking-wide text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(12,191,131,0.4)] bg-[linear-gradient(135deg,#0CBF83_0%,#004BC0_100%)]"
+          >
+            Book a Discovery Call
+            <FaArrowRight
+              size={13}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </button>
+        </Link>
 
         <button
           onClick={onViewWork}
-          className="flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide text-white/80 border border-white/25 bg-white/5 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300"
+          className="flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide cursor-pointer text-white/80 border border-white/25 bg-white/10 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300"
         >
           View Our Work
         </button>
@@ -238,42 +156,53 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
  * Vertical slide counter panel shown on the right side (desktop only).
  * Displays: ↑ | current# | progress bar | total# | ↓
  */
-function VerticalCounter({ currentSlide, totalSlides, direction, onPrev, onNext }) {
+function VerticalCounter({
+  currentSlide,
+  totalSlides,
+  direction,
+  onPrev,
+  onNext,
+}) {
   const currentLabel = String(currentSlide + 1).padStart(2, "0");
-  const totalLabel   = String(totalSlides).padStart(2, "0");
+  const totalLabel = String(totalSlides).padStart(2, "0");
 
   return (
     <div className="hidden lg:flex flex-col items-center gap-4 select-none">
-
       {/* ↑ Prev */}
-      <SliderArrowButton onClick={onPrev} direction="up" ariaLabel="Previous slide" />
+      <SliderArrowButton
+        onClick={onPrev}
+        direction="up"
+        ariaLabel="Previous slide"
+      />
 
       {/* Number + progress track + total */}
       <div className="flex flex-col items-center gap-2">
         <div
           key={currentSlide}
-          className={`hs-counter text-white font-bold tabular-nums ${direction === "next" ? "num-enter-next" : "num-enter-prev"}`}
-          style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.5rem)" }}
+          className={`animate-hs-counter text-white font-bold tabular-nums text-[clamp(1.1rem,1.5vw,1.5rem)] ${direction === "next" ? "animate-num-enter-next" : "animate-num-enter-prev"}`}
         >
           {currentLabel}
         </div>
 
         {/* Vertical progress track */}
-        <div className="relative w-[2px] bg-white/15 rounded-full overflow-hidden" style={{ height: "80px" }}>
+        <div className="relative w-[2px] bg-white/15 rounded-full overflow-hidden h-[80px]">
           <div
             key={`${currentSlide}-prog`}
-            className="hs-prog-fill absolute top-0 left-0 w-full rounded-full"
-            style={{ backgroundColor: "#0CBF83" }}
+            className="animate-hs-prog-fill absolute top-0 left-0 w-full rounded-full bg-[#0CBF83]"
           />
         </div>
 
-        <div className="text-white/35 font-medium tabular-nums" style={{ fontSize: "0.85rem" }}>
+        <div className="text-white/35 font-medium tabular-nums text-[0.85rem]">
           {totalLabel}
         </div>
       </div>
 
       {/* ↓ Next */}
-      <SliderArrowButton onClick={onNext} direction="down" ariaLabel="Next slide" />
+      <SliderArrowButton
+        onClick={onNext}
+        direction="down"
+        ariaLabel="Next slide"
+      />
     </div>
   );
 }
@@ -287,7 +216,13 @@ function SliderArrowButton({ onClick, direction, ariaLabel }) {
       aria-label={ariaLabel}
       className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-white/50 hover:border-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
     >
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+      <svg
+        className="w-4 h-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2.5}
+      >
         <path strokeLinecap="round" strokeLinejoin="round" d={path} />
       </svg>
     </button>
@@ -303,12 +238,7 @@ function MobileDots({ slides, currentSlide, goToSlide }) {
           key={idx}
           onClick={() => goToSlide(idx, idx > currentSlide ? "next" : "prev")}
           aria-label={`Go to slide ${idx + 1}`}
-          className="rounded-full transition-all duration-300"
-          style={{
-            width: idx === currentSlide ? "24px" : "8px",
-            height: "8px",
-            backgroundColor: idx === currentSlide ? "#0CBF83" : "rgba(255,255,255,0.3)",
-          }}
+          className={`rounded-full transition-all duration-300 h-2 ${idx === currentSlide ? "w-6 bg-[#0CBF83]" : "w-2 bg-white/30"}`}
         />
       ))}
     </div>
@@ -318,14 +248,11 @@ function MobileDots({ slides, currentSlide, goToSlide }) {
 /** Bottom bar: certified-by label + tech partner logos. */
 function LogoBar({ logos }) {
   return (
-    <div
-      className="w-full"
-      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(16px)" }}
-    >
+    <div className="w-full bg-black/55 backdrop-blur-[16px]">
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-5">
-
-        <p className="text-white/40 text-[10px] font-bold tracking-[2.5px] uppercase whitespace-nowrap text-center sm:text-left">
-          Certified &amp; recognised by the world&apos;s leading technology companies
+        <p className="text-white/80 text-[10px] font-bold tracking-[2.5px] uppercase whitespace-nowrap text-center sm:text-left">
+          Certified &amp; recognised by the world&apos;s leading technology
+          companies
         </p>
 
         {/* Vertical divider (desktop only) */}
@@ -338,10 +265,10 @@ function LogoBar({ logos }) {
               title={logo.name}
               className="flex flex-col items-center gap-1.5 group cursor-pointer"
             >
-              <div className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center h-7">
+              <div className="transition-opacity duration-300 flex items-center justify-center h-7">
                 {logo.icon}
               </div>
-              <span className="text-white/35 text-[8px] font-bold tracking-[2px] uppercase group-hover:text-white/60 transition-colors duration-300">
+              <span className="text-white/60 text-[8px] font-bold tracking-[2px] uppercase group-hover:text-white transition-colors duration-300">
                 {logo.name}
               </span>
             </div>
@@ -364,32 +291,9 @@ function LeftEdgeStrip({ slides, currentSlide, goToSlide }) {
           key={idx}
           onClick={() => goToSlide(idx, idx > currentSlide ? "next" : "prev")}
           aria-label={`Go to slide ${idx + 1}`}
-          className="rounded-full transition-all duration-500"
-          style={{
-            width: "3px",
-            height: idx === currentSlide ? "48px" : "16px",
-            backgroundColor: idx === currentSlide ? "#0CBF83" : "rgba(255,255,255,0.2)",
-          }}
+          className={`rounded-full transition-all duration-500 w-[3px] ${idx === currentSlide ? "h-[48px] bg-[#0CBF83]" : "h-4 bg-white/20"}`}
         />
       ))}
-    </div>
-  );
-}
-
-/** Top-center "AI Enabled Product Engineering" branding strip. */
-function AiBadge() {
-  return (
-    <div
-      className="absolute left-1/2 -translate-x-1/2 z-20 hidden sm:flex"
-      style={{ top: `${CONTENT_TOP_SPACER + 2}px` }}
-    >
-      <span
-        className="inline-flex items-center gap-2 px-5 py-1.5 text-[10px] font-bold tracking-[3px] uppercase text-white/60 border border-white/10 rounded-full"
-        style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(8px)" }}
-      >
-        <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "#0CBF83" }} />
-        AI Enabled Product Engineering &nbsp;·&nbsp; Digital Solution Partner
-      </span>
     </div>
   );
 }
@@ -400,8 +304,8 @@ function AiBadge() {
 
 export default function HomeHeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating]   = useState(false);
-  const [direction, setDirection]       = useState("next");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState("next");
 
   // ── Navigation logic ──────────────────────────────────────────────────────
 
@@ -443,33 +347,25 @@ export default function HomeHeroSlider() {
 
   return (
     <>
-      {/* Inject keyframe animations */}
-      <style>{ANIMATION_STYLES}</style>
-
       <section
-        className="relative w-full overflow-hidden font-jakarta bg-black"
-        style={{
-          marginTop: `-${NAVBAR_OFFSET}px`,
-          minHeight: `calc(100svh + ${NAVBAR_OFFSET}px)`,
-        }}
+        className="relative w-full overflow-hidden font-jakarta bg-black mt-[-82px] min-h-[calc(100svh+82px)]"
         aria-label="Hero slider"
       >
         {/* Layer 1 — Background images (z-0) */}
         <SlideBackgrounds slides={SLIDES} currentSlide={currentSlide} />
 
         {/* Layer 2 — Foreground content (z-10) */}
-        <div
-          className="relative z-10 flex flex-col justify-between"
-          style={{ minHeight: `calc(100svh + ${NAVBAR_OFFSET}px)` }}
-        >
+        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)]">
           {/* Push content below the navbar */}
-          <div style={{ height: `${CONTENT_TOP_SPACER}px` }} aria-hidden="true" />
+          {/* <div className="h-[140px]" aria-hidden="true" /> */}
 
           {/* Main content row: text left, counter right */}
           <div className="flex-1 flex items-center">
-            <div className="w-full max-w-7xl mx-auto px-6 lg:px-16 flex items-center justify-between gap-8">
+            <div className="w-full mx-auto px-6 lg:px-16 flex items-center justify-between gap-8">
               <SlideContent
-                key={currentSlide}    /* re-mounts on slide change to replay animations */
+                key={
+                  currentSlide
+                } /* re-mounts on slide change to replay animations */
                 slide={activeSlide}
                 onDiscoveryCall={() => {}}
                 onViewWork={() => {}}
@@ -486,15 +382,22 @@ export default function HomeHeroSlider() {
 
           {/* Bottom bar: mobile dots + logo row */}
           <div className="w-full">
-            <MobileDots slides={SLIDES} currentSlide={currentSlide} goToSlide={goToSlide} />
+            <MobileDots
+              slides={SLIDES}
+              currentSlide={currentSlide}
+              goToSlide={goToSlide}
+            />
             <div className="w-full h-px bg-white/10" />
             <LogoBar logos={TECH_LOGOS} />
           </div>
         </div>
 
         {/* Layer 3 — Absolute overlays (z-20) */}
-        <LeftEdgeStrip slides={SLIDES} currentSlide={currentSlide} goToSlide={goToSlide} />
-        <AiBadge />
+        <LeftEdgeStrip
+          slides={SLIDES}
+          currentSlide={currentSlide}
+          goToSlide={goToSlide}
+        />
       </section>
     </>
   );
