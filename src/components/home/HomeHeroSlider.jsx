@@ -229,7 +229,7 @@ function VerticalCounter({
   const totalLabel = String(totalSlides).padStart(2, "0");
 
   return (
-    <div className="hidden lg:flex flex-col items-center gap-4 select-none">
+    <div className="flex flex-col items-center gap-4 select-none">
       {/* ↑ Prev */}
       <SliderArrowButton
         onClick={onPrev}
@@ -376,16 +376,16 @@ export default function HomeHeroSlider() {
   return (
     <>
       <section
-        className="relative w-full overflow-hidden font-jakarta bg-black mt-[-82px] min-h-[calc(100svh+82px)]"
+        className="relative w-full overflow-hidden font-jakarta bg-black mt-[-82px] h-full"
         aria-label="Hero slider"
       >
         {/* Layer 1 — Background images (z-0) */}
         <SlideBackgrounds slides={SLIDES} currentSlide={currentSlide} />
 
         {/* Layer 2 — Foreground content (z-10) */}
-        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)] pt-24 sm:pt-32 lg:pt-0">
+        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)] pt-12 lg:pt-0">
           {/* Push content below the navbar (desktop) */}
-          <div className="hidden lg:block h-[140px]" aria-hidden="true" />
+          {/* <div className="hidden lg:block h-[140px]" aria-hidden="true" /> */}
 
           {/* Main content row: text left, counter right */}
           <div className="flex-1 flex items-center">
