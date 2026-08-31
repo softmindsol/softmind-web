@@ -1,0 +1,404 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook, FaArrowRight } from "react-icons/fa";
+import { FaAws, FaMeta } from "react-icons/fa6";
+import { BsAnthropic } from "react-icons/bs";
+import { SiCisco } from "react-icons/si";
+import { MsLogo } from "../../../public/images";
+import Link from "next/link";
+
+const AUTO_PLAY_INTERVAL = 6000;
+const NAVBAR_OFFSET = 82;
+
+const SLIDES = [
+  {
+    id: 1,
+    image: "/images/hero-slide-1.jpg",
+    badge: "Product Engineering",
+    heading: "You Have an Idea.",
+    subheading: "We Have the Right\nPeople to Build It.",
+    tags: ["Custom Software", "AI Integration", "Agile Teams"],
+  },
+  {
+    id: 2,
+    image: "/images/hero-slide-2.jpg",
+    badge: "Digital Infrastructure",
+    heading: "We Don't Just Build Software.",
+    subheading:
+      "We Build the Infrastructure\nYour Business Cannot Grow Without.",
+    tags: ["Cloud Architecture", "Scalable Systems", "DevOps"],
+  },
+  {
+    id: 3,
+    image: "/images/hero-slide-3.jpg",
+    badge: "Competitive Advantage",
+    heading: "Your Competitors Have a Product.",
+    subheading: "We Make Yours\nthe One That Wins.",
+    tags: ["Product Strategy", "UX Excellence", "Market Leadership"],
+  },
+];
+
+const TECH_LOGOS = [
+  { name: "Google", icon: <FcGoogle size={28} /> },
+  {
+    name: "Microsoft",
+    icon: (
+      <Image
+        src={MsLogo}
+        alt="Microsoft"
+        width={24}
+        height={24}
+        className="object-contain"
+      />
+    ),
+  },
+  { name: "Meta", icon: <FaMeta size={28} color="#0369E5" /> },
+  { name: "Anthropic", icon: <BsAnthropic size={24} color="#ffffff" /> },
+  { name: "Cisco", icon: <SiCisco size={36} color="#049FD8" /> },
+];
+
+function SlideBackgrounds({ slides, currentSlide }) {
+  return (
+    <>
+      {slides.map((slide, idx) => {
+        const isActive = idx === currentSlide;
+        return (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 z-0 transition-opacity duration-[800ms] ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
+          >
+            <Image
+              src={slide.image}
+              alt={`Hero slide ${idx + 1}: ${slide.heading}`}
+              fill
+              priority={idx === 0}
+              className={`object-cover object-center ${isActive ? "animate-hs-img-enter" : ""}`}
+              sizes="100vw"
+            />
+            {/* Left-heavy dark gradient so left-aligned text stays readable */}
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.65)_45%,rgba(0,0,0,0.20)_100%)]" />
+            {/* Bottom fade to blend into the logo bar */}
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,rgba(0,0,0,0.75)_0%,transparent_100%)]" />
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+/** Left-aligned text block: badge → heading → subheading → tags → CTA buttons. */
+function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
+  return (
+    <div className="flex flex-col gap-6 max-w-3xl">
+      {/* ── Category badge ── */}
+      <div className="animate-hs-badge">
+        <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/30 text-white/80 text-xs font-bold tracking-[3px] uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83]" />
+          {slide.badge}
+        </span>
+      </div>
+
+      {/* ── Main heading ── */}
+      <h1 className="text-white font-extrabold leading-none tracking-tight">
+        {/* Line 1 — plain white */}
+        <span className="animate-hs-heading block xl:text-5xl md:text-4xl text-3xl">
+          {slide.heading}
+        </span>
+
+        {/* Line 2 — white-to-green gradient */}
+        <span className="animate-hs-subheading block mt-3 text-lg tracking-wide font-medium">
+          {slide.subheading}
+        </span>
+      </h1>
+
+      {/* ── Keyword tags ── */}
+      <div className="animate-hs-tags flex flex-wrap gap-2 opacity-0">
+        {slide.tags.map((tag) => (
+          <span
+            key={tag}
+            className="px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/45 bg-white/15 backdrop-blur-sm tracking-wide"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* ── CTA buttons ── */}
+      <div className="animate-hs-cta flex flex-wrap gap-4 mt-2 opacity-0">
+        <Link href="/contact-us">
+          <button
+            onClick={onDiscoveryCall}
+            className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-bold text-sm tracking-wide text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(12,191,131,0.4)] bg-[linear-gradient(135deg,#0CBF83_0%,#004BC0_100%)]"
+          >
+            Book a Discovery Call
+            <FaArrowRight
+              size={13}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </button>
+        </Link>
+
+        <button
+          onClick={onViewWork}
+          className="flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide cursor-pointer text-white/80 border border-white/25 bg-white/10 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300"
+        >
+          View Our Work
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Vertical slide counter panel shown on the right side (desktop only).
+ * Displays: ↑ | current# | progress bar | total# | ↓
+ */
+function VerticalCounter({
+  currentSlide,
+  totalSlides,
+  direction,
+  onPrev,
+  onNext,
+}) {
+  const currentLabel = String(currentSlide + 1).padStart(2, "0");
+  const totalLabel = String(totalSlides).padStart(2, "0");
+
+  return (
+    <div className="hidden lg:flex flex-col items-center gap-4 select-none">
+      {/* ↑ Prev */}
+      <SliderArrowButton
+        onClick={onPrev}
+        direction="up"
+        ariaLabel="Previous slide"
+      />
+
+      {/* Number + progress track + total */}
+      <div className="flex flex-col items-center gap-2">
+        <div
+          key={currentSlide}
+          className={`animate-hs-counter text-white font-bold tabular-nums text-[clamp(1.1rem,1.5vw,1.5rem)] ${direction === "next" ? "animate-num-enter-next" : "animate-num-enter-prev"}`}
+        >
+          {currentLabel}
+        </div>
+
+        {/* Vertical progress track */}
+        <div className="relative w-[2px] bg-white/15 rounded-full overflow-hidden h-[80px]">
+          <div
+            key={`${currentSlide}-prog`}
+            className="animate-hs-prog-fill absolute top-0 left-0 w-full rounded-full bg-[#0CBF83]"
+          />
+        </div>
+
+        <div className="text-white/35 font-medium tabular-nums text-[0.85rem]">
+          {totalLabel}
+        </div>
+      </div>
+
+      {/* ↓ Next */}
+      <SliderArrowButton
+        onClick={onNext}
+        direction="down"
+        ariaLabel="Next slide"
+      />
+    </div>
+  );
+}
+
+/** Small circular arrow button used in VerticalCounter and for mobile nav. */
+function SliderArrowButton({ onClick, direction, ariaLabel }) {
+  const path = direction === "up" ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7";
+  return (
+    <button
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-white/50 hover:border-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+    >
+      <svg
+        className="w-4 h-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2.5}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d={path} />
+      </svg>
+    </button>
+  );
+}
+
+/** Mobile-only horizontal dot indicators at the bottom. */
+function MobileDots({ slides, currentSlide, goToSlide }) {
+  return (
+    <div className="flex lg:hidden justify-center gap-2 pb-4">
+      {slides.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => goToSlide(idx, idx > currentSlide ? "next" : "prev")}
+          aria-label={`Go to slide ${idx + 1}`}
+          className={`rounded-full transition-all duration-300 h-2 ${idx === currentSlide ? "w-6 bg-[#0CBF83]" : "w-2 bg-white/30"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+/** Bottom bar: certified-by label + tech partner logos. */
+function LogoBar({ logos }) {
+  return (
+    <div className="w-full bg-black/55 backdrop-blur-[16px]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-5">
+        <p className="text-white/80 text-[10px] font-bold tracking-[2.5px] uppercase whitespace-nowrap text-center sm:text-left">
+          Certified &amp; recognised by the world&apos;s leading technology
+          companies
+        </p>
+
+        {/* Vertical divider (desktop only) */}
+        <div className="hidden sm:block w-px h-8 bg-white/10 flex-shrink-0" />
+
+        <div className="flex items-center gap-8 sm:gap-12">
+          {logos.map((logo) => (
+            <div
+              key={logo.name}
+              title={logo.name}
+              className="flex flex-col items-center gap-1.5 group cursor-pointer"
+            >
+              <div className="transition-opacity duration-300 flex items-center justify-center h-7">
+                {logo.icon}
+              </div>
+              <span className="text-white/60 text-[8px] font-bold tracking-[2px] uppercase group-hover:text-white transition-colors duration-300">
+                {logo.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Left-edge vertical strip indicators (desktop).
+ * Active slide = tall green bar; others = short dim bars.
+ */
+function LeftEdgeStrip({ slides, currentSlide, goToSlide }) {
+  return (
+    <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 flex-col gap-1 pl-3">
+      {slides.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => goToSlide(idx, idx > currentSlide ? "next" : "prev")}
+          aria-label={`Go to slide ${idx + 1}`}
+          className={`rounded-full transition-all duration-500 w-[3px] ${idx === currentSlide ? "h-[48px] bg-[#0CBF83]" : "h-4 bg-white/20"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MAIN COMPONENT
+// ─────────────────────────────────────────────────────────────────────────────
+
+export default function HomeHeroSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState("next");
+
+  // ── Navigation logic ──────────────────────────────────────────────────────
+
+  const goToSlide = useCallback(
+    (index, dir = "next") => {
+      if (isAnimating || index === currentSlide) return;
+
+      setDirection(dir);
+      setIsAnimating(true);
+
+      setTimeout(() => {
+        setCurrentSlide(index);
+        setIsAnimating(false);
+      }, 700);
+    },
+    [isAnimating, currentSlide],
+  );
+
+  const goToNext = useCallback(
+    () => goToSlide((currentSlide + 1) % SLIDES.length, "next"),
+    [currentSlide, goToSlide],
+  );
+
+  const goToPrev = useCallback(
+    () => goToSlide((currentSlide - 1 + SLIDES.length) % SLIDES.length, "prev"),
+    [currentSlide, goToSlide],
+  );
+
+  // ── Auto-play ─────────────────────────────────────────────────────────────
+
+  useEffect(() => {
+    const timer = setInterval(goToNext, AUTO_PLAY_INTERVAL);
+    return () => clearInterval(timer);
+  }, [goToNext]);
+
+  // ── Render ────────────────────────────────────────────────────────────────
+
+  const activeSlide = SLIDES[currentSlide];
+
+  return (
+    <>
+      <section
+        className="relative w-full overflow-hidden font-jakarta bg-black mt-[-82px] min-h-[calc(100svh+82px)]"
+        aria-label="Hero slider"
+      >
+        {/* Layer 1 — Background images (z-0) */}
+        <SlideBackgrounds slides={SLIDES} currentSlide={currentSlide} />
+
+        {/* Layer 2 — Foreground content (z-10) */}
+        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)]">
+          {/* Push content below the navbar */}
+          {/* <div className="h-[140px]" aria-hidden="true" /> */}
+
+          {/* Main content row: text left, counter right */}
+          <div className="flex-1 flex items-center">
+            <div className="w-full mx-auto px-6 lg:px-16 flex items-center justify-between gap-8">
+              <SlideContent
+                key={
+                  currentSlide
+                } /* re-mounts on slide change to replay animations */
+                slide={activeSlide}
+                onDiscoveryCall={() => {}}
+                onViewWork={() => {}}
+              />
+              <VerticalCounter
+                currentSlide={currentSlide}
+                totalSlides={SLIDES.length}
+                direction={direction}
+                onPrev={goToPrev}
+                onNext={goToNext}
+              />
+            </div>
+          </div>
+
+          {/* Bottom bar: mobile dots + logo row */}
+          <div className="w-full">
+            <MobileDots
+              slides={SLIDES}
+              currentSlide={currentSlide}
+              goToSlide={goToSlide}
+            />
+            <div className="w-full h-px bg-white/10" />
+            <LogoBar logos={TECH_LOGOS} />
+          </div>
+        </div>
+
+        {/* Layer 3 — Absolute overlays (z-20) */}
+        <LeftEdgeStrip
+          slides={SLIDES}
+          currentSlide={currentSlide}
+          goToSlide={goToSlide}
+        />
+      </section>
+    </>
+  );
+}
