@@ -254,7 +254,7 @@ function VerticalCounter({
           />
         </div>
 
-        <div className="text-white/35 font-medium tabular-nums text-[0.85rem]">
+        <div className="text-white font-medium tabular-nums text-[0.85rem]">
           {totalLabel}
         </div>
       </div>
@@ -303,40 +303,6 @@ function MobileDots({ slides, currentSlide, goToSlide }) {
           className={`rounded-full transition-all duration-300 h-2 ${idx === currentSlide ? "w-6 bg-[#0CBF83]" : "w-2 bg-white/30"}`}
         />
       ))}
-    </div>
-  );
-}
-
-/** Bottom bar: certified-by label + tech partner logos. */
-function LogoBar({ logos }) {
-  return (
-    <div className="w-full bg-black/55 backdrop-blur-[16px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-5">
-        <p className="text-white/80 text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[2.5px] uppercase text-center lg:text-left">
-          Certified &amp; recognised by the world&apos;s leading technology
-          companies
-        </p>
-
-        {/* Vertical divider (desktop only) */}
-        <div className="hidden lg:block w-px h-8 bg-white/10 flex-shrink-0" />
-
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12">
-          {logos.map((logo) => (
-            <div
-              key={logo.name}
-              title={logo.name}
-              className="flex flex-col items-center gap-1.5 group cursor-pointer"
-            >
-              <div className="transition-opacity duration-300 flex items-center justify-center h-6 sm:h-7">
-                {logo.icon}
-              </div>
-              <span className="text-white/60 text-[7px] sm:text-[8px] font-bold tracking-[1.5px] sm:tracking-[2px] uppercase group-hover:text-white transition-colors duration-300">
-                {logo.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -450,7 +416,6 @@ export default function HomeHeroSlider() {
               goToSlide={goToSlide}
             />
             <div className="w-full h-px bg-white/10" />
-            <LogoBar logos={TECH_LOGOS} />
           </div>
         </div>
 
