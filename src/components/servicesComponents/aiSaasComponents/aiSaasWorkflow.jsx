@@ -1,843 +1,754 @@
 "use client";
 
-import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+  useLayoutEffect,
+} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const AiSaasWorkflow = () => {
-  const containerRef = useRef(null);
+/* SSR-safe layout effect (avoids the React server-render warning). */
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-  // Dynamic window sizing for SVG paths
-  const [dimensions, setDimensions] = useState({ width: 1200, height: 900 });
-  const [mounted, setMounted] = useState(false);
+/* ------------------------------------------------------------------ *
+ * Content — wording is authoritative, do not alter
+ * ------------------------------------------------------------------ */
 
-  useEffect(() => {
-    setMounted(true);
-    const updateDims = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-      ScrollTrigger.refresh();
-    };
-    updateDims();
-    window.addEventListener("resize", updateDims);
-    return () => window.removeEventListener("resize", updateDims);
+const STEPS = [
+  {
+    key: "b1",
+    index: "1",
+    side: "left",
+    title: "Discovery & Strategy",
+    caption: "Business & tech scope alignment",
+    subs: [
+      {
+        title: "Business & User Research",
+        desc: "Stakeholder interviews, competitor analysis, user mapping.",
+      },
+      {
+        title: "AI Feasibility & Tech Stack",
+        desc: "Is AI the right fit, which models/tools & cloud stack to use.",
+      },
+      {
+        title: "Roadmap & Success Metrics",
+        desc: "Phased delivery plan, KPIs to measure project success.",
+      },
+    ],
+  },
+  {
+    key: "b2",
+    index: "2",
+    side: "right",
+    title: "Design & Architecture",
+    caption: "Visuals & infrastructure design",
+    subs: [
+      {
+        title: "UX/UI Design",
+        desc: "Wireframes, interactive prototypes, product user flows.",
+      },
+      {
+        title: "System Architecture",
+        desc: "Backend systems, databases, multi-tenancy & API layers.",
+      },
+      {
+        title: "AI Model & Data Arch",
+        desc: "Model choices, data flow pipelines & vector store storage.",
+      },
+    ],
+  },
+  {
+    key: "b3",
+    index: "3",
+    side: "left",
+    title: "AI Dev & Integration",
+    caption: "Full SaaS & model build",
+    subs: [
+      {
+        title: "Core SaaS Feature Build",
+        desc: "Auth, dashboards, subscription/billing, and multi-tenancy.",
+      },
+      {
+        title: "AI Model Integration",
+        desc: "Connecting, training & fine-tuning LLMs or custom ML models.",
+      },
+      {
+        title: "Data Pipelines & APIs",
+        desc: "Connecting external databases, tools & third-party integrations.",
+      },
+    ],
+  },
+  {
+    key: "b4",
+    index: "4",
+    side: "right",
+    title: "Deploy & Optimize",
+    caption: "QA, hosting & analytics",
+    subs: [
+      {
+        title: "QA & Security Testing",
+        desc: "Functional code review, load testing, and security hardening.",
+      },
+      {
+        title: "Cloud Deployment & CI/CD",
+        desc: "Scalable cloud setups, automated CI/CD deployment pipelines.",
+      },
+      {
+        title: "Monitoring & Iteration",
+        desc: "Performance logs, user analytics tracking, and updates.",
+      },
+    ],
+  },
+];
+
+const OUTCOMES = [
+  "Fully functional AI SaaS product live in production.",
+  "Scalable architecture that grows with user demand.",
+  "Secure, tested, and monitored infrastructure.",
+  "Ongoing improvement loop & data-driven updates.",
+];
+
+/* ------------------------------------------------------------------ *
+ * Layout tokens
+ * ------------------------------------------------------------------ */
+
+/** Vertical rhythm of the spine AND the rail's overhang at each end, so
+ *  the line always meets the hub and destination cards exactly. */
+const STACK_GAP = "clamp(2rem, 4vw, 3.25rem)";
+
+/* Motion is deliberately small: short distances, short durations. */
+const EASE = "power2.out";
+const DUR = 0.5;
+const RISE = 14;
+
+/* ------------------------------------------------------------------ *
+ * Geometry — only the feedback-loop path needs measured coordinates.
+ * Everything else is pure CSS layout, so it cannot drift or overlap.
+ * ------------------------------------------------------------------ */
+
+const n = (v) => Math.round(v * 10) / 10;
+
+/** Layout box relative to `root`, read from offset* so GSAP transforms
+ *  never corrupt the measurement. */
+const layoutBox = (root, selector) => {
+  const el = root.querySelector(selector);
+  if (!el) return null;
+  let x = 0;
+  let y = 0;
+  let node = el;
+  while (node && node !== root) {
+    x += node.offsetLeft;
+    y += node.offsetTop;
+    node = node.offsetParent;
+  }
+  return {
+    left: x,
+    top: y,
+    right: x + el.offsetWidth,
+    bottom: y + el.offsetHeight,
+    cx: x + el.offsetWidth / 2,
+    cy: y + el.offsetHeight / 2,
+  };
+};
+
+/** Right-angle route with rounded corners — reads as a technical
+ *  diagram rather than a hand-drawn squiggle. */
+const buildLoopPath = (g) => {
+  const { W, H, wide, hub, out } = g;
+  const r = 16;
+  const bottomY = H - 2;
+
+  if (wide) {
+    const laneX = 12;
+    return [
+      `M ${n(out.cx)} ${n(out.bottom)}`,
+      `L ${n(out.cx)} ${n(bottomY - r)}`,
+      `Q ${n(out.cx)} ${n(bottomY)} ${n(out.cx - r)} ${n(bottomY)}`,
+      `L ${n(laneX + r)} ${n(bottomY)}`,
+      `Q ${n(laneX)} ${n(bottomY)} ${n(laneX)} ${n(bottomY - r)}`,
+      `L ${n(laneX)} ${n(hub.cy + r)}`,
+      `Q ${n(laneX)} ${n(hub.cy)} ${n(laneX + r)} ${n(hub.cy)}`,
+      `L ${n(hub.left)} ${n(hub.cy)}`,
+    ].join(" ");
+  }
+
+  const laneX = W - 8;
+  return [
+    `M ${n(out.cx)} ${n(out.bottom)}`,
+    `L ${n(out.cx)} ${n(bottomY - r)}`,
+    `Q ${n(out.cx)} ${n(bottomY)} ${n(out.cx + r)} ${n(bottomY)}`,
+    `L ${n(laneX - r)} ${n(bottomY)}`,
+    `Q ${n(laneX)} ${n(bottomY)} ${n(laneX)} ${n(bottomY - r)}`,
+    `L ${n(laneX)} ${n(hub.cy + r)}`,
+    `Q ${n(laneX)} ${n(hub.cy)} ${n(laneX - r)} ${n(hub.cy)}`,
+    `L ${n(hub.right)} ${n(hub.cy)}`,
+  ].join(" ");
+};
+
+/* ------------------------------------------------------------------ *
+ * Icons
+ * ------------------------------------------------------------------ */
+
+const RocketIcon = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z" />
+    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+  </svg>
+);
+
+const CheckIcon = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="m5 12 4.5 4.5L19 7" />
+  </svg>
+);
+
+/* ------------------------------------------------------------------ *
+ * Cursor spotlight — writes CSS vars directly, no React re-render,
+ * no layout reads per move.
+ * ------------------------------------------------------------------ */
+
+const useSpotlight = () => {
+  const frame = useRef(0);
+  const next = useRef(null);
+
+  const onMove = useCallback((e) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    next.current = [el, e.clientX - rect.left, e.clientY - rect.top];
+    if (frame.current) return;
+    frame.current = requestAnimationFrame(() => {
+      frame.current = 0;
+      const [node, x, y] = next.current || [];
+      if (!node) return;
+      node.style.setProperty("--mx", `${x}px`);
+      node.style.setProperty("--my", `${y}px`);
+    });
   }, []);
 
-  useLayoutEffect(() => {
-    if (!mounted) return;
+  useEffect(
+    () => () => {
+      if (frame.current) cancelAnimationFrame(frame.current);
+    },
+    [],
+  );
+
+  return onMove;
+};
+
+const SPOTLIGHT =
+  "radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%), rgba(12,191,131,0.10), transparent 70%)";
+
+/* ------------------------------------------------------------------ *
+ * Step card
+ * ------------------------------------------------------------------ */
+
+const StepRow = ({ step, onMove }) => {
+  const isLeft = step.side === "left";
+
+  return (
+    <div className="relative grid grid-cols-1 pl-14 lg:grid-cols-[minmax(0,1fr)_clamp(4rem,7vw,7rem)_minmax(0,1fr)] lg:items-start lg:pl-0">
+      {/* Rail marker + elbow */}
+      <div className="absolute left-[22px] top-[28px] z-20 -translate-x-1/2 lg:static lg:col-start-2 lg:mt-[28px] lg:translate-x-0 lg:justify-self-center">
+        <div className="relative">
+          <span
+            className={`${step.key}-marker flex h-8 w-8 items-center justify-center rounded-full border border-white/12 bg-[#08080B] text-[11px] font-semibold tabular-nums text-white/55 shadow-[0_0_0_6px_#050507]`}
+          >
+            {step.index}
+          </span>
+          <span
+            className={`${step.key}-elbow absolute top-1/2 h-px w-[26px] origin-left bg-gradient-to-r from-[#0CBF83]/45 to-transparent lg:w-[clamp(1.25rem,2.5vw,2.5rem)] ${
+              isLeft
+                ? "left-full ml-1 lg:left-auto lg:right-full lg:ml-0 lg:mr-1 lg:origin-right lg:bg-gradient-to-l"
+                : "left-full ml-1"
+            }`}
+          />
+        </div>
+      </div>
+
+      {/* Card */}
+      <article
+        className={`${step.key}-node ${
+          isLeft ? "lg:col-start-1 lg:text-right" : "lg:col-start-3"
+        }`}
+      >
+        <div
+          onMouseMove={onMove}
+          className="group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-5 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-[3px] hover:border-[#0CBF83]/30 hover:shadow-[0_20px_46px_-28px_rgba(12,191,131,0.55)] sm:p-6"
+        >
+          {/* top hairline + cursor spotlight */}
+          <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
+          <span
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{ background: SPOTLIGHT }}
+          />
+
+          <div
+            className={`flex items-baseline gap-2.5 ${isLeft ? "lg:flex-row-reverse" : ""}`}
+          >
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#0CBF83]/75">
+              Step {step.index}
+            </span>
+            <span className="h-px flex-1 bg-white/[0.07]" />
+          </div>
+
+          <h3 className="mt-3 text-[clamp(1.0625rem,1.35vw,1.1875rem)] font-semibold leading-snug tracking-[-0.01em] text-white">
+            {step.title}
+          </h3>
+          <p className="mt-1.5 text-[13px] leading-relaxed text-white/45">
+            {step.caption}
+          </p>
+
+          <ul className="mt-5">
+            {step.subs.map((sub) => (
+              <li
+                key={sub.title}
+                className={`${step.key}-sub group/sub flex gap-3 border-t border-white/[0.055] py-3 first:border-t-0 first:pt-0 last:pb-0 ${
+                  isLeft ? "lg:flex-row-reverse lg:text-right" : ""
+                }`}
+              >
+                <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#0CBF83]/60 transition-colors duration-200 group-hover/sub:bg-[#0CBF83]" />
+                <span className="min-w-0">
+                  <span className="block text-[13.5px] font-medium leading-snug text-white/85 transition-colors duration-200 group-hover/sub:text-white">
+                    {sub.title}
+                  </span>
+                  <span className="mt-1 block text-[12.5px] leading-relaxed text-white/40">
+                    {sub.desc}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * Component
+ * ------------------------------------------------------------------ */
+
+const AiSaasWorkflow = () => {
+  const containerRef = useRef(null);
+  const diagramRef = useRef(null);
+  const onSpotlightMove = useSpotlight();
+
+  const [geo, setGeo] = useState(null);
+  const loopPath = useMemo(() => (geo ? buildLoopPath(geo) : null), [geo]);
+
+  /* ------------------- measurement (loop path only) ----------------- */
+
+  const measure = useCallback(() => {
+    const root = diagramRef.current;
+    if (!root) return;
+
+    const W = root.offsetWidth;
+    const H = root.offsetHeight;
+    if (!W || !H) return;
+
+    const hub = layoutBox(root, "[data-node='hub']");
+    const out = layoutBox(root, "[data-node='out']");
+    if (!hub || !out) return;
+
+    const wide =
+      typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 1024px)").matches;
+
+    const key = `${W}|${H}|${wide}|${hub.cy}|${out.bottom}`;
+    setGeo((prev) =>
+      prev && prev.key === key ? prev : { key, W, H, wide, hub, out },
+    );
+  }, []);
+
+  useIsoLayoutEffect(() => {
+    const root = diagramRef.current;
+    if (!root) return;
+
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(measure);
+    };
+
+    schedule();
+
+    const ro = new ResizeObserver(schedule);
+    ro.observe(root);
+    window.addEventListener("resize", schedule);
+    window.addEventListener("orientationchange", schedule);
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(schedule).catch(() => {});
+    }
+
+    return () => {
+      cancelAnimationFrame(frame);
+      ro.disconnect();
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("orientationchange", schedule);
+    };
+  }, [measure]);
+
+  /* ------------------- motion ---------------------------------------- */
+
+  useIsoLayoutEffect(() => {
+    if (!loopPath) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const ctx = gsap.context(() => {
-      const hub = ".hub-node";
-      const b1 = ".b1-node";
-      const b2 = ".b2-node";
-      const b3 = ".b3-node";
-      const b4 = ".b4-node";
-      const out = ".out-node";
-
-      const line1 = ".line1";
-      const line2 = ".line2";
-      const line3 = ".line3";
-      const line4 = ".line4";
-      const outLine1 = ".out-line-conv1";
-      const outLine2 = ".out-line-conv2";
-      const outLine3 = ".out-line-conv3";
-      const outLine4 = ".out-line-conv4";
-      const loopLine = ".loop-line";
-
-      // Setup paths for drawing
-      const paths = gsap.utils.toArray([
-        line1,
-        line2,
-        line3,
-        line4,
-        outLine1,
-        outLine2,
-        outLine3,
-        outLine4,
-        loopLine,
-      ]);
-      
-      paths.forEach((path) => {
-        if (path && typeof path.getTotalLength === "function") {
-          const length = path.getTotalLength();
-          gsap.set(path, {
-            strokeDasharray: length,
-            strokeDashoffset: length,
-          });
-        }
-      });
-
-      // Floating blobs animation
-      const blobs = gsap.utils.toArray(".bg-blob");
-      blobs.forEach((blob, i) => {
-        gsap.to(blob, {
-          y: i % 2 === 0 ? 40 : -40,
-          x: i % 2 === 0 ? 30 : -30,
-          scale: 1.1,
-          duration: 5 + i,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
+      /* Reveal helper: short, once, no blur filters. */
+      const reveal = (targets, { trigger, ...vars } = {}, start = "top 88%") =>
+        gsap.from(targets, {
+          opacity: 0,
+          y: RISE,
+          duration: DUR,
+          ease: EASE,
+          ...vars,
+          scrollTrigger: { trigger: trigger || targets, start, once: true },
         });
-      });
 
-      // Particles animation
-      const particles = gsap.utils.toArray(".particle");
-      particles.forEach((p, i) => {
-        gsap.to(p, {
-          y: (i % 2 === 0 ? 1 : -1) * (30 + i * 10),
-          x: (i % 3 === 0 ? 1 : -1) * (20 + i * 5),
-          opacity: 0.8,
-          scale: 1.5,
-          duration: 4 + i,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
-      });
+      if (reduced) {
+        gsap.set(".rail-progress", { scaleY: 1 });
+        gsap.set(".loop-line", { strokeDashoffset: 0, strokeDasharray: "6,7" });
+        return;
+      }
 
-      // Title entrance animation
+      reveal(".title-anim", { stagger: 0.08, trigger: containerRef.current }, "top 82%");
+      reveal(".hub-node", { y: 10 }, "top 90%");
+
+      /* Rail fills as the section scrolls — the one continuous motion. */
       gsap.fromTo(
-        ".title-anim",
-        { opacity: 0, y: 30, filter: "blur(10px)" },
+        ".rail-progress",
+        { scaleY: 0 },
         {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power3.out",
+          scaleY: 1,
+          ease: "none",
+          transformOrigin: "top center",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top center",
+            trigger: ".spine",
+            start: "top 72%",
+            end: "bottom 68%",
+            scrub: 0.6,
           },
         },
       );
 
-      // Scroll timeline
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1.5,
-        },
+      STEPS.forEach((step) => {
+        const row = `.${step.key}-node`;
+
+        gsap
+          .timeline({
+            scrollTrigger: { trigger: row, start: "top 86%", once: true },
+          })
+          .from(row, { opacity: 0, y: RISE, duration: DUR, ease: EASE })
+          .from(
+            `.${step.key}-elbow`,
+            { scaleX: 0, duration: 0.3, ease: EASE },
+            0.05,
+          )
+          .from(
+            `.${step.key}-sub`,
+            { opacity: 0, y: 8, duration: 0.32, stagger: 0.06, ease: EASE },
+            0.12,
+          );
+
+        /* Marker lights up as the rail reaches it. */
+        gsap.to(`.${step.key}-marker`, {
+          borderColor: "rgba(12,191,131,0.55)",
+          backgroundColor: "rgba(12,191,131,0.10)",
+          color: "#ffffff",
+          duration: 0.3,
+          ease: EASE,
+          scrollTrigger: {
+            trigger: `.${step.key}-marker`,
+            start: "center 62%",
+            once: true,
+          },
+        });
       });
 
-      tl.fromTo(
-        hub,
-        { y: -50, opacity: 0, scale: 0.8, filter: "blur(10px)" },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 1,
-          ease: "power2.out",
-        },
-      )
-        // Hub -> Branch 1 connector
-        .to(line1, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
-        // Branch 1 Node entrance
-        .fromTo(
-          b1,
-          { x: -80, opacity: 0, scale: 0.9, filter: "blur(5px)" },
-          {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.2,
-            ease: "power2.out",
-          },
-          "<0.4",
-        )
-        // Branch 1 Sub-branches fan out
-        .fromTo(
-          ".b1-sub",
-          { opacity: 0, y: 15, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.18, ease: "back.out(1.2)" },
-          "-=0.5",
-        )
-        // Branch 1 -> Branch 2 connector
-        .to(line2, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
-        // Branch 2 Node entrance
-        .fromTo(
-          b2,
-          { x: 80, opacity: 0, scale: 0.9, filter: "blur(5px)" },
-          {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.2,
-            ease: "power2.out",
-          },
-          "<0.4",
-        )
-        // Branch 2 Sub-branches fan out
-        .fromTo(
-          ".b2-sub",
-          { opacity: 0, y: 15, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.18, ease: "back.out(1.2)" },
-          "-=0.5",
-        )
-        // Branch 2 -> Branch 3 connector
-        .to(line3, { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" })
-        // Branch 3 Node entrance
-        .fromTo(
-          b3,
-          { x: -80, opacity: 0, scale: 0.9, filter: "blur(5px)" },
-          {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.2,
-            ease: "power2.out",
-          },
-          "<0.4",
-        )
-        // Branch 3 Sub-branches fan out
-        .fromTo(
-          ".b3-sub",
-          { opacity: 0, y: 15, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.18, ease: "back.out(1.2)" },
-          "-=0.5",
-        )
-        // Branch 3 -> Branch 4 connector
-        .to(line4, { strokeDashoffset: 0, duration: 1.2, ease: "power1.inOut" })
-        // Branch 4 Node entrance
-        .fromTo(
-          b4,
-          { x: 80, opacity: 0, scale: 0.9, filter: "blur(5px)" },
-          {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.2,
-            ease: "power2.out",
-          },
-          "<0.4",
-        )
-        // Branch 4 Sub-branches fan out
-        .fromTo(
-          ".b4-sub",
-          { opacity: 0, y: 15, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.18, ease: "back.out(1.2)" },
-          "-=0.5",
-        )
-        // All 4 branches converge into Final Outcome node
-        .to(
-          [outLine1, outLine2, outLine3, outLine4],
-          {
-            strokeDashoffset: 0,
-            duration: 1.5,
-            ease: "power1.inOut",
-            stagger: 0.1,
-          },
-          "+=0.2",
-        )
-        // Final Outcome node pops in
-        .fromTo(
-          out,
-          { y: 60, opacity: 0, scale: 0.8, filter: "blur(10px)" },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1.05,
-            filter: "blur(0px)",
-            duration: 1.4,
-            ease: "back.out(1.7)", // bouncy entrance for payoff effect
-          },
-          "<0.4",
-        )
-        // Highlight payoff glow animation
-        .to(
-          out,
-          {
-            boxShadow: "0 0 50px rgba(12, 191, 131, 0.8)",
-            borderColor: "#0CBF83",
-            duration: 0.8,
-            yoyo: true,
-            repeat: 1,
-            scale: 1, // settles to 1
-          },
-          "-=0.4",
-        )
-        // Sub-elements inside payoff node reveal
-        .fromTo(
-          ".out-sub",
-          { opacity: 0, y: 15, scale: 0.95 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out",
-          },
-          "-=0.6",
-        )
-        // Feedback loop line back to Hub draws
-        .to(loopLine, {
-          strokeDashoffset: 0,
-          duration: 1.8,
-          ease: "power1.inOut",
+      /* Destination */
+      gsap
+        .timeline({
+          scrollTrigger: { trigger: ".out-node", start: "top 84%", once: true },
         })
-        .set(loopLine, { strokeDasharray: "10,10" });
+        .from(".out-node", { opacity: 0, y: 18, duration: 0.55, ease: EASE })
+        .from(
+          ".out-sub",
+          { opacity: 0, y: 10, duration: 0.35, stagger: 0.06, ease: EASE },
+          0.15,
+        )
+        .to(
+          ".out-glow",
+          { opacity: 1, duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" },
+          0.1,
+        );
+
+      /* Feedback loop: draws once, then a slow marching dash. */
+      const loopEl = containerRef.current.querySelector(".loop-line");
+      if (loopEl?.getTotalLength) {
+        const len = loopEl.getTotalLength();
+        gsap.set(loopEl, { strokeDasharray: len, strokeDashoffset: len });
+        gsap.to(loopEl, {
+          strokeDashoffset: 0,
+          duration: 1.1,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: ".out-node",
+            start: "top 78%",
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set(loopEl, { strokeDasharray: "5,8", strokeDashoffset: 0 });
+            gsap.to(loopEl, {
+              strokeDashoffset: -13,
+              duration: 1.4,
+              ease: "none",
+              repeat: -1,
+            });
+          },
+        });
+      }
+
+      /* Ambient drift — slow enough to read as light, not motion. */
+      gsap.utils.toArray(".bg-blob").forEach((blob, i) => {
+        gsap.to(blob, {
+          yPercent: i % 2 === 0 ? 4 : -4,
+          scale: 1.05,
+          duration: 14 + i * 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
     }, containerRef);
 
-    // Refresh ScrollTrigger after a tiny timeout to ensure CSS/layouts are fully injected in dev mode
-    const refreshTimer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 300);
+    const refresh = requestAnimationFrame(() => ScrollTrigger.refresh());
 
     return () => {
+      cancelAnimationFrame(refresh);
       ctx.revert();
-      clearTimeout(refreshTimer);
     };
-  }, [mounted, dimensions]);
+  }, [loopPath, geo?.wide]);
 
-  const handleMouseMove = (e) => {
-    if (window.innerWidth < 768) return;
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -8;
-    const rotateY = ((x - centerX) / centerX) * 8;
-
-    gsap.to(card, {
-      rotateX,
-      rotateY,
-      scale: 1.02,
-      duration: 0.4,
-      ease: "power2.out",
-      transformPerspective: 1000,
-    });
-  };
-
-  const handleMouseLeave = (e) => {
-    if (window.innerWidth < 768) return;
-    gsap.to(e.currentTarget, {
-      rotateX: 0,
-      rotateY: 0,
-      scale: 1,
-      duration: 0.7,
-      ease: "power3.out",
-    });
-  };
-
-  const cx = dimensions.width / 2;
-  const cyHub = dimensions.height * 0.10;
-  const cyRow1 = dimensions.height * 0.28;
-  const cyRow2 = dimensions.height * 0.50;
-  const cyOut = dimensions.height * 0.72;
-
-  const isMobile = dimensions.width < 768;
-  const offset = isMobile ? dimensions.width * 0.35 : dimensions.width * 0.25;
+  /* ------------------- render ----------------------------------------- */
 
   return (
-    <>
-      <section
-        ref={containerRef}
-        className="relative w-full bg-black font-jakarta h-[600vh] mt-32"
-      >
-        {mounted && (
-          <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
-            {/* Ambient Background Glows */}
-            <div className="bg-blob absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#00235A]/30 rounded-full blur-[150px] pointer-events-none" />
-            <div className="bg-blob absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#0CBF83]/20 rounded-full blur-[150px] pointer-events-none" />
+    <section
+      ref={containerRef}
+      className="relative w-full overflow-hidden bg-[#050507] font-jakarta py-[clamp(4rem,9vw,7.5rem)]"
+    >
+      {/* Depth layers */}
+      <div className="bg-blob pointer-events-none absolute -top-1/4 left-1/2 h-[min(720px,95vw)] w-[min(720px,95vw)] -translate-x-1/2 rounded-full bg-[#00235A]/20 blur-[170px]" />
+      <div className="bg-blob pointer-events-none absolute -bottom-1/3 left-1/2 h-[min(600px,85vw)] w-[min(600px,85vw)] -translate-x-1/2 rounded-full bg-[#0CBF83]/[0.10] blur-[180px]" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)]"
+        style={{
+          backgroundSize: "76px 76px",
+          maskImage:
+            "radial-gradient(ellipse 62% 52% at 50% 32%, #000 0%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 62% 52% at 50% 32%, #000 0%, transparent 100%)",
+        }}
+      />
 
-            {/* Particles */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-              {[
-                { top: "15%", left: "20%" },
-                { top: "35%", left: "80%" },
-                { top: "55%", left: "15%" },
-                { top: "75%", left: "85%" },
-                { top: "25%", left: "60%" },
-                { top: "65%", left: "40%" },
-              ].map((pos, i) => (
+      <div className="relative z-10 mx-auto w-full max-w-[1120px] px-5 sm:px-8">
+        {/* Header */}
+        <header className="mx-auto max-w-[44rem] text-center">
+          <div className="title-anim inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)] shadow-[0_0_8px_#004BC0]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0CBF83] sm:text-[12px]">
+              AI SaaS Development
+            </span>
+          </div>
+          <h2 className="title-anim mt-6 text-[clamp(1.75rem,4.2vw,2.875rem)] font-semibold leading-[1.14] tracking-[-0.022em] text-white">
+            Build More Than Software.
+            <br />
+            <span className="bg-[linear-gradient(100deg,#ffffff_0%,#8ee9c8_58%,#5aa2ff_100%)] bg-clip-text text-transparent">
+              Build an Intelligent SaaS Product.
+            </span>
+          </h2>
+        </header>
+
+        {/* Process spine */}
+        <div
+          ref={diagramRef}
+          className="relative mt-[clamp(3rem,6.5vw,5.5rem)] pb-[clamp(3rem,6vw,5rem)]"
+        >
+          {/* Feedback loop */}
+          <div className="pointer-events-none absolute inset-0 z-0">
+            {loopPath && (
+              <svg
+                className="h-full w-full"
+                viewBox={`0 0 ${geo.W} ${geo.H}`}
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  className="loop-line"
+                  d={loopPath}
+                  fill="none"
+                  stroke="rgba(12,191,131,0.28)"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  style={{ strokeDasharray: 6000, strokeDashoffset: 6000 }}
+                />
+              </svg>
+            )}
+          </div>
+
+          <div
+            className="relative z-10 flex flex-col"
+            style={{ gap: STACK_GAP }}
+          >
+            {/* Hub */}
+            <div className="pl-14 lg:pl-0">
+              <div
+                data-node="hub"
+                className="hub-node relative mx-auto w-full lg:max-w-[420px]"
+              >
                 <div
-                  key={i}
-                  className="particle absolute w-1 h-1 bg-[#0CBF83]/30 rounded-full blur-[1px]"
-                  style={pos}
+                  onMouseMove={onSpotlightMove}
+                  className="group relative overflow-hidden rounded-2xl border border-[#0CBF83]/22 bg-[linear-gradient(165deg,rgba(12,191,131,0.10),rgba(255,255,255,0.02)_52%)] px-6 py-5 text-center transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-[3px] hover:border-[#0CBF83]/45 hover:shadow-[0_22px_54px_-30px_rgba(12,191,131,0.7)]"
+                >
+                  <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#0CBF83]/45 to-transparent" />
+                  <span
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ background: SPOTLIGHT }}
+                  />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0CBF83]">
+                    Central Hub
+                  </p>
+                  <h3 className="mt-2 text-[clamp(1.125rem,1.7vw,1.3125rem)] font-semibold tracking-[-0.012em] text-white">
+                    AI SaaS Development
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            {/* Steps + rail */}
+            <div
+              className="spine relative flex flex-col"
+              style={{ gap: STACK_GAP }}
+            >
+              <div
+                className="pointer-events-none absolute left-[22px] w-px overflow-hidden bg-white/[0.08] lg:left-1/2 lg:-translate-x-1/2"
+                style={{
+                  top: `calc(${STACK_GAP} * -1)`,
+                  bottom: `calc(${STACK_GAP} * -1)`,
+                }}
+              >
+                <span
+                  className="rail-progress absolute inset-x-0 top-0 h-full bg-[linear-gradient(180deg,#0CBF83_0%,rgba(12,191,131,0.5)_55%,#004BC0_100%)]"
+                  style={{ transform: "scaleY(0)", transformOrigin: "top" }}
+                />
+              </div>
+
+              {STEPS.map((step) => (
+                <StepRow
+                  key={step.key}
+                  step={step}
+                  onMove={onSpotlightMove}
                 />
               ))}
             </div>
 
-            {/* Title Header */}
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full z-40 px-4 pointer-events-none">
-              <div className="title-anim flex items-center justify-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-[linear-gradient(104deg,#00235A,#004BC0)] shadow-[0_0_10px_#004BC0]" />
-                <span className="text-[#0CBF83] text-[12px] sm:text-[16px] font-bold tracking-[1px] uppercase">
-                  AI SaaS Development
-                </span>
-              </div>
-              <h2 className="title-anim text-[20px] sm:text-[32px] md:text-[40px] font-bold tracking-[1px] text-white leading-tight">
-                Build More Than Software.
-                <br />
-                Build an Intelligent SaaS Product.
-              </h2>
-            </div>
-
-            {/* Flow Connector Paths */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              <svg width="100%" height="100%">
-                <defs>
-                  <linearGradient
-                    id="line-grad"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
+            {/* Destination */}
+            <div className="pl-14 lg:pl-0">
+              <div
+                data-node="out"
+                className="out-node relative mx-auto w-full max-w-[860px]"
+              >
+                <div className="relative rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(12,191,131,0.5),rgba(0,75,192,0.4)_58%,rgba(255,255,255,0.05))] p-px">
+                  <div
+                    onMouseMove={onSpotlightMove}
+                    className="group relative overflow-hidden rounded-[1.2rem] bg-[#07080B] px-[clamp(1.25rem,3.5vw,2.5rem)] py-[clamp(1.75rem,4vw,2.5rem)]"
                   >
-                    <stop offset="0%" stopColor="#0CBF83" />
-                    <stop offset="100%" stopColor="#004BC0" />
-                  </linearGradient>
-                </defs>
+                    <span className="out-glow pointer-events-none absolute inset-0 rounded-[1.2rem] opacity-0 shadow-[inset_0_0_70px_rgba(12,191,131,0.3)]" />
+                    <span
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ background: SPOTLIGHT }}
+                    />
+                    <span className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[68%] -translate-x-1/2 rounded-full bg-[#0CBF83]/12 blur-[80px]" />
 
-                {/* 1. Hub -> Branch 1 */}
-                <path
-                  className="line1 opacity-50"
-                  d={`M ${cx} ${cyHub + 40} C ${cx} ${cyRow1 - 50}, ${cx - offset} ${cyHub + 50}, ${cx - offset} ${cyRow1 - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="2"
-                />
+                    <div className="relative flex flex-col items-center text-center">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[#0CBF83]/28 bg-[#0CBF83]/[0.08] px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0CBF83] sm:text-[11px]">
+                        Destination Node
+                      </span>
 
-                {/* 2. Branch 1 -> Branch 2 */}
-                <path
-                  className="line2 opacity-50"
-                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow1} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow1 - 25}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow1 - 25}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow1}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="2"
-                />
+                      <span className="mt-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-[#0CBF83] transition-transform duration-300 group-hover:-translate-y-1">
+                        <RocketIcon className="h-[22px] w-[22px]" />
+                      </span>
 
-                {/* 3. Branch 2 -> Branch 3 */}
-                <path
-                  className="line3 opacity-50"
-                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset} ${cyRow1 + 80}, ${cx - offset} ${cyRow2 - 80}, ${cx - offset} ${cyRow2 - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="2"
-                />
+                      <h3 className="mt-5 text-[clamp(1.25rem,2.4vw,1.6875rem)] font-semibold leading-tight tracking-[-0.018em] text-white">
+                        Production-Ready AI SaaS Product
+                      </h3>
 
-                {/* 4. Branch 3 -> Branch 4 */}
-                <path
-                  className="line4 opacity-50"
-                  d={`M ${cx - offset + (isMobile ? 75 : 145)} ${cyRow2} C ${cx - offset + (isMobile ? 100 : 200)} ${cyRow2 - 25}, ${cx + offset - (isMobile ? 100 : 200)} ${cyRow2 - 25}, ${cx + offset - (isMobile ? 75 : 145)} ${cyRow2}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="2"
-                />
+                      <p className="mt-3 max-w-[54ch] text-[13.5px] leading-relaxed text-white/55 sm:text-[14px]">
+                        A live, scalable, secure AI-powered SaaS application
+                        built, deployed, and continuously improved for your
+                        business.
+                      </p>
+                    </div>
 
-                {/* Converging 4 main branches to Final Outcome */}
-                {/* Branch 1 -> Final Outcome */}
-                <path
-                  className="out-line-conv1 opacity-30"
-                  d={`M ${cx - offset} ${cyRow1 + 40} C ${cx - offset - 40} ${cyRow2}, ${cx - 30} ${cyOut - 60}, ${cx} ${cyOut - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="1.5"
-                />
+                    <div className="my-[clamp(1.5rem,3vw,2rem)] h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-                {/* Branch 2 -> Final Outcome */}
-                <path
-                  className="out-line-conv2 opacity-30"
-                  d={`M ${cx + offset} ${cyRow1 + 40} C ${cx + offset + 40} ${cyRow2}, ${cx + 30} ${cyOut - 60}, ${cx} ${cyOut - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="1.5"
-                />
+                    <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/65">
+                      What you walk away with:
+                    </h4>
 
-                {/* Branch 3 -> Final Outcome */}
-                <path
-                  className="out-line-conv3 opacity-40"
-                  d={`M ${cx - offset} ${cyRow2 + 40} C ${cx - offset} ${cyOut - 50}, ${cx - 30} ${cyOut - 50}, ${cx} ${cyOut - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="1.5"
-                />
-
-                {/* Branch 4 -> Final Outcome */}
-                <path
-                  className="out-line-conv4 opacity-40"
-                  d={`M ${cx + offset} ${cyRow2 + 40} C ${cx + offset} ${cyOut - 50}, ${cx + 30} ${cyOut - 50}, ${cx} ${cyOut - 40}`}
-                  fill="none"
-                  stroke="url(#line-grad)"
-                  strokeWidth="1.5"
-                />
-
-                {/* Loop Line Back to Hub */}
-                <path
-                  className="loop-line opacity-60"
-                  d={`M ${cx} ${cyOut + 30} C ${cx} ${dimensions.height - 20}, 20 ${dimensions.height - 20}, 20 ${cyHub} C 20 ${cyHub}, ${cx - 150} ${cyHub}, ${cx - 100} ${cyHub}`}
-                  fill="none"
-                  stroke="#0CBF83"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
-
-            {/* Hub Node */}
-            <div
-              className="hub-node absolute z-10 w-[200px] sm:w-[260px] -ml-[100px] sm:-ml-[130px]"
-              style={{ top: "10%", left: "50%" }}
-            >
-              <div
-                className="group flex flex-col items-center justify-center bg-[#111]/80 backdrop-blur-md border border-[#0CBF83]/40 shadow-[0_0_30px_rgba(12,191,131,0.2)] rounded-xl py-3 px-4 transition-all duration-500 hover:shadow-[0_0_40px_rgba(12,191,131,0.5)] hover:border-[#0CBF83]"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <span className="text-[#0CBF83] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-1 transition-transform duration-500 group-hover:-translate-y-1">
-                  Central Hub
-                </span>
-                <h3 className="text-[13px] sm:text-[17px] font-bold text-white text-center transition-transform duration-500 group-hover:-translate-y-1">
-                  AI SaaS Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Branch 1 Node */}
-            <div
-              className="b1-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "28%", left: "25%" }}
-            >
-              <div
-                className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:translate-x-1">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
-                    1
-                  </div>
-                  <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                    Discovery & Strategy
-                  </h4>
-                </div>
-                <p className="text-[9px] sm:text-[11px] text-white/40">
-                  Business & tech scope alignment
-                </p>
-              </div>
-
-              {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
-                {/* Sub-branch 1.1 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Business & User Research
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Stakeholder interviews, competitor analysis, user mapping.
-                  </span>
-                </div>
-
-                {/* Sub-branch 1.2 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      AI Feasibility & Tech Stack
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Is AI the right fit, which models/tools & cloud stack to use.
-                  </span>
-                </div>
-
-                {/* Sub-branch 1.3 */}
-                <div className="b1-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Roadmap & Success Metrics
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Phased delivery plan, KPIs to measure project success.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Branch 2 Node */}
-            <div
-              className="b2-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "28%", left: "75%" }}
-            >
-              <div
-                className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:-translate-x-1">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
-                    2
-                  </div>
-                  <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                    Design & Architecture
-                  </h4>
-                </div>
-                <p className="text-[9px] sm:text-[11px] text-white/40">
-                  Visuals & infrastructure design
-                </p>
-              </div>
-
-              {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
-                {/* Sub-branch 2.1 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      UX/UI Design
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Wireframes, interactive prototypes, product user flows.
-                  </span>
-                </div>
-
-                {/* Sub-branch 2.2 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      System Architecture
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Backend systems, databases, multi-tenancy & API layers.
-                  </span>
-                </div>
-
-                {/* Sub-branch 2.3 */}
-                <div className="b2-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      AI Model & Data Arch
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Model choices, data flow pipelines & vector store storage.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Branch 3 Node */}
-            <div
-              className="b3-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "50%", left: "25%" }}
-            >
-              <div
-                className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:translate-x-1">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
-                    3
-                  </div>
-                  <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                    AI Dev & Integration
-                  </h4>
-                </div>
-                <p className="text-[9px] sm:text-[11px] text-white/40">
-                  Full SaaS & model build
-                </p>
-              </div>
-
-              {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
-                {/* Sub-branch 3.1 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Core SaaS Feature Build
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Auth, dashboards, subscription/billing, and multi-tenancy.
-                  </span>
-                </div>
-
-                {/* Sub-branch 3.2 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      AI Model Integration
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Connecting, training & fine-tuning LLMs or custom ML models.
-                  </span>
-                </div>
-
-                {/* Sub-branch 3.3 */}
-                <div className="b3-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Data Pipelines & APIs
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Connecting external databases, tools & third-party integrations.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Branch 4 Node */}
-            <div
-              className="b4-node absolute z-10 w-[150px] sm:w-[250px] lg:w-[290px] -ml-[75px] sm:-ml-[125px] lg:-ml-[145px] flex flex-col gap-2.5"
-              style={{ top: "50%", left: "75%" }}
-            >
-              <div
-                className="group bg-[#1A1A1A]/85 backdrop-blur-md border border-white/10 shadow-lg rounded-xl p-3 sm:p-4 transition-all duration-500 hover:border-[#0CBF83]/50 hover:shadow-[0_10px_30px_rgba(12,191,131,0.15)]"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2 transition-transform duration-500 group-hover:-translate-x-1">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-[#222] border border-[#0CBF83]/50 flex items-center justify-center text-[#0CBF83] text-[10px] sm:text-xs font-bold group-hover:bg-[#0CBF83]/20 group-hover:shadow-[0_0_10px_#0CBF83] transition-all duration-500">
-                    4
-                  </div>
-                  <h4 className="text-[11px] sm:text-[14px] font-bold text-white leading-tight">
-                    Deploy & Optimize
-                  </h4>
-                </div>
-                <p className="text-[9px] sm:text-[11px] text-white/40">
-                  QA, hosting & analytics
-                </p>
-              </div>
-
-              {/* Sub-branches (Vertical tree-branch layout) */}
-              <div className="flex flex-col gap-1.5 pl-4 border-l-2 border-[#0CBF83]/30">
-                {/* Sub-branch 4.1 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      QA & Security Testing
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Functional code review, load testing, and security hardening.
-                  </span>
-                </div>
-
-                {/* Sub-branch 4.2 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Cloud Deployment & CI/CD
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Scalable cloud setups, automated CI/CD deployment pipelines.
-                  </span>
-                </div>
-
-                {/* Sub-branch 4.3 */}
-                <div className="b4-sub group/sub flex flex-col bg-[#111111]/70 backdrop-blur-md border border-white/5 py-1.5 px-2.5 rounded-lg text-left hover:border-[#0CBF83]/40 transition-all duration-300 hover:bg-[#1a1a1a]/80 shadow-md">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83] shadow-[0_0_5px_#0CBF83] animate-pulse" />
-                    <span className="font-bold text-[10px] sm:text-[12px] text-white group-hover/sub:text-[#0CBF83] transition-colors">
-                      Monitoring & Iteration
-                    </span>
-                  </div>
-                  <span className="hidden group-hover/sub:block text-[8px] sm:text-[10px] text-white/50 leading-tight mt-0.5 pl-2.5">
-                    Performance logs, user analytics tracking, and updates.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Final Outcome Convergence Node */}
-            <div
-              className="out-node absolute z-20 w-[280px] sm:w-[460px] lg:w-[500px] -ml-[140px] sm:-ml-[230px] lg:-ml-[250px]"
-              style={{ top: "72%", left: "50%" }}
-            >
-              <div
-                className="group flex flex-col items-center justify-center bg-[linear-gradient(135deg,#00235A,#0CBF83)] shadow-[0_0_40px_rgba(12,191,131,0.4)] rounded-xl py-5 px-6 border border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_rgba(12,191,131,0.7)] hover:scale-[1.02] relative"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                {/* Glow effects */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0CBF83] text-black font-extrabold text-[9px] sm:text-[10px] px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_10px_#0CBF83]">
-                  Destination Node
-                </div>
-                
-                <span className="text-[22px] sm:text-[30px] mb-2 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
-                  🚀
-                </span>
-                
-                <h3 className="text-[16px] sm:text-[22px] font-extrabold text-white text-center leading-tight transition-transform duration-500 group-hover:-translate-y-1">
-                  Production-Ready AI SaaS Product
-                </h3>
-                
-                <p className="text-[10px] sm:text-[12px] text-white/80 text-center leading-normal mt-2 max-w-[420px] transition-transform duration-500 group-hover:-translate-y-1">
-                  A live, scalable, secure AI-powered SaaS application built, deployed, and continuously improved for your business.
-                </p>
-
-                {/* Divider */}
-                <div className="w-full h-[1px] bg-white/15 my-4" />
-
-                <h4 className="text-[11px] sm:text-[12px] text-white font-bold tracking-wider uppercase mb-3 text-left w-full">
-                  What you walk away with:
-                </h4>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 w-full text-left">
-                  <div className="out-sub flex items-start gap-2 bg-black/30 border border-white/5 p-2 rounded-lg hover:border-white/20 transition-all duration-300">
-                    <span className="text-[#0CBF83] font-bold text-xs mt-[1px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
-                      Fully functional AI SaaS product live in production.
-                    </span>
-                  </div>
-                  <div className="out-sub flex items-start gap-2 bg-black/30 border border-white/5 p-2 rounded-lg hover:border-white/20 transition-all duration-300">
-                    <span className="text-[#0CBF83] font-bold text-xs mt-[1px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
-                      Scalable architecture that grows with user demand.
-                    </span>
-                  </div>
-                  <div className="out-sub flex items-start gap-2 bg-black/30 border border-white/5 p-2 rounded-lg hover:border-white/20 transition-all duration-300">
-                    <span className="text-[#0CBF83] font-bold text-xs mt-[1px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
-                      Secure, tested, and monitored infrastructure.
-                    </span>
-                  </div>
-                  <div className="out-sub flex items-start gap-2 bg-black/30 border border-white/5 p-2 rounded-lg hover:border-white/20 transition-all duration-300">
-                    <span className="text-[#0CBF83] font-bold text-xs mt-[1px]">✓</span>
-                    <span className="text-white/90 text-[10px] sm:text-[12px] font-medium leading-tight">
-                      Ongoing improvement loop & data-driven updates.
-                    </span>
+                    <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {OUTCOMES.map((item) => (
+                        <div
+                          key={item}
+                          className="out-sub flex items-start gap-3 rounded-xl border border-white/[0.065] bg-white/[0.02] p-3.5 transition-colors duration-200 hover:border-[#0CBF83]/28 hover:bg-white/[0.035]"
+                        >
+                          <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0CBF83]/15 text-[#0CBF83]">
+                            <CheckIcon className="h-3 w-3" />
+                          </span>
+                          <span className="text-[13px] leading-relaxed text-white/80">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        )}
-      </section>
-    </>
+        </div>
+      </div>
+    </section>
   );
 };
 
