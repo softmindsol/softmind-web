@@ -569,7 +569,7 @@ export function Navbar() {
   return (
     <>
       <nav className="sticky top-4 z-50 flex justify-center w-full px-4 sm:px-8 font-jakarta">
-        <div className="flex items-center justify-between w-full bg-white/60 backdrop-blur-xl rounded-full px-4 py-2 shadow-[0_4px_30px_rgba(0,35,90,0.08)] border border-white/80 h-16 gap-8 transition-all duration-300">
+        <div className="flex items-center justify-between w-full bg-white/80 backdrop-blur-xl rounded-full px-4 py-2 shadow-[0_4px_30px_rgba(0,35,90,0.08)] border border-white/80 h-16 gap-8 transition-all duration-300">
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
