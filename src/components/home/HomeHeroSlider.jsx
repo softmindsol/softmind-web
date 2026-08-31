@@ -42,59 +42,6 @@ const SLIDES = [
     subheading: "We Make Yours\nthe One That Wins.",
     tags: ["Product Strategy", "UX Excellence", "Market Leadership"],
   },
-  {
-    id: 4,
-    image: "/images/anthropic-bg.jpg",
-    badge: "Enterprise Platforms",
-    logo: <BsAnthropic size={80} color="#ffffff" />,
-    heading: "Build Scalable AI\nSolutions with Anthropic",
-    subheading:
-      "Create secure, scalable AI-powered solutions that transform business with Anthropic's advanced AI models.",
-    tags: [],
-  },
-  {
-    id: 5,
-    image: "/images/meta-bg.jpg",
-    badge: "Enterprise Platforms",
-    logo: <FaMeta size={64} color="#0369E5" />,
-    heading: "Power Next-Gen Products\nwith Meta",
-    subheading:
-      "Build immersive and intelligent applications with Meta’s cutting-edge AI and AR/VR technologies.",
-    tags: [],
-  },
-  {
-    id: 6,
-    image: "/images/microsoft-bg.jpg",
-    badge: "Enterprise Platforms",
-    logo: (
-      <div className="flex items-center gap-3">
-        <Image
-          src={MsLogo}
-          alt="Microsoft"
-          width={36}
-          height={36}
-          className="object-contain"
-        />
-        <span className="text-white text-4xl font-semibold tracking-wide">
-          Microsoft
-        </span>
-      </div>
-    ),
-    heading: "Modern Workplace\nSolutions on Microsoft",
-    subheading:
-      "Enable seamless collaboration and automation with a modern, cloud-powered digital workplace.",
-    tags: [],
-  },
-  {
-    id: 7,
-    image: "/images/cisco-bg.jpg",
-    badge: "Enterprise Platforms",
-    logo: <SiCisco size={80} color="#049FD8" />,
-    heading: "Connect and Secure\nYour Digital Future",
-    subheading:
-      "Enable seamless collaboration and automation with a modern, cloud-powered digital workplace.",
-    tags: [],
-  },
 ];
 
 const TECH_LOGOS = [
@@ -149,6 +96,13 @@ function SlideBackgrounds({ slides, currentSlide }) {
 function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
   return (
     <div className="flex flex-col gap-5 sm:gap-6 max-w-3xl">
+      {/* ── Top Blue Bar text ── */}
+      <div className="flex items-center gap-3 bg-[#111620]/80 backdrop-blur-sm pr-6 py-3 border-l-4 border-[#0369E5] w-fit mb-2 animate-hs-badge shadow-lg">
+        <span className="text-white/90 text-sm sm:text-base font-semibold tracking-wide pl-4">
+          AI enabled Product Engineering and Digital Solution Partner
+        </span>
+      </div>
+
       {/* ── Category badge ── */}
       <div className="animate-hs-badge">
         <span className="inline-flex items-center gap-2.5 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-white/30 text-white/80 text-[10px] sm:text-xs font-bold tracking-[2px] sm:tracking-[3px] uppercase">
@@ -409,13 +363,41 @@ export default function HomeHeroSlider() {
           </div>
 
           {/* Bottom bar: mobile dots + logo row */}
-          <div className="w-full">
+          <div className="w-full relative z-20">
             <MobileDots
               slides={SLIDES}
               currentSlide={currentSlide}
               goToSlide={goToSlide}
             />
-            <div className="w-full h-px bg-white/10" />
+
+            {/* Tech Partners Bar */}
+            <div className="w-full border-t border-white/10 bg-black/40 backdrop-blur-md">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span className="text-white/60 text-xs font-semibold tracking-widest uppercase">
+                  Certified and recognised by the world&apos;s leading
+                  technology companies
+                </span>
+
+                <div className="flex items-center gap-6 sm:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="flex items-center gap-2 text-white font-bold text-xl">
+                    <FcGoogle size={28} />
+                    <span>Google</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-bold text-xl">
+                    <FaMeta size={28} color="#0369E5" />
+                    <span>Meta</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-bold text-xl">
+                    <FaAws size={28} color="#FF9900" />
+                    <span>AWS</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-bold text-xl">
+                    <BsAnthropic size={28} color="#ffffff" />
+                    <span>Anthropic</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

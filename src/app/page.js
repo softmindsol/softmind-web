@@ -1,5 +1,6 @@
 import HomeHeroSlider from "@/components/home/HomeHeroSlider";
 import ClientLogos from "@/components/home/clientLogos";
+import Certifications from "@/components/home/certifications";
 import WhatWeOffer from "@/components/home/whatWeOffer";
 import Industries from "@/components/home/industries";
 import AboutUs from "@/components/home/aboutUs";
@@ -19,6 +20,7 @@ export default function Home() {
       <HomeHeroSlider />
       <WhatWeOffer />
       <ClientLogos />
+      <Certifications />
       <Industries />
       <AboutUs />
       <TechStack />
