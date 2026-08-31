@@ -6,7 +6,10 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaArrowRight } from "react-icons/fa";
 import { FaAws, FaMeta } from "react-icons/fa6";
 import { BsAnthropic } from "react-icons/bs";
+// import { SiCisco, SiOracle } from "react-icons/si";
 import { SiCisco } from "react-icons/si";
+import { GrOracle } from "react-icons/gr";
+
 import { MsLogo } from "../../../public/images";
 import Link from "next/link";
 
@@ -38,6 +41,59 @@ const SLIDES = [
     heading: "Your Competitors Have a Product.",
     subheading: "We Make Yours\nthe One That Wins.",
     tags: ["Product Strategy", "UX Excellence", "Market Leadership"],
+  },
+  {
+    id: 4,
+    image: "/images/anthropic-bg.jpg",
+    badge: "Enterprise Platforms",
+    logo: <BsAnthropic size={80} color="#ffffff" />,
+    heading: "Build Scalable AI\nSolutions with Anthropic",
+    subheading:
+      "Create secure, scalable AI-powered solutions that transform business with Anthropic's advanced AI models.",
+    tags: [],
+  },
+  {
+    id: 5,
+    image: "/images/meta-bg.jpg",
+    badge: "Enterprise Platforms",
+    logo: <FaMeta size={64} color="#0369E5" />,
+    heading: "Power Next-Gen Products\nwith Meta",
+    subheading:
+      "Build immersive and intelligent applications with Meta’s cutting-edge AI and AR/VR technologies.",
+    tags: [],
+  },
+  {
+    id: 6,
+    image: "/images/microsoft-bg.jpg",
+    badge: "Enterprise Platforms",
+    logo: (
+      <div className="flex items-center gap-3">
+        <Image
+          src={MsLogo}
+          alt="Microsoft"
+          width={36}
+          height={36}
+          className="object-contain"
+        />
+        <span className="text-white text-4xl font-semibold tracking-wide">
+          Microsoft
+        </span>
+      </div>
+    ),
+    heading: "Modern Workplace\nSolutions on Microsoft",
+    subheading:
+      "Enable seamless collaboration and automation with a modern, cloud-powered digital workplace.",
+    tags: [],
+  },
+  {
+    id: 7,
+    image: "/images/cisco-bg.jpg",
+    badge: "Enterprise Platforms",
+    logo: <SiCisco size={80} color="#049FD8" />,
+    heading: "Connect and Secure\nYour Digital Future",
+    subheading:
+      "Enable seamless collaboration and automation with a modern, cloud-powered digital workplace.",
+    tags: [],
   },
 ];
 
@@ -92,46 +148,52 @@ function SlideBackgrounds({ slides, currentSlide }) {
 /** Left-aligned text block: badge → heading → subheading → tags → CTA buttons. */
 function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
   return (
-    <div className="flex flex-col gap-6 max-w-3xl">
+    <div className="flex flex-col gap-5 sm:gap-6 max-w-3xl">
       {/* ── Category badge ── */}
       <div className="animate-hs-badge">
-        <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/30 text-white/80 text-xs font-bold tracking-[3px] uppercase">
+        <span className="inline-flex items-center gap-2.5 px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-white/30 text-white/80 text-[10px] sm:text-xs font-bold tracking-[2px] sm:tracking-[3px] uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-[#0CBF83]" />
           {slide.badge}
         </span>
       </div>
 
+      {slide.logo && (
+        <div className="animate-hs-heading -mt-2 sm:-mt-1">{slide.logo}</div>
+      )}
+
       {/* ── Main heading ── */}
-      <h1 className="text-white font-extrabold leading-none tracking-tight">
+      <h1 className="text-white font-extrabold leading-[1.1] tracking-tight">
         {/* Line 1 — plain white */}
-        <span className="animate-hs-heading block xl:text-5xl md:text-4xl text-3xl">
+        <span className="animate-hs-heading block text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
           {slide.heading}
         </span>
 
         {/* Line 2 — white-to-green gradient */}
-        <span className="animate-hs-subheading block mt-3 text-lg tracking-wide font-medium">
+        <span className="animate-hs-subheading block mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl tracking-wide font-medium text-white/90 max-w-2xl">
           {slide.subheading}
         </span>
       </h1>
 
       {/* ── Keyword tags ── */}
-      <div className="animate-hs-tags flex flex-wrap gap-2 opacity-0">
-        {slide.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/45 bg-white/15 backdrop-blur-sm tracking-wide"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+      {slide.tags && slide.tags.length > 0 && (
+        <div className="animate-hs-tags flex flex-wrap gap-2 opacity-0">
+          {slide.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/45 bg-white/15 backdrop-blur-sm tracking-wide"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* ── CTA buttons ── */}
-      <div className="animate-hs-cta flex flex-wrap gap-4 mt-2 opacity-0">
+      <div className="animate-hs-cta flex flex-wrap gap-3 sm:gap-4 mt-1 sm:mt-2 opacity-0">
         <Link href="/contact-us">
           <button
             onClick={onDiscoveryCall}
-            className="group flex items-center gap-3 px-7 py-3.5 rounded-full font-bold text-sm tracking-wide text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(12,191,131,0.4)] bg-[linear-gradient(135deg,#0CBF83_0%,#004BC0_100%)]"
+            className="group flex items-center gap-3 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm tracking-wide text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(12,191,131,0.4)] bg-[linear-gradient(135deg,#0CBF83_0%,#004BC0_100%)] w-full sm:w-auto justify-center"
           >
             Book a Discovery Call
             <FaArrowRight
@@ -143,7 +205,7 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
 
         <button
           onClick={onViewWork}
-          className="flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide cursor-pointer text-white/80 border border-white/25 bg-white/10 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300"
+          className="flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm tracking-wide cursor-pointer text-white/80 border border-white/25 bg-white/10 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300 w-full sm:w-auto"
         >
           View Our Work
         </button>
@@ -249,26 +311,26 @@ function MobileDots({ slides, currentSlide, goToSlide }) {
 function LogoBar({ logos }) {
   return (
     <div className="w-full bg-black/55 backdrop-blur-[16px]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-5">
-        <p className="text-white/80 text-[10px] font-bold tracking-[2.5px] uppercase whitespace-nowrap text-center sm:text-left">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-5">
+        <p className="text-white/80 text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[2.5px] uppercase text-center lg:text-left">
           Certified &amp; recognised by the world&apos;s leading technology
           companies
         </p>
 
         {/* Vertical divider (desktop only) */}
-        <div className="hidden sm:block w-px h-8 bg-white/10 flex-shrink-0" />
+        <div className="hidden lg:block w-px h-8 bg-white/10 flex-shrink-0" />
 
-        <div className="flex items-center gap-8 sm:gap-12">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12">
           {logos.map((logo) => (
             <div
               key={logo.name}
               title={logo.name}
               className="flex flex-col items-center gap-1.5 group cursor-pointer"
             >
-              <div className="transition-opacity duration-300 flex items-center justify-center h-7">
+              <div className="transition-opacity duration-300 flex items-center justify-center h-6 sm:h-7">
                 {logo.icon}
               </div>
-              <span className="text-white/60 text-[8px] font-bold tracking-[2px] uppercase group-hover:text-white transition-colors duration-300">
+              <span className="text-white/60 text-[7px] sm:text-[8px] font-bold tracking-[1.5px] sm:tracking-[2px] uppercase group-hover:text-white transition-colors duration-300">
                 {logo.name}
               </span>
             </div>
@@ -355,13 +417,13 @@ export default function HomeHeroSlider() {
         <SlideBackgrounds slides={SLIDES} currentSlide={currentSlide} />
 
         {/* Layer 2 — Foreground content (z-10) */}
-        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)]">
-          {/* Push content below the navbar */}
-          {/* <div className="h-[140px]" aria-hidden="true" /> */}
+        <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)] pt-24 sm:pt-32 lg:pt-0">
+          {/* Push content below the navbar (desktop) */}
+          <div className="hidden lg:block h-[140px]" aria-hidden="true" />
 
           {/* Main content row: text left, counter right */}
           <div className="flex-1 flex items-center">
-            <div className="w-full mx-auto px-6 lg:px-16 flex items-center justify-between gap-8">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-8">
               <SlideContent
                 key={
                   currentSlide
