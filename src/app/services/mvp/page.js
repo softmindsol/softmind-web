@@ -33,7 +33,7 @@ const MVP = () => {
       <MvpServices />
       <MvpWhyChoose />
       <MvpDevelopmentProcess />
-      <MvpCaseStudy />
+      {/* <MvpCaseStudy /> */}
       <MvpTestimonials />
       <MvpIndustries />
       <MvpTechnology />

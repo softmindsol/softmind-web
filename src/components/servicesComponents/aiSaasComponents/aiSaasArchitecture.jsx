@@ -50,7 +50,7 @@ const architectureData = [
 
 export default function AiSaasArchitecture() {
   return (
-    <section className="relative w-full bg-[#161616] text-white py-24 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-dark text-white py-24 overflow-hidden font-jakarta">
       {/* Background Radial Glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none opacity-30 blur-[150px]"

@@ -41,7 +41,7 @@ const MobileApp = () => {
       <TechStack />
       <WhyChooseSoftmind />
       <IndustriesWeServe />
-      <CustomSoftwareCaseStudy />
+      {/* <CustomSoftwareCaseStudy /> */}
       <TestimonialSlider />
       <ContactFormSection />
       <MobileFaqs />

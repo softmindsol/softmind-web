@@ -2,14 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Zap,
-  DollarSign,
-  Users,
-  Layers,
-  BarChart3,
-  Award,
-} from "lucide-react";
+import { Zap, DollarSign, Users, Layers, BarChart3, Award } from "lucide-react";
 
 const benefits = [
   {
@@ -87,7 +80,7 @@ const itemVariants = {
 
 export default function MvpBuildValue() {
   return (
-    <section className="relative w-full bg-[#111111] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-dark text-white py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#0CBF83]/8 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#004BC0]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -134,7 +127,9 @@ export default function MvpBuildValue() {
                   className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${benefit.color} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out`}
                 />
 
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-[#0CBF83] mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <Icon className="w-7 h-7" />
                 </div>
 

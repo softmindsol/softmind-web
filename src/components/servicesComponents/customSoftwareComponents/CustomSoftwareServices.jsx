@@ -133,7 +133,7 @@ export default function CustomSoftwareServices() {
               >
                 {/* Subtle Hover Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0CBF83]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[20px]" />
-                
+
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-5 gap-3">
                     <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-[#00235A] to-[#004BC0] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 border border-white/10 shadow-inner">
@@ -158,11 +158,11 @@ export default function CustomSoftwareServices() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center flex flex-col items-center">
+        {/* <div className="mt-16 text-center flex flex-col items-center">
           <Link href="/contact-us">
             <CustomButton btnText="Start Your Software Project" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

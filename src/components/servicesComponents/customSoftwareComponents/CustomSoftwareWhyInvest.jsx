@@ -61,7 +61,7 @@ const points = [
 
 export default function CustomSoftwareWhyInvest() {
   return (
-    <section className="relative w-full bg-white text-[#00235A] py-20 lg:py-24 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 text-[#00235A] py-20 lg:py-24 font-jakarta overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#0CBF83]/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -130,7 +130,7 @@ export default function CustomSoftwareWhyInvest() {
             to discuss your technical requirements and product roadmap.
           </p>
 
-          <Link href="/contact">
+          <Link href="/contact-us">
             <CustomButton btnText="Schedule a Free Discovery Call" />
           </Link>
         </div>

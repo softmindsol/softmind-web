@@ -49,7 +49,7 @@ const valueItems = [
 
 const BusinessValue = () => {
   return (
-    <section className="w-full relative font-jakarta bg-[#F8FAFC]">
+    <section className="w-full relative font-jakarta bg-gray-200">
       <div className="relative py-20 lg:py-28 overflow-hidden">
         <div className="relative z-10 w-full mx-auto px-6 lg:px-8">
           {/* Header */}

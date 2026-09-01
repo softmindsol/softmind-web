@@ -7,7 +7,7 @@ import CustomButton from "@/components/customs/customButton";
 
 export default function MvpCta() {
   return (
-    <section className="relative w-full bg-[#111111] py-20 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gray-200 py-16 overflow-hidden font-jakarta">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -20,14 +20,13 @@ export default function MvpCta() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#00235A] rounded-full blur-[100px] pointer-events-none" />
 
           <h2 className="text-3xl md:text-4xl lg:text-[50px] font-bold text-white mb-4 relative z-10 leading-tight">
-            Ready to Validate Your{" "}
-            <br className="hidden md:block" />
+            Ready to Validate Your <br className="hidden md:block" />
             <span className="text-[#0CBF83]">Product Idea?</span>
           </h2>
 
           <p className="text-white/80 text-base md:text-lg font-medium leading-relaxed max-w-[700px] mb-4 relative z-10">
-            Don&apos;t spend months building a product before discovering whether
-            the market wants it.
+            Don&apos;t spend months building a product before discovering
+            whether the market wants it.
           </p>
 
           <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed max-w-[650px] mb-8 relative z-10">
@@ -41,7 +40,7 @@ export default function MvpCta() {
           </p>
 
           <div className="relative z-10">
-            <Link href="/contact">
+            <Link href="/contact-us">
               <CustomButton btnText="Start Your MVP Project" />
             </Link>
           </div>

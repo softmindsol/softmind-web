@@ -69,7 +69,7 @@ const itemVariants = {
 
 export default function MvpWhyChoose() {
   return (
-    <section className="relative w-full bg-white text-black py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-blue-50 text-black py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Background ambient lighting */}
       <div
         className="absolute top-1/2 left-[-150px] w-[550px] h-[550px] rounded-full pointer-events-none opacity-20 blur-[160px]"

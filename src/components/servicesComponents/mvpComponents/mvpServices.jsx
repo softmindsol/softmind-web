@@ -75,7 +75,7 @@ const itemVariants = {
 
 const MvpServices = () => {
   return (
-    <section className="w-full py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section className="w-full py-20 lg:py-28 bg-white relative font-jakarta overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-gray-50 to-transparent pointer-events-none"></div>
 

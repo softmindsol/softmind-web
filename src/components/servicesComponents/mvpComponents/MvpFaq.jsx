@@ -88,7 +88,7 @@ export default function MvpFaq() {
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="flex items-center justify-between w-full p-6 sm:p-7 text-left focus:outline-none cursor-pointer"
+                  className="flex items-center justify-between w-full p-4 sm:p-5 text-left focus:outline-none cursor-pointer"
                 >
                   <span
                     className={`text-base sm:text-lg font-bold tracking-wide transition-colors duration-300 pr-4 ${

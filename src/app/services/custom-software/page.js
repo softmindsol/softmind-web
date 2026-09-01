@@ -40,7 +40,7 @@ const CustomSoftware = () => {
       <CustomSoftwareProcess />
       <CustomSoftwareWhyChoose />
       <CustomSoftwareWhyInvest />
-      <CustomSoftwareCaseStudy />
+      {/* <CustomSoftwareCaseStudy /> */}
       <CustomSoftwareTestimonials />
       <CustomSoftwareIndustry />
       <ContactFormSection />

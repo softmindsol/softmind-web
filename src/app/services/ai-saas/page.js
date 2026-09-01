@@ -39,7 +39,7 @@ const AISaas = () => {
       <AiSaasOutcomes />
       <DevelopmetProcess />
       <AiSaasArchitecture />
-      <AiSaasCaseStudy />
+      {/* <AiSaasCaseStudy /> */}
       <EngagementModels />
       <TestimonialSlider />
       <WhyChooseSoftmind />
