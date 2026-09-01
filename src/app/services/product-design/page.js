@@ -17,7 +17,7 @@ const ProductDesign = () => {
         typewriterPhrases={["Digital Experiences"]}
         description="Building scalable, AI-driven SaaS platforms that automate workflows, unlock insights, and accelerate business growth."
         primaryButtonText="Start a Project"
-        primaryButtonLink="/contact"
+        primaryButtonLink="/contact-us"
         secondaryButtonText={null}
         showBottomText={false}
       />

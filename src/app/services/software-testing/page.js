@@ -28,7 +28,7 @@ const SoftwareTesting = () => {
         typewriterPhrases={["For Startups"]}
         description="Build better software. Release faster. Reduce QA costs. Expert offshore software testing and quality assurance services for startups and growing businesses in the USA and MENA."
         primaryButtonText="Get a Free QA Consultation"
-        primaryButtonLink="/contact"
+        primaryButtonLink="/contact-us"
         secondaryButtonText={null}
         showBottomText={false}
       />

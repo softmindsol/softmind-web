@@ -80,7 +80,7 @@ export default function StTestingServices() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="relative w-full bg-[#f8fafb] py-20 md:py-28 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-[#f8fafb] py-18 md:py-24 overflow-hidden font-jakarta">
       {/* Background decorative */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-green/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none" />

@@ -103,13 +103,13 @@ export default function StWhyChoose() {
         {/* Bottom CTA strip */}
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center gap-2 bg-green hover:bg-[#0aad76] text-white font-bold text-[14px] tracking-wide rounded-full px-8 py-4 transition-all duration-300 hover:shadow-[0_0_28px_rgba(12,191,131,0.45)] hover:scale-[1.03] active:scale-[0.98]"
           >
             Start With a Free QA Consultation
             <FiArrowRight size={16} />
           </a>
-          <p className="text-white/40 text-[13px] font-medium">
+          <p className="text-white/80 text-sm font-medium">
             No commitment required · Free 30-min session
           </p>
         </div>

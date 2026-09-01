@@ -76,7 +76,7 @@ const StEngagementModels = () => {
               {/* Arrow link */}
               <div className="mt-auto pt-2">
                 <a
-                  href="/contact"
+                  href="/contact-us"
                   className="inline-flex items-center gap-1.5 text-[13px] font-bold text-green opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   Learn more
