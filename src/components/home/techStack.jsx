@@ -2,91 +2,114 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { SoftMindSolLogo } from "../../../public/images";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiNodedotjs,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiGraphql,
+  SiTailwindcss,
+  SiRedis,
+  SiVercel,
+  SiFlutter,
+  SiExpo,
+  SiFirebase,
+  SiSwift,
+  SiKotlin,
+  SiAppstore,
+  SiGoogleplay,
+  SiSupabase,
+  SiStripe,
+  SiGoogleanalytics,
+} from "react-icons/si";
+import { FaAws, FaBell } from "react-icons/fa";
 
 const tabs = ["Web Development", "Mobile App Development"];
 
 const webTech = [
   {
     name: "React",
-    icon: "⚛️",
+    icon: <SiReact size={24} />,
     color: "#61DAFB",
     bg: "rgba(97,218,251,0.3)",
     border: "rgba(97,218,251,0.2)",
   },
   {
     name: "Next.js",
-    icon: "▲",
+    icon: <SiNextdotjs size={24} />,
     color: "#000000",
     bg: "rgba(255,255,255,0.3)",
     border: "rgba(255,255,255,0.12)",
   },
   {
     name: "TypeScript",
-    icon: "TS",
+    icon: <SiTypescript size={24} />,
     color: "#3178C6",
     bg: "rgba(49,120,198,0.3)",
     border: "rgba(49,120,198,0.2)",
-    isText: true,
   },
   {
     name: "Node.js",
-    icon: "⬡",
+    icon: <SiNodedotjs size={24} />,
     color: "#339933",
     bg: "rgba(51,153,51,0.3)",
     border: "rgba(51,153,51,0.2)",
   },
   {
     name: "PostgreSQL",
-    icon: "🐘",
+    icon: <SiPostgresql size={24} />,
     color: "#336791",
     bg: "rgba(51,103,145,0.3)",
     border: "rgba(51,103,145,0.2)",
   },
   {
     name: "MongoDB",
-    icon: "🍃",
+    icon: <SiMongodb size={24} />,
     color: "#47A248",
     bg: "rgba(71,162,72,0.3)",
     border: "rgba(71,162,72,0.2)",
   },
   {
     name: "AWS",
-    icon: "☁️",
+    icon: <FaAws size={24} />,
     color: "#FF9900",
     bg: "rgba(255,153,0,0.3)",
     border: "rgba(255,153,0,0.2)",
   },
   {
     name: "Docker",
-    icon: "🐋",
+    icon: <SiDocker size={24} />,
     color: "#2496ED",
     bg: "rgba(36,150,237,0.3)",
     border: "rgba(36,150,237,0.2)",
   },
   {
     name: "GraphQL",
-    icon: "◈",
+    icon: <SiGraphql size={24} />,
     color: "#E10098",
     bg: "rgba(225,0,152,0.3)",
     border: "rgba(225,0,152,0.2)",
   },
   {
     name: "Tailwind CSS",
-    icon: "🎨",
+    icon: <SiTailwindcss size={24} />,
     color: "#06B6D4",
     bg: "rgba(6,182,212,0.3)",
     border: "rgba(6,182,212,0.2)",
   },
   {
     name: "Redis",
-    icon: "⚡",
+    icon: <SiRedis size={24} />,
     color: "#DC382D",
     bg: "rgba(220,56,45,0.3)",
     border: "rgba(220,56,45,0.2)",
   },
   {
     name: "Vercel",
-    icon: "▲",
+    icon: <SiVercel size={24} />,
     color: "#ffffff",
     bg: "rgba(0,0,0,0.3)",
     border: "rgba(255,255,255,0.15)",
@@ -96,85 +119,84 @@ const webTech = [
 const mobileTech = [
   {
     name: "React Native",
-    icon: "⚛️",
+    icon: <SiReact size={24} />,
     color: "#61DAFB",
     bg: "rgba(97,218,251,0.3)",
     border: "rgba(97,218,251,0.2)",
   },
   {
     name: "Flutter",
-    icon: "🐦",
+    icon: <SiFlutter size={24} />,
     color: "#02569B",
     bg: "rgba(2,86,155,0.3)",
     border: "rgba(2,86,155,0.2)",
   },
   {
     name: "Expo",
-    icon: "◎",
+    icon: <SiExpo size={24} />,
     color: "#000000",
     bg: "rgba(255,255,255,0.3)",
     border: "rgba(255,255,255,0.3)",
   },
   {
     name: "Firebase",
-    icon: "🔥",
+    icon: <SiFirebase size={24} />,
     color: "#FFCA28",
     bg: "rgba(255,202,40,0.3)",
     border: "rgba(255,202,40,0.2)",
   },
   {
     name: "Swift",
-    icon: "🍎",
+    icon: <SiSwift size={24} />,
     color: "#F05138",
     bg: "rgba(240,81,56,0.3)",
     border: "rgba(240,81,56,0.2)",
   },
   {
     name: "Kotlin",
-    icon: "K",
+    icon: <SiKotlin size={24} />,
     color: "#7F52FF",
     bg: "rgba(127,82,255,0.3)",
     border: "rgba(127,82,255,0.2)",
-    isText: true,
   },
   {
     name: "App Store",
-    icon: "🍎",
+    icon: <SiAppstore size={24} />,
     color: "#0D96F6",
     bg: "rgba(13,150,246,0.3)",
     border: "rgba(13,150,246,0.2)",
   },
   {
     name: "Play Store",
-    icon: "▶",
+    icon: <SiGoogleplay size={24} />,
     color: "#34A853",
     bg: "rgba(52,168,83,0.3)",
     border: "rgba(52,168,83,0.2)",
   },
   {
     name: "Supabase",
-    icon: "⚡",
+    icon: <SiSupabase size={24} />,
     color: "#3ECF8E",
     bg: "rgba(62,207,142,0.3)",
     border: "rgba(62,207,142,0.2)",
   },
   {
     name: "Push Notifications",
-    icon: "🔔",
+    icon: <FaBell size={24} />,
     color: "#FF6B35",
     bg: "rgba(255,107,53,0.3)",
     border: "rgba(255,107,53,0.2)",
   },
   {
     name: "Stripe SDK",
-    icon: "💳",
+    icon: <SiStripe size={24} />,
     color: "#635BFF",
     bg: "rgba(99,91,255,0.3)",
     border: "rgba(99,91,255,0.2)",
   },
   {
     name: "Analytics",
-    icon: "📊",
+    icon: <SiGoogleanalytics size={24} />,
     color: "#E87722",
     bg: "rgba(232,119,34,0.3)",
     border: "rgba(232,119,34,0.2)",
@@ -253,16 +275,7 @@ export default function TechStack() {
                 className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-transform duration-300 group-hover:scale-110"
                 style={{ background: item.bg, color: item.color }}
               >
-                {item.isText ? (
-                  <span
-                    className="text-sm font-black"
-                    style={{ color: item.color }}
-                  >
-                    {item.icon}
-                  </span>
-                ) : (
-                  <span>{item.icon}</span>
-                )}
+                {item.icon}
               </div>
 
               {/* Name */}
@@ -274,7 +287,7 @@ export default function TechStack() {
         </div>
 
         {/* Bottom note */}
-        <p className="text-center text-xs text-grey/60 mt-10 font-medium">
+        <p className="text-center text-sm text-white/80 mt-10 font-medium">
           + many more tools depending on project requirements
         </p>
       </div>
