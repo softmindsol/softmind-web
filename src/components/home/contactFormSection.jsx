@@ -18,6 +18,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
+import { FcGoogle } from "react-icons/fc";
+import { FaMeta } from "react-icons/fa6";
+import { FaAws } from "react-icons/fa";
+import { BsAnthropic } from "react-icons/bs";
+import { SiCisco } from "react-icons/si";
+import Image from "next/image";
+import { MsLogo } from "../../../public/images";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -164,22 +171,34 @@ export default function ContactFormSection() {
             </div>
 
             {/* Trust Badges */}
-            {/* <div className="bg-[#F8FAFC] rounded-2xl border border-gray-100 p-6 flex flex-col gap-3">
-              <p className="text-sm font-bold text-dark">Why teams trust us:</p>
-              {[
-                "300+ projects delivered across 4 industries",
-                "14+ years of combined team experience",
-                "NDA signed before every conversation",
-                "No upfront fees — just a conversation first",
-              ].map((point, idx) => (
-                <div key={idx} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-green shrink-0" />
-                  <span className="text-sm text-dark/70 font-medium">
-                    {point}
-                  </span>
+            <div className="bg-[#F8FAFC] rounded-2xl border border-gray-100 p-6 flex flex-col gap-5">
+              <p className="text-base font-bold text-dark">
+                The World&apos;s Leading Technology Platforms Trust Our
+                Engineers. So Can You.
+              </p>
+              <div className="flex flex-wrap items-center gap-6 sm:gap-x-8 transition-all duration-500">
+                <div className="flex items-center gap-2 text-black font-bold text-xl">
+                  <FcGoogle size={28} />
+                  <span>Google</span>
                 </div>
-              ))}
-            </div> */}
+                <div className="flex items-center gap-2 text-black font-bold text-xl">
+                  <FaMeta size={28} color="#0369E5" />
+                  <span>Meta</span>
+                </div>
+                <div className="flex items-center gap-2 text-black font-bold text-xl">
+                  <BsAnthropic size={28} color="#000000" />
+                  <span>Anthropic</span>
+                </div>
+                <div className="flex items-center gap-2 text-black font-bold text-xl">
+                  <Image src={MsLogo} alt="Microsoft" width={22} height={22} />
+                  <span>Microsoft</span>
+                </div>
+                <div className="flex items-center gap-2 text-black font-bold text-xl">
+                  <SiCisco size={34} color="#049fd9" />
+                  <span>Cisco</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right: Form */}

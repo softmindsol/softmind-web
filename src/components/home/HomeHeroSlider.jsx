@@ -118,12 +118,12 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
       {/* ── Main heading ── */}
       <h1 className="text-white font-extrabold leading-[1.1] tracking-tight">
         {/* Line 1 — plain white */}
-        <span className="animate-hs-heading block text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+        <span className="animate-hs-heading block text-3xl md:text-4xl lg:text-5xl">
           {slide.heading}
         </span>
 
         {/* Line 2 — white-to-green gradient */}
-        <span className="animate-hs-subheading block mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl tracking-wide font-medium text-white/90 max-w-2xl">
+        <span className="animate-hs-subheading block mt-3 sm:mt-4 text-base lg:text-xl tracking-wide font-medium text-white/90 max-w-2xl">
           {slide.subheading}
         </span>
       </h1>
@@ -338,9 +338,6 @@ export default function HomeHeroSlider() {
 
         {/* Layer 2 — Foreground content (z-10) */}
         <div className="relative z-10 flex flex-col justify-between min-h-[calc(100svh+82px)] pt-12 lg:pt-0">
-          {/* Push content below the navbar (desktop) */}
-          {/* <div className="hidden lg:block h-[140px]" aria-hidden="true" /> */}
-
           {/* Main content row: text left, counter right */}
           <div className="flex-1 flex items-center">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-8">
@@ -372,13 +369,13 @@ export default function HomeHeroSlider() {
 
             {/* Tech Partners Bar */}
             <div className="w-full border-t border-white/10 bg-black/40 backdrop-blur-md">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span className="text-white/60 text-xs font-semibold tracking-widest uppercase">
+              <div className="w-full mx-auto px-4 sm:px-6 lg:px-16 py-4 flex flex-col lg:flex-row items-center justify-between gap-4">
+                <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">
                   Certified and recognised by the world&apos;s leading
                   technology companies
                 </span>
 
-                <div className="flex items-center gap-6 sm:gap-10 transition-all duration-500">
+                <div className="flex flex-wrap items-center gap-6 lg:gap-12 transition-all duration-500">
                   <div className="flex items-center gap-2 text-white font-bold text-xl">
                     <FcGoogle size={28} />
                     <span>Google</span>
@@ -388,8 +385,13 @@ export default function HomeHeroSlider() {
                     <span>Meta</span>
                   </div>
                   <div className="flex items-center gap-2 text-white font-bold text-xl">
-                    <FaAws size={28} color="#FF9900" />
-                    <span>AWS</span>
+                    <Image
+                      src={MsLogo}
+                      alt="Microsoft"
+                      width={22}
+                      height={22}
+                    />
+                    <span>Microsoft</span>
                   </div>
                   <div className="flex items-center gap-2 text-white font-bold text-xl">
                     <BsAnthropic size={28} color="#ffffff" />
