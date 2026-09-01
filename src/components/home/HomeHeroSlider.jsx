@@ -378,7 +378,7 @@ export default function HomeHeroSlider() {
                   technology companies
                 </span>
 
-                <div className="flex items-center gap-6 sm:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="flex items-center gap-6 sm:gap-10 transition-all duration-500">
                   <div className="flex items-center gap-2 text-white font-bold text-xl">
                     <FcGoogle size={28} />
                     <span>Google</span>
@@ -394,6 +394,10 @@ export default function HomeHeroSlider() {
                   <div className="flex items-center gap-2 text-white font-bold text-xl">
                     <BsAnthropic size={28} color="#ffffff" />
                     <span>Anthropic</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-bold text-xl">
+                    <SiCisco size={34} color="#049fd9" />
+                    <span>Cisco</span>
                   </div>
                 </div>
               </div>
