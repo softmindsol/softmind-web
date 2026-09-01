@@ -72,12 +72,12 @@ const playbookData = [
 
 export default function FinTechSecureScalable() {
   return (
-    <section className="relative w-full bg-[#f8f9fa] py-20 lg:py-28 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-[#f8f9fa] py-18 lg:py-24 overflow-hidden font-jakarta">
       {/* Decorative Orbs */}
       <div className="absolute top-[10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-blue-100/50 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-green/10 blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-[1350px] mx-auto px-6 md:px-12">
+      <div className="relative z-10 w-full mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[950px] mx-auto mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-2 bg-navy/5 border border-navy/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">

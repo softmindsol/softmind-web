@@ -47,7 +47,7 @@ export default function FinTechAIExpertise() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(12,191,131,0.06),transparent_50%)] pointer-events-none" />
       <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/5 blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[1350px]">
+      <div className="relative z-10 mx-auto px-6 md:px-12 w-full">
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[900px] mx-auto mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-2 bg-white border border-gray-200 shadow-sm rounded-full px-4 py-1.5 mb-6">

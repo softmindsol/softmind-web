@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { SoftMindSolLogo } from "../../../public/images";
+import Link from "next/link";
 
 export default function EngagementModels() {
   const models = [
@@ -157,23 +158,25 @@ export default function EngagementModels() {
               </div>
 
               {/* Action Button */}
-              <div className="w-full mt-auto">
-                <Button
-                  variant={model.highlight ? "default" : "outline"}
-                  className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm rounded-full cursor-pointer hover:bg-green/80 transition-colors duration-200"
-                  style={
-                    model.highlight
-                      ? {
-                          backgroundColor: "#0CBF83",
-                          borderColor: "#0CBF83",
-                          color: "#00235A",
-                        }
-                      : {}
-                  }
-                >
-                  {model.cta}
-                </Button>
-              </div>
+              <Link href="/contact-us">
+                <div className="w-full mt-auto">
+                  <Button
+                    variant={model.highlight ? "default" : "outline"}
+                    className="w-full py-5 text-center font-bold flex justify-center items-center shadow-sm rounded-full cursor-pointer hover:bg-green/80 transition-colors duration-200"
+                    style={
+                      model.highlight
+                        ? {
+                            backgroundColor: "#0CBF83",
+                            borderColor: "#0CBF83",
+                            color: "#00235A",
+                          }
+                        : {}
+                    }
+                  >
+                    {model.cta}
+                  </Button>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
