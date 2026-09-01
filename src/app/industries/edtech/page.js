@@ -38,7 +38,7 @@ export default function EdTechPage() {
       <WhySoftMind />
       <EngagementModel />
       <ModernizationSection />
-      <SuccessStories />
+      {/* <SuccessStories /> */}
       <TestimonialSlider />
       <DevelopmentProcess />
       <FAQs />
