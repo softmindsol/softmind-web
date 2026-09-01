@@ -3,7 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Brain, Bot, Sparkles, Search, FileText, LineChart, Workflow, UserCog, Activity } from "lucide-react";
+import {
+  Brain,
+  Bot,
+  Sparkles,
+  Search,
+  FileText,
+  LineChart,
+  Workflow,
+  UserCog,
+  Activity,
+} from "lucide-react";
 import CustomButton from "@/components/customs/customButton";
 
 const capabilities = [
@@ -20,10 +30,12 @@ const capabilities = [
 export default function WebAppAi() {
   return (
     <section className="relative w-full bg-[#0D0D0D] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-20 blur-[200px]" style={{ backgroundColor: "#0CBF83" }} />
-      
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-20 blur-[200px]"
+        style={{ backgroundColor: "#0CBF83" }}
+      />
+
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-        
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-6">
           <div className="flex items-center gap-2">
@@ -39,10 +51,12 @@ export default function WebAppAi() {
             </span>
           </h2>
           <p className="text-[16px] md:text-[18px] text-white/80 font-medium leading-[26px]">
-            Integrate AI into your web application to automate repetitive tasks, personalize user experiences, uncover actionable insights, and make smarter decisions.
+            Integrate AI into your web application to automate repetitive tasks,
+            personalize user experiences, uncover actionable insights, and make
+            smarter decisions.
           </p>
           <div className="pt-4">
-            <Link href="/contact">
+            <Link href="/contact-us">
               <CustomButton btnText="Build Your AI-Powered Web Application" />
             </Link>
           </div>
@@ -78,7 +92,6 @@ export default function WebAppAi() {
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );

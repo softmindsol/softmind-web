@@ -76,7 +76,7 @@ const services = [
 
 export default function WebAppServices() {
   return (
-    <section className="relative w-full bg-[#161616] text-white py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-[#161616] text-white py-18 lg:py-24 font-jakarta overflow-hidden">
       {/* Ambient background glows */}
       <div
         className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full pointer-events-none opacity-30 blur-[100px]"

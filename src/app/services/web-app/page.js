@@ -43,7 +43,7 @@ const WebApp = () => {
       <WebAppAi />
       <WebAppTechStack />
       {/* <WebAppCta /> */}
-      <WebAppCaseStudy />
+      {/* <WebAppCaseStudy /> */}
       <TestimonialSlider />
       <ContactFormSection />
       <WebAppFaq />

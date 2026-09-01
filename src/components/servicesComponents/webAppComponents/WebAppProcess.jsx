@@ -94,7 +94,7 @@ export default function WebAppProcess() {
           </p>
         </div>
 
-        <div className="flex overflow-x-auto lg:grid lg:grid-cols-7 gap-3 mb-8 lg:mb-12 max-w-[1200px] mx-auto py-4 lg:pb-0 no-scrollbar snap-x">
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-7 gap-3 mb-8 lg:mb-12 w-full mx-auto py-4 lg:pb-0 no-scrollbar snap-x">
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (

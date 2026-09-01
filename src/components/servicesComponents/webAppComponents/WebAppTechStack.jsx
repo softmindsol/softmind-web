@@ -57,7 +57,7 @@ export default function WebAppTechStack() {
   const [activeTab, setActiveTab] = useState(stack[0].id);
 
   return (
-    <section className="relative w-full bg-white text-dark py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 text-dark py-20 lg:py-28 font-jakarta overflow-hidden">
       <div className="absolute top-1/2 left-[-150px] w-[500px] h-[500px] bg-[#004BC0]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -99,11 +99,11 @@ export default function WebAppTechStack() {
                   className={`flex items-center gap-3 lg:gap-4 px-5 py-3 lg:px-6 lg:py-4 rounded-2xl transition-all duration-300 border shrink-0 ${
                     isActive
                       ? "bg-gradient-to-r from-[#0CBF83]/10 to-transparent border-[#0CBF83]/40 text-green"
-                      : "bg-[#ffffff03] border-white/5 text-grey hover:bg-gray-100 cursor-pointer"
+                      : "bg-[#ffffff03] border-black/30 text-grey hover:bg-gray-100 cursor-pointer"
                   }`}
                 >
                   <Icon
-                    className={`w-5 h-5 lg:w-6 lg:h-6 ${isActive ? "text-[#0CBF83]" : "text-white/40"}`}
+                    className={`w-5 h-5 lg:w-6 lg:h-6 ${isActive ? "text-[#0CBF83]" : "text-grey"}`}
                   />
                   <span className="text-base lg:text-lg font-bold whitespace-nowrap">
                     {cat.title}
