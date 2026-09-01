@@ -6,32 +6,32 @@ const platforms = [
   {
     name: "Shopify & Shopify Plus",
     desc: "D2C brands that need fast launch, easy management, and room to scale.",
-    logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg",
+    logo: "/images/platforms/shopify.svg",
   },
   {
     name: "WooCommerce",
     desc: "Content-led stores that need flexibility and deep WordPress customisation.",
-    logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg",
+    logo: "/images/platforms/woocommerce.svg",
   },
   {
     name: "Headless — Next.js & React",
     desc: "Brands that want complete frontend control, faster performance, and greater flexibility.",
-    logo: "https://cdn.worldvectorlogo.com/logos/react-2.svg",
+    logo: "/images/platforms/react-2.svg",
   },
   {
     name: "Magento / Adobe Commerce",
     desc: "Large catalogs, multi-store operations, and complex enterprise requirements.",
-    logo: "https://cdn.worldvectorlogo.com/logos/magento.svg",
+    logo: "/images/platforms/magento.svg",
   },
   {
     name: "BigCommerce",
     desc: "B2B and mid-market businesses that need strong multi-channel capabilities.",
-    logo: "https://cdn.worldvectorlogo.com/logos/bigcommerce-1.svg",
+    logo: "/images/platforms/bigcommerce-1.svg",
   },
   {
     name: "Custom Development",
     desc: "Marketplaces and unique business models that off-the-shelf platforms cannot support.",
-    logo: "https://cdn.worldvectorlogo.com/logos/node-js-7.svg",
+    logo: "/images/platforms/node-js-7.svg",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function EcomPlatforms() {
                 <img
                   src={platform.logo}
                   alt={platform.name}
-                  className="h-full w-auto opacity-70 group-hover:opacity-100 transition-all duration-300 filter brightness-200 group-hover:filter-none group-hover:brightness-100"
+                  className="h-full w-auto transition-all duration-300"
                 />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">
