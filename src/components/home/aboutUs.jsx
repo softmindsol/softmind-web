@@ -1,3 +1,31 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { animate, useInView } from "framer-motion";
+
+function AnimatedNumber({ value }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(0, value, {
+        duration: 2.5,
+        ease: "easeOut",
+        onUpdate(v) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(v);
+          }
+        },
+      });
+
+      return () => controls.stop();
+    }
+  }, [value, inView]);
+
+  return <span ref={ref}>0</span>;
+}
+
 export default function AboutUs() {
   const stats = [
     {
@@ -78,7 +106,7 @@ export default function AboutUs() {
                 >
                   {/* Number Stat with theme-colored Plus symbol */}
                   <div className="flex items-center text-3xl sm:text-4xl lg:text-[46px] lg:leading-[58px] font-bold tracking-wider text-dark mb-4 select-none">
-                    <span>{stat.number}</span>
+                    <AnimatedNumber value={parseInt(stat.number, 10)} />
                     <span className="text-green ml-1 font-semibold">+</span>
                   </div>
 

@@ -157,12 +157,12 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
           </button>
         </Link>
 
-        <button
+        {/* <button
           onClick={onViewWork}
           className="flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm tracking-wide cursor-pointer text-white/80 border border-white/25 bg-white/10 backdrop-blur-sm hover:bg-white/12 hover:border-white/50 hover:text-white transition-all duration-300 sm:w-auto"
         >
           View Our Work
-        </button>
+        </button> */}
       </div>
     </div>
   );
