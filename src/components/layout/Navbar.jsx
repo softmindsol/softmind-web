@@ -288,18 +288,18 @@ export function Navbar() {
   return (
     <>
       <nav className="sticky top-4 z-50 flex justify-center w-full px-4 sm:px-8 font-jakarta">
-        <div className="flex items-center justify-between w-full bg-white/80 backdrop-blur-xl rounded-full px-4 py-2 shadow-[0_4px_30px_rgba(0,35,90,0.08)] border border-white/80 h-16 gap-8 transition-all duration-300">
+        <div className="flex items-center justify-between w-full bg-white/80 backdrop-blur-xl rounded-full px-4 py-2 shadow-[0_4px_30px_rgba(0,35,90,0.08)] border border-white/80 h-16 gap-3 xl:gap-8 transition-all duration-300">
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               src={Logo}
               alt="SoftMind Solutions Logo"
-              className="h-9 w-auto"
+              className="h-8 xl:h-9 w-auto"
             />
           </Link>
 
           {/* ── Desktop Nav Links ── */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0 xl:gap-1">
             {NAV_ITEMS.map((item) => {
               // ── Services dropdown ──────────────────────────────────────
               if (item.hasDropdown && item.dropdownType === "services") {
@@ -313,11 +313,11 @@ export function Navbar() {
                     onMouseLeave={scheduleClose}
                   >
                     <button
-                      className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
+                      className={`flex items-center gap-1 xl:gap-1.5 px-3 py-2 xl:px-5 xl:py-2.5 rounded-full text-[13.5px] xl:text-[15px] font-semibold transition-all duration-200 whitespace-nowrap ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
                     >
                       {item.label}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
+                        className={`w-3.5 h-3.5 xl:w-4 xl:h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
                       />
                     </button>
 
@@ -383,11 +383,11 @@ export function Navbar() {
                     onMouseLeave={scheduleClose}
                   >
                     <button
-                      className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
+                      className={`flex items-center gap-1 xl:gap-1.5 px-3 py-2 xl:px-5 xl:py-2.5 rounded-full text-[13.5px] xl:text-[15px] font-semibold transition-all duration-200 whitespace-nowrap ${isOpen ? "text-green bg-green/5" : "text-dark hover:text-green hover:bg-green/5"}`}
                     >
                       {item.label}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
+                        className={`w-3.5 h-3.5 xl:w-4 xl:h-4 transition-transform duration-300 ${isOpen ? "rotate-180 text-green" : ""}`}
                       />
                     </button>
 
@@ -450,7 +450,7 @@ export function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 ${
+                  className={`flex items-center gap-1.5 px-3 py-2 xl:px-5 xl:py-2.5 rounded-full text-[13.5px] xl:text-[15px] font-semibold transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "text-green"
                       : "text-dark hover:text-green hover:bg-green/5"
