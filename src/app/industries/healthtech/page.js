@@ -31,7 +31,7 @@ const HealthTech = () => {
       <HealthTechSolutions />
       <HealthWhoWeServe />
       <HealthTechExpertise />
-      <HealthTechProjects />
+      {/* <HealthTechProjects /> */}
       <EngagementModels />
       <HealthTechBenefits />
       <HealthTestimonial />

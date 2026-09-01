@@ -56,20 +56,20 @@ const HealthTechCTA = () => {
               to life.
             </p>
             <div className="flex flex-col w-full gap-4 mt-2">
-              <Link href="/contact" className="w-full">
-                <button className="w-full py-[14px] bg-green rounded-[100px] shadow-[0px_0px_20px_rgba(0,0,0,0.12),inset_0px_4px_4px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-105">
+              <Link href="/contact-us" className="w-full">
+                <button className="w-full py-[14px] bg-green rounded-[100px] shadow-[0px_0px_20px_rgba(0,0,0,0.12),inset_0px_4px_4px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <span className="font-bold text-[16px] tracking-[1px] text-white">
                     Book a Free Discovery Call
                   </span>
                 </button>
               </Link>
-              <Link href="/projects" className="w-full">
+              {/* <Link href="/projects" className="w-full">
                 <button className="w-ful px-5 py-[14px] bg-transparent border-2 border-white rounded-[100px] transition-all duration-300 hover:bg-white/10 hover:border-green">
                   <span className="font-bold text-[16px] tracking-[1px] text-white">
                     View Our Healthcare and Fitness Projects
                   </span>
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
