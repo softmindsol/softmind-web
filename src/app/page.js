@@ -25,7 +25,7 @@ export default function Home() {
       <AboutUs />
       <TechStack />
       <WithWithoutSoftmind />
-      <OurWork />
+      {/* <OurWork /> */}
       <HowWeWork />
       <EngagementModels />
       <TestimonialSlider />

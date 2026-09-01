@@ -18,7 +18,7 @@ const WhoWeAre = () => {
           {/* Floating Badge */}
           <div className="absolute -bottom-6 sm:-bottom-16 right-2 sm:-right-4 lg:right-1/4 w-[200px] sm:w-[260px] lg:w-[286px] h-[90px] sm:h-[110px] lg:h-[125px] bg-[#0CBF83] rounded-2xl shadow-[0_4px_30px_rgba(12,191,131,0.2)] flex flex-col items-center justify-center text-white z-10 px-2 text-center">
             <span className="font-bold text-[32px] sm:text-[36px] lg:text-[42px] leading-none tracking-wide mb-1">
-              10+
+              14+
             </span>
             <span className="font-bold text-[14px] sm:text-[16px] lg:text-[20px] leading-tight tracking-wide">
               Years of Excellence
