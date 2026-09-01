@@ -19,9 +19,9 @@ export default function AboutUs() {
         typewriterPhrases={["Solutions With Trust"]}
         description="SoftMind Solutions is a leading custom software development company engineering high-performance web apps, mobile solutions, AI platforms, and SaaS products for startups and enterprises worldwide"
         primaryButtonText="Start a Project"
-        primaryButtonLink="/contact"
-        secondaryButtonText="View Our Services"
-        secondaryButtonLink="/services"
+        primaryButtonLink="/contact-us"
+        secondaryButtonText=""
+        secondaryButtonLink=""
         showBottomText={false}
       />
       <MissionVision />

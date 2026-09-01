@@ -3,6 +3,7 @@ import { Typewriter } from "../ui/typewriter";
 import CustomButton from "../customs/customButton";
 import LiquidEther from "../customs/liquidEther";
 import ClutchWidget from "../customs/clutchWidget";
+import Link from "next/link";
 
 export function Hero({
   // title = "AI SaaS & Custom Software Development Company",
@@ -25,7 +26,7 @@ export function Hero({
   // ),
   description = "Build your product or extend your engineering team with a trusted offshore software development company.",
   primaryButtonText = "Book a Discovery Call",
-  primaryButtonLink = "#",
+  primaryButtonLink = "",
   secondaryButtonText = "View Our Work",
   secondaryButtonLink = "#",
   bottomText = "Loved by 300+ Clients across the world",
@@ -92,14 +93,16 @@ export function Hero({
         </div>
 
         {/* Start Project Button */}
-        <div className="flex flex-wrap justify-center items-center gap-4">
-          {primaryButtonText && <CustomButton btnText={primaryButtonText} />}
-          {secondaryButtonText && (
-            <Button variant="outline" className="px-6">
-              {secondaryButtonText}
-            </Button>
-          )}
-        </div>
+        <Link href={primaryButtonLink || secondaryButtonLink}>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            {primaryButtonText && <CustomButton btnText={primaryButtonText} />}
+            {secondaryButtonText && (
+              <Button variant="outline" className="px-6">
+                {secondaryButtonText}
+              </Button>
+            )}
+          </div>
+        </Link>
 
         {/* Bottom Social Proof Line */}
         {showBottomText && bottomText && (
@@ -111,9 +114,9 @@ export function Hero({
             <div className="flex-1 h-[2px] bg-[#EFEFEF] rounded-full" />
           </div>
         )}
-        <div className="flex justify-center lg:justify-start">
+        {/* <div className="flex justify-center lg:justify-start">
           <ClutchWidget />
-        </div>
+        </div> */}
       </div>
     </section>
   );
