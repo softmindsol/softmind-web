@@ -52,8 +52,8 @@ const FinTech = () => {
         }
         primaryButtonText="Book a Free Discovery Call"
         primaryButtonLink="/contact-us"
-        secondaryButtonText="See Our Fintech Projects"
-        secondaryButtonLink="#solutions"
+        // secondaryButtonText="See Our Fintech Projects"
+        // secondaryButtonLink="#solutions"
         showBottomText={false}
       />
 

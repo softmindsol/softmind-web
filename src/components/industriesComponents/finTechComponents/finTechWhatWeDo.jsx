@@ -181,7 +181,7 @@ export default function FinTechWhatWeDo() {
   const [activeTab, setActiveTab] = useState("banking");
 
   return (
-    <section className="relative w-full bg-gray-50 py-20 lg:py-28 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gray-200 py-20 lg:py-28 overflow-hidden font-jakarta">
       {/* Background Gradients & Grids */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(12,191,131,0.1),transparent)] pointer-events-none" />
       <div className="absolute right-0 bottom-[-100px] w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[150px] pointer-events-none" />
@@ -256,7 +256,7 @@ export default function FinTechWhatWeDo() {
 
                 {/* Icon Container */}
                 <div className="w-14 h-14 rounded-2xl bg-navy/5 border border-navy/5 flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-green group-hover:to-[#004BC0] transition-all duration-500">
-                  <Icon className="w-6 h-6 text-navy group-hover:text-green transition-colors duration-500" />
+                  <Icon className="w-6 h-6 text-navy group-hover:text-white transition-colors duration-500" />
                 </div>
 
                 {/* Text Content */}
