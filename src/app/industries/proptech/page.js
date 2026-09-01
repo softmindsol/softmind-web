@@ -30,8 +30,8 @@ const PropTech = () => {
         description="Turn complex real estate processes into simple, scalable digital experiences. We build PropTech products that help businesses automate operations, connect users, unlock property data, and bring new ideas to market faster."
         primaryButtonText="Book a Free Discovery Call"
         primaryButtonLink="/contact"
-        secondaryButtonText="View Our PropTech Projects"
-        secondaryButtonLink="#"
+        // secondaryButtonText="View Our PropTech Projects"
+        // secondaryButtonLink="#"
         showBottomText={false}
       />
       <PropTechSolutions />
@@ -39,8 +39,8 @@ const PropTech = () => {
       <PropTechExpertise />
       <WhySoftMind />
       <HowWeWorkProp />
-      <PropTechProjects />
-      <PropTechCaseStudy />
+      {/* <PropTechProjects /> */}
+      {/* <PropTechCaseStudy /> */}
       <PropTechTestimonial />
       <EngagementModels />
       <WhyPartner />

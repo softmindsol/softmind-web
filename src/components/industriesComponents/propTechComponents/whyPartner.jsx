@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { HiOutlineCheckBadge } from "react-icons/hi2";
 import { TbBulb, TbRocket, TbShieldCheck } from "react-icons/tb";
@@ -51,11 +52,13 @@ const WhyPartner = () => {
               dedicated teams work as an extension of your business, ensuring
               every solution aligns perfectly with your strategic goals.
             </p>
-            <div className="hidden lg:block">
-              <button className="px-8 py-4 bg-navy text-white font-bold rounded-full hover:bg-green transition-colors duration-300 cursor-pointer">
-                Let&apos;s Build Together
-              </button>
-            </div>
+            <Link href="/contact-us">
+              <div className="hidden lg:block">
+                <button className="px-8 py-4 bg-navy text-white font-bold rounded-full hover:bg-green transition-colors duration-300 cursor-pointer">
+                  Let&apos;s Build Together
+                </button>
+              </div>
+            </Link>
           </div>
 
           {/* Right Grid */}

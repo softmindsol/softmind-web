@@ -67,13 +67,13 @@ export default function FinalCta() {
               </Link>
 
               {/* Secondary CTA */}
-              <a
-                href="#"
+              <Link
+                href="/contact-us"
                 className="group flex items-center gap-3 w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
                 <PhoneCall className="w-5 h-5 shrink-0" />
                 Hire Dedicated Developers
-              </a>
+              </Link>
             </div>
 
             {/* Vertical divider (desktop only) */}
