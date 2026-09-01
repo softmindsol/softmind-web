@@ -27,7 +27,7 @@ export function Hero({
   description = "Build your product or extend your engineering team with a trusted offshore software development company.",
   primaryButtonText = "Book a Discovery Call",
   primaryButtonLink = "",
-  secondaryButtonText = "View Our Work",
+  secondaryButtonText = "",
   secondaryButtonLink = "#",
   bottomText = "Loved by 300+ Clients across the world",
   showBottomText = true,

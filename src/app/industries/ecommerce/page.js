@@ -28,7 +28,6 @@ const Ecommerce = () => {
         typewriterPhrases={["Converts Today and Scales Tomorrow"]}
         description="Launch with confidence, create a smoother shopping experience, and grow without technology holding you back."
         primaryButtonText="Book Your Free Discovery Call"
-        secondaryButtonText="See Our eCommerce Work"
         bottomText="Trusted by ambitious eCommerce startups and online businesses across the USA and MENA."
       />
       <EcomMarketMoment />

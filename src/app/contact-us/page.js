@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import ContactForm from "@/components/contactUsComponents/ContactForm";
+import ContactFormSection from "@/components/home/contactFormSection";
 
 export const metadata = {
   title: "Contact Us | SoftMind Solutions",
@@ -19,7 +20,7 @@ const ContactUs = () => {
         secondaryButtonText={null}
         showBottomText={false}
       />
-      <ContactForm />
+      <ContactFormSection />
     </main>
   );
 };
