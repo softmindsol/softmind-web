@@ -77,7 +77,7 @@ export default function EcomPlatforms() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-green/50 transition-all duration-300 group"
+              className="flex flex-col p-8 rounded-3xl bg-gray-200 border border-white/10 hover:bg-white hover:border-green/50 transition-all duration-300 group"
             >
               <div className="h-12 w-auto mb-6 flex justify-start">
                 <img
@@ -86,10 +86,10 @@ export default function EcomPlatforms() {
                   className="h-full w-auto transition-all duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-xl font-bold text-black mb-3">
                 {platform.name}
               </h3>
-              <p className="text-white/60 font-medium text-sm leading-relaxed">
+              <p className="text-grey font-medium text-sm leading-relaxed">
                 {platform.desc}
               </p>
             </motion.div>

@@ -37,7 +37,7 @@ const steps = [
 
 export default function EcomProcess() {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-[#F8FAFC] font-jakarta overflow-hidden">
+    <section className="relative w-full py-20 lg:py-28 bg-gray-200 font-jakarta overflow-hidden">
       <div className="relative mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <motion.div

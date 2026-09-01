@@ -37,7 +37,7 @@ const Ecommerce = () => {
       <EcomTechnology />
       <EcomWhySoftMind />
       <EcomProcess />
-      <EcomOurWork />
+      {/* <EcomOurWork /> */}
       <EcomEngagementModels />
       <EcomContactForm />
       <EcomFaqs />
