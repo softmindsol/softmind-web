@@ -56,7 +56,7 @@ const FinTech = () => {
         // secondaryButtonLink="#solutions"
         showBottomText={false}
       />
-
+      {/* {} */}
       <FinTechFutureReady />
       <div id="solutions" className="w-full">
         <FinTechWhatWeDo />
