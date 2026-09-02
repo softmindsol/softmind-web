@@ -41,7 +41,7 @@ const webTech = [
     name: "Next.js",
     icon: <SiNextdotjs size={24} />,
     color: "#000000",
-    bg: "rgba(255,255,255,0.3)",
+    bg: "rgba(255,255,255,0.5)",
     border: "rgba(255,255,255,0.12)",
   },
   {
@@ -60,10 +60,10 @@ const webTech = [
   },
   {
     name: "PostgreSQL",
-    icon: <SiPostgresql size={24} />,
-    color: "#336791",
-    bg: "rgba(51,103,145,0.3)",
-    border: "rgba(51,103,145,0.2)",
+    icon: <SiPostgresql stroke={2} size={24} />,
+    color: "#0069B9",
+    bg: "rgba(49,100,140,0.3)",
+    border: "rgba(49,100,140,0.2)",
   },
   {
     name: "MongoDB",
@@ -94,11 +94,11 @@ const webTech = [
     border: "rgba(225,0,152,0.2)",
   },
   {
-    name: "Tailwind CSS",
-    icon: <SiTailwindcss size={24} />,
-    color: "#06B6D4",
-    bg: "rgba(6,182,212,0.3)",
-    border: "rgba(6,182,212,0.2)",
+    name: "Supabase",
+    icon: <SiSupabase size={24} />,
+    color: "#3ECF8E",
+    bg: "rgba(62,207,142,0.3)",
+    border: "rgba(62,207,142,0.2)",
   },
   {
     name: "Redis",
@@ -123,13 +123,6 @@ const mobileTech = [
     color: "#61DAFB",
     bg: "rgba(97,218,251,0.3)",
     border: "rgba(97,218,251,0.2)",
-  },
-  {
-    name: "Flutter",
-    icon: <SiFlutter size={24} />,
-    color: "#02569B",
-    bg: "rgba(2,86,155,0.3)",
-    border: "rgba(2,86,155,0.2)",
   },
   {
     name: "Expo",
@@ -158,6 +151,13 @@ const mobileTech = [
     color: "#7F52FF",
     bg: "rgba(127,82,255,0.3)",
     border: "rgba(127,82,255,0.2)",
+  },
+  {
+    name: "Flutter",
+    icon: <SiFlutter size={24} />,
+    color: "#02569B",
+    bg: "rgba(2,86,155,0.3)",
+    border: "rgba(2,86,155,0.2)",
   },
   {
     name: "App Store",

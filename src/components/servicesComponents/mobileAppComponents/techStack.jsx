@@ -17,22 +17,31 @@ const techCategories = [
   {
     title: "Frameworks & Technologies",
     icon: <Layers className="w-6 h-6 text-green" />,
-    items: ["Flutter", "React Native", ".NET MAUI", "Swift", "Kotlin"],
+    items: ["Flutter", "React Native", "Swift", "Kotlin"],
   },
   {
     title: "Backend & APIs",
     icon: <Server className="w-6 h-6 text-green" />,
-    items: ["Node.js", ".NET", "Python", "REST APIs", "GraphQL"],
+    items: ["Node.js", "Nest.js", "Python", "SupaBase", "Rest APIs", "GraphQL"],
   },
   {
     title: "Databases",
     icon: <Database className="w-6 h-6 text-green" />,
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Firebase"],
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "DynamoDB"],
   },
   {
     title: "Cloud & DevOps",
     icon: <Cloud className="w-6 h-6 text-green" />,
-    items: ["AWS", "Microsoft Azure", "Google Cloud", "Docker", "CI/CD"],
+    items: [
+      "AWS",
+      "Microsoft Azure",
+      "Google Cloud",
+      "Render",
+      "Vercel",
+      "Railway",
+      "Docker",
+      "CI/CD",
+    ],
   },
   {
     title: "AI & Data",
@@ -42,7 +51,6 @@ const techCategories = [
       "Machine Learning",
       "Natural Language Processing",
       "Predictive Analytics",
-      "Computer Vision",
     ],
   },
 ];
