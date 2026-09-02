@@ -12,6 +12,8 @@ import PdWhyChooseUs from "@/components/servicesComponents/productDesignComponen
 import PdIndustries from "@/components/servicesComponents/productDesignComponents/pdIndustries";
 import PdEngagementModels from "@/components/servicesComponents/productDesignComponents/pdEngagementModels";
 import PdFaq from "@/components/servicesComponents/productDesignComponents/pdFaq";
+import EngagementModels from "@/components/home/engagementModels";
+import PdTechStack from "@/components/servicesComponents/productDesignComponents/pdTechStack";
 
 export const metadata = {
   title:
@@ -24,9 +26,9 @@ const ProductDesign = () => {
   return (
     <main className="w-full flex flex-col items-center overflow-hidden">
       <Hero
-        title="Digital Product"
+        title="Digital Product Design Services"
         typewriterPrefix=""
-        typewriterPhrases={["Design Services"]}
+        typewriterPhrases={["Design Digital Products People Want to Use"]}
         description="From UX research and strategy to intuitive UI design and scalable design systems, Softmind helps businesses turn product ideas into engaging digital experiences."
         primaryButtonText="Design Your Product With Us"
         primaryButtonLink="/contact-us"
@@ -40,7 +42,7 @@ const ProductDesign = () => {
       <PdChallenges />
       <PdWhyChooseUs />
       <TestimonialSlider />
-      <TechStack />
+      <PdTechStack />
       <PdIndustries />
       <PdEngagementModels />
       <PdFaq />

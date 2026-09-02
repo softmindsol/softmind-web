@@ -10,8 +10,10 @@ import AhmarBaig from "./ahmar-baig.svg";
 import PtSolutions from "./pt-solutions.webp";
 import HtSolutions from "./ht-solutions.webp";
 import MsLogo from "./microsoft-logo.webp";
+import StitchLogo from "./stitch-logo.webp";
 
 export {
+  StitchLogo,
   Logo,
   SoftMindSolLogo,
   FavIcon,

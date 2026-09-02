@@ -83,7 +83,7 @@ export default function DesignServices() {
 
       <div className="w-full mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col md:flex-row gap-12 lg:gap-20 justify-between items-end mb-16">
-          <div className="max-w-2xl">
+          <div className="w-full flex flex-col items-center justify-center">
             <div className="flex items-center gap-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-[linear-gradient(104.04deg,#00235A_8.33%,#004BC0_93.33%)]" />
               <span className="text-[#0CBF83] text-[18px] font-bold tracking-wide">
@@ -93,7 +93,7 @@ export default function DesignServices() {
             <h2 className="text-3xl md:text-4xl lg:text-[46px] font-bold leading-tight mb-6">
               Our Digital Product Design Services
             </h2>
-            <p className="text-[16px] md:text-[18px] text-white/80 leading-relaxed">
+            <p className="max-w-2xl text-center text-[16px] md:text-[18px] text-white/80 leading-relaxed">
               From discovering what users need to creating development-ready
               interfaces, Softmind provides end-to-end digital product design
               services tailored to your product stage and business goals.
