@@ -81,16 +81,16 @@ const StepItem = ({ step, index, activeStep, setActiveStep }) => {
     >
       <div className="inline-flex items-center gap-4 mb-6">
         <span
-          className={`h-[2px] transition-all duration-700 ${isActive ? "w-12 bg-[#0CBF83]" : "w-6 bg-gray-300"}`}
+          className={`h-[2px] transition-all duration-700 ${isActive ? "w-12 bg-green" : "w-6 bg-gray-300"}`}
         ></span>
         <span
-          className={`font-bold tracking-widest uppercase text-sm transition-colors duration-700 ${isActive ? "text-[#0CBF83]" : "text-gray-400"}`}
+          className={`font-bold tracking-widest uppercase text-sm transition-colors duration-700 ${isActive ? "text-green" : "text-gray-400"}`}
         >
           {step.step}
         </span>
       </div>
       <h3
-        className={`text-[32px] lg:text-[42px] font-extrabold mb-6 leading-tight transition-colors duration-700 ${isActive ? "text-[#00235A]" : "text-gray-400"}`}
+        className={`text-[32px] lg:text-[42px] font-extrabold mb-6 leading-tight transition-colors duration-700 ${isActive ? "text-navy" : "text-gray-400"}`}
       >
         {step.title}
       </h3>
@@ -105,22 +105,18 @@ const DevelopmetProcess = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-white font-jakarta overflow-hidden relative">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#004BC0]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0CBF83]/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
-
-      <div className="pt-24 pb-12 md:py-32 px-6 lg:px-12 max-w-[1400px] mx-auto text-center relative z-10">
+    <section className="bg-white w-full font-jakarta relative">
+      <div className="pt-24 pb-12 md:py-32 px-6 lg:px-12 w-full mx-auto text-center relative z-10">
         <div className="flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F8FAFC] border border-gray-100 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00235A] to-[#0CBF83]" />
-            <span className="text-[#00235A] text-[13px] font-bold tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-navy to-green" />
+            <span className="text-navy text-[13px] font-bold tracking-widest uppercase">
               Development Process
             </span>
           </div>
-          <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-extrabold text-[#00235A] tracking-tight max-w-[800px] leading-tight">
+          <h2 className="text-[36px] sm:text-[46px] lg:text-[50px] font-extrabold text-navy tracking-tight max-w-[800px] leading-tight">
             Our AI SaaS Product{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CBF83] to-[#004BC0]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green to-blue-600">
               Development Process
             </span>
           </h2>
@@ -131,11 +127,8 @@ const DevelopmetProcess = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="w-full mx-auto relative z-10">
-        {/* Desktop Layout */}
         <div className="hidden md:flex items-start w-full px-6 lg:px-12">
-          {/* Text Column (Scrolling) */}
           <div className="w-1/2 pr-12 lg:pr-24 pb-[30vh] pt-[5vh]">
             {stepsData.map((step, index) => (
               <StepItem
@@ -148,7 +141,6 @@ const DevelopmetProcess = () => {
             ))}
           </div>
 
-          {/* Image Column (Sticky) */}
           <div className="w-1/2 sticky top-32 h-[calc(100vh-8rem)] flex flex-col justify-start pl-8 pt-4">
             <div className="relative w-full aspect-[4/3] max-h-[70vh] rounded-[40px] overflow-hidden shadow-[0_20px_60px_rgba(0,35,90,0.12)] border border-gray-100 bg-white">
               <AnimatePresence>
@@ -163,10 +155,8 @@ const DevelopmetProcess = () => {
                 />
               </AnimatePresence>
 
-              {/* Image Overlay Gradient */}
-              <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#00235A] via-[#00235A]/50 to-transparent pointer-events-none opacity-90" />
+              <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-navy via-navy/50 to-transparent pointer-events-none opacity-90" />
 
-              {/* Step Indicator on Image */}
               <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[24px] shadow-2xl">
                 <motion.h4
                   key={`title-${activeStep}`}
@@ -191,7 +181,6 @@ const DevelopmetProcess = () => {
           </div>
         </div>
 
-        {/* Mobile Layout */}
         <div className="md:hidden flex flex-col gap-12 px-6 pb-24">
           {stepsData.map((step, index) => (
             <motion.div
@@ -204,7 +193,7 @@ const DevelopmetProcess = () => {
             >
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg relative">
                 <img src={step.image} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#00235A]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
                 <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-1.5 rounded-full">
                   <span className="text-white font-bold text-sm tracking-widest uppercase">
                     {step.step}
@@ -212,7 +201,7 @@ const DevelopmetProcess = () => {
                 </div>
               </div>
               <div className="px-2">
-                <h3 className="text-[26px] font-extrabold text-[#00235A] mb-3 leading-tight">
+                <h3 className="text-[26px] font-extrabold text-navy mb-3 leading-tight">
                   {step.title}
                 </h3>
                 <p className="text-gray-500 leading-relaxed text-[16px]">
