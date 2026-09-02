@@ -14,6 +14,7 @@ import PdEngagementModels from "@/components/servicesComponents/productDesignCom
 import PdFaq from "@/components/servicesComponents/productDesignComponents/pdFaq";
 import EngagementModels from "@/components/home/engagementModels";
 import PdTechStack from "@/components/servicesComponents/productDesignComponents/pdTechStack";
+import PdCta from "@/components/servicesComponents/productDesignComponents/pdCta";
 
 export const metadata = {
   title:
@@ -46,12 +47,7 @@ const ProductDesign = () => {
       <PdIndustries />
       <PdEngagementModels />
       <PdFaq />
-
-      <FinalCta
-        title="Let's Design a Product Your Users Will Love"
-        description="Turn Complex Ideas Into Simple, Scalable Digital Experiences"
-        buttonText="Let's Build Your Digital Product"
-      />
+      <PdCta />
     </main>
   );
 };
