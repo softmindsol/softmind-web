@@ -22,7 +22,7 @@ const leaders = [
   },
   {
     role: "Project Director",
-    name: "Bilal El Azmimani",
+    name: "Bilal El Azimani",
     image: BilalElAzimani,
   },
   // {
