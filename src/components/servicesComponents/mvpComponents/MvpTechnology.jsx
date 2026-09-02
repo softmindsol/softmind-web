@@ -52,7 +52,7 @@ export default function MvpTechnology() {
       <div className="absolute top-1/2 left-[-150px] w-[500px] h-[500px] bg-[#004BC0]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0CBF83]/8 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-12">
+      <div className="relative w-full max-w-[1300px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16 max-w-[900px] mx-auto">
           <div className="flex items-center gap-2">
