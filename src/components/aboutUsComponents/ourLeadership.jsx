@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import {
   AhmarBaig,
+  BilalElAzimani,
   CeoBilal,
-  FahadAnwar,
   MariyumHR,
 } from "../../../public/images";
 import Image from "next/image";
@@ -16,20 +16,20 @@ const leaders = [
     image: CeoBilal,
   },
   {
-    role: "HR Manager",
-    name: "Mariyam Manzoor",
+    role: "Co-Founder",
+    name: "Amna Akbar",
     image: MariyumHR,
   },
   {
-    role: "Tech Team Lead",
-    name: "Fahad Anwar",
-    image: FahadAnwar,
+    role: "Project Director",
+    name: "Bilal El Azmimani",
+    image: BilalElAzimani,
   },
-  {
-    role: "Technical Project Manager",
-    name: "Ahmar Baig",
-    image: AhmarBaig,
-  },
+  // {
+  //   role: "Technical Project Manager",
+  //   name: "Ahmar Baig",
+  //   image: AhmarBaig,
+  // },
 ];
 
 export default function OurLeadership() {
@@ -65,31 +65,31 @@ export default function OurLeadership() {
     <section className="relative w-full py-12 lg:py-16 bg-[#ffffff] overflow-hidden font-jakarta flex justify-center">
       <div className="w-full px-6 sm:px-12 flex flex-col items-center">
         {/* Header Section */}
-        <div className="flex flex-col items-center text-center gap-4 mb-16 max-w-[800px]">
+        <div className="flex flex-col items-center text-center gap-4 mb-16 max-w-160">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00235A] to-[#004BC0]" />
-            <span className="text-[16px] sm:text-[18px] font-bold text-[#0CBF83] tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-navy to-[#004BC0]" />
+            <span className="text-[16px] sm:text-[18px] font-bold text-green tracking-wide">
               Our Leadership
             </span>
           </div>
-          <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-bold text-[#2E2E2E] leading-tight capitalize">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-bold text-dark leading-tight capitalize">
             The Visionaries Behind Every Successful Project
           </h2>
-          <p className="text-[15px] sm:text-[16px] font-medium text-[#666666] leading-[1.6]">
+          <p className="text-[15px] sm:text-[16px] font-medium text-grey leading-[1.6]">
             Real people. Real expertise. Passionate about solving complex
             engineering challenges for clients across the globe.
           </p>
         </div>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden lg:grid grid-cols-4 gap-6 w-full">
+        <div className="hidden max-w-6xl lg:grid grid-cols-3 gap-6 w-full">
           {leaders.map((leader, idx) => (
             <div
               key={idx}
               className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.06)] flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
             >
               <Image
-                className="rounded-lg mb-5 h-[320px] w-full object-cover"
+                className="rounded-lg mb-5 h-87.5 w-full object-cover object-top"
                 src={leader.image}
                 alt="Our Leaders"
               />
@@ -108,7 +108,7 @@ export default function OurLeadership() {
         {/* Mobile / Tablet Slider Layout */}
         <div className="lg:hidden w-full flex flex-col items-center">
           <div
-            className="w-full max-w-[340px] overflow-hidden"
+            className="w-full max-w-85 overflow-hidden"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
@@ -124,16 +124,16 @@ export default function OurLeadership() {
                 >
                   <div className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.08)] flex flex-col">
                     <div
-                      className="w-full aspect-square rounded-lg bg-gray-200 bg-cover bg-center mb-5"
+                      className="w-full aspect-square rounded-lg bg-gray-200 bg-cover bg-top mb-5"
                       style={{
                         backgroundImage: `url(${leader.image?.src || leader.image})`,
                       }}
                     />
                     <div className="flex flex-col gap-1 px-1 pb-2">
-                      <h3 className="text-[16px] font-bold text-[#2E2E2E] tracking-wide">
+                      <h3 className="text-[16px] font-bold text-dark tracking-wide">
                         {leader.role}
                       </h3>
-                      <p className="text-[15px] font-medium text-[#666666] tracking-wide">
+                      <p className="text-[15px] font-medium text-grey tracking-wide">
                         {leader.name}
                       </p>
                     </div>
@@ -150,7 +150,7 @@ export default function OurLeadership() {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                  idx === currentIndex ? "bg-[#0CBF83]" : "bg-[#EFEFEF]"
+                  idx === currentIndex ? "bg-green" : "bg-[#EFEFEF]"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

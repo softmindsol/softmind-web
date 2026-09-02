@@ -11,8 +11,10 @@ import PtSolutions from "./pt-solutions.webp";
 import HtSolutions from "./ht-solutions.webp";
 import MsLogo from "./microsoft-logo.webp";
 import StitchLogo from "./stitch-logo.webp";
+import BilalElAzimani from "./bilal-el-azimani.webp";
 
 export {
+  BilalElAzimani,
   StitchLogo,
   Logo,
   SoftMindSolLogo,
