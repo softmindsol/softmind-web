@@ -5,6 +5,7 @@ import {
   AhmarBaig,
   BilalElAzimani,
   CeoBilal,
+  FahadAnwar,
   MariyumHR,
 } from "../../../public/images";
 import Image from "next/image";
@@ -21,15 +22,15 @@ const leaders = [
     image: MariyumHR,
   },
   {
+    role: "Head of Technology & Solutions",
+    name: "Fahad Anwar",
+    image: FahadAnwar,
+  },
+  {
     role: "Project Director",
     name: "Bilal El Azimani",
     image: BilalElAzimani,
   },
-  // {
-  //   role: "Technical Project Manager",
-  //   name: "Ahmar Baig",
-  //   image: AhmarBaig,
-  // },
 ];
 
 export default function OurLeadership() {
@@ -82,11 +83,11 @@ export default function OurLeadership() {
         </div>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden max-w-6xl lg:grid grid-cols-3 gap-6 w-full">
+        <div className="hidden max-w-7xl lg:grid grid-cols-4 gap-6 w-full">
           {leaders.map((leader, idx) => (
             <div
               key={idx}
-              className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.06)] flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
+              className="w-full bg-white border border-[#EFEFEF] rounded-xl p-4 shadow-[0_0_30px_rgba(0,0,0,0.06)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
             >
               <Image
                 className="rounded-lg mb-5 h-87.5 w-full object-cover object-top"
