@@ -104,18 +104,21 @@ export default function Footer() {
             <h4 className="text-2xl font-bold tracking-wide">Quick Link</h4>
             <ul className="space-y-3.5">
               {[
-                "Home",
-                "About Us",
-                "What We Offer",
-                "Our Portfolio",
-                "Contact Us",
+                {
+                  name: "HealthTech & Fitness",
+                  path: "/industries/healthtech",
+                },
+                { name: "FinTech", path: "/industries/fintech" },
+                { name: "Proptech", path: "/industries/proptech" },
+                { name: "EdTech", path: "/industries/edtech" },
+                { name: "E-commerce", path: "/industries/ecommerce" },
               ].map((link) => (
-                <li key={link}>
+                <li key={link.name}>
                   <a
-                    href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={link.path}
                     className="text-base text-white/90 hover:text-[#0CBF83] transition-colors font-normal leading-[20px]"
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -127,19 +130,32 @@ export default function Footer() {
             <h4 className="text-2xl font-bold tracking-wide">Services</h4>
             <ul className="space-y-3.5">
               {[
-                "About SoftMind Solutions Leading Software Development Company",
-                "Privacy & Policy",
-                "Need a Career ?",
-                "Online Support",
-                "Faqs",
-                "Team Member",
+                { name: "AI SaaS Development", path: "/services/ai-saas" },
+                {
+                  name: "Custom Software Development",
+                  path: "/services/custom-software",
+                },
+                { name: "Web App Development", path: "/services/web-app" },
+                {
+                  name: "Mobile App Development",
+                  path: "/services/mobile-app",
+                },
+                { name: "MVP Development", path: "/services/mvp" },
+                {
+                  name: "Offshore Software Testing",
+                  path: "/services/software-testing",
+                },
+                {
+                  name: "Product Design (UI/UX)",
+                  path: "/services/product-design",
+                },
               ].map((link) => (
-                <li key={link}>
+                <li key={link.name}>
                   <a
-                    href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={link.path}
                     className="text-base text-white/90 hover:text-[#0CBF83] transition-colors font-normal leading-[20px] line-clamp-2"
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -164,7 +180,7 @@ export default function Footer() {
                 className="h-[56px] w-full bg-white/[0.04] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#0CBF83] focus-visible:ring-[#0CBF83]/20 pl-4 pr-[120px] rounded-xl shadow-inner backdrop-blur-sm transition-all duration-300"
               />
               <button className="group absolute right-1.5 top-1.5 bottom-1.5 bg-[#0CBF83] text-white hover:bg-[#0aa672] transition-all duration-300 rounded-[8px] px-4 flex items-center gap-1.5 text-sm font-bold shadow-[0_0_15px_rgba(12,191,131,0.25)] hover:shadow-[0_0_20px_rgba(12,191,131,0.4)]">
-                <span>Sign Up</span>
+                <span>Subscribe</span>
                 <RiArrowRightLongLine
                   className="mt-[1px] group-hover:translate-x-1 transition-transform duration-300"
                   size={18}
