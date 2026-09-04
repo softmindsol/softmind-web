@@ -10,6 +10,7 @@ import {
   ERP,
   Bitinpeace,
   Cedia,
+  Traids,
 } from "../../../public/images/icons";
 
 export default function ClientLogos() {
@@ -21,6 +22,7 @@ export default function ClientLogos() {
     { src: Flomo, alt: "Flomo" },
     { src: ERP, alt: "ERP" },
     { src: Cedia, alt: "Cedia" },
+    { src: Traids, alt: "Traids" },
     { src: Bitinpeace, alt: "Bitinpeace" },
   ];
 

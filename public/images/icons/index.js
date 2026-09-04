@@ -20,8 +20,10 @@ import MCC from "./mcc.webp";
 import MurArt from "./murart.svg";
 import PixelValues from "./pixelValues.png";
 import Uptenhealth from "./upTenHealth.png";
+import Traids from "./traids.png";
 
 export {
+  Traids,
   Uptenhealth,
   PixelValues,
   MurArt,
