@@ -1,16 +1,27 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import {
+  Uptenhealth,
+  PixelValues,
+  MurArt,
+  MCC,
+  Flomo,
+  ERP,
+  Bitinpeace,
+  Cedia,
+} from "../../../public/images/icons";
 
 export default function ClientLogos() {
   const logos = [
-    { name: "HealthSync", industry: "HealthTech", icon: "🏥" },
-    { name: "PayFlo", industry: "FinTech", icon: "💳" },
-    { name: "EstateLink", industry: "PropTech", icon: "🏠" },
-    { name: "EduLearn", industry: "EdTech", icon: "🎓" },
-    { name: "CoreAI", industry: "AI Services", icon: "🧠" },
-    { name: "MedSphere", industry: "HealthTech", icon: "🩺" },
-    { name: "FinCap", industry: "FinTech", icon: "📈" },
-    { name: "PropScale", industry: "PropTech", icon: "🏢" },
+    { src: Uptenhealth, alt: "Uptenhealth" },
+    { src: PixelValues, alt: "PixelValues" },
+    { src: MurArt, alt: "MurArt" },
+    { src: MCC, alt: "MCC" },
+    { src: Flomo, alt: "Flomo" },
+    { src: ERP, alt: "ERP" },
+    { src: Cedia, alt: "Cedia" },
+    { src: Bitinpeace, alt: "Bitinpeace" },
   ];
 
   return (
@@ -36,7 +47,7 @@ export default function ClientLogos() {
       `}</style>
 
       <div className="mx-auto px-6 md:px-12 mb-6 text-center">
-        <span className="text-xs font-bold tracking-[2px] uppercase text-[#666666]/60">
+        <span className="text-xs font-bold tracking-[2px] uppercase text-grey">
           Trusted by Innovative Teams Worldwide
         </span>
       </div>
@@ -52,30 +63,26 @@ export default function ClientLogos() {
           {logos.map((logo, idx) => (
             <div
               key={`logo-1-${idx}`}
-              className="flex items-center gap-2.5 grayscale hover:grayscale-0 opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer select-none"
+              className="flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer select-none h-12 w-32"
             >
-              <span className="text-2xl">{logo.icon}</span>
-              <span className="font-extrabold text-lg text-navy tracking-tight">
-                {logo.name}
-              </span>
-              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full">
-                {logo.industry}
-              </span>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ))}
           {/* Duplicated set for seamless loop */}
           {logos.map((logo, idx) => (
             <div
               key={`logo-2-${idx}`}
-              className="flex items-center gap-2.5 grayscale hover:grayscale-0 opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer select-none"
+              className="flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer select-none h-12 w-32"
             >
-              <span className="text-2xl">{logo.icon}</span>
-              <span className="font-extrabold text-lg text-navy tracking-tight">
-                {logo.name}
-              </span>
-              <span className="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded-full">
-                {logo.industry}
-              </span>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ))}
         </div>

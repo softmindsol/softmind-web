@@ -20,7 +20,7 @@ export default function Home() {
       <HomeHeroSlider />
       <WhatWeOffer />
       <ClientLogos />
-      <Certifications />
+      {/* <Certifications /> */}
       <Industries />
       <AboutUs />
       <TechStack />

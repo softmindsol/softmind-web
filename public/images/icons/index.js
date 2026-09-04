@@ -16,7 +16,7 @@ import Bitinpeace from "./bitinpeace.svg";
 import Cedia from "./cedia.webp";
 import ERP from "./erp.png";
 import Flomo from "./flomo.png";
-import MCC from "./mcc.png";
+import MCC from "./mcc.webp";
 import MurArt from "./murart.svg";
 import PixelValues from "./pixelValues.png";
 import Uptenhealth from "./upTenHealth.png";
