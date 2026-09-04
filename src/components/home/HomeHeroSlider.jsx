@@ -71,7 +71,7 @@ function SlideBackgrounds({ slides, currentSlide }) {
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 z-0 transition-opacity duration-[800ms] ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 z-0 transition-opacity duration-700 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}
           >
             <Image
               src={slide.image}
@@ -97,7 +97,7 @@ function SlideContent({ slide, onDiscoveryCall, onViewWork }) {
   return (
     <div className="flex flex-col gap-5 sm:gap-6 max-w-3xl">
       {/* ── Top Blue Bar text ── */}
-      <div className="flex items-center gap-3 bg-[#111620]/80 backdrop-blur-sm pr-6 py-3 border-l-4 border-[#0369E5] w-fit mb-2 animate-hs-badge shadow-lg">
+      <div className="flex items-center gap-3 bg-[#283143] backdrop-blur-sm pr-6 py-3 border-l-4 border-[#0369E5]/80 w-fit mb-2 animate-hs-badge shadow-lg">
         <span className="text-white/90 text-sm sm:text-base font-semibold tracking-wide pl-4">
           AI enabled Product Engineering and Digital Solution Partner
         </span>
