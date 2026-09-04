@@ -19,7 +19,7 @@ const NAVBAR_OFFSET = 82;
 const SLIDES = [
   {
     id: 1,
-    image: "/images/hero-slide-1.jpg",
+    image: "/images/hero-slide-1-v2.jpg",
     badge: "Product Engineering",
     heading: "You Have an Idea.",
     subheading: "We Have the Right\nPeople to Build It.",
@@ -27,7 +27,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: "/images/hero-slide-2.jpg",
+    image: "/images/hero-slide-2-v2.jpg",
     badge: "Digital Infrastructure",
     heading: "We Don't Just Build Software.",
     subheading:
@@ -36,7 +36,7 @@ const SLIDES = [
   },
   {
     id: 3,
-    image: "/images/hero-slide-3.jpg",
+    image: "/images/hero-slide-3-v2.jpg",
     badge: "Competitive Advantage",
     heading: "Your Competitors Have a Product.",
     subheading: "We Make Yours\nthe One That Wins.",
