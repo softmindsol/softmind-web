@@ -31,6 +31,18 @@ import {
 } from "react-icons/si";
 import { DiPhotoshop } from "react-icons/di";
 import { StitchLogo } from "../../../../public/images";
+import {
+  AiStudio,
+  FigmaIcon,
+  FramerIcon,
+  GeminiIcon,
+  GrokIcon,
+  MobbinIcon,
+  PhotoshopIcon,
+  SlackIcon,
+  ThemeforestIcon,
+} from "../../../../public/images/icons";
+import { BsClaude } from "react-icons/bs";
 
 const categories = [
   {
@@ -42,17 +54,15 @@ const categories = [
     tools: [
       {
         name: "Figma",
-        icon: <SiFigma className="w-8 h-8 drop-shadow-md" color="#F24E1E" />,
+        icon: <Image src={FigmaIcon} alt="Figma" />,
       },
       {
         name: "Photoshop",
-        icon: (
-          <DiPhotoshop className="w-9 h-9 drop-shadow-md" color="#31A8FF" />
-        ),
+        icon: <Image src={PhotoshopIcon} alt="PhotoShop" />,
       },
       {
         name: "Figjam",
-        icon: <SiFigma className="w-8 h-8 drop-shadow-md" color="#A259FF" />,
+        icon: <Image src={FigmaIcon} alt="Figma" />,
       },
     ],
   },
@@ -79,15 +89,19 @@ const categories = [
       },
       {
         name: "Themeforest",
-        icon: <SiEnvato className="w-8 h-8 drop-shadow-md" color="#81B441" />,
+        icon: (
+          <Image src={ThemeforestIcon} alt="ThemeForest" className="size-9" />
+        ),
       },
       {
         name: "Framer",
-        icon: <SiFramer className="w-8 h-8 drop-shadow-md" color="#0055FF" />,
+        icon: <Image src={FramerIcon} alt="Framer" className="size-9" />,
       },
       {
         name: "Mobbin",
-        icon: <LayoutTemplate className="w-8 h-8 text-white/80" />,
+        icon: (
+          <Image src={MobbinIcon} alt="Mobbin" className="size-9 rounded-md" />
+        ),
       },
     ],
   },
@@ -100,28 +114,27 @@ const categories = [
     tools: [
       {
         name: "Google AI",
-        icon: <SiGoogle className="w-8 h-8 drop-shadow-md" color="#4285F4" />,
+        icon: <Image src={AiStudio} alt="Gemini" className="size-9" />,
       },
       {
         name: "Claude Design",
-        icon: (
-          <SiAnthropic className="w-8 h-8 drop-shadow-md" color="#CC9B7A" />
-        ),
+        icon: <BsClaude className="w-8 h-8 drop-shadow-md" color="#D97757" />,
       },
       {
         name: "Stitch",
         icon: <Image src={StitchLogo} alt="Stitch" width={32} height={32} />,
       },
-      { name: "Grok", icon: <Bot className="w-8 h-8 text-white/80" /> },
+      {
+        name: "Grok",
+        icon: <Image src={GrokIcon} alt="Grok" className="size-9" />,
+      },
       {
         name: "Gemini",
-        icon: (
-          <SiGooglegemini className="w-8 h-8 drop-shadow-md" color="#8E75B2" />
-        ),
+        icon: <Image src={GeminiIcon} alt="Gemini" className="size-9" />,
       },
       {
         name: "Figma Agent",
-        icon: <SiFigma className="w-8 h-8 drop-shadow-md" color="#F24E1E" />,
+        icon: <Image src={FigmaIcon} alt="Figma" />,
       },
     ],
   },
@@ -134,7 +147,7 @@ const categories = [
     tools: [
       {
         name: "Slack",
-        icon: <SiSlack className="w-8 h-8 drop-shadow-md" color="#4A154B" />,
+        icon: <Image src={SlackIcon} alt="Slack" className="size-9" />,
       },
       {
         name: "Jira",
@@ -218,7 +231,7 @@ const PdTechStack = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className={`group relative p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm transition-all duration-500 ${category.border} ${category.glow} overflow-hidden`}
+              className={`group relative p-8 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm transition-all duration-500 ${category.border} ${category.glow} overflow-hidden`}
             >
               {/* Subtle background gradient based on category color */}
               <div
@@ -227,7 +240,7 @@ const PdTechStack = () => {
 
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 rounded-2xl bg-white/[0.05] border border-white/10 shadow-xl">
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xl">
                     {category.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-white/90 tracking-wide">
@@ -243,7 +256,7 @@ const PdTechStack = () => {
                       key={index}
                       className="flex flex-col items-center gap-3 group/tool cursor-pointer"
                     >
-                      <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/[0.02] border border-white/10 group-hover/tool:scale-110 group-hover/tool:bg-white/[0.08] group-hover/tool:border-white/20 group-hover/tool:shadow-lg transition-all duration-300">
+                      <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/2 border border-white/10 group-hover/tool:scale-110 group-hover/tool:bg-white/8 group-hover/tool:border-white/20 group-hover/tool:shadow-lg transition-all duration-300">
                         {tool.icon}
                       </div>
                       <span className="text-xs font-medium text-white/50 group-hover/tool:text-white/90 transition-colors text-center">
