@@ -12,8 +12,10 @@ import HtSolutions from "./ht-solutions.webp";
 import MsLogo from "./microsoft-logo.webp";
 import StitchLogo from "./stitch-logo.webp";
 import BilalElAzimani from "./bilal-el-azimani.webp";
+import FahadAnwar2 from "./fahad-anwar2.webp";
 
 export {
+  FahadAnwar2,
   BilalElAzimani,
   StitchLogo,
   Logo,

@@ -5,7 +5,7 @@ import {
   AhmarBaig,
   BilalElAzimani,
   CeoBilal,
-  FahadAnwar,
+  FahadAnwar2,
   MariyumHR,
 } from "../../../public/images";
 import Image from "next/image";
@@ -24,7 +24,7 @@ const leaders = [
   {
     role: "Head of Technology & Solutions",
     name: "Fahad Anwar",
-    image: FahadAnwar,
+    image: FahadAnwar2,
   },
   {
     role: "Project Director",
