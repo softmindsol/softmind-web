@@ -12,8 +12,24 @@ import PhotoshopIcon from "./photoshop-icon.webp";
 import PinterestIcon from "./pinterest-icon.webp";
 import SlackIcon from "./slack-icon.webp";
 import ThemeforestIcon from "./themeforest-icon.png";
+import Bitinpeace from "./bitinpeace.svg";
+import Cedia from "./cedia.webp";
+import ERP from "./erp.png";
+import Flomo from "./flomo.png";
+import MCC from "./mcc.png";
+import MurArt from "./murart.svg";
+import PixelValues from "./pixelValues.png";
+import Uptenhealth from "./upTenHealth.png";
 
 export {
+  Uptenhealth,
+  PixelValues,
+  MurArt,
+  MCC,
+  Flomo,
+  ERP,
+  Cedia,
+  Bitinpeace,
   AiStudio,
   BehanceIcon,
   DribbleIcon,
