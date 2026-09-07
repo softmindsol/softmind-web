@@ -41,92 +41,87 @@ const SERVICES_MEGA_MENU = [
     items: [
       {
         label: "AI SaaS Development",
-        desc: "Build intelligent, scalable and secure AI-powered SaaS products.",
+        // desc: "Build intelligent, scalable and secure AI-powered SaaS products.",
         href: "/services/ai-saas",
       },
       {
         label: "Custom Software Development",
-        desc: "End-to-end custom software solutions tailored to your business needs.",
+        // desc: "End-to-end custom software solutions tailored to your business needs.",
         href: "/services/custom-software",
       },
       {
         label: "Mobile App Development",
-        desc: "High-performance mobile apps for iOS and Android platforms.",
+        // desc: "High-performance mobile apps for iOS and Android platforms.",
         href: "/services/mobile-app",
       },
       {
         label: "Web Application Development",
-        desc: "Modern, responsive and scalable web applications.",
+        // desc: "Modern, responsive and scalable web applications.",
         href: "/services/web-app",
       },
       {
         label: "MVP Development",
-        desc: "Validate your idea quickly with a lean and powerful MVP.",
+        // desc: "Validate your idea quickly with a lean and powerful MVP.",
         href: "/services/mvp",
       },
       {
         label: "Offshore Software Testing",
-        desc: "Enhance product quality with expert offshore software testing services.",
+        // desc: "Enhance product quality with expert offshore software testing services.",
         href: "/services/software-testing",
-      },
-      {
-        label: "Product Design (UX/UI)",
-        desc: "User-centric design that creates intuitive and delightful experiences.",
-        href: "/services/product-design",
       },
     ],
   },
-  // {
-  //   category: "Product & Design Services",
-  //   icon: <LuPenTool size={18} strokeWidth={2} />,
-  //   viewAllLabel: "View all Product & Design Services",
-  //   viewAllHref: "/services/design",
-  //   items: [
-  //     {
-  //       label: "Product Design (UX/UI)",
-  //       desc: "User-centric design that creates intuitive and delightful experiences.",
-  //       href: "/services/product-design",
-  //     },
-  //     {
-  //       label: "UX Research & Strategy",
-  //       desc: "In-depth research and strategy to build products users truly need.",
-  //       href: "/services/ux-research",
-  //     },
-  //     {
-  //       label: "Design Systems",
-  //       desc: "Scalable design systems for consistency and faster development.",
-  //       href: "/services/design-systems",
-  //     },
-  //   ],
-  // },
-  // {
-  //   category: "Team & Engagement Services",
-  //   icon: <LuUsers size={18} strokeWidth={2} />,
-  //   viewAllLabel: "View all Team & Engagement Services",
-  //   viewAllHref: "/services/team",
-  //   items: [
-  //     {
-  //       label: "Dedicated Development Teams",
-  //       desc: "Hire dedicated developers to build your product like their own.",
-  //       href: "/services/dedicated-teams",
-  //     },
-  //     {
-  //       label: "Staff Augmentation",
-  //       desc: "Extend your team with pre-vetted experts and specialists.",
-  //       href: "/services/staff-augmentation",
-  //     },
-  //     {
-  //       label: "Project-Based Engagement",
-  //       desc: "Fixed scope, budget and timeline for defined project goals.",
-  //       href: "/services/project-based",
-  //     },
-  //     {
-  //       label: "Maintenance & Support",
-  //       desc: "Ongoing support and maintenance to keep your product running smoothly.",
-  //       href: "/services/maintenance",
-  //     },
-  //   ],
-  // },
+  {
+    category: "Product & Design Services",
+    icon: <LuPenTool size={18} strokeWidth={2} />,
+    viewAllLabel: "View all Product & Design Services",
+    viewAllHref: "/services/design",
+    items: [
+      {
+        label: "Product Design (UX/UI)",
+        // desc: "User-centric design that creates intuitive and delightful experiences.",
+        href: "/services/product-design",
+      },
+      // {
+      //   label: "UX Research & Strategy",
+      //   desc: "In-depth research and strategy to build products users truly need.",
+      //   href: "/services/ux-research",
+      // },
+      // {
+      //   label: "Design Systems",
+      //   desc: "Scalable design systems for consistency and faster development.",
+      //   href: "/services/design-systems",
+      // },
+    ],
+  },
+  {
+    category: "Team & Engagement Services",
+    icon: <LuUsers size={18} strokeWidth={2} />,
+    viewAllLabel: "View all Team & Engagement Services",
+    viewAllHref: "/services/team",
+    items: [
+      // {
+      //   label: "Dedicated Development Teams",
+      //   desc: "Hire dedicated developers to build your product like their own.",
+      //   href: "/services/dedicated-teams",
+      // },
+      {
+        label: "Staff Augmentation",
+        // desc: "Extend your team with pre-vetted experts and specialists.",
+        href: "/services/staff-augmentation",
+      },
+      // {
+      //   label: "Project-Based Engagement",
+      //   desc: "Fixed scope, budget and timeline for defined project goals.",
+      //   href: "/services/project-based",
+      // },
+      // {
+      //   label: "Maintenance & Support",
+      //   desc: "Ongoing support and maintenance to keep your product running smoothly.",
+      //   href: "/services/maintenance",
+      // },
+    ],
+  },
 ];
 
 // ─── Industries Mega-menu data ─────────────────────────────────────────────
@@ -322,47 +317,97 @@ export function Navbar() {
                     </button>
 
                     <div
-                      className={`${dropdownTransition(isOpen)} left-1/2 -translate-x-1/2 w-[680px] p-3`}
+                      className={`${dropdownTransition(isOpen)} left-1/2 -translate-x-1/2 w-[670px] p-4`}
                     >
-                      <div className="flex flex-col">
-                        <div className="flex items-center gap-3 px-3 pt-2 pb-4 mb-2 border-b border-gray-100/80">
-                          <div className="flex items-center justify-center text-green bg-green/10 w-8 h-8 rounded-lg shadow-sm">
-                            {SERVICES_MEGA_MENU[0].icon}
+                      <div className="grid grid-cols-2 gap-3">
+                        {/* Left Column: Development Services */}
+                        <div className="flex flex-col">
+                          <div className="flex items-center gap-3 px-2 pt-2 pb-3 mb-2 border-b border-gray-100/80">
+                            <div className="flex items-center justify-center text-green bg-green/10 w-8 h-8 rounded-lg shadow-sm shrink-0">
+                              {SERVICES_MEGA_MENU[0].icon}
+                            </div>
+                            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                              {SERVICES_MEGA_MENU[0].category}
+                            </p>
                           </div>
-                          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-800">
-                            {SERVICES_MEGA_MENU[0].category}
-                          </p>
+                          <div className="flex flex-col gap-0.5">
+                            {SERVICES_MEGA_MENU[0].items.map((service, idx) => (
+                              <Link
+                                key={service.label}
+                                href={service.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group flex items-center gap-3 p-2 rounded-xl transition-all duration-200 hover:bg-green/[0.04] border border-transparent hover:border-green/10"
+                              >
+                                <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gray-50/50 border border-gray-100 group-hover:border-green/20 flex items-center justify-center transition-all duration-300 text-gray-500 group-hover:text-green group-hover:bg-white group-hover:shadow-[0_4px_12px_rgba(0,186,117,0.12)]">
+                                  <ServiceIcon index={idx} categoryIndex={0} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center justify-between gap-2">
+                                    <span className="text-[13px] font-bold text-gray-900 group-hover:text-green transition-colors duration-200">
+                                      {service.label}
+                                    </span>
+                                    <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
+                                  </div>
+                                  {service.desc && (
+                                    <p className="text-[11.5px] text-gray-500 leading-relaxed line-clamp-2 mt-1">
+                                      {service.desc}
+                                    </p>
+                                  )}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
 
-                        <div
-                          className="grid grid-flow-col auto-cols-fr gap-x-2 gap-y-1"
-                          style={{
-                            gridTemplateRows: `repeat(${Math.ceil(SERVICES_MEGA_MENU[0].items.length / 2)}, minmax(0, 1fr))`,
-                          }}
-                        >
-                          {SERVICES_MEGA_MENU[0].items.map((service, idx) => (
-                            <Link
-                              key={service.label}
-                              href={service.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className="group flex items-start gap-3.5 p-3 rounded-xl transition-all duration-200 hover:bg-green/[0.04] border border-transparent hover:border-green/10 h-full"
-                            >
-                              <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gray-50/50 border border-gray-100 group-hover:border-green/20 flex items-center justify-center transition-all duration-300 text-gray-500 group-hover:text-green group-hover:bg-white group-hover:shadow-[0_4px_12px_rgba(0,186,117,0.12)] mt-0.5">
-                                <ServiceIcon index={idx} categoryIndex={0} />
-                              </div>
-                              <div className="flex-1 min-w-0 pt-0.5">
-                                <div className="flex items-center justify-between gap-2 mb-1">
-                                  <span className="text-[13px] font-bold text-gray-900 group-hover:text-green transition-colors duration-200">
-                                    {service.label}
-                                  </span>
-                                  <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
+                        {/* Right Column: Other Services Stacked */}
+                        <div className="flex flex-col gap-6">
+                          {SERVICES_MEGA_MENU.slice(1).map(
+                            (categoryData, catIdx) => (
+                              <div
+                                key={categoryData.category}
+                                className="flex flex-col"
+                              >
+                                <div className="flex items-center gap-3 px-2 pt-2 pb-3 mb-2 border-b border-gray-100/80">
+                                  <div className="flex items-center justify-center text-green bg-green/10 w-8 h-8 rounded-lg shadow-sm shrink-0">
+                                    {categoryData.icon}
+                                  </div>
+                                  <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                                    {categoryData.category}
+                                  </p>
                                 </div>
-                                <p className="text-[11.5px] text-gray-500 leading-relaxed line-clamp-2">
-                                  {service.desc}
-                                </p>
+                                <div className="flex flex-col gap-0.5">
+                                  {categoryData.items.map((service, idx) => (
+                                    <Link
+                                      key={service.label}
+                                      href={service.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="group flex items-center gap-3 p-2 rounded-xl transition-all duration-200 hover:bg-green/[0.04] border border-transparent hover:border-green/10"
+                                    >
+                                      <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gray-50/50 border border-gray-100 group-hover:border-green/20 flex items-center justify-center transition-all duration-300 text-gray-500 group-hover:text-green group-hover:bg-white group-hover:shadow-[0_4px_12px_rgba(0,186,117,0.12)]">
+                                        <ServiceIcon
+                                          index={idx}
+                                          categoryIndex={catIdx + 1}
+                                        />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-2">
+                                          <span className="text-[13px] font-bold text-gray-900 group-hover:text-green transition-colors duration-200">
+                                            {service.label}
+                                          </span>
+                                          <ArrowRight className="w-3.5 h-3.5 text-green opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
+                                        </div>
+                                        {service.desc && (
+                                          <p className="text-[11.5px] text-gray-500 leading-relaxed line-clamp-2 mt-1">
+                                            {service.desc}
+                                          </p>
+                                        )}
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
-                            </Link>
-                          ))}
+                            ),
+                          )}
                         </div>
                       </div>
                     </div>
@@ -520,30 +565,44 @@ export function Navbar() {
                     <div
                       className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileServicesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
                     >
-                      <div className="ml-2 pl-3 border-l-2 border-green/20 mt-1 flex flex-col gap-0.5">
-                        {SERVICES_MEGA_MENU[0].items.map((service, sIdx) => (
-                          <Link
-                            key={service.label}
-                            href={service.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="group flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-green/5 transition-all duration-150 my-0.5"
+                      <div className="ml-2 pl-3 border-l-2 border-green/20 mt-1 flex flex-col gap-4">
+                        {SERVICES_MEGA_MENU.map((categoryData, catIdx) => (
+                          <div
+                            key={categoryData.category}
+                            className="flex flex-col gap-0.5"
                           >
-                            <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
-                              <ServiceIcon
-                                index={sIdx}
-                                categoryIndex={0}
-                              />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-[13px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
-                                {service.label}
-                              </p>
-                              <p className="text-[11.5px] text-gray-400 mt-0.5 leading-snug">
-                                {service.desc}
+                            <div className="px-3 py-1 mb-1">
+                              <p className="text-[11px] font-bold uppercase tracking-widest text-green">
+                                {categoryData.category}
                               </p>
                             </div>
-                            <ArrowRight className="w-3 h-3 text-green opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 mt-1" />
-                          </Link>
+                            {categoryData.items.map((service, sIdx) => (
+                              <Link
+                                key={service.label}
+                                href={service.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="group flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-green/5 transition-all duration-150 my-0.5"
+                              >
+                                <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gray-50 group-hover:bg-green/10 flex items-center justify-center transition-colors duration-150 text-gray-400 group-hover:text-green mt-0.5">
+                                  <ServiceIcon
+                                    index={sIdx}
+                                    categoryIndex={catIdx}
+                                  />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-[13px] font-semibold text-dark group-hover:text-green transition-colors duration-150 leading-tight">
+                                    {service.label}
+                                  </p>
+                                  {service.desc && (
+                                    <p className="text-[11.5px] text-gray-400 mt-0.5 leading-snug">
+                                      {service.desc}
+                                    </p>
+                                  )}
+                                </div>
+                                <ArrowRight className="w-3 h-3 text-green opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 mt-1" />
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     </div>
