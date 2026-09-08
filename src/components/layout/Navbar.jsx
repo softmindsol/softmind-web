@@ -30,6 +30,7 @@ import {
 import { NAV_ITEMS } from "./Navbar.constants";
 import { Logo } from "../../../public/images";
 import CustomButton from "../customs/customButton";
+import { trackEvent } from "@/lib/ga";
 
 // ─── Services Mega-menu data ───────────────────────────────────────────────
 const SERVICES_MEGA_MENU = [
@@ -706,7 +707,10 @@ export function Navbar() {
 
             {/* CTA */}
             <div className="mt-4 pt-4 border-t border-gray-100">
-              <Link href="/contact-us">
+              <Link
+                href="/contact-us"
+                onClick={() => trackEvent("book_meeting_click", { location: "navbar_mobile", label: "book_free_discovery_call" })}
+              >
                 <CustomButton btnText="Book a Free Discovery Call" />
               </Link>
             </div>

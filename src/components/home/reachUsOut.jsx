@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { trackEvent } from "@/lib/ga";
 
 const ReachUsOut = () => {
   return (
@@ -66,7 +67,7 @@ const ReachUsOut = () => {
         </p>
 
         {/* Custom Button */}
-        <Link href={"/contact-us"}>
+        <Link href={"/contact-us"} onClick={() => trackEvent("book_meeting_click", { location: "reach_us_out", label: "start_a_project" })}>
           <button className="mt-2 flex flex-col justify-center items-center px-[30px] py-[12px] bg-green rounded-[100px] shadow-[0px_0px_20px_rgba(0,0,0,0.12),inset_0px_4px_4px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-105">
             <span className="font-bold text-[16px] leading-[20px] tracking-[1px] text-white">
               Start a Project

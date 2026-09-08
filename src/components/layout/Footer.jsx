@@ -1,3 +1,4 @@
+"use client";
 import {
   FaBehance,
   FaFacebookF,
@@ -9,6 +10,7 @@ import { FaUpwork } from "react-icons/fa6";
 import { RiArrowRightLongLine } from "react-icons/ri";
 import LiveLocation from "./LiveLocation";
 import { Input } from "../ui/input";
+import { trackEvent } from "@/lib/ga";
 
 export default function Footer() {
   return (
@@ -76,6 +78,7 @@ export default function Footer() {
                   </span>
                   <a
                     href="mailto:contact@softmindsol.com"
+                    onClick={() => trackEvent("email_click", { location: "footer" })}
                     className="text-sm font-medium leading-[18px] hover:text-[#0CBF83] transition-colors break-all"
                   >
                     contact@softmindsol.com
@@ -194,6 +197,7 @@ export default function Footer() {
               <a
                 href="https://www.fiverr.com/sellers/bilalbhatti139"
                 target="_blank"
+                onClick={() => trackEvent("outbound_profile_click", { platform: "upwork", location: "footer" })}
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-white hover:text-dark border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
                 <FaUpwork className="size-4.5 pt-0.5" />
@@ -202,6 +206,7 @@ export default function Footer() {
               <a
                 href="https://www.fiverr.com/sellers/bilalbhatti139"
                 target="_blank"
+                onClick={() => trackEvent("outbound_profile_click", { platform: "fiverr", location: "footer" })}
                 className="w-[28px] h-[28px] bg-white/5 hover:bg-green border border-white/10 rounded-sm flex items-center justify-center transition-colors"
               >
                 <TbBrandFiverr className="size-4.5" />

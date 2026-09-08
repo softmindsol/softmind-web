@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { trackEvent } from "@/lib/ga";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -24,6 +25,8 @@ const WebAppForm = () => {
   const onSubmit = (data) => {
     console.log("Form data:", data);
     alert("Message sent successfully!");
+    // GA4: fire generate_lead only after confirmed submission
+    trackEvent("generate_lead", { location: "web_app_service_form" });
     reset();
   };
 
@@ -62,6 +65,7 @@ const WebAppForm = () => {
               <h4 className="text-[18px] font-bold text-white">Email</h4>
               <a
                 href="mailto:contact@softmindsol.com"
+                onClick={() => trackEvent("email_click", { location: "web_app_service_form" })}
                 className="text-[15px] font-medium text-white/70 hover:text-[#0CBF83] transition-colors"
               >
                 contact@softmindsol.com

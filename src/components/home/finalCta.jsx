@@ -3,6 +3,7 @@ import React from "react";
 import { ArrowRight, CalendarCheck, PhoneCall, Star } from "lucide-react";
 import CustomButton from "../customs/customButton";
 import Link from "next/link";
+import { trackEvent } from "@/lib/ga";
 
 const TRUST_STATS = [
   { value: "300+", label: "Happy Clients" },
@@ -59,6 +60,7 @@ export default function FinalCta() {
               {/* Primary CTA */}
               <Link
                 href="/contact-us"
+                onClick={() => trackEvent("book_meeting_click", { location: "final_cta", label: "book_free_consultation" })}
                 className="group flex items-center gap-3 w-full sm:w-auto bg-green hover:bg-[#0aad76] text-navy font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:shadow-[0_0_28px_rgba(12,191,131,0.45)] hover:scale-[1.03] active:scale-[0.98]"
               >
                 <CalendarCheck className="w-5 h-5 shrink-0" />
@@ -69,6 +71,7 @@ export default function FinalCta() {
               {/* Secondary CTA */}
               <Link
                 href="/contact-us"
+                onClick={() => trackEvent("book_meeting_click", { location: "final_cta", label: "hire_dedicated_developers" })}
                 className="group flex items-center gap-3 w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white font-bold text-[15px] tracking-wide rounded-full px-7 py-4 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
                 <PhoneCall className="w-5 h-5 shrink-0" />

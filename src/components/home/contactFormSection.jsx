@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/ga";
 import {
   CheckCircle2,
   MessageSquare,
@@ -104,6 +105,8 @@ export default function ContactFormSection() {
   const onSubmit = async (data) => {
     // Form submission logic — API call goes here
     await new Promise((resolve) => setTimeout(resolve, 800)); // Simulate network request
+    // GA4: fire generate_lead only after confirmed backend success
+    trackEvent("generate_lead", { location: "homepage_contact_form" });
     setSubmitted(true);
   };
 
