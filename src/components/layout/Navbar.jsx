@@ -83,11 +83,11 @@ const SERVICES_MEGA_MENU = [
         // desc: "User-centric design that creates intuitive and delightful experiences.",
         href: "/services/product-design",
       },
-      // {
-      //   label: "UX Research & Strategy",
-      //   desc: "In-depth research and strategy to build products users truly need.",
-      //   href: "/services/ux-research",
-      // },
+      {
+        label: "Product Development",
+        // desc: "In-depth research and strategy to build products users truly need.",
+        href: "/services/product-development",
+      },
       // {
       //   label: "Design Systems",
       //   desc: "Scalable design systems for consistency and faster development.",
@@ -709,7 +709,12 @@ export function Navbar() {
             <div className="mt-4 pt-4 border-t border-gray-100">
               <Link
                 href="/contact-us"
-                onClick={() => trackEvent("book_meeting_click", { location: "navbar_mobile", label: "book_free_discovery_call" })}
+                onClick={() =>
+                  trackEvent("book_meeting_click", {
+                    location: "navbar_mobile",
+                    label: "book_free_discovery_call",
+                  })
+                }
               >
                 <CustomButton btnText="Book a Free Discovery Call" />
               </Link>
