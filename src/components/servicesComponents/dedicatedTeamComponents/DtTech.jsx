@@ -2,24 +2,42 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Monitor, Server, Smartphone, Cloud, Bot, Database } from "lucide-react";
+import {
+  Monitor,
+  Server,
+  Smartphone,
+  Cloud,
+  Bot,
+  Database,
+} from "lucide-react";
 
 const techAreas = [
   {
     icon: Monitor,
     title: "Frontend Development",
-    description: "React, Next.js, Angular, Vue.js and modern JavaScript frameworks.",
+    description:
+      "React, Next.js, Angular, Vue.js and modern JavaScript frameworks.",
     color: "#0CBF83",
     gradient: "from-[#0CBF83] to-[#00b87a]",
-    tags: ["React", "Next.js", "Angular", "Vue.js"],
+    tags: ["React.js", "Next.js", "Astro", "Angular", "Vue.js"],
   },
   {
     icon: Server,
     title: "Backend Development",
-    description: "Node.js, Python, .NET, Java and scalable backend architectures.",
+    description:
+      "Node.js, Python, .NET, Java and scalable backend architectures.",
     color: "#004BC0",
     gradient: "from-[#004BC0] to-[#0038FF]",
-    tags: ["Node.js", "Python", ".NET", "Java"],
+    tags: [
+      "Node.js",
+      "Python",
+      "Django",
+      "FastAPI",
+      "Nest.js",
+      "Supabase",
+      "Firebase",
+      "Flash",
+    ],
   },
   {
     icon: Smartphone,
@@ -27,15 +45,24 @@ const techAreas = [
     description: "React Native, Flutter, iOS and Android development.",
     color: "#6366f1",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
-    tags: ["React Native", "Flutter", "iOS", "Android"],
+    tags: [
+      "React Native",
+      "Expo",
+      "Swift",
+      "Kotlin",
+      "Flutter",
+      "iOS",
+      "Android",
+    ],
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
-    description: "AWS, Azure, Google Cloud, Docker, CI/CD and cloud-native infrastructure.",
+    description:
+      "AWS, Azure, Google Cloud, Docker, CI/CD and cloud-native infrastructure.",
     color: "#f59e0b",
     gradient: "from-[#f59e0b] to-[#ef4444]",
-    tags: ["AWS", "Azure", "Docker", "CI/CD"],
+    tags: ["AWS", "Azure", "Docker", "CI/CD", "Railway", "Vercel"],
   },
   {
     icon: Bot,
@@ -53,7 +80,7 @@ const techAreas = [
       "PostgreSQL, MySQL, MongoDB, Redis and other modern database technologies.",
     color: "#ec4899",
     gradient: "from-[#ec4899] to-[#f43f5e]",
-    tags: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    tags: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "Firebase"],
   },
 ];
 
@@ -70,7 +97,7 @@ export default function DtTech() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#004BC0]/10 border border-[#004BC0]/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#004BC0]" />
@@ -114,7 +141,8 @@ export default function DtTech() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-[#2E2E2E] mb-2 group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300"
+                  <h3
+                    className="text-xl font-bold text-[#2E2E2E] mb-2 group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300"
                     style={{}}
                   >
                     <span
@@ -128,7 +156,9 @@ export default function DtTech() {
                       {tech.title}
                     </span>
                   </h3>
-                  <p className="text-[#666666] text-sm leading-relaxed">{tech.description}</p>
+                  <p className="text-[#666666] text-sm leading-relaxed">
+                    {tech.description}
+                  </p>
                 </div>
 
                 {/* Tech tags */}
