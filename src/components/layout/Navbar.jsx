@@ -101,11 +101,11 @@ const SERVICES_MEGA_MENU = [
     viewAllLabel: "View all Team & Engagement Services",
     viewAllHref: "/services/team",
     items: [
-      // {
-      //   label: "Dedicated Development Teams",
-      //   desc: "Hire dedicated developers to build your product like their own.",
-      //   href: "/services/dedicated-teams",
-      // },
+      {
+        label: "Dedicated Development Teams",
+        // desc: "Hire dedicated developers to build your product like their own.",
+        href: "/services/dedicated-teams",
+      },
       {
         label: "Staff Augmentation",
         // desc: "Extend your team with pre-vetted experts and specialists.",
