@@ -35,7 +35,8 @@ const services = [
   {
     icon: Code2,
     title: "Custom Product Development",
-    tagline: "Get a product designed around the way your business actually works.",
+    tagline:
+      "Get a product designed around the way your business actually works.",
     description:
       "Create software tailored to your business processes, users, and competitive advantage—not a one-size-fits-all solution.",
     features: [
@@ -72,7 +73,8 @@ const services = [
   {
     icon: Bot,
     title: "AI-Powered Product Development",
-    tagline: "Use AI where it can improve efficiency, customer experience, and product value.",
+    tagline:
+      "Use AI where it can improve efficiency, customer experience, and product value.",
     description:
       "Make AI a practical part of your product—not just a feature added for the sake of trends.",
     features: [
@@ -91,7 +93,8 @@ const services = [
   {
     icon: RefreshCcw,
     title: "Product Modernization & Digital Revamp",
-    tagline: "Modernize what you already have without losing the value you've built.",
+    tagline:
+      "Modernize what you already have without losing the value you've built.",
     description:
       "Move beyond outdated systems with modern architecture, better user experiences, and technology built for future growth.",
     features: [
@@ -110,7 +113,8 @@ const services = [
   {
     icon: Puzzle,
     title: "API & Integration Development",
-    tagline: "Create a connected product ecosystem that is easier to extend and scale.",
+    tagline:
+      "Create a connected product ecosystem that is easier to extend and scale.",
     description:
       "Connect your product with the tools, platforms, and services your business depends on.",
     features: [
@@ -135,14 +139,18 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
 export default function PdServices() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28 font-jakarta overflow-hidden">
+    <section className="relative w-full bg-gray-200 py-20 lg:py-28 font-jakarta overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#0CBF83]/4 rounded-full blur-[140px] pointer-events-none" />
@@ -170,9 +178,10 @@ export default function PdServices() {
             </span>
           </h2>
           <p className="text-base md:text-lg text-[#666666] leading-relaxed">
-            Whether you're validating a new idea, launching an MVP, modernizing an existing
-            application, or scaling a complex enterprise platform, our product development teams
-            adapt to your goals, technology requirements, and growth plans.
+            Whether you're validating a new idea, launching an MVP, modernizing
+            an existing application, or scaling a complex enterprise platform,
+            our product development teams adapt to your goals, technology
+            requirements, and growth plans.
           </p>
         </motion.div>
 
@@ -214,7 +223,8 @@ export default function PdServices() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl lg:text-[22px] font-bold text-[#2E2E2E] mb-3 leading-snug group-hover:text-transparent group-hover:bg-clip-text"
+                <h3
+                  className="text-xl lg:text-[22px] font-bold text-[#2E2E2E] mb-3 leading-snug group-hover:text-transparent group-hover:bg-clip-text"
                   style={{
                     ...(isHovered && {
                       backgroundImage: `linear-gradient(to right, ${service.accentColor}, ${service.accentColor}cc)`,
@@ -235,7 +245,10 @@ export default function PdServices() {
                 {/* Features list */}
                 <ul className="flex flex-col gap-2 flex-grow mb-6">
                   {service.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2.5 text-sm text-[#555555]">
+                    <li
+                      key={fIdx}
+                      className="flex items-start gap-2.5 text-sm text-[#555555]"
+                    >
                       <CheckCircle2
                         className="w-4 h-4 mt-0.5 shrink-0 transition-colors duration-300"
                         style={{ color: service.accentColor }}
@@ -248,7 +261,10 @@ export default function PdServices() {
                 {/* Tagline */}
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-sm font-semibold italic text-[#666666] group-hover:text-[#2E2E2E] transition-colors duration-300 flex items-center gap-2">
-                    <ArrowRight className="w-4 h-4 shrink-0" style={{ color: service.accentColor }} />
+                    <ArrowRight
+                      className="w-4 h-4 shrink-0"
+                      style={{ color: service.accentColor }}
+                    />
                     {service.tagline}
                   </p>
                 </div>

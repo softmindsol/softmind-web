@@ -31,32 +31,30 @@ export default function PdCta() {
           </div>
 
           <h2 className="relative z-10 text-3xl md:text-4xl lg:text-[50px] font-bold text-white mb-5 leading-tight">
-            Your Product Deserves More{" "}
-            <br className="hidden md:block" />
-            Than Just{" "}
-            <span className="text-[#0CBF83]">Development</span>
+            Your Product Deserves More <br className="hidden md:block" />
+            Than Just <span className="text-[#0CBF83]">Development</span>
           </h2>
 
           <p className="relative z-10 text-white/80 text-base md:text-lg font-medium leading-relaxed max-w-[720px] mb-3">
-            A successful digital product sits at the intersection of business strategy, user
-            experience, and technology.
+            A successful digital product sits at the intersection of business
+            strategy, user experience, and technology.
           </p>
 
           <p className="relative z-10 text-white/70 text-sm md:text-base font-medium leading-relaxed max-w-[640px] mb-10">
-            Partner with Softmind to bring your product vision to life — from discovery and design
-            to development, launch, and long-term growth.
+            Partner with Softmind to bring your product vision to life — from
+            discovery and design to development, launch, and long-term growth.
           </p>
 
           <div className="relative z-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact-us">
               <CustomButton btnText="Start Your Product Journey" />
             </Link>
-            <Link href="/case-studies">
+            {/* <Link href="/case-studies">
               <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-white/30 text-white font-bold text-sm hover:border-white/60 hover:bg-white/10 transition-all duration-300">
                 View Case Studies
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </Link>
+            </Link> */}
           </div>
         </motion.div>
       </div>

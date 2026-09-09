@@ -50,7 +50,7 @@ export default function PdFaq() {
   };
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#161616] via-[#1a1a1a] to-white pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden font-jakarta">
+    <section className="relative w-full bg-gradient-to-b from-[#161616] via-[#1a1a1a] to-white py-18 lg:py-24 overflow-hidden font-jakarta">
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0CBF83]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#004BC0]/8 rounded-full blur-[140px] pointer-events-none" />

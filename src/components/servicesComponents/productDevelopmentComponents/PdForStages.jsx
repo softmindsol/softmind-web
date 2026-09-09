@@ -136,9 +136,13 @@ export default function PdForStages() {
                 />
 
                 {/* Tag */}
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${stage.tagBg} mb-6`}>
+                <div
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${stage.tagBg} mb-6`}
+                >
                   <Icon className={`w-4 h-4 ${stage.tagColor}`} />
-                  <span className={`text-sm font-bold tracking-wide ${stage.tagColor}`}>
+                  <span
+                    className={`text-sm font-bold tracking-wide ${stage.tagColor}`}
+                  >
                     {stage.tag}
                   </span>
                 </div>
@@ -160,7 +164,7 @@ export default function PdForStages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center w-full mx-auto mb-12"
         >
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#004BC0]/10 border border-[#004BC0]/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#004BC0]" />
@@ -169,7 +173,8 @@ export default function PdForStages() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[40px] lg:leading-[52px] font-bold text-[#2E2E2E] mb-4">
-            Our product development expertise can be tailored to the unique requirements of{" "}
+            Our product development expertise can be tailored to the unique
+            requirements of{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] to-[#0CBF83]">
               different industries and business models.
             </span>
@@ -187,9 +192,7 @@ export default function PdForStages() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`group relative bg-white border border-gray-100 rounded-3xl p-7 flex flex-col transition-all duration-500 hover:shadow-xl hover:-translate-y-2 overflow-hidden ${
-                  idx === 4
-                    ? "sm:col-span-2 lg:col-span-1 lg:col-start-2"
-                    : ""
+                  idx === 4 ? "sm:col-span-2 lg:col-span-1 lg:col-start-2" : ""
                 }`}
               >
                 {/* Top accent */}
@@ -204,7 +207,8 @@ export default function PdForStages() {
                   <Icon className="w-6 h-6" />
                 </div>
 
-                <h3 className="text-xl font-bold text-[#2E2E2E] mb-3 group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300"
+                <h3
+                  className="text-xl font-bold text-[#2E2E2E] mb-3 group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300"
                   style={{
                     WebkitTextFillColor: "inherit",
                   }}

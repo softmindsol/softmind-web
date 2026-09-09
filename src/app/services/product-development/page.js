@@ -8,6 +8,8 @@ import PdTestimonials from "@/components/servicesComponents/productDevelopmentCo
 import PdCaseStudy from "@/components/servicesComponents/productDevelopmentComponents/PdCaseStudy";
 import PdCta from "@/components/servicesComponents/productDevelopmentComponents/PdCta";
 import PdFaq from "@/components/servicesComponents/productDevelopmentComponents/PdFaq";
+import TestimonialSlider from "@/components/home/testimonialSlider";
+import ContactFormSection from "@/components/home/contactFormSection";
 
 export const metadata = {
   title:
@@ -34,9 +36,10 @@ const ProductDevelopment = () => {
       <PdEndToEnd />
       <PdWhyChoose />
       <PdForStages />
-      <PdTestimonials />
-      <PdCaseStudy />
+      <TestimonialSlider />
+      {/* <PdCaseStudy /> */}
       <PdCta />
+      <ContactFormSection />
       <PdFaq />
     </main>
   );
