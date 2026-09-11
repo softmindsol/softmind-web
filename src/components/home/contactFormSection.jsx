@@ -21,6 +21,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { submitContactForm } from "@/app/actions/contact";
 import { Button } from "../ui/button";
 import { FcGoogle } from "react-icons/fc";
 import { FaMeta } from "react-icons/fa6";
@@ -34,7 +35,6 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid work email address"),
   phone: z.string().min(7, "Please enter a valid phone number"),
   projectType: z.string().min(1, "Please select a project type"),
-  budget: z.string().optional(),
   message: z
     .string()
     .min(10, "Please provide at least a brief description of your project"),
@@ -48,17 +48,7 @@ const projectTypes = [
   "E-Commerce Platform",
   "UI/UX Design",
   "Dedicated Development Team",
-  "Other",
-];
-
-const budgetRanges = [
-  "Select budget range...",
-  "Under $5,000",
-  "$5,000 – $15,000",
-  "$15,000 – $50,000",
-  "$50,000 – $100,000",
-  "$100,000+",
-  "Not sure yet",
+  "Free Discovery Call",
 ];
 
 const howItWorksSteps = [
@@ -99,18 +89,19 @@ export default function ContactFormSection() {
       email: "",
       phone: "",
       projectType: "",
-      budget: "",
       message: "",
     },
   });
 
   const watchProjectType = watch("projectType");
-  const watchBudget = watch("budget");
 
   const onSubmit = async (data) => {
     try {
-      // Form submission logic — API call goes here
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const result = await submitContactForm(data);
+      if (result && !result.success) {
+        toast.error(result.error || "Failed to submit form.");
+        return;
+      }
       trackEvent("generate_lead", { location: "homepage_contact_form" });
       reset();
       setTimeout(() => clearErrors(), 10);
@@ -325,9 +316,12 @@ export default function ContactFormSection() {
                   >
                     Project Type *
                   </label>
+                  {/* Hidden input to ensure React Hook Form tracks this field properly */}
+                  <input type="hidden" {...register("projectType")} />
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       id="projectType"
+                      type="button"
                       className={`flex items-center justify-between w-full px-4 py-3 rounded-xl border text-sm font-medium text-dark focus:outline-none focus:ring-2 transition-all duration-200 bg-white ${
                         errors.projectType
                           ? "border-red-500 focus:ring-red-500/30"
@@ -360,39 +354,6 @@ export default function ContactFormSection() {
                       {errors.projectType.message}
                     </span>
                   )}
-                </div>
-                {/* Budget */}
-                <div className="w-full flex flex-col gap-1.5">
-                  <label
-                    htmlFor="budget"
-                    className="text-xs font-bold text-dark/70 uppercase tracking-wider"
-                  >
-                    Budget Range
-                  </label>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      id="budget"
-                      className="flex items-center justify-between w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-dark focus:outline-none focus:ring-2 focus:ring-green/30 focus:border-green/50 transition-all duration-200 bg-white"
-                    >
-                      <span>{watchBudget || "Select budget range..."}</span>
-                      <ChevronDown className="w-4 h-4 opacity-50" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-[--anchor-width] z-50">
-                      {budgetRanges.slice(1).map((range, idx) => (
-                        <DropdownMenuItem
-                          key={idx}
-                          onClick={() =>
-                            setValue("budget", range, {
-                              shouldValidate: true,
-                            })
-                          }
-                          className="cursor-pointer"
-                        >
-                          {range}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
                 </div>
               </div>
 
